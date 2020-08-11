@@ -44,6 +44,8 @@ class DBNode(models.Model):
     db_hostname = models.CharField(max_length=256, default='')
     Date_Created = models.DateTimeField(default=timezone.now)
     link_status = models.BooleanField(default=True)
+    db_internal_ip = models.CharField(max_length=64, default='')
+    db_external_ip = models.CharField(max_length=64, default='')
     db_name = models.CharField(max_length=256, default='')
     db_username = models.CharField(max_length=128, default='')
     db_password = models.CharField(max_length=128, default='')
