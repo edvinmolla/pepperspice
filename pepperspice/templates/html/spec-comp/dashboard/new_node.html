@@ -1,0 +1,95 @@
+{% extends "html/spec-comp/dashboard/index.html" %}
+{% block content %}
+{% load static %}
+<div class="main-content">
+	<script>
+		$(document).ready(function(){
+		
+		  $("#switch-id").prop('checked',false);
+		
+		  $("#albanian").hide();
+
+		  $("#switch-id-1").prop('checked',{{ true_or_false }});
+		  $("#{{ to_be_hidden }}").hide();
+
+
+
+		});
+		
+		
+		
+		  
+		
+		  $(function () {
+				$("#switch-id").change(function () {
+					if ($(this).is(":checked")) {
+						$("#english").show();
+						$("#albanian").hide();
+					} else {
+						$("#english").hide();
+						$("#albanian").show();
+					}
+				});
+			});
+			var DOMAIN_NAME = (window.location.href).split('&')[0];
+			$(function () {
+				
+				$("#switch-id-1").change(function () {
+					if ($(this).is(":checked")) {
+						$("#easy").show();
+						history.pushState({},"",DOMAIN_NAME + "&mode=easy");
+		  				
+						$("#technical").hide();
+					} else {
+						$("#easy").hide();
+						
+						history.pushState({},"",DOMAIN_NAME + "&mode=technical");
+						$("#technical").show();
+					}
+				});
+			});
+		</script>
+<span class="switch switch-1" id="switch" style="float: right;">  
+	<link rel="stylesheet" href="{% static 'css/toggle.css' %}"> 
+	<label for="switch-id"></label>
+	<input type="checkbox" class="switch" id="switch-id">
+		<label for="switch-id"></label>
+	  </span>
+
+	  <span class="switch switch-2" style="float: left;">  
+		<link rel="stylesheet" href="{% static 'css/toggle_1.css' %}"> 
+		<label for="switch-id-1"></label>
+		<input type="checkbox" class="switch" id="switch-id-1">
+			<label for="switch-id-1"></label>
+		  </span>
+
+
+
+
+
+<div id="easy">
+	
+
+{% include 'html/spec-comp/dashboard/easy_node.html' %}
+
+
+</div>
+
+
+<div id="technical">
+
+	{% include 'html/spec-comp/dashboard/technical_node.html' %}
+
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+{% endblock %}

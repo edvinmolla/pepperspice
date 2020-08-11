@@ -1,0 +1,130 @@
+.switch-2 {
+    font-size: 1rem;
+    position: fixed;
+    z-index: 105;
+  }
+  .switch-2 input {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    background: none;
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    overflow: hidden;
+    padding: 0;
+  }
+  .switch-2 input + label {
+    position: relative;
+    min-width: calc(calc(2.375rem * .8) * 2);
+    border-radius: 0px;
+    height: calc(2.375rem * .8);
+    line-height: calc(2.375rem * .8);
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    vertical-align: middle;
+    text-indent: calc(calc(calc(2.375rem * .8) * 2) + .5rem);
+  }
+  .switch-2 input + label::before,
+  .switch-2 input + label::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(calc(2.375rem * .8) * 2);
+    bottom: 0;
+    display: block;
+  }
+  .switch-2 input + label::before {
+   
+
+
+    background-image: url('https://image.flaticon.com/icons/png/512/31/31048.png');
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    border-radius: calc(2.375rem * .8);
+    background-position: 4px -1px;
+   
+  }
+  .switch-2 input + label::after {
+   
+    left: 2px;
+    width: calc(calc(2.375rem * .8) - calc(2px * 2));
+    height: calc(calc(2.375rem * .8) - calc(2px * 2));
+    border-radius: 50%;
+    background-color: transparent;
+    transition: 0.2s all;
+  }
+  .switch-2 input:checked + label::before {
+    right: 0;
+    background-image: url('https://cdn3.iconfinder.com/data/icons/ui-glyph-v-1/100/Advanced_Setups-512.png');
+    background-size: 35px 35px;
+    background-position: 25px -5px;
+    background-repeat: no-repeat;
+    border-radius: calc(2.375rem * .8);
+    transition: 0.2s all;
+   
+  }
+  .switch-2 input:checked + label::after {
+    margin-left: calc(2.375rem * .8);
+  }
+  .switch-2 input:focus + label::before {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 136, 221, 0.25);
+  }
+  .switch-2 input:disabled + label {
+    color: #868e96;
+    cursor: not-allowed;
+  }
+  .switch-2 input:disabled + label::before {
+    background-color: #e9ecef;
+  }
+  .switch-2.switch-2-sm {
+    font-size: 0.875rem;
+  }
+  .switch-2.switch-2-sm input + label {
+    min-width: calc(calc(1.9375rem * .8) * 2);
+    height: calc(1.9375rem * .8);
+    line-height: calc(1.9375rem * .8);
+    text-indent: calc(calc(calc(1.9375rem * .8) * 2) + .5rem);
+  }
+  .switch-2.switch-2-sm input + label::before {
+    width: calc(calc(1.9375rem * .8) * 2);
+  }
+  .switch-2.switch-2-sm input + label::after {
+    width: calc(calc(1.9375rem * .8) - calc(2px * 2));
+    height: calc(calc(1.9375rem * .8) - calc(2px * 2));
+  }
+  .switch-2.switch-2-sm input:checked + label::after {
+    margin-left: calc(1.9375rem * .8);
+  }
+  .switch-2.switch-2-lg {
+    font-size: 1.25rem;
+  }
+  .switch-2.switch-2-lg input + label {
+    min-width: calc(calc(3rem * .8) * 2);
+    height: calc(3rem * .8);
+    line-height: calc(3rem * .8);
+    text-indent: calc(calc(calc(3rem * .8) * 2) + .5rem);
+  }
+  .switch-2.switch-2-lg input + label::before {
+    width: calc(calc(3rem * .8) * 2);
+  }
+  .switch-2.switch-2-lg input + label::after {
+    width: calc(calc(3rem * .8) - calc(2px * 2));
+    height: calc(calc(3rem * .8) - calc(2px * 2));
+  }
+  .switch-2.switch-2-lg input:checked + label::after {
+    margin-left: calc(3rem * .8);
+  }
+  .switch-2 + .switch-2 {
+    margin-left: 1rem;
+  }
+  
+
+  .contentA {
+    display: none;
+  }
+  

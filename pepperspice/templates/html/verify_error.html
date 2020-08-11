@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  {% load static %}
+  <title>Sign In atom8</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
+
+  <link rel="stylesheet" href="{% static 'signin/style.css' %}">
+  <link rel="stylesheet" href="{% static 'welcome/style.css' %}">
+
+
+</head>
+<style>
+  .section-register-one-side {
+  background: #fff url("https://cdn.dribbble.com/users/992274/screenshots/7392790/media/95483df50a0a3324c4cf9ccb1094b825.jpg") no-repeat right center;
+  background-size: auto 100%;
+  height: 100vh;
+}
+
+.mss-register-box .mss-register-box-white {
+  background: rgb(226, 248, 22);
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(5, 15, 44, 0.1);
+  padding: 30px 50px;
+  color: #2fa0ebea;
+  text-align: left;
+}
+</style>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light fixed-top thisshi">
+      
+    <div class="container"> 
+      <a class='navbar-brand page-scroll' href='/'>
+
+        <img src="{% static 'wallpapers_logos/universal/logo2.png' %}" width="140px" height="25px">
+
+      </a>
+
+     
+
+      
+
+    <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
+ 
+
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  
+    
+    <div class="collapse navbar-collapse" id="navbar4">
+      <a class='nav-link page-scroll' data-toggle='modal' href='#aboutModal' title='A free Bootstrap theme' style="color: black;">Services</a>
+      <a class='nav-link page-scroll' data-toggle='modal' href='#aboutModal' title='A free Bootstrap theme' style="color: black;">Products</a>
+      <a class='nav-link page-scroll' data-toggle='modal' href='#aboutModal' title='A free Bootstrap theme' style="color: black;">Pricing</a>
+      <a class='nav-link page-scroll' data-toggle='modal' href='#aboutModal' title='A free Bootstrap theme' style="color: black;">Support</a>
+      <a class='nav-link page-scroll' data-toggle='modal' href='#aboutModal' title='A free Bootstrap theme' style="color: black;">Examples</a>
+      
+   
+     
+    <ul class="navbar-nav ml-auto mt-3 mt-lg-0">
+      
+      
+      <!-- <button class="btn btn-sm btn-outline-primary tata">Sign Up
+      </button> -->
+      <a class="nav-link page-scroll btn btn-sm tata" href="/signup/">Sign Up</a>
+      <p style="margin: 5px;"></p>
+      <a class="nav-link page-scroll btn btn-sm tata1" href="/signin/">Sign In</a>
+      
+      
+    
+   
+    </ul>
+
+    <a class='nav-link page-scroll pp' data-toggle='modal' href='#aboutModal' title='A free Bootstrap theme' style="font-size: 10px;">Privacy Policy</a>
+    </div>
+    
+    </div>
+    
+    </nav>
+
+
+<section class="section-register-one-side">
+  <div class="mss-register-box">
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+    <div class="mss-register-box-white" style="color: #850505; !important">
+      <p class="text-center" style="font-size: 30px;">An error has occurred</p>
+      <br/>
+      <p class="text-center" style="font-size: 18px;">If you have just confirmed your email, this is nothing to worry about.</p>
+      <br/>
+      <p class="text-center" style="font-size: 20px;">However, this usually happens when you're not supposed to access this section.</p>
+
+      <br/>
+
+
+    </div>
+
+	</div><!-- mystyle-signup-box -->
+</section>
+<!-- partial -->
+  
+</body>
+<script>
+
+  $(document).click(function(e) {
+    if (!$(e.target).is('#navbar4')) {
+        $('.collapse').collapse('hide');	    
+      }
+  });
+</script>
+
+</html>

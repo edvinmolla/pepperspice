@@ -1,0 +1,559 @@
+<!-- {% block raw %}{% if user.is_authenticated %}
+  Hi {{ user.email }}!
+  <p><a href="{% url 'account_logout' %}">Log Out</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'account_login' %}">Log In</a> |
+  <a href="{% url 'account_signup' %}">Sign Up</a>
+{% endif %}{% endblock %} -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> PepperSpice - Welcome</title>
+  {% load static %}
+  {% include 'html/gen-comp/headers.html' %}
+  <link rel="stylesheet" type="text/css" href="{% static 'welcome/style.css' %}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+</head>
+<style>
+.thisthis {
+ /* background-image: url("https://cdn.dribbble.com/users/1803663/screenshots/11642671/media/d5c69a82283658c232b68cb96824ced3.jpg"); */
+background-image: url("{% static 'wallpapers_logos/welcome/back.jpg'%}");
+background-size:cover;
+background-position: inherit;
+background-repeat: no-repeat;
+background-position-y: -200px;
+opacity: 0.9;
+}
+.second-wall {
+  background-image: url("https://cdn.wallpaperhub.app/cloudcache/7/d/8/2/f/5/7d82f5a1a495dd6aad20b333d0c4eff454d142df.png");
+  background-repeat: no-repeat;
+}
+
+</style>
+<script>
+  $(document).ready(function() {
+  $('#first').css('-webkit-filter', 'blur(0px)')
+});
+</script>
+
+
+<body>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  
+  
+  
+<header id='first'>
+<style>
+  body {
+    overflow-x: hidden !important;
+  }
+  .bg-cover {
+    margin-top: 150px;
+    background: none;
+    background-attachment: static;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+    <div class="row m-1" >
+   
+      <div class="col-md-6">
+
+      <div class="jumbotron bg-cover" style="border-radius: 1px; background-image: url('https://images.unsplash.com/photo-1535868463750-c78d9543614f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80'); background-repeat: no-repeat; color: white !important;  ">
+        <div class="container">
+        <h1 class="display-4">me një klik</h1>
+        <p class="my-4">Perdor platformen tonë për të ekspozuar aplikacionin tënd<br/> me një klikim. <br/>Lancho me siguri dhe zgjidhje rezervë.</p>
+
+        <br/>
+       
+
+          </div>
+      <!-- /.container   -->
+      </div>
+      </div>
+      
+      <div class="col-md-6">
+     
+      <div class="jumbotron bg-cover text-white" style="border-radius: 1px; background-image: url('https://images.unsplash.com/photo-1517374096549-0b818e3de484?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80'); background-repeat: no-repeat; color: white !important;">
+        <div class="container">
+        <h1 class="display-4">për këdo</h1>
+        <p class="my-4">Platforma jonë mund të përdoret nga kushdo, <br/>nga persona të cilët nuk kanë kohe për detajet, <br/>deri tek teknikek me detajiste.</p>
+  
+
+        <br/>
+
+          </div>
+      <!-- /.container   -->
+      </div>
+        
+      </div>
+      
+      </div>
+      <br/>
+      <br/>
+      <br/>
+
+      <h2 data-aos="fade-up" data-aos-duration="2000" class='wow fadeIn text-normal wow fadeIn' style="color:black;" data-aos-once="true">mënyra më e shpejtë për idetë e tua, nga truri, drejt botës</h2>
+      <br/>
+
+      <div class="box1 color-1" data-aos="fade-up" data-aos-duration="3000" data-aos-once="true"><a href=""></a><p class="p1">më shumë</p></a></div>
+      <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+        .box1 {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  height: 100%;
+  border-color: black;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  
+}
+.p1 {
+  font-family: 'Poppins', sans-serif !important;
+  background: black;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+.p1:hover{
+  text-decoration: underline;
+}
+.color-1 {
+  background: hsl(var(--color-1-h), var(--color-1-s), var(--color-1-l))
+}
+
+      </style>
+    
+  </header>
+
+  
+  
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light fixed-top thisshi">
+      
+      <div class="container"> 
+        
+        <a class='navbar-brand page-scroll' href='/'>
+
+          <img src="{% static 'wallpapers_logos/universal/logo2.png' %}" width="200px" height="45px">
+
+        </a>
+
+       
+
+        
+
+      <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
+   
+
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+    
+      
+      <div class="collapse navbar-collapse" id="navbar4">
+        <a class='nav-link' href='/al/services/' title='See services' style="color: black;">Shërbime</a>
+        <a class='nav-link' href='/al/products/' title='See products' style="color: black;">Produkte</a>
+        <a class='nav-link' href='/al/pricing/' title='See pricing' style="color: black;">Çmime</a>
+        <a class='nav-link' href='/al/support/' title='See support' style="color: black;">Ndihmë</a>
+        <a class='nav-link' href='/al/examples/' title='See examples' style="color: black;">Shembuj</a>
+        
+     
+       
+      <ul class="navbar-nav ml-auto mt-3 mt-lg-0">
+        
+        
+        <!-- <button class="btn btn-sm btn-outline-primary tata">Sign Up
+        </button> -->
+        <a class="nav-link page-scroll btn btn-sm tata" href="/al/accounts/signup/">Regjistrohu</a>
+        <p style="margin: 5px;"></p>
+        <a class="nav-link page-scroll btn btn-sm tata1" href="/al/accounts/login/">Hyr</a>
+        
+        
+      
+     
+      </ul>
+
+      <a class='nav-link page-scroll pp' data-toggle='modal' href='#aboutModal' title='A free Bootstrap theme' style="font-size: 10px;">Politika e Privatesise</a>
+      <a href="/"><span class="flag-icon flag-icon-gb" title="English"></span></a>
+      </div>
+      
+      </div>
+      
+      </nav>
+ 
+
+<div class="second-wall">
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="text-center">
+  <h2 style="color:#ce203b;" data-aos="fade-down" data-aos-duration="1000" data-aos-once="true">Themelet tona jane komunitetet</h1>
+</div>
+<br/>
+
+  <div class="d-flex justify-content-center align-items-center" >
+    <img data-aos="zoom-in" data-aos-once="true" class="col-1" data-aos-duration="1000" src='https://www.docker.com/sites/default/files/social/docker_facebook_share.png'>
+    <img data-aos="zoom-in" data-aos-once="true" class="col-1" data-aos-duration="1500" src='https://cdn.freebiesupply.com/logos/large/2x/angular-icon-1-logo-png-transparent.png'>
+    <img data-aos="zoom-in" data-aos-once="true" class="col-1" data-aos-duration="2000" src='https://kubernetes.io/images/favicon.png'>
+    <img data-aos="zoom-in" data-aos-once="true" class="col-1" data-aos-duration="2500" src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Ansible_logo.svg/1200px-Ansible_logo.svg.png'>
+    <img data-aos="zoom-in" data-aos-once="true" class="col-1" data-aos-duration="3000" src='https://blog.hlab.tech/wp-content/uploads/2018/10/LaravelLogo.png'>
+    <img data-aos="zoom-in" data-aos-once="true" class="col-1" data-aos-duration="3500" src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/540px-Npm-logo.svg.png'>
+
+
+  </div>
+
+
+
+  <section id='one'>
+    <div class='container wow fadeInUp'>
+      <h2 class="text-center">Platforma</h2>
+      <p class='lead text-center'>
+        Tashme ne ofrojme sherbime per  
+        <a href='#' style="color: #ce203b;">Laravel</a>
+        dhe
+        <a href='' style="color: #ce203b;">Angular</a>
+        
+      </p>
+      <br/>
+      <div class='card-group'>
+        <!-- card -->
+        <div class='card'>
+          <!-- <img alt='Card image cap' class='card-img-top img-fluid' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample13.jpg'> -->
+          <div class='card-block'>
+            <h4 class='card-title text-center'>super e lehte</h4>
+            
+            <p class='card-text text-center'>Administrim i personalizuar dhe inovativ. Risi te reja mbeshtesin zhvillues dhe persona te te gjitha niveleve teknike.</p>
+          </div>
+        </div>
+        <!-- card -->
+        <div class='card'>
+          <!-- <img alt='Card image cap' class='card-img-top img-fluid' src='https://forum.manjaro.org/uploads/default/original/2X/e/e9de772076c8d234c331bef5cb744986c0cf023c.png'> -->
+          <div class='card-block'>
+            <h4 class='card-title text-center'>automatizim me nje klik</h4>
+            
+            <p class='card-text text-center'>Lancho me lehtesi aplikacionet e tua ne hapesira te vecanta, kurdo, gjate zhvillimit, testimit dhe produktit final.</p>
+          </div>
+        </div>
+        <!-- card -->
+        <div class='card'>
+          <!-- <img alt='Card image cap' class='card-img-top img-fluid' src='https://www.builtinaustin.com/sites/www.builtinaustin.com/files/blogs/2017/coders_code_ss.jpg'> -->
+          <div class='card-block'>
+            <h4 class='card-title text-center'>krijuar per te gjithe</h4>
+            
+            <p class='card-text text-center'>Ne fuqizojme te gjithe, nga zhvilluesit profesioniste deri tek personat jo teknike. Te gjithe duhet te jene te afte te fuqizojne biznesin e tyre.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  </section>
+  <section class='bg-alt' id='two'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-lg-12 text-center'>
+          <h2 class='mt-0 text-primary'>I perkryer per bizneset ne rritje</h2>
+          <hr class='primary'>
+        </div>
+      </div>
+    </div>
+    <div class='container wow fadeInUp'>
+      <div class='row'>
+        <div class='col-lg-4 col-md-4 text-center' data-aos="zoom-out-right" data-aos-duration="1000" data-aos-once="true">
+          <div class='feature'>
+            <i class='icon-lg ion-ios-grid-view-outline wow fadeIn' data-wow-delay='.1s'></i>
+            <h6 class='text-uppercase'>I Qendrueshem</h6>
+            <p class='text-muted m-b-0'>
+              Infrastruktura jone perdor platforma te ndryshme me <a href="" style="cursor: pointer; color: #ce203b;">burim te hapur</a> per t'u fuqizuar.
+            </p>
+          </div>
+        </div>
+        <div class='col-lg-4 col-md-4 text-center' data-aos="zoom-out" data-aos-duration="1000" data-aos-once="true">
+          <div class='feature'>
+            <i class='icon-lg ion-social-sass wow fadeInUp'></i>
+            <h6 class='text-uppercase'>Thjeshtesi</h6>
+            
+            <p class='text-muted m-b-0'>Platforma jone eshte e thjeshte per persona pa shume kohe ne dispozicion, por ne te njejten kohe, fleksibel, duke ofruar sherbime te shkelqyera.</p>
+          </div>
+        </div>
+        <div class='col-lg-4 col-md-4 text-center' data-aos="zoom-out-left" data-aos-duration="1000" data-aos-once="true">
+          <div class='feature'>
+            <i class='icon-lg ion-social-css3-outline wow fadeIn' data-wow-delay='.1s'></i>
+            <h6 class='text-uppercase'>Modern</h6>
+            <p class='text-muted m-b-0'>
+              Ne perdorim Inteligjence Artificiale per te zgjidhur probleme te perhapura teknike, konfigurime <a href="" style="cursor: pointer; color: #ce203b">CI/CD</a> te thjeshta dhe fleksibilitet i gjere per te gjitha nevojat. 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside class='bg-alt lastfoot'>
+    <div class='container text-center '>
+      <h2 data-aos="zoom-out" data-aos-duration="1000" data-aos-once="true" class='wow fadeIn text-normal wow fadeIn here' style="color: white">Metodat inovative dhe fleksibiliteti jane hapi i pare i synimit tone per te nderlidhur njerezimin dhe infrastrukturat</h2>
+      <hr class='primary'>
+      <div class='row wow fadeInUp'>
+        <div class='col-md-3 col-sm-6 col-12'>
+          <h3 style="color:white"></h3>
+          <i class='icon-lg ion-ios-pulse wow pulse'></i>
+        </div>
+        <div class='col-md-3 col-sm-6 col-12 '>
+          <h3 style="color: white">Kreativitet</h3>
+          <i class='icon-lg ion-ios-location-outline wow pulse'></i>
+          <h1 class='text-primary nr1'>99</h1>
+        </div>
+        <div class='col-md-3 col-sm-6 col-12'>
+          <h3 style="color:white">Teknikalitete</h3>
+          <i class='icon-lg ion-ios-pulse wow pulse'></i>
+          <h1 class='text-primary nr2'>1%</h1>
+        </div>
+        <div class='col-md-3 col-sm-6 col-12'>
+          <h3 style="color:white"></h3>
+          <i class='icon-lg ion-ios-pulse wow pulse'></i>
+        </div>
+       
+      </div>
+      <hr>
+      <br>
+    </div>
+  
+  
+  </aside>
+
+
+  <aside class='bg-alt'>
+    <div class='container text-center'>
+      <div class='call-to-action'>
+        <h2 class='text-primary'>Provoje falas</h2>
+        <a class='btn btn-primary-outline btn-lg wow flipInX text-uppercase hupalupa' href="/al/accounts/signup/">regjistrohu</a>
+      </div>
+    </div>
+  </aside>
+
+  
+</body>
+
+<footer class="mainfooter" role="contentinfo">
+  <div class="footer-middle">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <!--Column1-->
+        <div class="footer-pad">
+          <h4>Produkte</h4>
+          <ul class="list-unstyled">
+            <li><a href="#"></a></li>
+            <li><a href="#">SPICE&#174;</a></li>
+            <li><a href="#">Te Reja</a></li>
+            <li><a href="#">Ne Zhvillim</a></li>
+            <li><a href="#">Lajme</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <!--Column1-->
+        <div class="footer-pad">
+          <h4>Komunitet</h4>
+          <ul class="list-unstyled">
+            <li><a href="#">Dokumentim</a></li>
+            <li><a href="#">Pune Praktike</a></li>
+            <li><a href="#">Politika e Privatesise</a></li>
+            <li><a href="#">Termat e Sherbimit</a></li>
+            <li><a href="#">Forum</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <!--Column1-->
+        <div class="footer-pad">
+          <h4>E ardhmja</h4>
+          <ul class="list-unstyled">
+            <li><a href="#">Detaje</a></li>
+            <li><a href="#">Zhvillim</a></li>
+            <li><a href="#">Kontribuo</a></li>
+          </ul>
+        </div>
+      </div>
+    	<div class="col-md-3">
+    		<h4>Rrjetet</h4>
+            <ul class="social-network social-circle">
+             <li><a href="#" class="icoFacebook" title="Github"><i class="fa fa-github"></i></a></li>
+             <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+            </ul>				
+		</div>
+    </div>
+	<div class="row">
+		<div class="col-md-5 copy">
+			<p class="text-center" style="font-size: 14px !important;">&copy;2020 - pepperspice | nga shqiptaret</p>
+		</div>
+	</div>
+
+
+  </div>
+  </div>
+</footer>
+<style>
+  footer {
+  background: #16222A;
+  background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
+  background: linear-gradient(59deg, #3A6073, #16222A);
+  color: white;
+  margin-top:100px;
+}
+
+footer a {
+  color: #fff;
+  font-size: 14px;
+  transition-duration: 0.2s;
+}
+
+footer a:hover {
+  color: #FA944B;
+  text-decoration: none;
+}
+
+.copy {
+  font-size: 12px;
+  padding: 10px;
+  border-top: 1px solid #FFFFFF;
+}
+
+.footer-middle {
+  padding-top: 2em;
+  color: white;
+}
+
+
+/*SOCİAL İCONS*/
+
+/* footer social icons */
+
+ul.social-network {
+  list-style: none;
+  display: inline;
+  margin-left: 0 !important;
+  padding: 0;
+}
+
+ul.social-network li {
+  display: inline;
+  margin: 0 5px;
+}
+
+
+/* footer social icons */
+
+.social-network a.icoFacebook:hover {
+  background-color: #3B5998;
+}
+
+.social-network a.icoLinkedin:hover {
+  background-color: #007bb7;
+}
+
+.social-network a.icoFacebook:hover i,
+.social-network a.icoLinkedin:hover i {
+  color: #fff;
+}
+
+.social-network a.socialIcon:hover,
+.socialHoverClass {
+  color: #44BCDD;
+}
+
+.social-circle li a {
+  display: inline-block;
+  position: relative;
+  margin: 0 auto 0 auto;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+}
+
+.social-circle li i {
+  margin: 0;
+  line-height: 30px;
+  text-align: center;
+}
+
+.social-circle li a:hover i,
+.triggeredHover {
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -ms--transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.social-circle i {
+  color: #595959;
+  -webkit-transition: all 0.8s;
+  -moz-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  -ms-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.social-network a {
+  background-color: #F9F9F9;
+}
+</style>
+<script>
+$(window).scroll(testScroll);
+var viewed = false;
+
+function isScrolledIntoView(elem) {
+var docViewTop = $(window).scrollTop();
+var docViewBottom = docViewTop + $(window).height();
+
+var elemTop = $(elem).offset().top;
+var elemBottom = elemTop + $(elem).height();
+
+return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+function testScroll() {
+  if (isScrolledIntoView($(".here")) && !viewed) {
+      viewed = true;
+      $('.nr1').each(function () {
+      $(this).prop('Counter',0).animate({
+          Counter: $(this).text()
+      }, {
+          duration: 4000,
+          easing: 'swing',
+          step: function (now) {
+              $(this).text(Math.ceil(now) + "%");
+          }
+      });
+    });
+  }
+}
+</script>
+<script>
+    $(document).click(function(e) {
+      if (!$(e.target).is('#navbar4')) {
+          $('.collapse').collapse('hide');	    
+        }
+    });
+</script>
+</html>

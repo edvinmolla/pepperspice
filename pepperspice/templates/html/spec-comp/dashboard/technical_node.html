@@ -1,0 +1,1179 @@
+
+<div class="container mt-4 ">
+
+  <div class="myAlert-top alert imhidden alert-warning" id="alert1">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+<a href="#" class="writehere1" style="text-decoration: none;">
+</a>
+  </div>
+  <style>
+    .imhidden {
+      visibility: hidden;
+    }
+  </style>
+ 
+  <h1 style="display: inline-block; font-weight: 100;">Deploy New Application - Technical</h1>
+ 
+
+<form class="ui form">
+ 
+  <div class="ui fluid labeled input big">
+    <div class="ui label aligned center">
+      Node Name
+    </div>
+      <input type="text" placeholder="Node Name" id="node_name_one">
+      
+    </div>
+</form>
+
+<h1 style="display: inline-block;">Select Your Application's Framework</h1>
+    
+    <div class="ui icon button" data-tooltip="Selecting the correct version for your framework is very important as most version do not have backwards compatability." data-position="bottom center"  data-inverted="" style="font-size: 8px;  top: -8px;">
+        <i class="info circle icon" style="font-size: 15px; color: black;"></i>
+      </div>
+
+
+
+
+
+
+
+      <form method="post" id="formData1" enctype='text/plain' action="#">
+        {% csrf_token %}
+        <input type="hidden" name="framework_1" id="framework_1">
+        <input type="hidden" name="framework_version_1" id="framework_version_1">
+        <input type="hidden" name="monitor_type_1" id="monitor_type_1">
+        <input type="hidden" name="dns" id="dns">
+        <input type="hidden" name="database" id="database">
+        <input type="hidden" name="database_version" id="database_version">
+        <input type="hidden" name="server_region_1" id="server_region_1">
+        <input type="hidden" name="node_name_1" id="node_name_1"> 
+        <input type="hidden" name="node_domain_1" id="node_domain_1">
+        <input type="hidden" name="node_subdomain_1" id="node_subdomain_1">
+        <input type="hidden" name="load_type_1" id="load_type_1">
+        <input type="hidden" name="app_type_1" id="app_type_1">
+        <input type="hidden" name="_token2" value="{{ csrf_token }}">
+        
+   
+      
+
+
+
+    <div class="row">
+      
+        <div class="col-md-3 col-lg-3 col-sm-3">
+          
+          <label>
+            <input type="radio" name="product" class="card-input-element" id="angular_1" checked='true'/>
+
+                <div class="ui card panel panel-default card-input">
+                    
+                    <div class="content asdsadsda">
+                        <i class="angular icon" style="float: right; font-size: 40px; color: red;"></i>
+                        <a class="header">Angular</a>
+                        <div class="meta">
+                          <span class="date" style="font-size: 12px;">Latest: 10.0.4</span>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    <select class="ui selection dropdown" id="dropdown_angular_1">
+                    
+                      <option selected>Version 10.0.4</option>
+                      <option >Version 8.0.0 <strong>LTS</strong></option>
+                      <option >Version 7</option>
+                    </select>
+
+
+                    
+                </div>
+                
+             
+  
+          </label>
+          
+        </div>
+        <div class="col-md-3 col-lg-3 col-sm-3">
+          
+            <label>
+                <input type="radio" name="product" class="card-input-element" id="laravel_1"/>
+      
+                <div class="ui card panel panel-default card-input">
+                    
+                    <div class="content">
+                        <i class="laravel icon" style="float: right; font-size: 40px; color:orangered;"></i>
+                        <a class="header">Laravel</a>
+                        <div class="meta">
+                          <span class="date" style="font-size: 12px;">Latest: 7.21.0</span>
+                        </div>
+                        
+                    </div>
+                    <select class="ui selection dropdown" id="dropdown_laravel_1">
+                    
+                      <option selected>Version 7.21</option>
+                      <option >Version 5.7</option>
+                      <option >Version 5.6</option>
+                      <option >Version 5.3</option>
+                    </select>
+
+                    
+                </div>
+      
+              </label>
+          
+        </div>
+        <div class="col-md-3 col-lg-3 col-sm-3">
+          
+            <label>
+                <input type="radio" name="product" class="card-input-element" id="django_1" />
+      
+                <div class="ui card panel panel-default card-input">
+                    
+                    <div class="content">
+                        <img src="https://cdn2.hubspot.net/hubfs/3885898/django.png" width="45px" height="40px" style="float: right;">
+                        <a class="header">Django</a>
+                        <div class="meta">
+                          <span class="date" style="font-size: 12px;">Latest: 3.0.8</span>
+                        </div>
+                        
+                    </div>
+                    <select class="ui selection dropdown" id="dropdown_django_1">
+                    
+                      <option selected>Version 3.0.8</option>
+                      <option >Version 2.2</option>
+                      <option >Version 2.1</option>
+                      <option >Version 2.0</option>
+                    </select>
+
+
+                    
+                </div>
+      
+              </label>
+          
+        </div>
+
+        <div class="col-md-3 col-lg-3 col-sm-3">
+          
+            <label>
+                <input type="radio" name="product" class="card-input-element" id="wordpress_1"/>
+      
+                <div class="ui card panel panel-default card-input">
+                    
+                    <div class="content">
+                        <i class="wordpress icon" style="float: right; font-size: 40px; color: skyblue;"></i>
+                        <a class="header">WordPress</a>
+                        <div class="meta">
+                            <span class="date" style="font-size: 12px;">Latest: 5.4.2</span>
+                        </div>
+                        
+                    </div>
+                    <select class="ui selection dropdown" id="dropdown_wordpress_1">
+                    
+                      <option selected>Version 5.4.2</option>
+                      <option >Version 5.3.4</option>
+                      <option >Version 5.2.7</option>
+                      <option >Version 5.1.6</option>
+                      <option >Version 4.7</option>
+                      <option >Version 4.5</option>
+                    </select>
+
+
+                    
+
+
+
+                </div>
+      
+              </label>
+          
+        </div>
+        
+    </div>
+    
+  </div>
+
+  <div class="container mt-4">
+
+  <h2>Select Your DNS Provider <small><em>If you would like us to manage and automate your DNS.</em></small></h2>
+  <div class="row">
+  
+<style>
+    #img-1 {
+        position: relative;
+       
+    }
+</style>
+<script>
+  $(document).ready(function(){
+      $('.card-input-element6').click(function() {
+          $('.card-input-element6').not(this).prop('checked', false);
+      });
+      
+  });
+  </script>
+    <div class="col-md-3 col-lg-3 col-sm-3">
+          
+        <label>
+          <input type="checkbox" name="product6" class="card-input-element6" id="cloudflare"/>
+
+              <div class="ui card panel panel-default card-input6">
+                  
+                  <div class="content">               
+                   <a class="header center aligned">Cloudflare</a>     
+                  </div>
+                  <div class="extra content centered image">
+                    <img id="img-1" src="https://www.cloudflare.com/img/logo-web-badges/cf-logo-on-white-bg.svg" >
+                   
+                  </div>
+                 
+              </div>
+              
+           
+
+        </label>
+        
+      </div>
+
+      <style>
+          #img-2 {
+              position: relative;
+              top: 20px;
+              
+          }
+      </style>
+      <div class="col-md-3 col-lg-3 col-sm-3">
+          
+        <label>
+          <input type="checkbox" name="product6" class="card-input-element6" id="namecheap" />
+
+              <div class="ui card panel panel-default card-input6">
+                  
+                  <div class="content">               
+                   <a class="header center aligned">Namecheap</a>     
+                  </div>
+                  <div class="extra content centered image" style="margin-bottom:5px;">
+                    <img id="img-2" src="https://pluspng.com/img-png/logo-namecheap-png-photo-gallery-871.png" width="20px" height="20px">
+              
+                    <br/>
+                    <br/>
+                    <br/>
+                    
+                  </div>
+                 
+              </div>
+              
+              
+        </label>
+        
+      </div>
+
+
+      <div class="col-md-3 col-lg-3 col-sm-3">
+          <style>
+              #img-3 {
+                  position: relative;
+                  top: 10px;
+              }
+          </style>
+        <label>
+          <input type="checkbox" name="product6" class="card-input-element6" id="godaddy" />
+
+              <div class="ui card panel  panel-default card-input6">
+                  
+                  <div class="content ">               
+                   <a class="header center aligned">GoDaddy</a>     
+                  </div>
+                  <div class="extra content centered image" style="margin-bottom: 30px;">
+                    <img id="img-3" src="https://pluspng.com/img-png/godaddy-png--800.png" width="40px" height="40px" style="float: left;">
+                   
+                  
+                    
+                  </div>
+                 
+              </div>
+              
+           
+
+        </label>
+        
+      </div>
+
+
+      <div class="col-md-3 col-lg-3 col-sm-3">
+        <style>
+            #img-4 {
+                position: relative;
+             top: 5px;
+            }
+        </style>
+      <label>
+        <input type="checkbox" name="product6" class="card-input-element6" id="hostal"/>
+
+            <div class="ui card panel  panel-default card-input6">
+                
+                <div class="content ">               
+                 <a class="header center aligned">Host.al</a>     
+                </div>
+                <div class="extra content centered image" style="margin-bottom: 20px;">
+                  <img id="img-4" src="https://my.host.al/assets/img/logo.png">
+                 
+                
+                  
+                </div>
+               
+            </div>
+            
+         
+
+      </label>
+      
+    </div>
+
+
+</div>
+
+
+
+
+
+
+<!-- Load Selection -->
+  </div>
+
+
+  <div class="container mt-4">
+
+    <h2>Select Database Engine <small><em>If you would like to attach a database container now.</em></small></h2>
+    <div class="row">
+    
+  <style>
+      #img-5 {
+          position: relative;
+         top: -25px;
+      }
+  </style>
+  <script>
+    $(document).ready(function(){
+        $('.card-input-element7').click(function() {
+            $('.card-input-element7').not(this).prop('checked', false);
+        });
+        
+    });
+    </script>
+      <div class="col-md-3 col-lg-3 col-sm-3">
+        {% if db_1_disable %}
+        <div data-tooltip="At least 2 containers are needed to hot-plug a database."> 
+            {% endif %}
+          <label>
+            <input type="checkbox" name="product7" class="card-input-element7" id="mysql" {{ db_1_disable }}/>
+           
+          
+             
+                <div class="ui card panel panel-default card-input7 ">
+                    
+                   
+                    <div class="content ">               
+                     <a class="header center aligned ">MySQL</a>     
+                    </div>
+                    <div class="extra content centered image" style="margin-bottom: -25px;">
+                      <img id="img-5" src="https://download.logo.wine/logo/MySQL/MySQL-Logo.wine.png" >
+                     
+                    </div>
+               
+                      <select class="ui selection dropdown" id="dropdown_mysql">
+                    
+                        <option value="8_0" selected>Version 8.0</option>
+                        <option value="5_7">Version 5.7</option>
+                        <option value="5_6">Version 5.6</option>
+                      </select>
+                </div>
+                
+            
+  
+          </label>
+          {% if db_1_disable %}
+        </div>
+              {% endif %}
+        </div>
+  
+        <style>
+            #img-6 {
+                position: relative;
+                top: -45px;
+               transform: scale(.5);
+
+            }
+        </style>
+        <div class="col-md-3 col-lg-3 col-sm-3">
+            {% if db_1_disable %}
+            <div data-tooltip="At least 2 containers are needed to hot-plug a database."> 
+                {% endif %}
+          <label>
+            <input type="checkbox" name="product7" class="card-input-element7" id="postgresql" {{ db_2_disable }}/>
+  
+                <div class="ui card panel panel-default card-input7">
+                       
+                    
+                    <div class="content">               
+                     <a class="header center aligned">PostgreSQL</a>     
+                    </div>
+                    <div class="extra content centered image" style="margin-bottom:-80px;">
+                      <img id="img-6" src="https://cdn.iconscout.com/icon/free/png-512/postgresql-11-1175122.png">
+                
+            
+                    </div>
+                   
+            
+
+
+                      <select class="ui selection dropdown" id="dropdown_postgresql">
+                    
+                        <option value="12_3" selected>Version 12.3</option>
+                        <option value="11_8">Version 11.8</option>
+                        <option value="10_13">Version 10.13</option>
+                      </select>
+                </div>
+                
+                
+          </label>
+          {% if db_1_disable %}
+        </div>
+              {% endif %}
+        </div>
+  
+  
+        <div class="col-md-3 col-lg-3 col-sm-3">
+            <style>
+                #img-7 {
+                    position: relative;
+                    transform: scale(.6);
+top: -40px;
+                }
+            </style>
+             {% if db_1_disable %}
+             <div data-tooltip="At least 2 containers are needed to hot-plug a database."> 
+                 {% endif %}
+          <label>
+            <input type="checkbox" name="product7" class="card-input-element7" id="mariadb" {{ db_3_disable }}/>
+  
+                <div class="ui card panel panel-default card-input7">
+                       
+                   
+                    <div class="content ">               
+                     <a class="header center aligned">MariaDB</a>     
+                    </div>
+                    <div class="extra content centered image" style="margin-bottom: -80px;">
+                      <img id="img-7" src="https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mariadb-icon.png">
+                     
+                    
+                      
+                    </div>
+                   
+       
+
+                      <select class="ui selection dropdown" id="dropdown_mariadb">
+                    
+                        <option value="10_5" selected>Version 10.5</option>
+                        <option value="10_4">Version 10.4</option>
+                        <option value="10_2">Version 10.2</option>
+                      </select>
+
+
+                </div>
+                
+             
+  
+          </label>
+          {% if db_1_disable %}
+        </div>
+              {% endif %}
+        </div>
+  
+  
+        <div class="col-md-3 col-lg-3 col-sm-3">
+          <style>
+              #img-8 {
+                  position: relative;
+               top: -20px;
+              }
+          </style>
+           {% if db_1_disable %}
+           <div data-tooltip="At least 2 containers are needed to hot-plug a database."> 
+               {% endif %}
+        <label>
+          <input type="checkbox" name="product7" class="card-input-element7" id="sqlite" {{ db_4_disable }}/>
+  
+              <div class="ui card panel  panel-default card-input7">
+             
+                  <div class="content ">               
+                   <a class="header center aligned">SQLite</a>     
+                  </div>
+                  <div class="extra content centered image" style="margin-bottom: -27px;">
+                    <img id="img-8" src="https://dwglogo.com/wp-content/uploads/2018/03/SQLite_Vector_logo.png">
+                   
+                  
+                    
+                  </div>
+            
+
+                  <select class="ui selection dropdown" id="dropdown_sqlite">
+                    
+                    <option value="3_32" selected>Version 3.32</option>
+                    <option value="3_30">Version 3.30</option>
+                    <option value="3_26">Version 3.26</option>
+                  </select>
+              </div>
+              
+           
+  
+        </label>
+        {% if db_1_disable %}
+    </div>
+          {% endif %}
+      </div>
+  
+  
+  </div>
+  
+  
+  
+  
+  
+  
+  <!-- Load Selection -->
+    </div>
+
+
+
+  <div class="container mt-4" id="load_options_1">
+
+<h1 style="display: inline-block;">Select Resource Options</h1>
+<div class="ui icon button" data-tooltip="Selecting the right Load Option will affect how many resources your App uses." data-position="top center"  data-inverted="" style="font-size: 8px;  top: -8px;">
+    <i class="info circle icon" style="font-size: 15px; color: black;"></i>
+  </div>
+
+<div class="row">
+  
+    <div class="col-md-4 col-lg-4 col-sm-4">
+      
+      <label>
+        <input type="radio" name="product3" class="card-input-element3" id="low_load_1" {{ if_disabled_low }}/>
+
+        <div class="ui card panel panel-default card-input3">
+                
+            <div class="content">
+              <i class="material-icons" style="float: right; font-size: 40px;">low_priority</i>
+        
+                <a class="header">Low Load</a>
+                <div class="meta">
+                    <small>Low Load Is suitable for low traffic and low resource usage, mainly for small scale Web Applications.</small>
+                    
+                </div>
+                <br/>
+                <div class="meta">
+                <strong>{{ no_low }} containers available.</strong>
+                    
+                </div>
+            </div>
+        </div>
+
+      </label>
+      
+    </div>
+    <div class="col-md-4 col-lg-4 col-sm-4">
+      
+        <label>
+            <input type="radio" name="product3" class="card-input-element3" id="medium_load_1" {{ if_disabled_medium }}/>
+  
+            <div class="ui card panel panel-default card-input3">
+                
+                <div class="content">
+                  <img src="https://img.icons8.com/pastel-glyph/64/000000/positive-dynamic.png" width="50px" height="50px" style="float: right;"/>
+        
+                    <a class="header">Medium Load</a>
+                    <div class="meta">
+                        <small>Medium Load Is suitable for handling good amounts of traffic and average resource usage, most used by medium scale businesses.</small>
+                    </div>
+                    <div class="meta">
+                        <strong>{{ no_medium }} containers available.</strong>
+                            
+                        </div>
+                </div>
+            </div>
+  
+          </label>
+      
+    </div>
+    <div class="col-md-4 col-lg-4 col-sm-4">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <label>
+            <input type="radio" name="product3" class="card-input-element3" id="high_load_1" {{ if_disabled_high }}/>
+  
+            <div class="ui card panel panel-default card-input3">
+                
+                <div class="content">
+                  <img src="https://img.icons8.com/pastel-glyph/64/000000/graph-report--v1.png" width="50px" height="50px" style="float: right;"/>
+            
+                    <a class="header">High Load</a>
+                    <div class="meta">
+                        <small>Maximum dedication of system resources and bandwidth, perfect for large companies, growing businesses and backend applications.</small>
+                    </div>
+                    <div class="meta">
+                        <strong>{{ no_high }} containers available.</strong>
+                            
+                        </div>
+                </div>
+            </div>
+  
+          </label>
+      
+    </div>
+</div>
+<script>
+$("input:radio").change(function () {
+    $("#no_monitor_1").attr("disabled", false);
+});
+</script>
+
+</div>
+
+<!-- Monitoring  -->
+
+
+  <div class="container mt-4">
+
+    <h1 style="display: inline-block;">Select Monitoring Options</h1>
+    <div class="ui icon button" data-tooltip="Monitoring Is an Important tool when you need details on how your app performs." data-position="top center"  data-inverted="" style="font-size: 8px;  top: -8px;">
+        <i class="info circle icon" style="font-size: 15px; color: black;"></i>
+      </div>
+
+    <div class="row">
+      
+        <div class="col-md-4 col-lg-4 col-sm-4">
+          
+          <label>
+            <input type="radio" name="product1" class="card-input-element1" id="no_monitor_1"/>
+  
+            <div class="ui card panel panel-default card-input1">
+                    
+                <div class="content">
+                    <i class="eye slash outline icon" style="float: right; font-size: 40px;"></i>
+                    <a class="header">No Monitoring</a>
+                    <div class="meta">
+                        <small>This Web Application will not be monitored and will not send out alerts.</small>
+                        
+                    </div>
+                    <br/><br/>
+                </div>
+            </div>
+  
+          </label>
+          
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-4">
+          
+            <label>
+                <input type="radio" name="product1" class="card-input-element1" id="basic_monitor_1" checked="true"/>
+      
+                <div class="ui card panel panel-default card-input1">
+                    
+                    <div class="content">
+                        <i class="eye icon" style="float: right; font-size: 40px;"></i>
+                        <a class="header">Basic Monitoring</a>
+                        <div class="meta">
+                            <small>Monitoring will be enabled and you will have access to statistics and trends, however, you will not receive alerts on any case.</small>
+                        </div>
+                        
+                    </div>
+                </div>
+      
+              </label>
+          
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-4">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <label>
+                <input type="radio" name="product1" class="card-input-element1" id="ext_monitor_1"/>
+      
+                <div class="ui card panel panel-default card-input1">
+                    
+                    <div class="content">
+                        <i class="eye icon" style="float: right; font-size: 40px;"></i><i class="material-icons" style="float: right;font-size: 40px;">notifications_active</i>
+                        <a class="header">Extended Monitoring</a>
+                        <div class="meta">
+                            <small>Monitoring will be available and alerts will be sent on any unusual activity.</small>
+                        </div>
+                        <br/>
+                        
+                    </div>
+                </div>
+      
+              </label>
+          
+        </div>
+    </div>
+    
+  </div>
+
+<!-- Server Region -->
+
+  <div class="container mt-4">
+
+    <h1 style="display: inline-block;">Select Server Region</h1>
+    <div class="ui icon button" data-tooltip="Usually, selecting the region physically closer to your target audience makes for best performance." data-position="top center"  data-inverted="" style="font-size: 8px;  top: -8px;">
+        <i class="info circle icon" style="font-size: 15px; color: black;"></i>
+      </div>
+
+    <div class="row">
+      
+        <div class="col-md-4 col-lg-4 col-sm-4">
+          
+          <label>
+            <input type="radio" name="product2" class="card-input-element2" id="tirane_1" checked="true"/>
+  
+            <div class="ui card pane2 pane2-default card-input2">
+                    
+                <div class="content">
+                    <img style="float: right;" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/259/flag-albania_1f1e6-1f1f1.png" width="40px" height="40px">
+                    <a class="header">Tirane, Albania</a>
+                    
+                    <div class="meta">
+                        <small>Based in the capital of Albania, Tirana offers a fast link to the global delivery CDN, making It suitable for any kind of load.</small>
+                    </div>
+                    <br/>
+                </div>
+            </div>
+        
+          </label>
+          
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-4">
+          
+            <label>
+                <input type="radio" name="product2" class="card-input-element2" id="stuttgard_1"/>
+      
+                <div class="ui card pane2 pane2-default card-input2">
+                    
+                    <div class="content">
+                        <img style="float: right;" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/259/flag-germany_1f1e9-1f1ea.png" width="40px" height="40px">
+                        <a class="header">Stuttgard, Germany</a>
+                        
+                        <div class="meta">
+                            <small>Germany has already asserted It's quality data center reputation around the world, reliable and secure.</small>
+                        </div>
+                        <br/>
+                    </div>
+                </div>
+      
+              </label>
+          
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-4">
+          
+            <label>
+                <input type="radio"  name="product2" class="card-input-element2" id="rotterdam_1"/>
+      
+                <div class="ui card pane2 pane2-default card-input2">
+                    
+                    <div class="content">
+                        <img style="float: right;" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/259/flag-netherlands_1f1f3-1f1f1.png" width="40px" height="40px">
+                        <a class="header">Rotterdam, Netherlands</a>
+                        
+                        <div class="meta">
+                            <small>Applying cutting edge technology on their data centers, Rotterdam makes a perfect choice for the forward thinking and the ecologicaly concerned people.</small>
+                        </div>
+                        
+                    </div>
+                </div>
+      
+              </label>
+          
+        </div>
+    </div>
+
+<br/>
+<br/>
+
+
+
+    <form class="ui form">
+    
+      
+     
+          
+        
+        
+      
+          <div class="ui fluid action labeled input big">
+            <div class="ui label aligned center ">
+              https://
+            </div>
+              <input type="text" id="subdomain_domain_field" value="{{ subdomain_domain }}" style="width:200px;" disabled>
+              <div class="ui label aligned center">
+                .pepperspice.co
+              </div>
+            </div>
+            <br/>
+
+            <div class="ui fluid action labeled input big" >
+              <div class="ui label  aligned center">
+                Your domain name
+              </div>
+                <input type="text" placeholder="Domain Name" id="domain_name_one">
+
+              </div>
+          
+<br/>
+<br/>
+<br/>
+<br/>
+<button class="ui big blue button submit_button_1" type="submit" id="submit_button_1">Create Node</button>
+      </form>
+   
+    </form>
+   
+<style>
+  .submit_button_1 {
+    position: relative;
+    left: 37%;
+  }
+</style>
+
+    
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+  </div>
+
+
+
+  <style>
+    html {
+    scroll-behavior: smooth !important;
+  }
+  </style>
+
+<script>
+
+$(document).ready(function () {
+    document.getElementById("submit_button_1").disabled=true;
+    $('#submit_button_1').addClass('loading');
+    document.getElementById("submit_button_1").style='opacity: 1 !important';
+    $('#node_name_one').on('keyup', function () {
+        var field1 = $("#node_name_one").val();
+
+        if (field1.length > 0) {
+            $('#submit_button_1').removeClass('loading');
+            document.getElementById("submit_button_1").disabled=false;
+            $('#node_name_one').addClass('success');
+    
+        } else {
+            document.getElementById("submit_button_1").disabled=true;
+            $('#submit_button_1').addClass('loading');
+
+        }
+    });
+});
+
+
+$('#submit_button_1').click(function(e) {
+
+  if(!$('#low_load_1').is(':checked') && !$('#medium_load_1').is(':checked') && !$('#high_load_1').is(':checked')){
+    e.preventDefault();
+    $('#alert1').removeClass('imhidden');
+    $( ".writehere1" ).attr('href','#load_options_1');
+    $( ".writehere1" ).html( 'You haven\'t selected any Load Options' );
+    document.documentElement.scrollTop = 0;
+    return false;
+  }
+ 
+  if($('#cloudflare').prop("checked") && $('#domain_name_one').val().length == 0)
+{
+  e.preventDefault();
+  $('#alert1').removeClass('imhidden');
+  $( ".writehere1" ).html( 'If you have selected a DNS provider, you need te input a domain name as well.');
+  $( ".writehere1" ).attr('href','#domain_name_one');
+  $( "#domain_field_div" ).addClass('error');
+    document.documentElement.scrollTop = 0;
+    return false;
+}
+
+if($('#namecheap').prop("checked") && $('#domain_name_one').val().length == 0)
+{
+  e.preventDefault();
+  $('#alert1').removeClass('imhidden');
+  $( ".writehere1" ).html( 'If you have selected a DNS provider, you need te input a domain name as well.');
+  $( ".writehere1" ).attr('href','#domain_name_one');
+  $( "#domain_field_div" ).addClass('error');
+    document.documentElement.scrollTop = 0;
+    return false;
+}
+
+if($('#godaddy').prop("checked") && $('#domain_name_one').val().length == 0)
+{
+  e.preventDefault();
+  $('#alert1').removeClass('imhidden');
+  $( ".writehere1" ).html( 'If you have selected a DNS provider, you need te input a domain name as well.');
+  $( ".writehere1" ).attr('href','#domain_name_one');
+  $( "#domain_field_div" ).addClass('error');
+    document.documentElement.scrollTop = 0;
+    return false;
+}
+
+if($('#hostal').prop("checked") && $('#domain_name_one').val().length == 0)
+{
+  e.preventDefault();
+  $('#alert1').removeClass('imhidden');
+  $( ".writehere1" ).html( 'If you have selected a DNS provider, you need te input a domain name as well.');
+  $( ".writehere1" ).attr('href','#domain_name_one');
+  $( "#domain_field_div" ).addClass('error');
+    document.documentElement.scrollTop = 0;
+    return false;
+}
+
+
+if($('#angular_1').is(':checked')) {var web_app='angular';document.getElementById('framework_1').value=web_app;document.getElementById('app_type').value='web_app';document.getElementById('framework_version_1').value=document.getElementById("dropdown_angular_1").options[document.getElementById("dropdown_angular_1").selectedIndex].text;}
+if($('#laravel_1').is(':checked')) { var web_app='laravel';document.getElementById('framework_1').value=web_app;document.getElementById('app_type').value='web_app';document.getElementById('framework_version_1').value=document.getElementById("dropdown_laravel_1").options[document.getElementById("dropdown_laravel_1").selectedIndex].text;}
+if($('#django_1').is(':checked')) { var web_app='django';document.getElementById('framework_1').value=web_app;document.getElementById('app_type').value='web_app';document.getElementById('framework_version_1').value=document.getElementById("dropdown_django_1").options[document.getElementById("dropdown_django_1").selectedIndex].text;}
+if($('#wordpress_1').is(':checked')) { var web_app='wordpress';document.getElementById('framework_1').value=web_app;document.getElementById('app_type').value='web_app';document.getElementById('framework_version_1').value=document.getElementById("dropdown_wordpress_1").options[document.getElementById("dropdown_wordpress_1").selectedIndex].text;}
+
+
+
+
+
+
+if($('#no_monitor_1').is(':checked')) { var monitoring='no_monitor';document.getElementById('monitor_type_1').value=monitoring;}
+if($('#basic_monitor_1').is(':checked')) { var monitoring='basic_monitor';document.getElementById('monitor_type_1').value=monitoring;}
+if($('#ext_monitor_1').is(':checked')) { var monitoring='ext_monitor';document.getElementById('monitor_type_1').value=monitoring;}
+if($('#tirane_1').is(':checked')) { var geolocation='tirane';document.getElementById('server_region_1').value=geolocation;}
+if($('#stuttgard_1').is(':checked')) { var geolocation='stuttgard';document.getElementById('server_region_1').value=geolocation;}
+if($('#rotterdam_1').is(':checked')) { var geolocation='rotterdam';document.getElementById('server_region_1').value=geolocation;}
+if($('#low_load_1').is(':checked')) { document.getElementById('load_type_1').value="low_load";}
+if($('#medium_load_1').is(':checked')) { document.getElementById('load_type_1').value="medium_load";}
+if($('#high_load_1').is(':checked')) { document.getElementById('load_type_1').value="high_load";}
+if($('#cloudflare').is(':checked')) { document.getElementById('dns').value="cloudflare";}
+if($('#namecheap').is(':checked')) { document.getElementById('dns').value="namecheap";}
+if($('#godaddy').is(':checked')) { document.getElementById('dns').value="godaddy";}
+if($('#hostal').is(':checked')) { document.getElementById('dns').value="hostal";}
+
+
+if($('#mysql').is(':checked')) {document.getElementById('database').value="mysql";document.getElementById('database_version').value=document.getElementById("dropdown_mysql").options[document.getElementById("dropdown_mysql").selectedIndex].text;}
+if($('#postgresql').is(':checked')){document.getElementById('database').value="postgresql";document.getElementById('database_version').value=document.getElementById('dropdown_postgresql').options[document.getElementById('dropdown_postgresql').selectedIndex].text;}
+if($('#mariadb').is(':checked')){document.getElementById('database').value="mariadb";document.getElementById('database_version').value=document.getElementById('dropdown_mariadb').options[document.getElementById('dropdown_mariadb').selectedIndex].text;}
+if($('#sqlite').is(':checked')){document.getElementById('database').value="sqlite";document.getElementById('database_version').value=document.getElementById("dropdown_sqlite").options[document.getElementById("dropdown_sqlite").selectedIndex].text;}
+
+
+
+
+
+
+
+
+
+var formData1 = $('#formData1').serialize();
+                 $("#formData1").submit(function(e) {
+
+e.preventDefault(); // avoid to execute the actual submit of the form.
+
+
+$.ajax({
+   type: "POST",
+   url: "/dashboard/new/web_app/our/fast/send_data/create_node_/technical/" + document.getElementById('node_name_one').value + '&' + document.getElementById('domain_name_one').value + '&' +  document.getElementById('subdomain_domain_field').value + "/",
+   data: formData1, // serializes the form's elements.
+   success: function(data)
+   {
+    
+    window.location='/dashboard/';
+   }
+ });
+});
+
+  });
+
+
+
+
+
+
+
+                 
+</script>
+
+
+
+<style>
+
+.container {
+max-width: 900px;
+margin: 0 auto;
+}
+
+
+/**
+Component
+**/
+
+label {
+
+
+width: 100%;
+}
+
+.card-input-element {
+
+
+
+display: none;
+}
+
+.card-input {
+
+border-radius: 5px;
+margin: 10px;
+padding: 15px;
+}
+
+.card-input:hover {
+box-shadow: 0 0 1px 1px #2ecc71;
+cursor: pointer;
+}
+
+.card-input-element:checked + .card-input {
+background-color: #a4c5e7;
+box-shadow: 0 0 1px 1px #007FFF;
+}
+
+
+.card-input-element1 {
+
+
+
+display: none;
+}
+
+.card-input1 {
+box-shadow: 0 0 1px 1px #007FFF;
+border-radius: 5px;
+margin: 10px;
+padding: 15px;
+}
+
+.card-input1:hover {
+box-shadow: 0 0 1px 1px #2ecc71;
+cursor: pointer;
+}
+
+.card-input-element1:checked + .card-input1 {
+background-color: #a4c5e7;
+box-shadow: 0 0 1px 1px #007FFF;
+}
+
+
+
+.card-input-element2 {
+
+
+
+display: none;
+}
+
+.card-input2 {
+box-shadow: 0 0 1px 1px #007FFF;
+border-radius: 5px;
+margin: 10px;
+padding: 15px;
+}
+
+.card-input2:hover {
+box-shadow: 0 0 1px 1px #2ecc71;
+cursor: pointer;
+}
+
+.card-input-element2:checked + .card-input2 {
+background-color: #a4c5e7;
+box-shadow: 0 0 1px 1px #007FFF;
+}
+
+
+.card-input-element3 {
+
+
+
+display: none;
+}
+
+.card-input3 {
+box-shadow: 0 0 1px 1px #007FFF;
+border-radius: 5px;
+margin: 10px;
+padding: 15px;
+}
+
+.card-input3:hover {
+box-shadow: 0 0 1px 1px #2ecc71;
+cursor: pointer;
+}
+
+.card-input-element3:checked + .card-input3 {
+background-color: #a4c5e7;
+box-shadow: 0 0 1px 1px #007FFF;
+}
+
+
+.card-input-element6 {
+
+
+
+display: none;
+}
+
+.card-input6 {
+box-shadow: 0 0 1px 1px #007FFF;
+border-radius: 5px;
+margin: 10px;
+padding: 15px;
+}
+
+.card-input6:hover {
+box-shadow: 0 0 1px 1px #2ecc71;
+cursor: pointer;
+}
+
+.card-input-element6:checked + .card-input6 {
+background-color: #a4c5e7;
+box-shadow: 0 0 1px 1px #007FFF;
+}
+
+.card-input-element7 {
+
+
+
+display: none;
+}
+
+.card-input7 {
+box-shadow: 0 0 1px 1px #007FFF;
+border-radius: 5px;
+margin: 10px;
+padding: 15px;
+}
+
+.card-input7:hover {
+box-shadow: 0 0 1px 1px #2ecc71;
+cursor: pointer;
+}
+
+.card-input-element7:checked + .card-input7 {
+background-color: #a4c5e7;
+box-shadow: 0 0 1px 1px #007FFF;
+}
+
+.hide_load {
+visibility: hidden;
+}
+</style>

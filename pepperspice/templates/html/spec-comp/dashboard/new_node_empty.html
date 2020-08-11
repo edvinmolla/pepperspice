@@ -1,0 +1,35 @@
+{% extends "html/spec-comp/dashboard/index.html" %}
+{% block content %}
+<div class="main-content">
+No containers available, go and get some
+    <div class="menu">
+        <ul>
+            <button onClick="loadHomepage()">
+            <button onClick="loadProducts()">
+        </ul>
+    </div>
+  
+    <script>
+        // DEFAULT CONTENT
+        var DOMAIN_NAME = window.location.href;
+        
+        var html_home = '<h1>HOME PAGE</h1>';
+        html_home += '<h3>Add content home page here!</h3>';
+        html_home += '<h4>Any question or Task, Please Contact with me: luyenthinhanh.contact@gmail.com!</h4>';
+        
+        var html_product = '<h1>PRODUCTS PAGE</h1>';
+        html_product += '<h3>Add content Products page here!</h3>';
+        html_product += '<h4>Any question or Task, Please Contact with me: luyenthinhanh.contact@gmail.com!</h4>';
+        
+        function loadHomepage() {
+            history.pushState({},"",DOMAIN_NAME + "/home");
+            document.getElementById('main-content').innerHTML = html_home;
+        }
+        function loadProducts() {
+            history.pushState({},"",DOMAIN_NAME + "/products");
+            document.getElementById('main-content').innerHTML = html_product;
+        }
+    </script>
+</div>
+
+{% endblock %}

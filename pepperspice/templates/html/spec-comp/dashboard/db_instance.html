@@ -1,0 +1,933 @@
+{% extends "html/spec-comp/dashboard/index.html" %}
+{% block content %}
+
+
+<style>
+  .hideprogress {
+    visibility: hidden;
+  }
+</style>
+
+
+
+<div class="col-lg-12 " style="z-index: 1500; top: 0px; position: fixed;">
+
+  <div class="progress hideprogress" id="prg" style="height: .3rem;">
+    <div class="progress-bar" role="progressbar"  id="bar" style=" height: .3rem;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+</div>
+
+
+<div class="main-content">
+ 
+  
+
+
+    <div class="tobeblurred">
+    <div class="ui grid mt-2 stackable">
+       
+        <div class="eight wide column">
+          <div class="jumbotron" style="background-image: url('https://static.dribbble.com/users/458522/screenshots/3622938/cloud_database.jpg'); background-size: cover; color: #237fd5;background-position: 0px -50px;">
+            <h1 class="display-5" style="font-size: 30px;">Set Up In <b>Our</b> Infrastructure</h1>
+            <p class="lead" style="font-size: 15px; font-weight: 700;">Fast Database Instances will waste you no time waiting for instances and management.</p>
+           <br/>
+           <br/>
+           
+           <br/>
+           <br/>
+           
+           <br/>
+           <br/><br/>
+           <br/>
+           <br/>
+           <br/>
+           <br/>
+           <br/>
+         
+           
+           <div class="text-center">
+            <a class="btn btn-primary btn-lg" href="#" role="button" id="own_infra">Set Up</a>
+            
+        </div>
+          </div>
+        </div>
+        <div class="eight wide column">
+          <div class="jumbotron" style="background-image: url('https://static.dribbble.com/users/1352035/screenshots/4289327/cloud.png'); background-size: cover; color: #237fd5; background-position: 0px -50px;">
+            <h1 class="display-5" style="font-size: 30px;">Set Up In <b>Your</b> Infrastructure!</h1>
+        <p class="lead" style="font-size: 15px; font-weight: 700;">Create Databases In your own servers, fast, easy and with no complications.</p>
+            <br/>
+           <br/>
+           <br/>
+           <br/>
+           <br/>
+           <br/><br/>
+           <br/>
+           <br/>
+           <br/>
+           <br/>
+           <br/>
+        
+           <div class="text-center">
+            <a class="btn btn-primary btn-lg" href="your/" role="button">Set Up</a>
+        </div>
+          </div>
+
+        </div>
+       
+
+        
+      </div>
+      <div class="d-flex flex-column" style="font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif !important; background-color: white;">
+        <div class="jumbotron bg-transparent" style="background-size: 100%; color:#237fd5;">
+            <h1 class="display-5 text-center" style="font-size: 30px;">Benefits of Using Our Infrastructure</h1>
+            <hr/>
+            <h2 class="lead text-center" style="font-size: 20px;">Our most important goal Is to have the most comforting User Experience, thus, our aim is to totally remove the possibility for developers and business 
+                people to deal with terminals, processes, servers and all the stuff that at the end of the day, Is not part of your business plan.</h2>
+            <br/>
+           <div class="text-center">
+                <a class="btn btn-primary btn-md " href="our/" role="button">Start</a>
+                
+            </div>
+            
+        </div>
+          
+      </div>
+
+
+</div>
+
+
+        <style>
+   body.modal-open .tobeblurred{
+
+    -moz-filter: blur(6px);
+
+  
+    filter: blur(6px);
+}
+        </style>
+
+<!-- Modal -->
+<div class="modal custom-modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content"  style="background: none;">
+      
+			<div class="modal-body">
+
+        
+      
+
+        <button type="button" class="custon-close-button-color close" data-dismiss="modal" aria-label="Close" style="color: white;" onclick="restoreURL()">
+					<span aria-hidden="true"><i class="external alternate icon"></i></span>
+				</button>
+
+                <div class="container mt-4">
+                  <div class="myAlert-top alert imhidden alert-warning" id="alert">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <a href="#" class="writehere" style="text-decoration: none;">
+                </a>
+                  </div>
+                  <style>
+                    .imhidden {
+                      visibility: hidden;
+                    }
+                      .modal {
+                        scroll-behavior: smooth !important;
+                      }
+                    
+                  </style>
+
+                  <form class="ui form">
+ 
+                    <div class="ui fluid labeled input big">
+                      <div class="ui label aligned center">
+                        Database Name
+                      </div>
+                        <input type="text" placeholder="Node Name" id="db_name">
+                        
+                      </div>
+                  </form>
+
+
+                    <h2 style="color: white; font-weight: 50; display: inline-block;" id="database_row">Select Database Engine</h2>
+                    <div class="row">
+                    
+                  <style>
+                      #img-5 {
+                          position: relative;
+                         top: -25px;
+                      }
+                  </style>
+         
+                      <div class="col-md-3 col-lg-3 col-sm-3">
+                        {% if db_1_disable %}
+                        <div data-tooltip="At least 2 containers are needed to hot-plug a database."> 
+                            {% endif %}
+                          <label>
+                            <input type="radio" name="product7" class="card-input-element7" id="mysql" {{ db_1_disable }}/>
+                           
+                          
+                             
+                                <div class="ui card panel panel-default card-input7 ">
+                                    
+                                   
+                                    <div class="content ">               
+                                     <a class="header center aligned" style="font-weight: 10;">MySQL</a>     
+                                    </div>
+                                    <div class="extra content centered image" style="margin-bottom: -25px;">
+                                      <img id="img-5" src="https://download.logo.wine/logo/MySQL/MySQL-Logo.wine.png" >
+                                     
+                                    </div>
+                               
+                                      <select class="ui selection dropdown" id="dropdown_mysql">
+                                    
+                                        <option value="8_0" selected>Version 8.0</option>
+                                        <option value="5_7">Version 5.7</option>
+                                        <option value="5_6">Version 5.6</option>
+                                      </select>
+                                </div>
+                                
+                            
+                  
+                          </label>
+                          {% if db_1_disable %}
+                        </div>
+                              {% endif %}
+                        </div>
+                  
+                        <style>
+                            #img-6 {
+                                position: relative;
+                                top: -45px;
+                               transform: scale(.5);
+                
+                            }
+                        </style>
+                        <div class="col-md-3 col-lg-3 col-sm-3">
+                            {% if db_1_disable %}
+                            <div data-tooltip="At least 2 containers are needed to hot-plug a database."> 
+                                {% endif %}
+                          <label>
+                            <input type="radio" name="product7" class="card-input-element7" id="postgresql" {{ db_2_disable }}/>
+                  
+                                <div class="ui card panel panel-default card-input7">
+                                       
+                                    
+                                    <div class="content">               
+                                     <a class="header center aligned">PostgreSQL</a>     
+                                    </div>
+                                    <div class="extra content centered image" style="margin-bottom:-80px;">
+                                      <img id="img-6" src="https://cdn.iconscout.com/icon/free/png-512/postgresql-11-1175122.png">
+                                
+                            
+                                    </div>
+                                   
+                            
+                
+                
+                                      <select class="ui selection dropdown" id="dropdown_postgresql">
+                                    
+                                        <option value="12_3" selected>Version 12.3</option>
+                                        <option value="11_8">Version 11.8</option>
+                                        <option value="10_13">Version 10.13</option>
+                                      </select>
+                                </div>
+                                
+                                
+                          </label>
+                          {% if db_1_disable %}
+                        </div>
+                              {% endif %}
+                        </div>
+                  
+                  
+                        <div class="col-md-3 col-lg-3 col-sm-3">
+                            <style>
+                                #img-7 {
+                                    position: relative;
+                                    transform: scale(.6);
+                top: -40px;
+                                }
+                            </style>
+                             {% if db_1_disable %}
+                             <div data-tooltip="At least 2 containers are needed to hot-plug a database."> 
+                                 {% endif %}
+                          <label>
+                            <input type="radio" name="product7" class="card-input-element7" id="mariadb" {{ db_3_disable }}/>
+                  
+                                <div class="ui card panel panel-default card-input7">
+                                       
+                                   
+                                    <div class="content ">               
+                                     <a class="header center aligned">MariaDB</a>     
+                                    </div>
+                                    <div class="extra content centered image" style="margin-bottom: -80px;">
+                                      <img id="img-7" src="https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mariadb-icon.png">
+                                     
+                                    
+                                      
+                                    </div>
+                                   
+                       
+                
+                                      <select class="ui selection dropdown" id="dropdown_mariadb">
+                                    
+                                        <option value="10_5" selected>Version 10.5</option>
+                                        <option value="10_4">Version 10.4</option>
+                                        <option value="10_2">Version 10.2</option>
+                                      </select>
+                
+                
+                                </div>
+                                
+                             
+                  
+                          </label>
+                          {% if db_1_disable %}
+                        </div>
+                              {% endif %}
+                        </div>
+                  
+                  
+                        <div class="col-md-3 col-lg-3 col-sm-3">
+                          <style>
+                              #img-8 {
+                                  position: relative;
+                               top: -20px;
+                              }
+                          </style>
+                           {% if db_1_disable %}
+                           <div data-tooltip="At least 2 containers are needed to hot-plug a database."> 
+                               {% endif %}
+                        <label>
+                          <input type="radio" name="product7" class="card-input-element7" id="sqlite" {{ db_4_disable }}/>
+                  
+                              <div class="ui card panel  panel-default card-input7">
+                             
+                                  <div class="content ">               
+                                   <a class="header center aligned">SQLite</a>     
+                                  </div>
+                                  <div class="extra content centered image" style="margin-bottom: -27px;">
+                                    <img id="img-8" src="https://dwglogo.com/wp-content/uploads/2018/03/SQLite_Vector_logo.png">
+                                   
+                                  
+                                    
+                                  </div>
+                            
+                
+                                  <select class="ui selection dropdown" id="dropdown_sqlite">
+                                    
+                                    <option value="3_32" selected>Version 3.32</option>
+                                    <option value="3_30">Version 3.30</option>
+                                    <option value="3_26">Version 3.26</option>
+                                  </select>
+                              </div>
+                              
+                           
+                  
+                        </label>
+                        {% if db_1_disable %}
+                    </div>
+                          {% endif %}
+                      </div>
+                  
+                  
+                  </div>
+
+
+
+            </div>
+
+
+
+     
+
+
+            <div class="container mt-4" id="load_options">
+
+                <h1 style="color: white; font-weight: 50; display: inline-block;">Select Resource Options</h1>
+                <div class="ui icon button" data-tooltip="Selecting the right Load Option will affect how many resources your App uses." data-position="top center"  data-inverted="" style="font-size: 8px;  top: -8px;">
+                    <i class="info circle icon" style="font-size: 15px; color: black;"></i>
+                  </div>
+                
+                <div class="row">
+                  
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+                      
+                      <label>
+                        <input type="radio" name="product3" class="card-input-element3" id="low_load_1" {{ if_disabled_low }}/>
+                
+                        <div class="ui card panel panel-default card-input3">
+                                
+                            <div class="content">
+                              <i class="material-icons" style="float: right; font-size: 40px;">low_priority</i>
+                        
+                                <a class="header">Low Load</a>
+                                <div class="meta">
+                                    <small>Low Load Is suitable for low traffic and low resource usage, mainly for small scale Web Applications.</small>
+                                    
+                                </div>
+                                <br/>
+                                <div class="meta">
+                                <strong>{{ no_low }} containers available.</strong>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                
+                      </label>
+                      
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+                      
+                        <label>
+                            <input type="radio" name="product3" class="card-input-element3" id="medium_load_1" {{ if_disabled_medium }}/>
+                  
+                            <div class="ui card panel panel-default card-input3">
+                                
+                                <div class="content">
+                                  <img src="https://img.icons8.com/pastel-glyph/64/000000/positive-dynamic.png" width="50px" height="50px" style="float: right;"/>
+                        
+                                    <a class="header">Medium Load</a>
+                                    <div class="meta">
+                                        <small>Medium Load Is suitable for handling good amounts of traffic and average resource usage, most used by medium scale businesses.</small>
+                                    </div>
+                                    <div class="meta">
+                                        <strong>{{ no_medium }} containers available.</strong>
+                                            
+                                        </div>
+                                </div>
+                            </div>
+                  
+                          </label>
+                      
+                    </div>
+                    
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+                        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                        <label>
+                            <input type="radio" name="product3" class="card-input-element3" id="high_load_1" {{ if_disabled_high }}/>
+                  
+                            <div class="ui card panel panel-default card-input3">
+                                
+                                <div class="content">
+                                  <img src="https://img.icons8.com/pastel-glyph/64/000000/graph-report--v1.png" width="50px" height="50px" style="float: right;"/>
+                            
+                                    <a class="header">High Load</a>
+                                    <div class="meta">
+                                        <small>Maximum dedication of system resources and bandwidth, perfect for large companies, growing businesses and backend applications.</small>
+                                    </div>
+                                    <div class="meta">
+                                        <strong>{{ no_high }} containers available.</strong>
+                                            
+                                        </div>
+                                </div>
+                            </div>
+                  
+                          </label>
+                      
+                    </div>
+                </div>
+
+                
+                </div>
+
+                <script>
+                  $(document).ready(function(){
+                      $('.card-input-element8').click(function() {
+                          $('.card-input-element8').not(this).prop('checked', false);
+                      });
+                      
+                  });
+                  </script>
+
+                <!--  If he/she has apps give option to link to an existing app -->
+                {% if number_of_applications > 0 %}
+                <div class="container mt-4" id="load_options">
+
+                    <h1 style="color: white; font-weight: 50; display: inline-block;">Link To An Application</h1>
+                    <div class="ui icon button" data-tooltip="Selecting the right Load Option will affect how many resources your App uses." data-position="top center"  data-inverted="" style="font-size: 8px;  top: -8px;">
+                        <i class="info circle icon" style="font-size: 15px; color: black;"></i>
+                      </div>
+                    
+                    <div class="row">
+
+                        {% for application in applications %}
+                      
+                        <div class="col-sm-3" onclick="linknode('{{ application.node_ID }}');">
+                          
+                          <label>
+                            <input type="checkbox" name="product8" class="card-input-element8 theapplink"/>
+                    
+                            <div class="ui card panel panel-default card-input8">
+                    
+                              <div class="content">
+                                  <i class="{{ application.Framework }} icon" style="float: right; font-size: 40px; color:orangered;"></i>
+                                  <a class="header">{{ application.Name }}</a>
+                                  <br/>
+                                  <div class="meta">
+                                    <a class="ui teal label">ID: {{ application.node_ID }}</a>
+                                  
+                                  </div>
+                              
+                                  <div class="meta" style="margin-top: 5px;">
+                                    <a class="ui green label">{{ application.framework_version }}</a>
+                                   
+                                </div>
+                                
+                              
+                                  
+                              </div>
+                            <!-- extra field here -->
+                          </div>
+                    
+                          </label>
+                          
+                        </div>
+
+                        {% endfor %}
+                        
+                    </div>
+    
+                  
+                    </div>
+                    
+                    {% endif %}
+
+
+<br/>
+                <div class="container mt-4">
+                  <h4 style="color: white;">Database Hostname</h4>
+                  <div class="ui fluid action labeled input big">
+                    
+                    <div class="ui label aligned center ">
+                      https://
+                    </div>
+                      <input type="text" id="subdomain_domain_field" value="{{ internal_hostname }}" style="width:200px;" disabled>
+                      <div class="ui label aligned center">
+                        .database.pepperspice.co
+                      </div>
+                    </div>
+                  
+
+                </div>
+
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+
+                <div id="to_remove">
+                  <form method="post" id="formData2" enctype='text/plain' action="#">
+                    {% csrf_token %}
+                    
+                    <input type="hidden" name="linked_node_id" id="linked_node_id">
+                    <input type="hidden" name="database_hostname" id="database_hostname" value="{{ internal_hostname }}">
+                    <input type="hidden" name="db_engine" id="db_engine">
+                    <input type="hidden" name="db_name_form" id="db_name_form">
+                    <input type="hidden" name="db_name_form_version" id="db_name_form_version">
+                    <input type="hidden" name="load_type" id="load_type">
+                    <input type="hidden" name="link_to_app_id" id="link_to_app_id">
+                    <input type="hidden" name="_token2" value="{{ csrf_token }}">
+                    
+                
+                  </div>
+
+                <div class="ui centered grid">
+                
+                    
+                        <button class="ui big blue button" id="submit_db" type="submit">Create Database</button>
+                    
+                  
+                  </div>
+                </form>
+                
+           
+
+                
+</div>
+
+
+
+
+
+</div>
+
+
+<script>
+
+$(document).ready(function () {
+ 
+    $.ajax({
+   type: "POST",
+   url: '/dashboard/verify/payment/detail/' + '{{ request.user }}' + '/' + '{{ request_key }}' +'/',
+   data: {'r&w':'wuyfyw39ru89ww8ertsudyfx6ftruxybhw3rf'}, // serializes the form's elements.
+   success: function(data)
+   {
+   
+   if (data == 'match'){
+   $('#own_infra').attr('data-toggle','modal');
+    $('#own_infra').attr('data-target','#exampleModal');
+   }
+   else{
+     $("#exampleModal").remove();
+     $("#to_remove").remove();
+     $('#own_infra').attr('href','/dashboard/new/knot/');
+   }
+   }
+ });
+
+});
+
+    
+           
+</script>
+
+<script>
+
+function linknode(id){
+  window.node_id = id;
+}
+
+  $(document).ready(function (e) {
+    document.getElementById("submit_db").disabled=true;
+    $('#submit_db').addClass('loading');
+    document.getElementById("submit_db").style='opacity: 1 !important';
+    $('#db_name').on('keyup', function () {
+        var field1 = $("#db_name").val();
+
+        if (field1.length > 0) {
+            $('#submit_db').removeClass('loading');
+            document.getElementById("submit_db").disabled=false;
+    
+        } 
+        else {
+            document.getElementById("submit_db").disabled=true;
+            $('#submit_db').addClass('loading');
+
+        }
+    });});
+
+
+$('#submit_db').click(function(e) {
+  
+
+
+
+
+if ($('.theapplink').is(':checked')){
+  document.getElementById('linked_node_id').value = window.node_id;
+}
+else{
+  document.getElementById('linked_node_id').value ='';
+}
+  
+  
+  if(!$('#low_load_1').is(':checked') && !$('#medium_load_1').is(':checked') && !$('#high_load_1').is(':checked'))
+  {
+    e.preventDefault();
+    $('#alert').removeClass('imhidden');
+    $( ".writehere" ).attr('href','#load_options');
+    $( ".writehere" ).html( 'You haven\'t selected any Load Options' );
+    document.documentElement.scrollTop = 0;
+    $('#submit_db').removeClass('loading');
+    return false;
+  }
+
+  if(!$('#mysql').is(':checked') && !$('#postgresql').is(':checked') && !$('#mariadb').is(':checked') && !$('#sqlite').is(':checked'))
+  {
+    e.preventDefault();
+
+    $('#alert').removeClass('imhidden');
+    $( ".writehere" ).attr('href','#database_row');
+    $( ".writehere" ).html( 'Database Engine not selected.' );
+    document.documentElement.scrollTop = 0;
+    $('#submit_db').removeClass('loading');
+    return false;
+  }
+
+
+if($('#low_load_1').is(':checked')) { document.getElementById('load_type').value="low_load";}
+if($('#medium_load_1').is(':checked')) { document.getElementById('load_type').value="medium_load";}
+if($('#high_load_1').is(':checked')) { document.getElementById('load_type').value="high_load";}
+
+if($('#mysql').is(':checked')) {document.getElementById('db_engine').value="mysql";document.getElementById('db_name_form_version').value=document.getElementById("dropdown_mysql").options[document.getElementById("dropdown_mysql").selectedIndex].text;}
+if($('#postgresql').is(':checked')){document.getElementById('db_engine').value="postgresql";document.getElementById('db_name_form_version').value=document.getElementById('dropdown_postgresql').options[document.getElementById('dropdown_postgresql').selectedIndex].text;}
+if($('#mariadb').is(':checked')){document.getElementById('db_engine').value="mariadb";document.getElementById('db_name_form_version').value=document.getElementById('dropdown_mariadb').options[document.getElementById('dropdown_mariadb').selectedIndex].text;}
+if($('#sqlite').is(':checked')){document.getElementById('db_engine').value="sqlite";document.getElementById('db_name_form_version').value=document.getElementById("dropdown_sqlite").options[document.getElementById("dropdown_sqlite").selectedIndex].text;}
+document.getElementById('db_name_form').value=document.getElementById('db_name').value;
+
+
+var formData2 = $('#formData2').serialize();
+$('#prg').removeClass('hideprogress');
+
+
+
+var progressed = 0;
+  var interval = setInterval(function() {
+      progressed += 1;
+      $("#bar").width(progressed+"%");
+      if (progressed == 100){
+        $('#bar').addClass('bg-success');
+          clearInterval(interval);
+          window.location ='/dashboard/'
+      }
+  }, 300);
+
+                 $("#formData2").submit(function(e) {
+                  
+e.preventDefault(); // avoid to execute the actual submit of the form.
+$('#submit_db').addClass('loading');
+document.getElementById("submit_db").disabled=true;
+
+$.ajax({
+   type: "POST",
+   url: "/dashboard/new/db/send_data/create_db/",
+   data: formData2, // serializes the form's elements.
+   success: function(data)
+   {
+   console.log('success');
+   }
+ });
+});
+
+
+});
+</script>
+              
+  
+
+
+
+<style>
+
+.container {
+max-width: 900px;
+margin: 0 auto;
+}
+
+
+/**
+Component
+**/
+
+label {
+
+
+width: 100%;
+}
+
+.card-input-element {
+
+
+
+display: none;
+}
+
+.card-input {
+
+border-radius: 5px;
+margin: 10px;
+padding: 15px;
+}
+
+.card-input:hover {
+box-shadow: 0 0 1px 1px #2ecc71;
+cursor: pointer;
+}
+
+.card-input-element:checked + .card-input {
+background-color: #a4c5e7;
+box-shadow: 0 0 1px 1px #007FFF;
+}
+
+
+.card-input-element1 {
+
+
+
+display: none;
+}
+
+.card-input1 {
+box-shadow: 0 0 1px 1px #007FFF;
+border-radius: 5px;
+margin: 10px;
+padding: 15px;
+}
+
+.card-input1:hover {
+box-shadow: 0 0 1px 1px #2ecc71;
+cursor: pointer;
+}
+
+.card-input-element1:checked + .card-input1 {
+background-color: #a4c5e7;
+box-shadow: 0 0 1px 1px #007FFF;
+}
+
+
+
+.card-input-element2 {
+
+
+
+display: none;
+}
+
+.card-input2 {
+box-shadow: 0 0 1px 1px #007FFF;
+border-radius: 5px;
+margin: 10px;
+padding: 15px;
+}
+
+.card-input2:hover {
+box-shadow: 0 0 1px 1px #2ecc71;
+cursor: pointer;
+}
+
+.card-input-element2:checked + .card-input2 {
+background-color: #a4c5e7;
+box-shadow: 0 0 1px 1px #007FFF;
+}
+
+
+.card-input-element3 {
+
+
+
+display: none;
+}
+
+.card-input3 {
+box-shadow: 0 0 1px 1px #007FFF;
+border-radius: 5px;
+margin: 10px;
+padding: 15px;
+}
+
+.card-input3:hover {
+box-shadow: 0 0 1px 1px #2ecc71;
+cursor: pointer;
+}
+
+.card-input-element3:checked + .card-input3 {
+background-color: #a4c5e7;
+box-shadow: 0 0 1px 1px #007FFF;
+}
+
+
+.card-input-element6 {
+
+
+
+display: none;
+}
+
+.card-input6 {
+box-shadow: 0 0 1px 1px #007FFF;
+border-radius: 5px;
+margin: 10px;
+padding: 15px;
+}
+
+.card-input6:hover {
+box-shadow: 0 0 1px 1px #2ecc71;
+cursor: pointer;
+}
+
+.card-input-element6:checked + .card-input6 {
+background-color: #a4c5e7;
+box-shadow: 0 0 1px 1px #007FFF;
+}
+
+.card-input-element7 {
+
+
+
+display: none;
+}
+
+.card-input7 {
+box-shadow: 0 0 1px 1px #007FFF;
+border-radius: 5px;
+margin: 10px;
+padding: 15px;
+}
+
+.card-input7:hover {
+box-shadow: 0 0 1px 1px #2ecc71;
+cursor: pointer;
+}
+
+.card-input-element7:checked + .card-input7 {
+background-color: #a4c5e7;
+box-shadow: 0 0 1px 1px #007FFF;
+}
+
+
+
+
+
+.card-input-element8{
+
+
+
+display: none;
+}
+
+.card-input8 {
+
+box-shadow: 0 0 1px 1px #007FFF;
+border-radius: 5px;
+margin: 10px;
+padding: 15px;
+}
+
+.card-input8:hover {
+box-shadow: 0 0 1px 1px #2ecc71;
+cursor: pointer;
+}
+
+.card-input-element8:checked + .card-input8 {
+background-color: #a4c5e7;
+
+box-shadow: 0 0 1px 1px #007FFF;
+}
+</style>
+
+<style>
+  .custom-modal .modal-dialog {
+	position: absolute;
+	top: 0;
+    right: 0;
+    height: 130%;
+	bottom: 0;
+	left: 0;
+	max-width: none;
+	margin: 0;
+}
+
+.custom-modal .modal-content {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	border: 2px;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+      </style>
+ 
+    </div>
+
+
+
+
+
+{% endblock content %}

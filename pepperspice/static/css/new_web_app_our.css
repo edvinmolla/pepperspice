@@ -1,0 +1,237 @@
+
+body {
+    background: linear-gradient(-130deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradient 20s ease infinite;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  @keyframes gradient {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
+  
+  .container {
+    transform: scale(.9);
+    margin: 0 auto 0;
+    height: 100%;
+    max-width: 1024px;
+    display: flex;
+    align-items: center;
+    justify-content: cente;
+  }
+  
+  .card {
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+  
+  .pricing-title {
+    font-size: 30px;
+    margin-top: 0;
+  }
+  
+  .pricing-total,
+  .range-value {
+    font-size: 34px;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .pricing-total {
+    margin-bottom: 22px;
+  }
+  
+  .pricing-value {
+    margin-top: 2rem;
+    font-weight: 500;
+    color: #afbbc7;
+  }
+  
+  .range-value {
+    display: inline-block;
+    min-width: 90px;
+    padding: 0.5rem 1rem;
+    margin: 18px 0;
+    color: #a0aebd;
+    border: 2px solid #c1cad4;
+    border-radius: 6px;
+    background-color: #f7f8f9;
+  }
+  
+  .row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-right: -1rem;
+    margin-left: -1rem;
+  }
+  
+  .col {
+    flex-basis: 0;
+    flex-grow: 1;
+    width: 100%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 0 20px;
+    border-radius: 12px;
+    width: 100%;
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+    box-shadow: none;
+    background-color: #f6d961;
+    transition: background-color 200ms ease-in-out, box-shadow 160ms ease-in-out;
+  }
+  .btn:hover, .btn:focus {
+    background-color: #f3cd31;
+  }
+  .btn:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  .btn:active {
+    background-color: #f6d961;
+  }
+  .btn.btn-gray {
+    background-color: #ebeef1;
+  }
+  .btn.btn-gray:hover, .btn.btn-gray:focus {
+    background-color: #dce1e7;
+  }
+  .btn.btn-gray:active {
+    background-color: #ebeef1;
+  }
+  
+  [type="range"] {
+    -webkit-appearance: none;
+    background: transparent;
+    margin: 15px 0;
+    width: 100%;
+  }
+  [type="range"]::-moz-focus-outer {
+    border: 0;
+  }
+  [type="range"]:focus {
+    outline: 0;
+  }
+  [type="range"]:focus::-webkit-slider-runnable-track {
+    background: #f4f6f7;
+  }
+  [type="range"]:focus::-ms-fill-lower {
+    background: #ebeef1;
+  }
+  [type="range"]:focus::-ms-fill-upper {
+    background: #f4f6f7;
+  }
+  [type="range"]::-webkit-slider-runnable-track {
+    cursor: default;
+    height: 8px;
+    transition: all 0.2s ease;
+    width: 100%;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(13, 13, 13, 0.2);
+    background: #ebeef1;
+    border: 0 solid #ebeef1;
+    border-radius: 99px;
+  }
+  [type="range"]::-webkit-slider-thumb {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(13, 13, 13, 0.2);
+    background: #618ef6;
+    border: 0 solid #eceff1;
+    border-radius: 10px;
+    box-sizing: border-box;
+    cursor: default;
+    height: 30px;
+    width: 36px;
+    background-image: url("https://www.doodlemaths.com/wp-content/uploads/2019/04/9-dots-question-300x300.png");
+    background-size: 34%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -11px;
+  }
+  [type="range"]::-moz-range-track {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(13, 13, 13, 0.2);
+    cursor: default;
+    height: 8px;
+    transition: all 0.2s ease;
+    width: 100%;
+    background: #ebeef1;
+    border: 0 solid #ebeef1;
+    border-radius: 99px;
+    height: 4px;
+  }
+  [type="range"]::-moz-range-thumb {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(13, 13, 13, 0.2);
+    background: rgb(122, 158, 182);
+    border: 0 solid #eceff1;
+    border-radius: 10px;
+    box-sizing: border-box;
+    cursor: default;
+    height: 30px;
+    width: 36px;
+    background-image: url("https://www.doodlemaths.com/wp-content/uploads/2019/04/9-dots-question-300x300.png");
+    background-size: 34%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+  }
+  [type="range"]::-ms-track {
+    cursor: default;
+    height: 8px;
+    transition: all 0.2s ease;
+    width: 100%;
+    background: transparent;
+    border-color: transparent;
+    border-width: 15px 0;
+    color: transparent;
+  }
+  [type="range"]::-ms-fill-lower {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(13, 13, 13, 0.2);
+    background: #e2e6eb;
+    border: 0 solid #ebeef1;
+    border-radius: 198px;
+  }
+  [type="range"]::-ms-fill-upper {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(13, 13, 13, 0.2);
+    background: #ebeef1;
+    border: 0 solid #ebeef1;
+    border-radius: 198px;
+  }
+  [type="range"]::-ms-thumb {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(13, 13, 13, 0.2);
+    background: #f6d961;
+    border: 0 solid #eceff1;
+    border-radius: 10px;
+    box-sizing: border-box;
+    cursor: default;
+    height: 30px;
+    width: 36px;
+    background-image: url("https://www.doodlemaths.com/wp-content/uploads/2019/04/9-dots-question-300x300.png");
+    background-size: 34%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    margin-top: 2px;
+  }
+  [type="range"]:disabled::-webkit-slider-thumb, [type="range"]:disabled::-moz-range-thumb, [type="range"]:disabled::-ms-thumb, [type="range"]:disabled::-webkit-slider-runnable-track, [type="range"]:disabled::-ms-fill-lower, [type="range"]:disabled::-ms-fill-upper {
+    cursor: not-allowed;
+  }

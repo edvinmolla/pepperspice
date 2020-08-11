@@ -1,0 +1,168 @@
+
+<div class="modal fade modal-fullscreen  footer-to-bottom" id="myModalFullscreen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog animated fadeInDown">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+
+            </div>
+            <div class="modal-body">
+               
+                
+            
+              
+                <form class="ui form segment">
+                 <h2>Add payment method</h2>
+                  <div class="two fields">
+                    <div class="twelve wide field">
+                      <label>Card Number</label>
+                      <input placeholder="xxxx xxxx xxxx xxxx" name="name" type="text">
+                    </div>
+                    <div class="ui calendar" id="example7">
+                        <div class="ui input left icon">
+                          <i class="time icon"></i>
+                          <input type="text" placeholder="Time">
+                        </div>
+                      </div>
+                  </div>
+                  <div class="two fields">
+                    <div class="field">
+                      <label>Username</label>
+                      <input placeholder="Username" name="username" type="text">
+                    </div>
+                    <div class="field">
+                      <label>Password</label>
+                      <input type="password" name="password">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label>Skills</label>
+                    <select name="skills" multiple="" class="ui dropdown">
+                      <option value="">Select Skills</option>
+                      <option value="css">CSS</option>
+                      <option value="html">HTML</option>
+                      <option value="javascript">Javascript</option>
+                      <option value="design">Graphic Design</option>
+                      <option value="plumbing">Plumbing</option>
+                      <option value="mech">Mechanical Engineering</option>
+                      <option value="repair">Kitchen Repair</option>
+                    </select>
+                  </div>
+                  <div class="inline field">
+                    <div class="ui checkbox">
+                      <input type="checkbox" name="terms">
+                      <label>I agree to the terms and conditions</label>
+                    </div>
+                  </div>
+                  <div class="ui primary submit button">Submit</div>
+                  <div class="ui error message"></div>
+                </form>     
+                    
+              
+           
+                
+
+                  
+
+
+            </div>
+   
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+<script>
+
+    $('.ui.form')
+  .form({
+    fields: {
+      name: {
+        identifier: 'name',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter your name'
+          }
+        ]
+      },
+      skills: {
+        identifier: 'skills',
+        rules: [
+          {
+            type   : 'minCount[2]',
+            prompt : 'Please select at least two skills'
+          }
+        ]
+      },
+      gender: {
+        identifier: 'gender',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please select a gender'
+          }
+        ]
+      },
+      username: {
+        identifier: 'username',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter a username'
+          }
+        ]
+      },
+      password: {
+        identifier: 'password',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter a password'
+          },
+          {
+            type   : 'minLength[6]',
+            prompt : 'Your password must be at least {ruleValue} characters'
+          }
+        ]
+      },
+      terms: {
+        identifier: 'terms',
+        rules: [
+          {
+            type   : 'checked',
+            prompt : 'You must agree to the terms and conditions'
+          }
+        ]
+      }
+    }
+  })
+;
+
+    
+</script>
+<style>
+
+.modal{
+    position: absolute;
+    height: 70vh;
+  
+}
+.modal.modal-fullscreen .modal-dialog,
+.modal.modal-fullscreen .modal-content {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+</style>
+<script>
+    
+</script>

@@ -1,0 +1,191 @@
+{% if request.path == '/al/accounts/login/'  %}
+
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  {% load static %}
+  <title>Kycu | pepperspice</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'signin/style.css' %}">
+
+</head>
+<body>
+  <div class="row">
+   
+</div>
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-info fixed-top thisshi">
+    <div class="container">
+      <a class='navbar-brand page-scroll' href='/al/'>
+        <img src="{% static 'wallpapers_logos/universal/logo2white.png' %}" width="150px" height="25px">
+      </a>
+    <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+    
+    
+    <div class="collapse navbar-collapse" id="navbar4">
+
+    <ul class="navbar-nav ml-auto mt-3 mt-lg-0 txt">
+      <li class="nav-item"> 
+        Nuk ke llogari? <a href="/al/accounts/signup/" style="color: white;"><u>Regjistrohu</u></a> falas.</li>
+        <a href="/accounts/login/" style="margin-left: 15px;"><span class="flag-icon flag-icon-gb" title="English"></span></a>
+    </ul>
+    </div>
+    </div>
+    </nav>
+
+<section class="section-register-one-side">
+  <div class="mss-register-box">
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+    <div class="mss-register-box-white">
+      <p class="text-center" style="font-size: 30px;">Hyr ne llogarine personale</p>
+      <form class="mss-register-form" method="POST" action="">
+        
+          {% csrf_token %}
+          {% load crispy_forms_tags %}
+          {{ form|crispy}}
+        
+
+          <button type="submit" id="submitbtn" class="buttonload msc-btn msc-btn__block msc-btn__primary">Kycu<i class="fa fa-spinner fa-spin" id="spnr" style="margin-left: 5px;" hidden></i></button>
+
+      </form>
+    </div>
+
+	</div>
+</section>
+
+  
+</body>
+ <script>
+
+  $('#submitbtn').click(function() {
+    
+    $('#spnr').removeAttr("hidden");
+});
+</script>
+
+  <script>
+    $(document).click(function(e) {
+      if (!$(e.target).is('#navbar4')) {
+          $('.collapse').collapse('hide');	    
+        }
+    });
+  </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+{% else %}
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  {% load static %}
+  <title>Sign In atom8</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'signin/style.css' %}">
+
+</head>
+<body>
+  <div class="row">
+   
+</div>
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-info fixed-top thisshi">
+    <div class="container">
+      <a class='navbar-brand page-scroll' href='/'>
+        <img src="{% static 'wallpapers_logos/universal/logo2white.png' %}" width="150px" height="25px">
+      </a>
+    <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+    
+    
+    <div class="collapse navbar-collapse" id="navbar4">
+
+    <ul class="navbar-nav ml-auto mt-3 mt-lg-0 txt">
+      <li class="nav-item"> 
+        Don't have an account? <a href="/accounts/signup/" style="color: white;"><u>Sign Up</u></a> for free.</li>
+        <a href="/al/accounts/login/" style="margin-left: 15px;"><span class="flag-icon flag-icon-al" title="Shqip"></span></a>
+    </ul>
+    </div>
+    </div>
+    </nav>
+
+<section class="section-register-one-side">
+  <div class="mss-register-box">
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+    <div class="mss-register-box-white">
+      <p class="text-center" style="font-size: 30px;">Sign In</p>
+      <form class="mss-register-form" method="POST" action="">
+        
+          {% csrf_token %}
+          {% load crispy_forms_tags %}
+          {{ form|crispy}}
+        
+
+          <button type="submit" id="submitbtn" class="buttonload msc-btn msc-btn__block msc-btn__primary">Sign In<i class="fa fa-spinner fa-spin" id="spnr" style="margin-left: 5px;" hidden></i></button>
+
+      </form>
+    </div>
+
+	</div>
+</section>
+
+  
+</body>
+ <script>
+
+  $('#submitbtn').click(function() {
+    
+    $('#spnr').removeAttr("hidden");
+});
+</script>
+
+  <script>
+    $(document).click(function(e) {
+      if (!$(e.target).is('#navbar4')) {
+          $('.collapse').collapse('hide');	    
+        }
+    });
+  </script>
+</html>
+{% endif %}

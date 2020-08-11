@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Semantic-ui Sidebar</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.css'>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="ui top attached demo menu">
+  <a class="item">
+    <i class="sidebar icon"></i> Menu
+  </a>
+</div>
+<div class="ui bottom attached segment">
+  <div class="ui  labeled icon left inline vertical demo sidebar menu">
+    
+    <div id="sidebar-main" class="sidebar sidebar-default sidebar-separate sidebar-fixed">
+		<div class="sidebar-content">
+			
+		
+			<div class="sidebar-category sidebar-default">
+					<div class="category-title">
+						<span>Manage</span>
+					</div>
+				<div class="category-content">
+					<ul id="fruits-nav" class="nav flex-column">
+						<li class="nav-item">
+							<a href="/dashboard/" class="nav-link">
+								<i class="fa fa-server" style="color: #003d7d"></i>
+								Instances
+							</a>
+						</li>
+						
+						
+						
+						
+						
+						<li class="nav-item">
+							<a href="#other-new" class="nav-link" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="other-new">
+								<i class="fa fa-plus" style="color: #003d7d"></i>
+								New
+							</a>
+							<ul id="other-new" class="flex-column collapse">
+								<li class="nav-item">
+									<a href="/dashboard/new/db_instance/" class="nav-link">
+										<i class="fa fa-database" style="color: #003d7d"></i>
+										Database Node
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="/dashboard/new/mikro_instance/" class="nav-link">
+										<i class="fa fa-cloud" style="color: #003d7d"></i>
+										Mikro Node
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="/dashboard/new/web_app/" class="nav-link">
+										<i class="fa fa-window-restore" style="color: #003d7d"></i>
+										Web App Node
+									</a>
+								</li>
+								<li class="nav-item ">
+									<a href="/dashboard/new/spice_service/" class="nav-link">
+										<i class="fa fa-pepper-hot" style='color:#850505'></i>
+										SPICE Service
+									</a>
+								</li>
+							</ul>
+						
+						</li>
+						
+						
+
+
+
+						<li class="nav-item">
+							<a href="#other-network" class="nav-link" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="other-network">
+								<i class="fa fa-plug"  style="color: #003d7d"></i>
+								Network
+							</a>
+							<ul id="other-network" class="flex-column collapse">
+								<li class="nav-item">
+									<a href="/dashboard/network/firewall/" class="nav-link">
+										<i class="fa fa-fire-alt" style="color: #003d7d"></i>
+										Firewall
+									</a>
+								</li>
+								<li class="nav-item ">
+									<a href="/dashboard/network/domains/" class="nav-link">
+										<i class="fa fa-route" style="color: #003d7d"></i>
+										Domains
+									</a>
+								</li>
+							</ul>
+						
+						</li>
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						<li class="nav-item">
+							<a href="#other-security" class="nav-link" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="other-security">
+								<i class="fa fa-lock"  style="color: #003d7d"></i>
+								Security
+							</a>
+							<ul id="other-security" class="flex-column collapse">
+								<li class="nav-item">
+									<a href="/dashboard/security/monitoring/" class="nav-link">
+										<i class="fa fa-eye" style="color: #003d7d"></i>
+										Monitoring
+									</a>
+								</li>
+								<li class="nav-item ">
+									<a href="/dashboard/security/logs/" class="nav-link">
+										<i class="fa fa-edit" style="color: #003d7d"></i>
+										Logs
+									</a>
+								</li>
+								<li class="nav-item ">
+									<a href="/dashboard/security/profile/" class="nav-link">
+										<i class="fa fa-user-circle" style="color: #003d7d"></i>
+										Profile
+									</a>
+								</li>
+							</ul>
+						
+						</li>
+
+
+
+
+
+						<li class="nav-item">
+							<a href="#other-stages" class="nav-link" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="other-stages">
+								<i class="fas fa-tasks" style="color: #003d7d"></i>
+								Dev. Stages
+							</a>
+							<ul id="other-stages" class="flex-column collapse">
+								<li class="nav-item">
+									<a href="#" class="nav-link">
+										<i class="fas fa-brain" style="color: #003d7d"></i>
+
+										Brainstorm
+									</a>
+								</li>
+								<li class="nav-item ">
+									<a href="#" class="nav-link">
+										<i class="fab fa-dev" style="color: #003d7d"></i>
+										Development
+									</a>
+								</li>
+								<li class="nav-item ">
+									<a href="#" class="nav-link">
+										<i class="fa fa-check-circle" style="color: #003d7d"></i>
+										Testing
+									</a>
+								</li>
+								<li class="nav-item ">
+									<a href="#" class="nav-link">
+										<i class="fa fa-flag-checkered" style="color: #003d7d"></i>
+										Production
+									</a>
+								</li>
+							</ul>
+						
+						</li>
+
+
+
+
+
+
+
+					</ul>
+				
+				</div>
+	
+			</div>
+	
+			<div class="sidebar-category sidebar-default">
+					<div class="category-title">
+						<span>Maintenance</span>
+					</div>
+				<div class="category-content">
+					<ul id="sidebar-editable-nav" class="nav flex-column">
+						<li class="nav-item">
+							<a href="/admin/customers" class="nav-link">
+								<i class="fas fa-camera"  style="color: #003d7d"></i>
+								Snapshots
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/admin/resettest" class="nav-link">
+								<i class="fas fa-hdd"  style="color: #003d7d"></i>
+								Add Volume
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/admin/usersprofiles" class="nav-link">
+								<i class="fas fa-edit"  style="color: #003d7d"></i>
+								Config. Templates
+							</a>
+						</li>
+				
+					</ul>
+
+				</div>
+	
+			</div>
+
+
+
+			<div class="sidebar-category sidebar-default">
+				<div class="category-title">
+					<span>Community</span>
+				</div>
+			<div class="category-content">
+				<ul id="sidebar-editable-nav" class="nav flex-column">
+					<li class="nav-item">
+						<a href="/admin/customers" class="nav-link">
+							<i class="fas fa-file-alt"  style="color: #003d7d"></i>
+							Documentation
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="/admin/resettest" class="nav-link">
+							<i class="fas fa-graduation-cap"  style="color: #003d7d"></i>
+							Tutorials
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="/admin/usersprofiles" class="nav-link">
+							<i class="fas fa-chalkboard-teacher"  style="color: #003d7d"></i>
+							Examples
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="/admin/users" class="nav-link">
+							<i class="fas fa-table"  style="color: #003d7d"></i>
+							Templates
+						</a>
+					</li>
+			
+
+
+
+
+
+					
+				</ul>
+
+			</div>
+			
+
+		</div>
+		<div class="sidebar-category sidebar-default">
+			<div class="category-title">
+				<span>Community</span>
+			</div>
+		<div class="category-content">
+			<ul id="sidebar-editable-nav" class="nav flex-column">
+				<li class="nav-item">
+					<a href="/admin/customers" class="nav-link">
+						<i class="fas fa-file-alt"  style="color: #003d7d"></i>
+						Documentation
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="/admin/resettest" class="nav-link">
+						<i class="fas fa-graduation-cap"  style="color: #003d7d"></i>
+						Tutorials
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="/admin/usersprofiles" class="nav-link">
+						<i class="fas fa-chalkboard-teacher"  style="color: #003d7d"></i>
+						Examples
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="/admin/users" class="nav-link">
+						<i class="fas fa-table"  style="color: #003d7d"></i>
+						Templates
+					</a>
+				</li>
+		
+
+
+
+
+
+				
+			</ul>
+
+		</div>
+		
+
+	</div>
+
+
+		
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="pusher">
+    <div class="ui basic segment">
+      <h3 class="ui header">Application Content</h3>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js'></script>
+<script
+
+>$('.ui.sidebar').sidebar({
+    context: $('.bottom.segment')
+  })
+  .sidebar('attach events', '.menu .item');
+  </script>
+
+</body>
+<style>
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:500);
+
+
+ .sidebar-content {
+
+  border-radius: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+.category-title {
+  position: relative;
+  margin: 0;
+  padding: 12px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.sidebar-default .category-title {
+  border-bottom-color: #dee2e6;
+}
+.sidebar-default .category-title > span {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.75rem;
+}
+.sidebar-default .category-content .nav li > a {
+  color: black;
+}
+.sidebar-default .category-content .nav li > a.active, .sidebar.sidebar-default .category-content .nav li > a[aria-expanded="true"], .sidebar.sidebar-default .category-content .nav li > a:hover, .sidebar.sidebar-default .category-content .nav li > a:focus {
+  background-color: #f4f4f4;
+}
+ .category-content {
+  position: relative;
+}
+ .category-content .nav {
+  position: relative;
+  margin: 0;
+
+}
+ .category-content .nav li {
+  position: relative;
+  list-style: none;
+}
+ .category-content .nav li > a {
+  font-size: 0.875rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: background 0.15s linear, color 0.15s linear;
+}
+.category-content .nav li > a[data-toggle="collapse"] {
+  padding-right: 2rem;
+}
+ .category-content .nav li > a[data-toggle="collapse"]:after {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  display: block;
+  content: "\f105";
+  font-family: FontAwesome;
+  font-size: 1.5rem;
+  font-weight: normal;
+  transform: rotate(0deg);
+  transition: -webkit-transform 0.2s ease-in-out;
+}
+ .category-content .nav li > a[data-toggle="collapse"][aria-expanded="true"]:after {
+  transform: rotate(90deg);
+}
+.category-content .nav li > a > i {
+  float: left;
+  top: 0;
+  margin-top: 2px;
+  margin-right: 15px;
+  transition: opacity 0.2s ease-in-out;
+}
+ .category-content .nav li ul {
+  padding: 0;
+}
+ .category-content .nav li ul > li a {
+  padding-left: 2.75rem;
+}
+ .category-content .nav > li > a {
+  font-weight: 500;
+}
+
+@media {
+  .sidebar {
+  
+    display: table-cell;
+    vertical-align: top;
+
+    width: 230px;
+   
+  }
+  .sidebar.sidebar-fixed {
+    position: sticky;
+    top: 4.5rem;
+  }
+  .sidebar.sidebar-default .sidebar-category {
+    background-color: white;
+    color: black;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif !important;
+  }
+  .sidebar.sidebar-separate .sidebar-content {
+    box-shadow: none;
+  }
+  .sidebar.sidebar-separate .sidebar-category {
+    margin-bottom: 1.25rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 1px black;
+  }
+
+  .content-wrapper {
+    display: table-cell;
+  }
+}
+
+</style>
+</html>

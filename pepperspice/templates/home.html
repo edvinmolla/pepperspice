@@ -1,0 +1,433 @@
+<!-- {% block raw %}{% if user.is_authenticated %}
+  Hi {{ user.email }}!
+  <p><a href="{% url 'account_logout' %}">Log Out</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'account_login' %}">Log In</a> |
+  <a href="{% url 'account_signup' %}">Sign Up</a>
+{% endif %}{% endblock %} -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> PepperSpice - Welcome</title>
+  {% load static %}
+  {% include 'html/gen-comp/headers.html' %}
+  <link rel="stylesheet" type="text/css" href="{% static 'welcome/style.css' %}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+</head>
+<style>
+.thisthis {
+ /* background-image: url("https://cdn.dribbble.com/users/1803663/screenshots/11642671/media/d5c69a82283658c232b68cb96824ced3.jpg"); */
+background-image: url("{% static 'wallpapers_logos/welcome/back.jpg'%}");
+background-size:cover;
+background-position: inherit;
+background-repeat: no-repeat;
+background-position-y: -200px;
+opacity: 0.9;
+}
+.second-wall {
+  background-image: url("https://cdn.wallpaperhub.app/cloudcache/7/d/8/2/f/5/7d82f5a1a495dd6aad20b333d0c4eff454d142df.png");
+  background-repeat: no-repeat;
+}
+
+</style>
+<script>
+  $(document).ready(function() {
+  $('#first').css('-webkit-filter', 'blur(0px)')
+});
+</script>
+
+
+<body>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  
+  
+  
+<header id='first'>
+<style>
+  body {
+    overflow-x: hidden !important;
+  }
+  .bg-cover {
+    margin-top: 150px;
+    background: none;
+    background-attachment: static;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+    <div class="row m-1" >
+   
+      <div class="col-md-6">
+
+      <div class="jumbotron bg-cover" style="border-radius: 1px; background-image: url('https://images.unsplash.com/photo-1535868463750-c78d9543614f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80'); background-repeat: no-repeat; color: white !important;  ">
+        <div class="container">
+        <h1 class="display-4">one click</h1>
+        <p class="my-4">Use our simple toolset to deploy your Web Application fast,<br/> with one click. <br/>Deploy securely and always have redundant solutions.</p>
+
+        <br/>
+       
+
+          </div>
+      <!-- /.container   -->
+      </div>
+      </div>
+      
+      <div class="col-md-6">
+     
+      <div class="jumbotron bg-cover text-white" style="border-radius: 1px; background-image: url('https://images.unsplash.com/photo-1517374096549-0b818e3de484?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80'); background-repeat: no-repeat; color: white !important;">
+        <div class="container">
+        <h1 class="display-4">for everyone</h1>
+        <p class="my-4">Our platform can be used by everyone, <br/>people who don't have the time to deal with technicalities, <br/>and tech savvys who care about details.</p>
+  
+
+        <br/>
+
+          </div>
+      <!-- /.container   -->
+      </div>
+        
+      </div>
+      
+      </div>
+      <br/>
+      <br/>
+      <br/>
+
+      <h2 data-aos="fade-up" data-aos-duration="2000" class='wow fadeIn text-normal wow fadeIn' style="color:black;" data-aos-once="true">the fastest way for ideas, from your brain to the world</h2>
+      <br/>
+
+      <div class="box1 color-1" data-aos="fade-up" data-aos-duration="3000" data-aos-once="true"><a href=""></a><p class="p1">learn more</p></a></div>
+      <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+        .box1 {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  height: 100%;
+  border-color: black;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  
+}
+.p1 {
+  font-family: 'Poppins', sans-serif !important;
+  background: black;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+.p1:hover{
+  text-decoration: underline;
+}
+.color-1 {
+  background: hsl(var(--color-1-h), var(--color-1-s), var(--color-1-l))
+}
+
+      </style>
+    <!-- <div class='header-content thisthis'>
+      
+      <div class='inner'>
+        <br/>
+         
+        <br/>
+        <br/>
+         
+        <br/>
+        <br/>
+
+        
+        <br/>
+        <h1 data-aos="fade-down" data-aos-duration="2000" style="color:white;">one-click automation</h1>
+        <h5 data-aos="fade-up" data-aos-duration="2000" class='wow fadeIn text-normal wow fadeIn' style="color:white;">the fassadsdasdsdtest way for ideas, from your brain to the world</h5>
+        
+        <br/>
+        <a data-aos="fade-up" data-aos-once="true" data-aos-duration="3000" class="firstbutton wow btn btn-sm tatafirst text-normal" href="/signup/">Get Started</a>
+        
+        <br/>
+        
+        <br/>
+       <br/>
+       
+        <br/>
+      
+        
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+       
+        
+    
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        
+        <br/>
+        <br/>
+      </div>
+
+    </div> -->
+    
+  </header>
+
+  
+  
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light fixed-top thisshi">
+      
+      <div class="container"> 
+        
+        <a class='navbar-brand page-scroll' href='/'>
+
+          <img src="{% static 'wallpapers_logos/universal/logo2.png' %}" width="200px" height="45px">
+
+        </a>
+
+       
+
+        
+
+      <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
+   
+
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+    
+      
+      <div class="collapse navbar-collapse" id="navbar4">
+        <a class='nav-link' href='/services/' title='See services' style="color: black;">Services</a>
+        <a class='nav-link' href='/products/' title='See products' style="color: black;">Products</a>
+        <a class='nav-link' href='/pricing/' title='See pricing' style="color: black;">Pricing</a>
+        <a class='nav-link' href='/support/' title='See support' style="color: black;">Support</a>
+        <a class='nav-link' href='/examples/' title='See examples' style="color: black;">Examples</a>
+        
+     
+       
+      <ul class="navbar-nav ml-auto mt-3 mt-lg-0">
+        
+        
+        <!-- <button class="btn btn-sm btn-outline-primary tata">Sign Up
+        </button> -->
+        <a class="nav-link page-scroll btn btn-sm tata" href="{% url 'account_signup' %}">Sign Up</a>
+        <p style="margin: 5px;"></p>
+        <a class="nav-link page-scroll btn btn-sm tata1" href="{% url 'account_login' %}">Sign In</a>
+        
+        
+      
+     
+      </ul>
+
+      <a class='nav-link page-scroll pp' data-toggle='modal' href='#aboutModal' title='A free Bootstrap theme' style="font-size: 10px;">Privacy Policy</a>
+      <a href="/al/"><span class="flag-icon flag-icon-al" title="Shqip"></span></a>
+      </div>
+      
+      </div>
+      
+      </nav>
+ 
+
+<div class="second-wall">
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="text-center">
+  <h2 style="color:#ce203b;" data-aos="fade-down" data-aos-duration="1000" data-aos-once="true">Open Source Is Our Foundation</h1>
+</div>
+<br/>
+
+  <div class="d-flex justify-content-center align-items-center" >
+    <img data-aos="zoom-in" data-aos-once="true" class="col-1" data-aos-duration="1000" src='https://www.docker.com/sites/default/files/social/docker_facebook_share.png'>
+    <img data-aos="zoom-in" data-aos-once="true" class="col-1" data-aos-duration="1500" src='https://cdn.freebiesupply.com/logos/large/2x/angular-icon-1-logo-png-transparent.png'>
+    <img data-aos="zoom-in" data-aos-once="true" class="col-1" data-aos-duration="2000" src='https://kubernetes.io/images/favicon.png'>
+    <img data-aos="zoom-in" data-aos-once="true" class="col-1" data-aos-duration="2500" src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Ansible_logo.svg/1200px-Ansible_logo.svg.png'>
+    <img data-aos="zoom-in" data-aos-once="true" class="col-1" data-aos-duration="3000" src='https://blog.hlab.tech/wp-content/uploads/2018/10/LaravelLogo.png'>
+    <img data-aos="zoom-in" data-aos-once="true" class="col-1" data-aos-duration="3500" src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/540px-Npm-logo.svg.png'>
+
+
+  </div>
+
+
+
+  <section id='one'>
+    <div class='container wow fadeInUp'>
+      <h2 class="text-center">Frameworks</h2>
+      <p class='lead text-center'>
+        We currently support 
+        <a href='#' style="color: #ce203b;">Laravel</a>
+        and
+        <a href='' style="color: #ce203b;">Angular</a>
+        frameworks.
+      </p>
+      <br/>
+      <div class='card-group'>
+        <!-- card -->
+        <div class='card'>
+          <!-- <img alt='Card image cap' class='card-img-top img-fluid' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample13.jpg'> -->
+          <div class='card-block'>
+            <h4 class='card-title text-center'>easy-to-use</h4>
+            <p class='card-text text-center'>Innovative and personalized dashboard, introducing new UX/UI interfaces to comfort developers of every level.</p>
+          </div>
+        </div>
+        <!-- card -->
+        <div class='card'>
+          <!-- <img alt='Card image cap' class='card-img-top img-fluid' src='https://forum.manjaro.org/uploads/default/original/2X/e/e9de772076c8d234c331bef5cb744986c0cf023c.png'> -->
+          <div class='card-block'>
+            <h4 class='card-title text-center'>one-click automation</h4>
+            <p class='card-text text-center'>Easily launch automated builds on separate environments, whether you are developing, testing or going live.</p>
+          </div>
+        </div>
+        <!-- card -->
+        <div class='card'>
+          <!-- <img alt='Card image cap' class='card-img-top img-fluid' src='https://www.builtinaustin.com/sites/www.builtinaustin.com/files/blogs/2017/coders_code_ss.jpg'> -->
+          <div class='card-block'>
+            <h4 class='card-title text-center'>built for everyone</h4>
+            <p class='card-text text-center'>We empower everyone, from developers to non-tech people. Everyone should have the ability to improve their business.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  </section>
+  <section class='bg-alt' id='two'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-lg-12 text-center'>
+          <h2 class='mt-0 text-primary'>Perfect for SMB's</h2>
+          <hr class='primary'>
+        </div>
+      </div>
+    </div>
+    <div class='container wow fadeInUp'>
+      <div class='row'>
+        <div class='col-lg-4 col-md-4 text-center' data-aos="zoom-out-right" data-aos-duration="1000" data-aos-once="true">
+          <div class='feature'>
+            <i class='icon-lg ion-ios-grid-view-outline wow fadeIn' data-wow-delay='.1s'></i>
+            <h6 class='text-uppercase'>Robust</h6>
+            <p class='text-muted m-b-0'>
+              We value Open Source, thus, we use a variety of different platforms such as Docker, Kubernetes and Ansible to power our infrastructure.
+            </p>
+          </div>
+        </div>
+        <div class='col-lg-4 col-md-4 text-center' data-aos="zoom-out" data-aos-duration="1000" data-aos-once="true">
+          <div class='feature'>
+            <i class='icon-lg ion-social-sass wow fadeInUp'></i>
+            <h6 class='text-uppercase'>SIMPLE</h6>
+            <p class='text-muted m-b-0'>Our UI is simple for people in a hurry who want to get work done, but  also flexible and scalable, offering a great toolset at your disposal.</p>
+          </div>
+        </div>
+        <div class='col-lg-4 col-md-4 text-center' data-aos="zoom-out-left" data-aos-duration="1000" data-aos-once="true">
+          <div class='feature'>
+            <i class='icon-lg ion-social-css3-outline wow fadeIn' data-wow-delay='.1s'></i>
+            <h6 class='text-uppercase'>Modern</h6>
+            <p class='text-muted m-b-0'>
+              We use AI to handle common building errors and package injections, easy-to-use CI/CD playbooks and great scalability for any need.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside class='bg-alt lastfoot'>
+    <div class='container text-center '>
+      <h2 data-aos="zoom-out" data-aos-duration="1000" data-aos-once="true" class='wow fadeIn text-normal wow fadeIn here' style="color: white">We aim to connect developers and infrastructures through innovative and hassle free methods</h2>
+      <hr class='primary'>
+      <div class='row wow fadeInUp'>
+        <div class='col-md-3 col-sm-6 col-12'>
+          <h3 style="color:white"></h3>
+          <i class='icon-lg ion-ios-pulse wow pulse'></i>
+        </div>
+        <div class='col-md-3 col-sm-6 col-12 '>
+          <h3 style="color: white">Coding</h3>
+          <i class='icon-lg ion-ios-location-outline wow pulse'></i>
+          <h1 class='text-primary nr1'>99</h1>
+        </div>
+        <div class='col-md-3 col-sm-6 col-12'>
+          <h3 style="color:white">Deploying</h3>
+          <i class='icon-lg ion-ios-pulse wow pulse'></i>
+          <h1 class='text-primary nr2'>1%</h1>
+        </div>
+        <div class='col-md-3 col-sm-6 col-12'>
+          <h3 style="color:white"></h3>
+          <i class='icon-lg ion-ios-pulse wow pulse'></i>
+        </div>
+       
+      </div>
+      <hr>
+      <br>
+    </div>
+  
+  
+  </aside>
+
+
+  <aside class='bg-alt'>
+    <div class='container text-center'>
+      <div class='call-to-action'>
+        <h2 class='text-primary'>Try It for free</h2>
+        <a class='btn btn-primary-outline btn-lg wow flipInX text-uppercase hupalupa' href="{% url 'account_signup' %}">SIGN UP</a>
+      </div>
+    </div>
+  </aside>
+
+  
+</body>
+
+{% include 'html/gen-comp/footer.html' %}
+
+<script>
+$(window).scroll(testScroll);
+var viewed = false;
+
+function isScrolledIntoView(elem) {
+var docViewTop = $(window).scrollTop();
+var docViewBottom = docViewTop + $(window).height();
+
+var elemTop = $(elem).offset().top;
+var elemBottom = elemTop + $(elem).height();
+
+return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+function testScroll() {
+  if (isScrolledIntoView($(".here")) && !viewed) {
+      viewed = true;
+      $('.nr1').each(function () {
+      $(this).prop('Counter',0).animate({
+          Counter: $(this).text()
+      }, {
+          duration: 4000,
+          easing: 'swing',
+          step: function (now) {
+              $(this).text(Math.ceil(now) + "%");
+          }
+      });
+    });
+  }
+}
+</script>
+<script>
+    $(document).click(function(e) {
+      if (!$(e.target).is('#navbar4')) {
+          $('.collapse').collapse('hide');	    
+        }
+    });
+</script>
+</html>

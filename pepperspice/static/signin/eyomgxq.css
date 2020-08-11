@@ -1,0 +1,136 @@
+.demo {
+  margin: 0 auto;
+  max-width: 960px;
+  font-family: sans-serif;
+  &-inner {
+    position: relative;
+    padding: 50px;
+  }
+  &-body {
+    position: relative;
+    border: 1px solid #009688;
+    border-top: none;
+    padding: 30px;
+    &:first-child {
+      border-top: 1px solid #009688;
+    }
+  }
+  &-header {
+    position: absolute;
+    top: -10px;
+    left: 30px;
+    background: #fff;
+    padding: 0 3px;
+    display: inline-block;
+  }
+  &-row {
+    display: flex;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: 40px;
+    justify-content: space-between;
+  }
+  &-col {
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-grow: 1;
+    max-width: 40%;
+  }
+}
+/*
+1. BREAKPOINTS: https://codepen.io/luckyluu/pen/ZEzxLxR
+2. COLORS: https://codepen.io/luckyluu/pen/bGbLzXe
+*/
+
+$font-size-base: 1rem;
+$san-serif: Arial, sans-serif;
+$serif: 'Times New Roman', Times, serif;
+$monospace: Inconsolata, monospace;
+
+html {
+  font-size: 1rem;
+}
+
+body {
+  color: $color-primary-text;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  font-family: $san-serif;
+}
+img {
+  max-width: 100%;
+}
+a {
+  color: $color-link;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+}
+a:hover {
+  color: $color-link-hover;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+h1,
+.heading1 {
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  @media (max-width: $breakpoint-xs) {
+    font-size: 2rem;
+  }
+}
+h2,
+.heading2 {
+  font-size: 2.5rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  @media (max-width: $breakpoint-xs) {
+    font-size: 1.8rem;
+  }
+}
+h3,
+.heading3 {
+  font-size: 2.2rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  @media (max-width: $breakpoint-xs) {
+    font-size: 1.6rem;
+  }
+}
+h4,
+.heading4 {
+  font-size: 1.8rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  @media (max-width: $breakpoint-xs) {
+    font-size: 1.4rem;
+  }
+}
+h5,
+.heading5 {
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  @media (max-width: $breakpoint-xs) {
+    font-size: 1.1rem;
+  }
+}
+h6,
+.heading6 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: rgba(0,0,0,.7);
+  font-weight: bold;
+}

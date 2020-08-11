@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> PepperSpice - Welcome</title>
+  {% load static %}
+  {% include 'gen-comp/headers.html' %}
+  <link rel="stylesheet" type="text/css" href="{% static 'welcome/style.css' %}">
+  
+</head>
+<style>
+.thisthis {
+ /* background-image: url("https://cdn.dribbble.com/users/1803663/screenshots/11642671/media/d5c69a82283658c232b68cb96824ced3.jpg"); */
+background-image: url("{% static 'wallpapers_logos/welcome/back.jpg'%}");
+background-size:cover;
+background-position: inherit;
+background-repeat: no-repeat;
+background-position-y: -200px;
+opacity: 0.9;
+}
+.second-wall {
+  background-image: url("https://cdn.wallpaperhub.app/cloudcache/7/d/8/2/f/5/7d82f5a1a495dd6aad20b333d0c4eff454d142df.png");
+  background-repeat: no-repeat;
+}
+
+</style>
+<script>
+  $(document).ready(function() {
+  $('#first').css('-webkit-filter', 'blur(0px)')
+});
+</script>
+
+
+<body>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <header id='first'>
+    
+    <div class='header-content thisthis'>
+      
+      <div class='inner'>
+        <br/>
+         
+        <br/>
+        <br/>
+         
+        <br/>
+        <br/>
+
+        
+        <br/>
+     {% block content %}{% endblock content %}
+        <br/>
+        
+        <br/>
+       <br/>
+       
+        <br/>
+      
+        
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+       
+        
+    
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        
+        <br/>
+        <br/>
+      </div>
+
+    </div>
+    
+  </header>
+
+  
+  
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light fixed-top thisshi">
+      
+      <div class="container"> 
+        <a class='navbar-brand page-scroll' href='/'>
+
+          <img src="{% static 'wallpapers_logos/universal/logo2.png' %}" width="200px" height="45px">
+
+        </a>
+
+       
+
+        
+
+      <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
+   
+
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+    
+      
+      <div class="collapse navbar-collapse" id="navbar4">
+        <a class='nav-link page-scroll' data-toggle='modal' href='#aboutModal' title='A free Bootstrap theme' style="color: black;">Services</a>
+        <a class='nav-link page-scroll' data-toggle='modal' href='#aboutModal' title='A free Bootstrap theme' style="color: black;">Products</a>
+        <a class='nav-link page-scroll' data-toggle='modal' href='#aboutModal' title='A free Bootstrap theme' style="color: black;">Pricing</a>
+        <a class='nav-link page-scroll' data-toggle='modal' href='#aboutModal' title='A free Bootstrap theme' style="color: black;">Support</a>
+        <a class='nav-link page-scroll' data-toggle='modal' href='#aboutModal' title='A free Bootstrap theme' style="color: black;">Examples</a>
+        
+     
+       
+      <ul class="navbar-nav ml-auto mt-3 mt-lg-0">
+        
+        
+        <!-- <button class="btn btn-sm btn-outline-primary tata">Sign Up
+        </button> -->
+        <a class="nav-link page-scroll btn btn-sm tata" href="/signup/">Sign Up</a>
+        <p style="margin: 5px;"></p>
+        <a class="nav-link page-scroll btn btn-sm tata1" href="/signin/">Sign In</a>
+        
+        
+      
+     
+      </ul>
+
+      <a class='nav-link page-scroll pp' data-toggle='modal' href='#aboutModal' title='A free Bootstrap theme' style="font-size: 10px;">Privacy Policy</a>
+      </div>
+      
+      </div>
+      
+      </nav>
+ 
+
+<div class="second-wall">
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="text-center">
+  <h2 style="color:#ce203b;" data-aos="fade-down" data-aos-duration="1000" data-aos-once="true">Open Source Is Our Foundation</h1>
+</div>
+<br/>
+
+  <div class="d-flex justify-content-center align-items-center" >
+    <img data-aos="zoom-in" data-aos-once="true" class="col-1" data-aos-duration="1000" src='https://www.docker.com/sites/default/files/social/docker_facebook_share.png'>
+    <img data-aos="zoom-in" data-aos-once="true" class="col-1" data-aos-duration="1500" src='https://cdn.freebiesupply.com/logos/large/2x/angular-icon-1-logo-png-transparent.png'>
+    <img data-aos="zoom-in" data-aos-once="true" class="col-1" data-aos-duration="2000" src='https://kubernetes.io/images/favicon.png'>
+    <img data-aos="zoom-in" data-aos-once="true" class="col-1" data-aos-duration="2500" src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Ansible_logo.svg/1200px-Ansible_logo.svg.png'>
+    <img data-aos="zoom-in" data-aos-once="true" class="col-1" data-aos-duration="3000" src='https://blog.hlab.tech/wp-content/uploads/2018/10/LaravelLogo.png'>
+    <img data-aos="zoom-in" data-aos-once="true" class="col-1" data-aos-duration="3500" src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/540px-Npm-logo.svg.png'>
+
+
+  </div>
+
+
+
+  <section id='one'>
+    <div class='container wow fadeInUp'>
+      <h2 class="text-center">Frameworks</h2>
+      <p class='lead text-center'>
+        We currently support 
+        <a href='#' style="color: #ce203b;">Laravel</a>
+        and
+        <a href='' style="color: #ce203b;">Angular</a>
+        frameworks.
+      </p>
+      <br/>
+      <div class='card-group'>
+        <!-- card -->
+        <div class='card'>
+          <!-- <img alt='Card image cap' class='card-img-top img-fluid' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample13.jpg'> -->
+          <div class='card-block'>
+            <h4 class='card-title text-center'>easy-to-use</h4>
+            <p class='card-text text-center'>Innovative and personalized dashboard, introducing new UX/UI interfaces to comfort developers of every level.</p>
+          </div>
+        </div>
+        <!-- card -->
+        <div class='card'>
+          <!-- <img alt='Card image cap' class='card-img-top img-fluid' src='https://forum.manjaro.org/uploads/default/original/2X/e/e9de772076c8d234c331bef5cb744986c0cf023c.png'> -->
+          <div class='card-block'>
+            <h4 class='card-title text-center'>one-click automation</h4>
+            <p class='card-text text-center'>Easily launch automated builds on separate environments, whether you are developing, testing or going live.</p>
+          </div>
+        </div>
+        <!-- card -->
+        <div class='card'>
+          <!-- <img alt='Card image cap' class='card-img-top img-fluid' src='https://www.builtinaustin.com/sites/www.builtinaustin.com/files/blogs/2017/coders_code_ss.jpg'> -->
+          <div class='card-block'>
+            <h4 class='card-title text-center'>built for everyone</h4>
+            <p class='card-text text-center'>We empower everyone, from developers to non-tech people. Everyone should have the ability to improve their business.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  </section>
+  <section class='bg-alt' id='two'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-lg-12 text-center'>
+          <h2 class='mt-0 text-primary'>Perfect for SMB's</h2>
+          <hr class='primary'>
+        </div>
+      </div>
+    </div>
+    <div class='container wow fadeInUp'>
+      <div class='row'>
+        <div class='col-lg-4 col-md-4 text-center' data-aos="zoom-out-right" data-aos-duration="1000" data-aos-once="true">
+          <div class='feature'>
+            <i class='icon-lg ion-ios-grid-view-outline wow fadeIn' data-wow-delay='.1s'></i>
+            <h6 class='text-uppercase'>Robust</h6>
+            <p class='text-muted m-b-0'>
+              We value Open Source, thus, we use a variety of different platforms such as Docker, Kubernetes and Ansible to power our infrastructure.
+            </p>
+          </div>
+        </div>
+        <div class='col-lg-4 col-md-4 text-center' data-aos="zoom-out" data-aos-duration="1000" data-aos-once="true">
+          <div class='feature'>
+            <i class='icon-lg ion-social-sass wow fadeInUp'></i>
+            <h6 class='text-uppercase'>SIMPLE</h6>
+            <p class='text-muted m-b-0'>Our UI is simple for people in a hurry who want to get work done, but  also flexible and scalable, offering a great toolset at your disposal.</p>
+          </div>
+        </div>
+        <div class='col-lg-4 col-md-4 text-center' data-aos="zoom-out-left" data-aos-duration="1000" data-aos-once="true">
+          <div class='feature'>
+            <i class='icon-lg ion-social-css3-outline wow fadeIn' data-wow-delay='.1s'></i>
+            <h6 class='text-uppercase'>Modern</h6>
+            <p class='text-muted m-b-0'>
+              We use AI to handle common building errors and package injections, easy-to-use CI/CD playbooks and great scalability for any need.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside class='bg-alt lastfoot'>
+    <div class='container text-center '>
+      <h2 data-aos="zoom-out" data-aos-duration="1000" data-aos-once="true" class='wow fadeIn text-normal wow fadeIn here' style="color: white">We aim to connect developers and infrastructures through innovative and hassle free methods</h2>
+      <hr class='primary'>
+      <div class='row wow fadeInUp'>
+        <div class='col-md-3 col-sm-6 col-12 text-center'>
+          <h3></h3>
+          <i class='icon-lg ion-ios-speedometer-outline wow pulse'></i>
+          <h1 class='text-primary'></h1>
+        </div>
+        <div class='col-md-3 col-sm-6 col-12 text-center'>
+          <h3 style="color: white">Coding</h3>
+          <i class='icon-lg ion-ios-location-outline wow pulse'></i>
+          <h1 class='text-primary nr1'>99</h1>
+        </div>
+        <div class='col-md-3 col-sm-6 col-12 text-center'>
+          <h3 style="color:white">Deploying</h3>
+          <i class='icon-lg ion-ios-pulse wow pulse'></i>
+          <h1 class='text-primary nr2'>1%</h1>
+        </div>
+        <div class='col-md-3 col-sm-6 col-12 text-center'>
+          <h3></h3>
+          <i class='icon-lg ion-ios-game-controller-b-outline wow pulse'></i>
+          <h1 class='text-primary'></h1>
+        </div>
+      </div>
+      <hr>
+      <br>
+    </div>
+  
+  
+
+
+
+  <aside class='bg-alt'>
+    <div class='container text-center'>
+      <div class='call-to-action'>
+        <h2 class='text-primary'>Try It for free</h2>
+        <a class='btn btn-primary-outline btn-lg wow flipInX text-uppercase hupalupa' href='/signup/'>SIGN UP</a>
+      </div>
+    </div>
+  </aside>
+
+</body>
+  <footer id='footer'>
+    <div class='container'>
+      <div class='row'>
+        
+
+        <div class='col-6 col-sm-3'>
+          <h6 class='text-uppercase' style="color:#007FFF;">Products</h6>
+          <ul class='list-unstyled'>
+            
+            <li>
+              <a class="footertext" href='https://medium.com/@bootply/bootstrap-4-whats-new-visual-guide-c84dd81d8387' target='ext'>SPICE<sup><span>&#174;</span></sup></a>
+            </li>
+            <li>
+              <a class="footertext" href='https://medium.com/@bootply/bootstrap-4-whats-new-visual-guide-c84dd81d8387' target='ext'>What's New</a>
+            </li>
+            <li>
+              <a class="footertext" href='http://codeply.com/tagged/bootstrap-4' target='ext'>Documentation</a>
+            </li>
+            <li>
+              <a class="footertext" href='https://getbootstrap.com' target='ext'>Tutorials</a>
+            </li>
+            <li>
+              <a class="footertext" href='http://www.codeply.com/go/p/bootstrap_4.0.alpha' target='ext'>Upcoming</a>
+            </li>
+          </ul>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class='col-6 col-sm-3 column'>
+          <h6 class='text-uppercase' style="color:rgb(28, 102, 238);">About</h6>
+          <ul class='list-unstyled'>
+            <li>
+              <a class="footertext" href='#'>Contact Us</a>
+            </li>
+            <li>
+              <a class="footertext" href='#'>Delivery Information</a>
+            </li>
+            <li>
+              <a class="footertext" href='#'>Privacy Policy</a>
+            </li>
+            <li>
+              <a class="footertext" href='#'>Terms &amp; Conditions</a>
+            </li>
+          </ul>
+        </div>
+        
+        
+        
+        
+        <div class='col-6 col-sm-3 column'>
+          <h6 class='text-uppercase' style="color:#007FFF;">Future</h6>
+          <ul class='list-unstyled'>
+            <li>
+            <a class="footertext" href='#'>Features</a>
+            </li>
+            <li>
+            <a class="footertext" href='#'>Development</a>
+            </li>
+            <li>
+            <a class="footertext" href='#'>Contribute</a>
+            </li>
+          </ul>
+          </div>
+        
+        
+      
+       
+        <div class='col-12 col-sm-3 text-right'>
+          <h6 class='text-uppercase' style="color:#007FFF;">Follow</h6>
+          <ul class='list-inline'>
+            <li class='list-inline-item'><a href='' rel='nofollow' title='Twitter'>
+                <i class='icon-lg ion-social-twitter-outline'></i>
+              </a> 
+            </li>
+            <li class='list-inline-item'>
+              <a href='' rel='nofollow' title='Facebook'>
+                <i class='icon-lg ion-social-facebook-outline'></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+
+      </div>
+      <br>
+      <span class='float-right text-muted small'>
+        ©2020 atom8
+      </span>
+    </div>
+  </footer>
+
+<script>
+$(window).scroll(testScroll);
+var viewed = false;
+
+function isScrolledIntoView(elem) {
+var docViewTop = $(window).scrollTop();
+var docViewBottom = docViewTop + $(window).height();
+
+var elemTop = $(elem).offset().top;
+var elemBottom = elemTop + $(elem).height();
+
+return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+function testScroll() {
+  if (isScrolledIntoView($(".here")) && !viewed) {
+      viewed = true;
+      $('.nr1').each(function () {
+      $(this).prop('Counter',0).animate({
+          Counter: $(this).text()
+      }, {
+          duration: 4000,
+          easing: 'swing',
+          step: function (now) {
+              $(this).text(Math.ceil(now) + "%");
+          }
+      });
+    });
+  }
+}
+</script>
+</html>

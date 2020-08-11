@@ -1,0 +1,326 @@
+/*-----------------------------
+# IMPORTS
+
+- COLORS: https://codepen.io/luckyluu/pen/bGbLzXe
+- BREAKPOINTS: https://codepen.io/luckyluu/pen/ZEzxLxR
+----------------------------- */
+img {max-width: 100%;}
+* {margin: 0; padding: 0; box-sizing: border-box;}
+.demo {
+  margin: 0 auto;
+  max-width: 960px;
+  font-family: sans-serif;
+  &-inner {
+    position: relative;
+    padding: 50px;
+  }
+  &-body {
+    position: relative;
+    border: 1px solid #009688;
+    border-top: none;
+    padding: 30px;
+    &:first-child {
+      border-top: 1px solid #009688;
+    }
+  }
+  &-header {
+    position: absolute;
+    top: -10px;
+    left: 30px;
+    background: #fff;
+    padding: 0 3px;
+    display: inline-block;
+    font-weight: bold;
+    color: #009688;
+    text-transform: uppercase;
+  }
+  &-row {
+    display: flex;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: 40px;
+    justify-content: space-between;
+  }
+  &-col {
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-grow: 1;
+    max-width: 40%;
+  }
+}
+
+
+/*-----------------------------
+# [Media Visibility Utils]
+----------------------------- */
+@media(max-width: $breakpoint-xs){
+  .hidden-xs {
+    display: none;
+  }
+}
+/* List - Text - Link
+-------------------------------------------------------------- */
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="email"] {
+
+}
+input[type="text"],
+input[type="button"],
+input[type="number"],
+input[type="email"],
+input[type="email"],
+input[type="submit"],
+input[type="password"],
+input[type="passwords"],
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+dl {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap
+}
+dt {
+  flex-basis: 30%;
+  min-width: 30%;
+  padding-right: 5%;
+  margin: 0;
+  padding-top: 15px;
+  margin-bottom: 15px;
+  border-top: 1px dotted #e1e3ea;
+  text-align: right;
+}
+dd {
+  padding: 0;
+  margin: 0;
+  padding-top: 15px;
+  margin-bottom: 15px;
+  border-top: 1px dotted #e1e3ea;
+  flex-basis: 65%;
+  min-width: 65%;
+}
+
+hr {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #e1e3ea;
+  border-bottom: 1px solid #ffffff;
+}
+/* List - Text - Link -------------------------------------------------------------- */
+/* Select
+-------------------------------------------------------------- */
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: $muted;
+  opacity: 1;
+  font-size: inherit;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: $muted;
+  opacity: 1;
+  font-size: inherit;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: $muted;
+  opacity: 1;
+  font-size: inherit;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: $muted;
+  opacity: 1;
+  font-size: inherit;
+}
+::selection {
+  background: $color-primary;
+  /* Safari */
+  color: #fff;
+}
+::-moz-selection {
+  background: $color-primary;
+  /* Firefox */
+  color: #fff;
+}
+img::selection {
+  background: transparent;
+}
+img::-moz-selection {
+  background: transparent;
+}
+
+/* Select-------------------------------------------------------------- */
+/* MISC 
+-------------------------------------------------------------- */
+.pl-1r { padding-left: 1rem; }
+.pl-2r { padding-left: 2rem; }
+.pl-3r { padding-left: 3rem; }
+.pl-4r { padding-left: 4rem; }
+.pr-1r { padding-right: 1rem; }
+.pr-2r { padding-right: 2rem; }
+.pr-3r { padding-right: 3rem; }
+.pr-4r { padding-right: 4rem; }
+.pt-1r { padding-top: 1rem; }
+.pt-2r { padding-top: 2rem; }
+.pt-3r { padding-top: 3rem; }
+.pt-4r { padding-top: 4rem; }
+.pb-1r { padding-bottom: 1rem; }
+.pb-2r { padding-bottom: 2rem; }
+.pb-3r { padding-bottom: 3rem; }
+.pb-4r { padding-bottom: 4rem; }
+.p-1r { padding: 1rem; }
+.p-2r { padding: 2rem; }
+.p-3r { padding: 3rem; }
+.p-4r { padding: 4rem; }
+.p-5r { padding: 5rem; }
+.p-6r { padding: 6rem; }
+.p-0 { padding: 0 !important; }
+.mb-1r { margin-bottom: 1rem; }
+.mb-2r { margin-bottom: 2rem; }
+.mb-3r { margin-bottom: 3rem; }
+.mb-4r { margin-bottom: 4rem; }
+.mt-1r { margin-top: 1rem; }
+.mt-2r { margin-top: 2rem; }
+.mt-3r { margin-top: 3rem; }
+.mt-4r { margin-top: 4rem; }
+figure img {
+  display: block;
+}
+
+.figure,
+figure {
+  overflow: hidden;
+}
+.figure img {
+  height: 100%;
+  max-width: none;
+}
+.figure,
+figure {
+  text-align: center;
+  display: block;
+}
+.figure-2 {
+  display: block;
+  overflow: hidden;
+}
+.figure-2 img {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+.figure-2 span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.figure-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.figure-3 img {
+  min-height: 0;
+  max-height: 100%;
+  display: inline;
+}
+.reset {
+  margin-bottom: 0;
+}
+.reset td {
+  padding: 0;
+}
+table.reset {
+  width: 100%;
+}
+table.reset tr td {
+  vertical-align: top;
+  padding: 0 10px 5px 0;
+  text-align: left;
+}
+.overhidden {
+  overflow: hidden;
+}
+.muted {
+  color: $muted;
+}
+.color {
+  color: $color-primary !important;
+}
+.link {
+  color: $color-link;
+}
+hr {
+  &.dotted {
+    border-top: 1px dotted $color-border;
+  }
+  &.dashed {
+    border-top: 1px dashed $color-border;
+  }
+}
+img {
+  &.align-left {
+    float: left;
+    margin: 8px 20px 10px 0;
+  } 
+  &.align-right {
+    float: right;
+  }
+  &.align-center {
+    margin: 0px auto;  
+  }
+}
+
+.align-left {
+  text-align: left !important;
+}
+.align-right {
+  text-align: right!important;
+}
+.align-center {
+  text-align: center !important;
+}
+.justify-content-end {
+  justify-content: flex-end;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.common-lead {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+.common-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  a {
+    display: block;
+    padding: 0 10px;
+    text-decoration: none;
+    color: #333;
+  }
+}
+/* MISC --------------------------------------------- */

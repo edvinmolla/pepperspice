@@ -1,0 +1,178 @@
+
+<div class="chart">
+<canvas id="myChart"></canvas>
+</div>
+
+
+
+<style>
+
+
+h2{
+  color: #777;
+  font-size: 1.3em
+}
+a{text-decoration: none;}
+li{display: inline;}
+
+canvas{
+  max-width:450px;
+  height: 230px;
+  width: 40vw;
+}
+
+.logo{
+  font-size: 4em;
+  margin-top:20px;
+  color: #f0c011;
+}
+.rates{
+  margin: 20px;
+  font-size: 1.25em;
+}
+.currencies i{
+  color: steelblue;
+  font-size: 1.5em;
+  margin: 0 10px;
+}
+
+.currencies i:hover{
+  color:black;
+  cursor: pointer;
+}
+.footer{
+  margin-top: 80px;
+  margin-bottom: 20px;
+  color: #777;
+  font-size: 0.75em;
+}
+#btc-price{
+  color: green;
+  font-weight: bold;
+}
+
+
+</style>
+
+<script>
+    let btn = document.querySelector(".btn"),
+    usdButton = document.querySelector("#usd-button"),
+    eurButton = document.querySelector("#eur-button"),
+    gbpButton = document.querySelector("#gbp-button"),
+    currency = "USD",
+    rateDisplay = document.querySelector("#btc-price");
+
+getRate("USD");
+getHistorical("USD");
+
+
+
+function getRate(code){
+  let XHR = new XMLHttpRequest();
+  let url = "https://api.coindesk.com/v1/bpi/currentprice.json";
+  
+  XHR.onreadystatechange = function(){
+    if(XHR.readyState == 4 && XHR.status == 200){
+       let data = JSON.parse(XHR.responseText);
+       let rate = (data.bpi[code].rate);     
+       rateDisplay.innerHTML = rate + " " + code;
+    }   
+  }
+  XHR.open("GET", url);
+  XHR.send();
+}
+
+function getHistorical(code){
+  
+  let XHR = new XMLHttpRequest();
+  let url= "https://api.coindesk.com/v1/bpi/historical/close.json?currency=" + code;
+
+  XHR.onreadystatechange = function(){
+    if(XHR.readyState == 4 && XHR.status == 200){
+      let data = JSON.parse(XHR.responseText),   
+          historicalRates = Object.values(data.bpi),
+          historicalDates = Object.keys(data.bpi);
+      
+      createChart(historicalDates, historicalRates, code);    
+    }
+  }
+  XHR.open("GET", url);
+  XHR.send();
+}
+
+//Chart.js
+function createChart(dates, rates, code){
+  var ctx = document.getElementById("myChart").getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: dates,
+          datasets: [{
+              label: 'All Containers Bandwidth Usage ',
+              data: rates,
+              backgroundColor: 'rgba(29, 168, 215, 0.2)',
+              borderColor: 'rgba(22,130,166,1)',
+              borderWidth: 1
+          }]
+      },
+      options: {
+          legend: {
+            labels: {
+              fontFamily: 'Open Sans'
+            }
+          },
+          scales: {
+              yAxes: [{
+                  stacked: false,
+                  ticks: {
+                      beginAtZero:false
+                  }
+                  
+              }]
+          }
+      }
+  });
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script>
+
+
+      // $( document ).ready(function(){$.get('http://localhost:8000/dashboard/get/container/data/',  // url
+//       function (data, textStatus, jqXHR) {  // success callback
+//       $(".used").text(data.split('&')[0]);
+//       $(".free").text(data.split('&')[1]);
+// });})
+</script>

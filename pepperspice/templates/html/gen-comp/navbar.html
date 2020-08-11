@@ -1,0 +1,112 @@
+{% load static %}
+
+<style>
+
+  .dropdown-toggle::after {
+    display: none;
+  }
+.text-decoration-none{
+  text-decoration: none!important;
+}
+/* Font Awesome Icons have variable width. Added fixed width to fix that.*/
+.icon-width { width: 2rem;}
+</style>
+
+<div class="container">
+  <div class="row">
+      
+    
+    
+    
+    
+    
+    
+    
+    <div class="col-lg-3" style="left:258px; position: relative; top: 45px; z-index: 101;">
+          <div class="position-absolute">
+            
+            
+            
+            
+            
+            
+            
+            
+            <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light " style="font-size: 15px; font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; position: relative;">
+              <a class='navbar-brand page-scroll' href='/'>
+            
+                <img src="{% static 'wallpapers_logos/universal/logo2.png' %}" width="140px" height="35px">
+            
+              </a>
+            
+             
+              
+              
+              
+              <div class="collapse navbar-collapse" id="navbar4">
+              
+              <ul class="navbar-nav ml-auto mt-3 mt-lg-0">
+                <li class="nav-item cta cta-colored"><a href="#"  class="nav-link" type="button" style="color: black !important;" >Tutorials</a></li>
+              
+                <div class="dropdown">
+                  <li class="nav-item cta cta-colored" data-toggle="dropdown"><a href="" class="nav-link" type="button" style="color: black !important;" >Support</a></li>
+            
+                  <div class="dropdown-menu" style="font-size: 14px !important;">
+                    <a class="dropdown-item" href="#">Documentation</a>
+                    <a class="dropdown-item" href="#">Forum</a>
+            
+                  </div>
+                </div>
+                
+                
+                
+                <div class="dropdown">
+                  <li class="nav-item cta cta-colored" data-toggle="dropdown"><a href="" class="nav-link" type="button" style="color: black !important;" >{{ user.username }}</a></li>
+                  
+                  <div class="dropdown-menu" style="font-size: 14px !important;">
+                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="/accounts/logout/">Sign Out</a>
+            
+                  </div>
+                  
+                </div>
+            
+            
+                <li class="nav-item cta cta-colored"><a href="" class="nav-link"><span class="flag-icon flag-icon-al" title="Shqip"></span></a></li>
+                
+              
+             
+              </ul>
+              </div>
+              </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+              
+          </div>
+      </div> 
+</div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

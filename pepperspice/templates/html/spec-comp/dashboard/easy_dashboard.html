@@ -1,0 +1,523 @@
+<!-- <div class="table-responsive">
+
+  <table id="example"  
+  data-search="true"
+  data-filter-control="true" 
+
+  data-click-to-select="true" class="table table-hover dtOrderExample" style="font-size: 13px !important; font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;">
+    <thead>
+      <tr style="font-size: 12px; background-color: #213a46; color: white;">
+        <th class="th-sm">Owner</th>
+        <th data-field="node_id" data-filter-control="input" data-sortable="true" class="th-sm">Node ID</th>
+        <th class="th-sm">Node Name</th>
+        <th class="th-sm">Status</th>
+        <th class="th-sm">Node Type</th>
+        <th class="th-sm">Created</th>
+        <th class="th-sm">Private IPv4</th>
+        <th class="th-sm">Public IPv4</th>
+        <th class="th-sm">Domain Name</th>
+        <th class="th-sm">Monitoring</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+        {% for instance in instances %}
+        <style>
+          tr:hover {
+            cursor: pointer;
+          }
+        </style>
+
+      <tr id="test" data-toggle="modal" data-target="#myModal2" onclick="getdata('{{ instance.node_ID }}');">
+        <td>
+          
+            <div class="d-flex align-items-center">
+              <div class="">
+                <p class="font-weight-bold mb-0" id="username">{{ request.user.username }}</p>
+                <p class="text-muted mb-0" id="email">{{instance.Email}}</p>
+              </div>
+            </div>
+          
+        </td>
+        <td id="node_id">{{instance.node_ID}}</td>
+      
+        <td id="node_name">{{instance.Name}}</td>
+        {% if instance.Status %}                     
+        <td>
+            <div class="badge badge-success badge-success-alt">Powered</div>
+          </td>
+        {% else %}           
+        <td>
+            <div class="badge badge-secondary badge-secondary-alt">Off</div>
+          </td>
+        {% endif %}
+                                
+        <td><div id="framework" class="badge badge-primary badge-primary-alt" style="margin-left: 5px;">{{instance.NodeType}}</div></td>
+
+        <td id="date">{{instance.Date_Created}}</td>
+        <td id="private_ip">{{instance.Private_IPv4}}</td>
+        {% if instance.IPv4 == "" %}
+        <td id="public_ip">None</td>
+        {% else %}
+        <td id="public_ip">{{instance.IPv4}}</td>
+        {% endif %}
+        {% if instance.Domain_Name == "" %}
+        <td id="domain_name">None</td>
+        {% else %}
+        <td id="domain_name">{{instance.Domain_Name}}</td>
+        {% endif %}
+        {% if instance.Monitoring == "no_monitor" %}
+        <td>
+          <div class="badge badge-warning">No Monitoring</div>
+        </td>
+        {% elif instance.Monitoring == "basic_monitor" %}
+        <td>
+          <div class="badge badge-secondary">Monitoring</div>
+        </td>
+        {% elif instance.Monitoring == "ext_monitor" %}
+        <td>
+          <div class="badge badge-success">Analysing</div>
+        </td>
+      </tr>
+      {% endif %}
+     
+      {% endfor %}
+      
+    
+    </tbody>
+    
+  </table>
+  
+
+</div> -->
+
+<div class="container">
+  
+  {% if webapplications > 0 %}
+  <h1 class="text-center" style="font-weight: 1; display: inline-block;">Web Applications</h1>
+  <a href="/dashboard/new/web_app/">
+  <div class="ui vertical animated button" style="float: right; background-color: #222b42; color: white;" tabindex="0">
+    <div class="hidden content">Deploy Now</div>
+    <div class="visible content">
+      New App<i class="plus icon" style="margin-left: 5px;"></i>
+    </div>
+  </div></a>
+  
+  
+ 
+  <hr>
+	<div class="row justify-content-center">
+    
+{% for webapp in webapps %}
+
+		<div class="col-lg-4 hoverandzoom">
+     
+			<div class="card webapp" id="open-modal" onclick="getdata('{{ webapp.node_ID }}');" data-target="#node_modal" data-toggle="modal" style="background-image: url('https://themarketingnerdz.com/wp-content/uploads/2018/06/abstract-shades-blue-shade-free-desktop-background-1920x1080.png');">
+       
+        <div class="overlay"></div>
+       
+				<div class="content">
+          
+         
+          <h2 style="color: white;">{{ webapp.Name }}</h2>
+        
+         
+       
+          <h6>ID: {{ webapp.node_ID }}</h6>
+
+          {% if webapp.link_status %}
+              {% if databases_currently > 0 %}
+                  {% for database in dbs %}
+                     {% if webapp.linked_to_db_uuid == database.db_uid %}
+                        <h6>DB Linked: <a class="ui {{ webapp.id_link_color }} label">{{ webapp.linked_to_db_uuid }}</a><a class="ui green label">Active</a></h6>
+                      {% endif %}
+                  {% endfor %}
+              {% else %}
+              <h6>DB Linked: <a class="ui red label">Broken Link</a></h6>
+              {% endif %}
+          {% else %}
+            <h6>DB Linked: </a><a class="ui orange label">No Link Set</a></h6>
+          {% endif %}
+
+          {% if webapp.Framework == 'angular' %}
+          <h6 style="display: inline-block;">Framework: <strong>Angular</strong></h6><a class="ui green label">{{ webapp.framework_version }}</a>
+
+          {% elif webapp.Framework == 'laravel' %}
+          <h6 style="display: inline-block;">Framework: <strong>Laravel</strong></h6><a class="ui green label">{{ webapp.framework_version }}</a>
+
+          {% elif webapp.Framework == 'django' %}
+          <h6 style="display: inline-block;">Framework: <strong>Django</strong></h6><a class="ui green label">{{ webapp.framework_version }}</a>
+
+          {% elif webapp.Framework == 'wordpress' %}
+          <h6 style="display: inline-block;">Framework: <strong>Wordpress</strong></h6><a class="ui green label">{{ webapp.framework_version }}</a>
+          {% endif %}
+         
+          
+          
+         
+					<h6>Created on {{ webapp.Date_Created }}</h6>
+        </div>
+        {% if webapp.Framework == 'angular' %}
+				<div class="fav">
+					<i class="angular icon" style="font-size: 80px; float: right; margin-right: -20px; margin-top: -20px;"></i>
+        </div>
+        {% elif webapp.Framework == 'laravel' %}
+        <div class="fav">
+					<i class="laravel icon" style="font-size: 70px; float: right; margin-right: -15px; margin-top: -20px;"></i>
+        </div>
+
+        {% elif webapp.Framework == 'django' %}
+        <div class="fav">
+					<img src="https://raw.githubusercontent.com/elegantcha0s/images/master/django.png" width="100px" height="110px" style=" margin-top: -30px; margin-right: -30px;">
+        </div>
+        {% elif webapp.Framework == 'wordpress' %}
+        <div class="fav">
+					<i class="wordpress icon" style="font-size: 70px; float: right; margin-right: -25px; margin-top: -15px;"></i>
+        </div>
+
+        {% endif %}
+			</div>
+    </div>
+    
+    {% endfor %}
+	
+    </div>
+    
+{% endif %}
+
+{% if databases > 0 %}
+    <h1 class="" style="font-weight: 10;">Databases</h1>
+    <hr>
+
+    <div class="row justify-content-center">
+    
+      {% for db in dbs %}
+
+      
+       
+      
+      <div class="col-lg-10 mt-4 hoverandzoom">
+        
+     
+          <a href="/dashboard/profile/" alt="{{ request.user }}">
+         
+            <div style="margin-bottom: -60px; margin-left: -50px;">
+              <a class="ui teal label">{{ initials }}</a>
+           
+            <!-- <i class="fas fa-user-circle" style="font-size: 40px; color: {{ db.id_link_color }};"></i> -->
+    
+          </div>
+          
+        </a>
+        
+       
+        
+ 
+        <!-- <img src="https://www.logolynx.com/images/logolynx/97/97e88682fa82ed11f3bf96dcf8479635.png" class="float-left rounded-circle" style="margin-top: 30px;margin-right: -30px;" width="6%"> -->
+        
+        <div class="card db" onclick="getDB('{{ db.db_uid }}');" data-target="#database_modal" data-toggle="modal" style="background-image: url('https://themarketingnerdz.com/wp-content/uploads/2018/06/abstract-shades-blue-shade-free-desktop-background-1920x1080.png');">
+       
+          <div class="overlay"></div>
+         
+          <div class="content">
+           
+          <!-- Try and add a table to the card or find a way to add something in the middle of the card-->
+           
+            <h6>ID: <a class="ui {{ db.id_link_color }} label">{{ db.db_uid }}</a></h6>
+            
+            {% if db.Status %}
+            <h6>Status: <a class="ui green label">Online</a></h6>
+            {% else %}
+            <h6>Status: <a class="ui red label">Offline</a></h6>
+            {% endif %}
+
+
+            {% if db.link_status %}
+
+            {% if webapplications > 0 %}
+              {% for instance in instances %}
+              {% if db.linked_to_node_uuid == instance.node_ID %}
+                <h6>Link Status: <a class="ui green label">Active</a></h6>
+              {% endif %}
+            {% endfor %}
+             {% else %}
+            <h6>Link Status: <a class="ui red label">No Link</a></h6>
+           {% endif %}
+           
+            {% else %}
+            <h6>Link Status: <a class="ui violet label">Not Linked</a></h6>
+            {% endif %}
+
+            
+            {% if db.db_engine == 'mysql' %}
+            <h6>Engine: <strong>MySQL</strong><a class="ui teal label">{{ db.db_version}}</a><a class="ui orange label">{% if db.db_load_type == 'low_load' %}Low Load{% elif db.db_load_type == 'medium_load' %}Medium Load{% elif db.db_load_type == 'high_load' %}High Load{% endif %}</a></h6></h6>
+  
+            {% elif db.db_engine == 'postgresql' %}
+            <h6>Engine: <strong>PostgreSQL</strong><a class="ui teal label">{{ db.db_version}}</a><a class="ui orange label">{% if db.db_load_type == 'low_load' %}Low Load{% elif db.db_load_type == 'medium_load' %}Medium Load{% elif db.db_load_type == 'high_load' %}High Load{% endif %}</a></h6></h6>
+  
+            {% elif db.db_engine == 'mariadb' %}
+            <h6>Engine: <strong>MariaDB</strong><a class="ui teal label">{{ db.db_version}}</a><a class="ui orange label">{% if db.db_load_type == 'low_load' %}Low Load{% elif db.db_load_type == 'medium_load' %}Medium Load{% elif db.db_load_type == 'high_load' %}High Load{% endif %}</a></h6></h6>
+  
+            {% elif db.db_engine == 'sqlite' %}
+            <h6>Engine: <strong>SQLite</strong><a class="ui teal label">{{ db.db_version}}</a><a class="ui orange label">{% if db.db_load_type == 'low_load' %}Low Load{% elif db.db_load_type == 'medium_load' %}Medium Load{% elif db.db_load_type == 'high_load' %}High Load{% endif %}</a></h6>
+            {% endif %}
+
+           
+
+          
+            <h6>Created on {{ db.Date_Created }}</h6>
+
+          </div>
+          {% if db.db_engine == 'mysql' %}
+          <div class="fav">
+            <img src="https://raw.githubusercontent.com/elegantcha0s/images/master/990-9903514_mysql-logo-black-and-white-johns-hopkins-white.png" width="130px" height="80px" style=" margin-top: -10px; margin-right: -10px;">
+           
+          </div>
+          {% elif db.db_engine == 'postgresql' %}
+          <div class="fav">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/540px-Postgresql_elephant.svg.png" width="90px" height="80px" style=" margin-top: -10px; margin-right: 20px;">
+          </div>
+  
+          {% elif db.db_engine == 'mariadb' %}
+          
+          <div class="fav">          
+            <img src="https://mariadb.com/wp-content/uploads/2019/11/mariadb-logo-vert_white-transparent.png" width="100px" height="80px" style=" margin-top: -10px; margin-right: -0px;">
+          </div>
+          {% elif db.db_engine == 'sqlite' %}
+          <div class="fav">
+            <img src="https://batflat.org/themes/default/img/sqlite-logo.png" width="130px" height="40px" style=" margin-top: -0px; margin-right: -5px;">
+          </div>
+  
+          
+          {% endif %}
+        </div>
+        <div class="extra content" style="margin-left:12%;margin-top: -25px;margin-bottom: 5%;">
+          <a class="ui red label">
+            
+            {{ db.db_name }}
+          </a>
+        </div>
+      </div>
+
+
+      {% endfor %}
+    
+      </div>
+<br/>
+      {% endif %}
+
+
+
+	</div>
+
+  <div class="modal right fade" id="database_modal" tabindex="-1" role="dialog" aria-labelledby="database_modal" style="font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif !important;">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+
+				<div class="modal-header"> 
+          <div class="node_id ui blue  label">
+           
+            <div class="detail_1"></div>
+          </div>
+          <div class="app_icon">
+          
+
+          </div>
+          
+        
+				
+				</div>
+
+
+        <style>
+        
+        </style>
+				<div class="modal-body" style="background-color:lightcyan;">
+         
+				<div class="date-created">
+          <div class="node-type ui orange  label" style="margin: 2.5px;">
+          
+            <div class="detail_15"></div>
+        </div>
+        <div class="node-type ui yellow  label" style="margin: 2.5px;">
+          
+          <div class="detail_2"></div>
+        </div>
+        
+        <div class="private-ipv4">
+          <div class="node-type ui teal  label" style="margin: 2.5px;">
+          
+            <div class="detail_3"></div>
+          </div>
+        </div>
+        
+        <div class="public-ipv4">
+          <div class="node-type ui purple  image label" style="margin: 2.5px;">
+          
+            <div class="detail_4"></div>
+          </div>
+        </div>
+        <div class="domain_name">
+          <div class="node-type ui pink image label" style="margin: 2.5px;">
+          
+            <div class="detail_5"></div>
+          </div>
+        </div>
+        <div class="domain_name">
+          <div class="db_username ui teal image label" style="margin: 2.5px;">
+          
+            <div class="detail_6"></div>
+          </div>
+        </div>
+        <div class="domain_name">
+          <div class="db_password ui teal image label" style="margin: 2.5px;">
+          
+            <div class="detail_7"></div>
+          </div>
+        </div>
+        <div class="private-ipv4">
+          <div class="node-type ui pink  label" style="margin: 2.5px;">
+          
+            <div class="">DBMS Username: {{ dbms_username }}</div>
+            <div class="">DBMS Password: {{ dbms_password }}</div>
+            <div class="">DBMS Status: {{ dbms_status }}</div>
+            
+          </div>
+        </div>
+				</div>
+
+      </div><!-- modal-content -->
+      <a href="db_hostname" target="_blank" id="db_manage" class="ui primary basic button">Manage Database</a>
+     
+      <button style="margin-top: 5px;" class="ui negative basic button"  data-toggle="modal" data-target="#deletedatabase">Delete Node</button>
+      <div class="modal-footer">
+        
+       
+      </div>
+		</div><!-- modal-dialog -->
+	</div><!-- modal -->
+
+</div>
+
+
+<script>
+  
+  function getDB(node_id){
+  $.get('/dashboard/get/db/' + node_id + '/',  // url
+        function (data, textStatus, jqXHR) {  // success callback
+          window.node_id = data.split('&')[1];
+          window.node_name = data.split('&')[0];
+          $("#database_modal .app_icon").html(data.split('&')[6]);
+        $("#database_modal .detail_1").text('Database ID: ' + data.split('&')[1]);
+        $("#database_modal .detail_15").text('Date Created: ' + data.split('&')[2]);
+        $("#database_modal .detail_3").text('Private IPv4: ' + data.split('&')[3]);
+        $("#database_modal .detail_4").text('Public IPv4: ' + data.split('&')[4]);
+        $("#database_modal .detail_5").text('Hostname: ' + data.split('&')[5] + '.database.pepperspice.co');
+        $("#database_modal .detail_6").text('DB Username: ' + data.split('&')[8]);
+        $("#database_modal .detail_7").text('DB Password: ' + data.split('&')[9]);
+        $("#exampleModal .node_name__").text('Name: ' + data.split('&')[0]);
+        $("#exampleModal .node_id__").text('ID: ' + data.split('&')[1]);
+  
+            document.getElementById('db_manage').setAttribute('href','http://'+ data.split('&')[5] + ':' + data.split('&')[7] )
+      });
+      
+      }
+</script>
+
+<style>
+
+
+.container {
+margin-top: 2%;
+}
+.webapp {
+  
+  transform: scale(.8);
+	position: relative;
+
+	height: 190px;
+background-size: cover;
+
+	background-position: center;
+	background-repeat: no-repeat;
+
+	border-radius: 20px;
+cursor: pointer;
+	transition: 0.1s ease-in;
+}
+
+
+.db {
+  
+  transform: scale(.8);
+	position: relative;
+
+	height: 210px;
+background-size: cover;
+
+	background-position: center;
+	background-repeat: no-repeat;
+
+	border-radius: 20px;
+cursor: pointer;
+	transition: 0.1s ease-in;
+}
+
+.card .overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	height: 170px;
+
+}
+
+.card .content {
+	position: absolute;
+	bottom: 10px;
+	left: 25px;
+}
+
+.card .content h4 {
+
+	font-style: normal;
+	font-weight: bold;
+	font-size: 18px;
+	color: #f2f2f2;
+	margin-bottom: 10px;
+	margin-top: 0;
+}
+
+.card .content h6 {
+	font-family: Ubuntu;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	color: #f2f2f2;
+	margin-bottom: 10px;
+	margin-top: 0;
+}
+
+.card .fav {
+	position: absolute;
+	top: 25px;
+	right: 25px;
+}
+
+.card .fav i {
+	color: white;
+}
+
+.card:hover {
+	transform: scale(.81);
+}
+
+.hoverandzoom {
+  transition: 1s;
+}
+
+.hoverandzoom:hover {
+  transform: scale(1.02);
+}
+
+</style>

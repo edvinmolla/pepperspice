@@ -1,0 +1,31 @@
+{% extends "html/spec-comp/dashboard/index.html" %}
+{% block content %}
+
+<div class="main-content">
+  {% if messages %}
+    {% for message in messages %}
+  {{ message }}
+
+{% endfor %}
+{% endif %}
+  
+  <form method="post" enctype="multipart/form-data" action="#">
+    {% csrf_token %}
+    <input type="file" name="file" id="zipfile" accept=".zip,.rar,.7zip,.sql" />
+    <button type="submit" onclick="dothis();">Upload</button>
+  </form>
+
+
+</div>
+
+<script>
+function dothis(){
+  var one = document.getElementById('zipfile').value.split(':')[1].split('.')[0].split('\\')
+alert(one[one.length-1]);
+}
+</script>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "welcome.html" %}
+{% block footscript %}
+<script>
+    $(document).click(function(e) {
+      if (!$(e.target).is('#navbar4')) {
+          $('.collapse').collapse('hide');	    
+        }
+    });
+</script>
+{% endblock footscript %}

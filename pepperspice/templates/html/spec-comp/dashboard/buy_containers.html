@@ -1,0 +1,989 @@
+{% extends "html/spec-comp/dashboard/index.html" %}
+{% block content %}
+{% load static %}
+
+
+
+
+{% if variable %}
+
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+       
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="transform: scale(1.1);">
+        {% include 'html/spec-comp/dashboard/payment_create.html' %}
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<script>
+  $('#exampleModal').modal('show');
+  $('#exampleModal').modal({
+    backdrop: 'static',
+    keyboard: false
+})
+$('.close').click(function() {
+    $('#exampleModal').modal('hide');
+});
+</script>
+
+{% endif %}
+
+
+
+<div class="main-content">
+
+  <link rel="stylesheet" href="{% static 'css/new_web_app_our.css' %}"> 
+
+
+  <span class="switch switch-1" id="switch" style="float: right;">  
+    <link rel="stylesheet" href="{% static 'css/toggle.css' %}"> 
+    <label for="switch-id"></label>
+    <input type="checkbox" class="switch" id="switch-id">
+      <label for="switch-id"></label>
+      </span>
+ 
+
+
+<script>
+$(document).ready(function(){
+
+  $(".switch").attr('checked',true);
+
+  $("#albanian").hide();
+});
+
+
+  
+
+  $(function () {
+        $("#switch-id").change(function () {
+            if ($(this).is(":checked")) {
+                $("#english").show();
+                $("#albanian").hide();
+            } else {
+                $("#english").hide();
+                $("#albanian").show();
+            }
+        });
+    });
+</script>
+
+
+
+<style>
+.hideme {
+  visibility: hidden;
+}
+
+
+.myAlert-top{
+    position: fixed;
+    top: 50px; 
+    left:30%;
+    width: 50%;
+    z-index: 101;
+}
+</style>
+
+
+<div class="myAlert-top alert {{ hide_or_not }} alert-warning">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+ {{ message_1 }}<br/>
+ <small>{{ message_2 }}</small>
+</div>
+
+
+<div id="english">
+
+ 
+  
+
+  
+  
+  <div class="myAlert-top alert imhidden alert-danger" id="alert">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+<a href="#" class="writehere" style="text-decoration: none;">
+
+</a>
+<br/>  
+<a href="#" class="writehere2link">
+<small class="writehere2"></small>
+</a>
+  </div>
+  <style>
+    .imhidden {
+      visibility: hidden;
+    }
+      .modal {
+        scroll-behavior: smooth !important;
+      }
+    
+  </style>
+
+
+
+<h5 class="text-center mt-4" style="color: white;">*You won't be charged until the end of the first month with us.</h5>
+
+
+
+
+
+  <div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div 
+                    id="lowPriceRange" 
+                    class="range-slider pricing">
+                <div>
+                    <h3 class="pricing-title" style="display: inline-block;">Low Load</h3>
+                    <div class="ui icon button" data-tooltip="Your container will not use a lot of system resources or bandwidth." data-inverted="" style="font-size: 8px;  top: -8px;">
+                      <i class="info icon" style="font-size: 10px;"></i>
+                    </div>
+            </div>
+
+                    <b style="display: inline-block;">Containers:</b>
+                    <div class="ui icon button" data-tooltip="Miniature servers which are more redundant and scalable" data-inverted="" style="font-size: 8px;  top: -4px;">
+                      <i class="info icon" style="font-size: 10px;"></i>
+                    </div>
+                    
+                    <div>
+                        <span class="range-value"></span>
+                    </div>
+
+                    <input type="range" min="1" max="10" step="1" value="10" id="range">
+                    
+                    <h4>Specifications: </h4>
+                    <h4 id="specification"></h4>
+                    
+                    
+                    <p class="pricing-value"></p>
+                    <p class="pricing-total"></p>
+                </div>
+            
+          <div id="to_remove">
+                <form method="post" id="formData" enctype='text/plain' action="/dashboard/">
+                  {% csrf_token %}
+                  
+               
+                  <input type="hidden" name="container_number" id="container_number">
+                  <input type="hidden" name="order_price" id="order_price">
+                  <input type="hidden" name="container_price" id="container_price">
+                  <input type="hidden" name="order_category" id="order_category"> 
+                  <input type="hidden" name="ram_alloc" id="ram_alloc">
+                  <input type="hidden" name="vcpu_alloc" id="vcpu_alloc">
+                  <input type="hidden" name="bandwidth_alloc" id="bandwidth_alloc">
+                  <input type="hidden" name="_token2" value="{{ csrf_token }}">
+                </div>     
+                  <div class="remove_button">
+                  <input type="submit" id="sub" class="btn sub1" value="Select Plan" id="button1" {{ disable_or_not }}>
+                </div>
+              
+
+                
+                 </form>
+                 
+
+
+            </div>
+            <h5 class="text-center" style="color: white;">*This plan Includes <a href="" style="text-decoration: none; color: white;"><u>DDoS</u></a> protection.</h5>
+        </div>
+        
+        <div class="col">
+            <div class="card">
+                <div 
+                    id="mediumPriceRange" 
+                    class="range-slider pricing">
+                    <div>
+                    <h3 class="pricing-title" style="display: inline-block;">Medium Load</h3>
+                    <div class="ui icon button" data-tooltip="Medium usage of resources but not network." data-inverted="" style="font-size: 8px;  top: -8px;">
+                      <i class="info icon" style="font-size: 10px;"></i>
+                    </div>
+                  </div>
+
+                    <b>Containers:</b>
+                    
+                    <div>
+                        <span class="range-value"></span>
+                    </div>
+
+                    <input type="range" min="1" max="15" step="1" value="10" id="range">
+                    
+                    <h4>Specifications: </h4>
+                    <h4 id="specification1"></h4>
+
+
+                    <p class="pricing-value"></p>
+                    <p class="pricing-total"></p>
+                </div>
+             
+            
+                <div id="to_remove1">
+                <form method="post" id="formData1" enctype='text/plain'>
+                  {% csrf_token %}
+                  
+               
+                  <input type="hidden" name="container_number" id="container_number1">
+                  <input type="hidden" name="order_price" id="order_price1">
+                  <input type="hidden" name="container_price" id="container_price1">
+                  <input type="hidden" name="order_category" id="order_category1"> 
+                  <input type="hidden" name="ram_alloc" id="ram_alloc1">
+                  <input type="hidden" name="vcpu_alloc" id="vcpu_alloc1">
+                  <input type="hidden" name="bandwidth_alloc" id="bandwidth_alloc1">
+                  <input type="hidden" name="_token2" value="{{ csrf_token }}">
+                </div>
+                  <a href="#" class="remove_button">
+                  <input type="submit" id="sub" class="btn sub2" value="Select Plan" id="button1" {{ disable_or_not }}>
+                </a>  
+              
+
+                
+                 </form>
+                 <script>
+                   $(document).ready(function(){
+  $(".sub1").click(function(){
+  
+    document.getElementById('container_number').value=window.container_number;
+                     document.getElementById('order_price').value=window.total_price;
+                     document.getElementById('container_price').value=window.price_per_container;
+                     document.getElementById('order_category').value='low_load';
+                     document.getElementById('ram_alloc').value=window.ram_alloc;
+                     document.getElementById('vcpu_alloc').value=window.vcpu_alloc;
+                     document.getElementById('bandwidth_alloc').value=window.bandwidth_alloc;
+                     var formData = $('#formData').serialize();
+                     $("#formData").submit(function(e) {
+
+e.preventDefault(); // avoid to execute the actual submit of the form.
+
+
+$.ajax({
+       type: "POST",
+       url: "/dashboard/new/web_app/our/fast/send_data/create_order/",
+       data: formData, // serializes the form's elements.
+       success: function(data)
+       {
+        window.location="/dashboard/";
+       }
+     });
+  });
+});  
+});  
+                   
+                   $(document).ready(function(){
+  $(".sub2").click(function(){
+  
+    document.getElementById('container_number1').value=window.container_number1;
+                     document.getElementById('order_price1').value=window.total_price1;
+                     document.getElementById('container_price1').value=window.price_per_container1;
+                     document.getElementById('order_category1').value='medium_load';
+                     document.getElementById('ram_alloc1').value=window.ram_alloc1;
+                     document.getElementById('vcpu_alloc1').value=window.vcpu_alloc1;
+                     document.getElementById('bandwidth_alloc1').value=window.bandwidth_alloc1;
+                     var formData = $('#formData1').serialize();
+                     $("#formData1").submit(function(e) {
+
+e.preventDefault(); // avoid to execute the actual submit of the form.
+
+
+$.ajax({
+       type: "POST",
+       url: "/dashboard/new/web_app/our/fast/send_data/create_order/",
+       data: formData, // serializes the form's elements.
+       success: function(data)
+       {
+        window.location="/dashboard/";
+       }
+     });
+  });
+});  
+});           
+$(document).ready(function(){
+  $(".sub3").click(function(){
+  
+    document.getElementById('container_number2').value=window.container_number2;
+                     document.getElementById('order_price2').value=window.total_price2;
+                     document.getElementById('container_price2').value=window.price_per_container2;
+                     document.getElementById('order_category2').value='high_load';
+                     document.getElementById('ram_alloc2').value=window.ram_alloc2;
+                     document.getElementById('vcpu_alloc2').value=window.vcpu_alloc2;
+                     document.getElementById('bandwidth_alloc2').value=window.bandwidth_alloc2;
+                     var formData = $('#formData2').serialize();
+                     $("#formData2").submit(function(e) {
+
+e.preventDefault(); // avoid to execute the actual submit of the form.
+
+
+$.ajax({
+       type: "POST",
+       url: "/dashboard/new/web_app/our/fast/send_data/create_order/",
+       data: formData, // serializes the form's elements.
+       success: function(data)
+       {
+        window.location="/dashboard/";
+       }
+     });
+  });
+});  
+});           
+                 </script>
+            
+            
+            
+              </div>
+            <h5 class="text-center" style="color: white;">*This plan Includes <a href="" style="text-decoration: none; color: white;"><u>DDoS</u></a> protection.</h5>
+        </div>
+
+        <div class="col">
+          <div class="card">
+              <div 
+                  id="highPriceRange" 
+                  class="range-slider pricing">
+                  <div>
+                    <h3 class="pricing-title" style="display: inline-block;">High Load</h3>
+                  <div class="ui icon button" data-tooltip="Dedicated resources & networkgin for the most demanding needs." data-inverted="" style="font-size: 8px;  top: -8px;">
+                    <i class="info icon" style="font-size: 10px;"></i>
+                  </div>
+                </div>
+
+                
+
+                  <b>Containers:</b>
+                  
+                  <div>
+                      <span class="range-value"></span>
+                  </div>
+
+                  <input type="range" min="1" max="20" step="1" value="10" id="range">
+                  
+                  <h4>Specifications: </h4>
+                  <h4 id="specification2"></h4>
+
+
+                  <p class="pricing-value"></p>
+                  <p class="pricing-total"></p>
+              </div>
+   
+           
+              <div id="to_remove2">
+
+              <form method="post" id="formData2" enctype='text/plain'>
+                {% csrf_token %}
+                
+             
+                <input type="hidden" name="container_number" id="container_number2">
+                <input type="hidden" name="order_price" id="order_price2">
+                <input type="hidden" name="container_price" id="container_price2">
+                <input type="hidden" name="order_category" id="order_category2"> 
+                <input type="hidden" name="ram_alloc" id="ram_alloc2">
+                  <input type="hidden" name="vcpu_alloc" id="vcpu_alloc2">
+                  <input type="hidden" name="bandwidth_alloc" id="bandwidth_alloc2">
+                <input type="hidden" name="_token2" value="{{ csrf_token }}">
+
+              </div>
+                <a href="#" class="remove_button">
+                <input type="submit" id="sub" class="btn sub3 " value="Select Plan" id="button1" {{ disable_or_not }}>
+              </a>  
+            
+
+              
+               </form>
+    
+          
+          
+          
+          
+            </div>
+          <h5 class="text-center" style="color: white;">*This plan Includes <a href="" style="text-decoration: none; color: white;"><u>DDoS</u></a> protection.</h5>
+      </div>
+
+      
+    </div>
+
+
+</div>
+
+
+
+  <script>
+    function RangeSlider(selector, callback) { 
+    this.elements = document.querySelectorAll(selector || '.range-slider');
+    this.callback = callback;
+    
+    // if IE - listen for change
+    this.listenerType = /Trident|MSIE/.test(navigator.userAgent) ? 'change' : 'input';
+    
+    for (var i = 0, len = this.elements.length; i < len; i++) {
+        this._bindListener(this.elements[i]);
+    }
+};
+
+RangeSlider.prototype = {
+    _bindListener: function(el) {
+        var self = this;
+        var input = el.querySelector('input[type=range]');
+        var output = el.querySelector('.range-value');
+
+        this._render(el, input, output);
+
+        input.addEventListener(this.listenerType, function() {
+            self._render(el, input, output);
+        }, false);
+    },
+    _render: function(el, input, output) {
+        output.innerHTML = input.value;
+        
+        if (typeof this.callback === 'function') {
+            this.callback(el, input, output, parseInt(input.value, 10));
+        }
+    },
+};
+
+
+new RangeSlider(
+    '#lowPriceRange', 
+    function(el, rangeEl, valueEl, value) {
+        var i18n = JSON.parse(el.getAttribute('data-i18n') || '{}');
+        var priceEl = el.querySelector('.pricing-total');
+        var pricingEl = el.querySelector('.pricing-value');
+        var max = parseInt(rangeEl.getAttribute('max'), 10);
+        var specs = document.getElementById('specification');
+        
+        if (value <= 5) {
+            var finalprice = (value * 0.25).toPrecision(3);
+            pricingEl.innerHTML = "$0.25/container";
+            priceEl.innerHTML = "$".concat(finalprice, "/month");
+            specs.innerHTML = '1 GB | 1 vCPU | 200 Mb/s';
+
+            window.container_number = value.toString();
+          window.price_per_container = 0.25; 
+          window.total_price = finalprice.toString();
+          window.ram_alloc = 1;
+          window.vcpu_alloc = 1;
+          window.bandwidth_alloc = 200;
+
+        } else if (value > 5) {
+          var finalprice = (value * 0.45).toPrecision(3);
+          pricingEl.innerHTML = "$0.45/container";
+            priceEl.innerHTML = "$".concat(finalprice, "/month");
+            specs.innerHTML = '2 GB | 1 vCPU | 300 Mb/s';
+
+            window.container_number = value.toString();
+          window.price_per_container = 0.45; 
+          window.total_price = finalprice.toString();
+          window.ram_alloc = 2;
+          window.vcpu_alloc = 1;
+          window.bandwidth_alloc = 300;
+
+        } 
+    }
+);
+
+new RangeSlider(
+    '#mediumPriceRange', 
+    function(el, rangeEl, valueEl, value) {
+        var i18n = JSON.parse(el.getAttribute('data-i18n') || '{}');
+        var priceEl = el.querySelector('.pricing-total');
+        var pricingEl = el.querySelector('.pricing-value');
+        var max = parseInt(rangeEl.getAttribute('max'), 10);
+        var specs = document.getElementById('specification1');
+        
+        if (value <= 8) {
+            var finalprice = (value * 0.75).toPrecision(3);
+            pricingEl.innerHTML = "$0.75/container";
+            priceEl.innerHTML = "$".concat(finalprice, "/month");
+            specs.innerHTML = '3 GB | 1 vCPU | 500 Mb/s';
+
+
+            window.container_number1 = value.toString();
+          window.price_per_container1 = 0.75; 
+          window.total_price1 = finalprice.toString();
+          window.ram_alloc1 = 3;
+          window.vcpu_alloc1 = 1;
+          window.bandwidth_alloc1 = 500;
+
+
+        } else if (value > 8 && value <= 13) {
+          var finalprice = (value * 0.85).toPrecision(3);
+          pricingEl.innerHTML = "$0.85/container";
+            priceEl.innerHTML = "$".concat(finalprice, "/month");
+            specs.innerHTML = '3 GB | 2 vCPU | 700 Mb/s';
+
+
+            window.container_number1 = value.toString();
+          window.price_per_container1 = 0.85; 
+          window.total_price1 = finalprice.toString();
+          window.ram_alloc1 = 3;
+          window.vcpu_alloc1 = 2;
+          window.bandwidth_alloc1 = 700;
+
+        } 
+        else if (value > 13) {
+          var finalprice = (value * 0.99).toPrecision(3);
+          pricingEl.innerHTML = "$0.99/container";
+            priceEl.innerHTML = "$".concat(finalprice, "/month");
+            specs.innerHTML = '3 GB | 2 vCPU | 1000 Mb/s';
+
+            window.container_number1 = value.toString();
+          window.price_per_container1 = 0.99; 
+          window.total_price1 = finalprice.toString();
+          window.ram_alloc1 = 3;
+          window.vcpu_alloc1 = 2;
+          window.bandwidth_alloc1 = 1000;
+
+        } 
+    }
+);
+
+
+
+new RangeSlider(
+    '#highPriceRange', 
+    function(el, rangeEl, valueEl, value) {
+        var i18n = JSON.parse(el.getAttribute('data-i18n') || '{}');
+        var priceEl = el.querySelector('.pricing-total');
+        var pricingEl = el.querySelector('.pricing-value');
+        var max = parseInt(rangeEl.getAttribute('max'), 10);
+        var specs = document.getElementById('specification2');
+        
+        if (value <= 10) {
+            var finalprice = value * 4.25;
+            pricingEl.innerHTML = "$4.25/container";
+            priceEl.innerHTML = "$".concat(finalprice, "/month");
+            specs.innerHTML = '4 GB | 2 vCPU | 1000 Mb/s';
+
+            window.container_number2 = value.toString();
+          window.price_per_container2 = 4.25; 
+          window.total_price2 = finalprice.toString();
+          window.ram_alloc2 = 4;
+          window.vcpu_alloc2 = 2;
+          window.bandwidth_alloc2 = 1000;
+
+        } else if (value > 10 && value < 15) {
+          var finalprice = (value * 5.35).toPrecision(3);
+          pricingEl.innerHTML = "$5.35/container";
+            priceEl.innerHTML = "$".concat(finalprice, "/month");
+            specs.innerHTML = '4 GB | 3 vCPU | 1500 Mb/s';
+
+            window.container_number2 = value.toString();
+          window.price_per_container2 = 5.35; 
+          window.total_price2 = finalprice.toString();
+          window.ram_alloc2 = 4;
+          window.vcpu_alloc2 = 3;
+          window.bandwidth_alloc2 = 1500;
+
+        } 
+        else if (value >= 15 && value <= 18) {
+          var finalprice = (value * 6.45).toPrecision(3);
+          pricingEl.innerHTML = "$6.45/container";
+            priceEl.innerHTML = "$".concat(finalprice, "/month");
+            specs.innerHTML = '4 GB | 4 vCPU | 1500 Mb/s';
+
+            window.container_number2 = value.toString();
+          window.price_per_container2 = 6.45; 
+          window.total_price2 = finalprice.toString();
+          window.ram_alloc2 = 4;
+          window.vcpu_alloc2 = 4;
+          window.bandwidth_alloc2 = 1500;
+
+        }
+        else if (value == 19) {
+          var finalprice = (value * 9.95).toPrecision(3);
+          pricingEl.innerHTML = "$9.95/container";
+            priceEl.innerHTML = "$".concat(finalprice, "/month");
+            specs.innerHTML = '8 GB | 8 vCPU | 1500 Mb/s';
+
+            window.container_number2 = value.toString();
+          window.price_per_container2 = 9.95; 
+          window.total_price2 = finalprice.toString();
+          window.ram_alloc2 = 8;
+          window.vcpu_alloc2 = 8;
+          window.bandwidth_alloc2 = 1500;
+
+        }
+        else if (value == 20) {
+          var finalprice = (value * 16.35).toPrecision(3);
+          pricingEl.innerHTML = "$16.35/container";
+            priceEl.innerHTML = "$".concat(finalprice, "/month");
+            specs.innerHTML = '16 GB | 16 vCPU | 2000 Mb/s';
+
+            window.container_number2 = value.toString();
+          window.price_per_container2 = 16.35; 
+          window.total_price2 = finalprice.toString();
+          window.ram_alloc2 = 16;
+          window.vcpu_alloc2 = 16;
+          window.bandwidth_alloc2 = 2000;
+
+        }
+    }
+);
+  </script>
+
+
+
+
+
+
+
+
+
+
+<h1 class="text-center" style="color: white;">Select one of the plans above</h1>
+<h2 class="text-center" style="color: white;"> If you want to have control over more details, you can switch to <a href="" style="color: white;"><u>technical mode</u></a>.</h2>
+
+
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class="jumbotron" style=" background: white;
+border-radius: 15px; margin-left: 50px; margin-right: 50px; color: rgb(60, 97, 182);">
+ 
+ <h2 class="text-center">What are containers?</h2>
+
+<h3 class="text-center">'Containers', are one of the fundamental technologies on and from which this platform has been built on.<br/>They are merely miniservers, using less resources and providing greater reliability, scalability and lowering costs for everyone.</h3>
+<h3 class="text-center">The number of Web Apps depends on the number of containers you have. One container can only have one Web App.<br/> We try our best to help developers, thus we  have created
+ developing and testing ready containers which can be created easily and at very low costs.</h3>
+</div>
+
+</div>
+
+<div id="albanian">
+  <h5 class="text-center mt-4" style="color: white;">*Ju nuk do do te faturoheni deri ne perfundim te muajit te pare me ne.</h5>
+
+
+
+
+
+  <div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div 
+                    id="lowPriceRange1" 
+                    class="range-slider pricing">
+                <div>
+                    <h3 class="pricing-title" style="display: inline-block;">Fillestare</h3>
+                    <div class="ui icon button" data-tooltip="Perdorim jo i larte i rrjetit dhe burimerve fizike." data-inverted="" style="font-size: 8px;  top: -8px;">
+                      <i class="info icon" style="font-size: 10px;"></i>
+                    </div>
+            </div>
+
+                    <b style="display: inline-block;">Kerpudhat:</b>
+                    <div class="ui icon button" data-tooltip="Mini servera fleksibel dhe rezistente." data-inverted="" style="font-size: 8px;  top: -4px;">
+                      <i class="info icon" style="font-size: 10px;"></i>
+                    </div>
+                    
+                    <div>
+                        <span class="range-value"></span>
+                    </div>
+
+                    <input type="range" min="1" max="10" step="1" value="10" id="range">
+                    
+                    <h4>Specifikime: </h4>
+                    <h4 id="specification3"></h4>
+                    
+                    
+                    <p class="pricing-value"></p>
+                    <p class="pricing-total"></p>
+                </div>
+                
+                <a href="#" class="btn" id="button1">Perzgjidh Planin</a>
+            </div>
+            <h5 class="text-center" style="color: white;">*Ky plan perfshin mbrojtje nga <a href="" style="text-decoration: none; color: white;"><u>DDoS</u></a>.</h5>
+        </div>
+        
+        <div class="col">
+            <div class="card">
+                <div 
+                    id="mediumPriceRange1" 
+                    class="range-slider pricing">
+                    <div>
+                    <h3 class="pricing-title" style="display: inline-block;">Mesatare</h3>
+                    <div class="ui icon button" data-tooltip="Perdorim mesatar i burimeve fizike por jo i rrjetit." data-inverted="" style="font-size: 8px;  top: -8px;">
+                      <i class="info icon" style="font-size: 10px;"></i>
+                    </div>
+                    </div>
+
+                    <b>Kerpudhat:</b>
+                    
+                    <div>
+                        <span class="range-value"></span>
+                    </div>
+
+                    <input type="range" min="1" max="15" step="1" value="10" id="range">
+                    
+                    <h4>Specifikime: </h4>
+                    <h4 id="specification4"></h4>
+
+
+                    <p class="pricing-value"></p>
+                    <p class="pricing-total"></p>
+                </div>
+                <a href="#" class="btn">Perzgjidh Planin</a>
+            </div>
+            <h5 class="text-center" style="color: white;">*Ky plan perfshin mbrojtje nga <a href="" style="text-decoration: none; color: white;"><u>DDoS</u></a>.</h5>
+        </div>
+
+        <div class="col">
+          <div class="card">
+              <div 
+                  id="highPriceRange1" 
+                  class="range-slider pricing">
+                  <div>
+                  <h3 class="pricing-title" style="display: inline-block;">Biznes</h3>
+                  <div class="ui icon button" data-tooltip="Dedikim i larte i burimeve fizike dhe te rrjetit." data-inverted="" style="font-size: 8px;  top: -8px;">
+                    <i class="info icon" style="font-size: 10px;"></i>
+                  </div>
+                </div>
+
+                  <b>Kerpudhat:</b>
+                  
+                  <div>
+                      <span class="range-value"></span>
+                  </div>
+
+                  <input type="range" min="1" max="20" step="1" value="10" id="range">
+                  
+                  <h4>Specifikime: </h4>
+                  <h4 id="specification5"></h4>
+
+
+                  <p class="pricing-value"></p>
+                  <p class="pricing-total"></p>
+              </div>
+              <a href="#" class="btn">Perzgjidh Planin</a>
+          </div>
+          <h5 class="text-center" style="color: white;">*Ky plan perfshin mbrojtje nga <a href="" style="text-decoration: none; color: white;"><u>DDoS</u></a>.</h5>
+      </div>
+
+      
+    </div>
+
+
+</div>
+
+
+
+
+<h1 class="text-center" style="color: white;">Zgjidhni nje nga planet e mesiperme</h1>
+<h2 class="text-center" style="color: white;">Nese deshironi te personalizoni paketat me shume, perdorni mjetet <a href="" style="color: white;"><u>teknike</u></a>.</h2>
+
+
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class="jumbotron" style=" background: white;
+border-radius: 15px; margin-left: 50px; margin-right: 50px; color: rgb(60, 97, 182);">
+ 
+ <h2 class="text-center">Cfare jane kerpudhat?</h2>
+
+<h3 class="text-center">'Kerpudhat', jane nje nga teknologjite themelore qe perdoren nga platforma jone.<br/>Ato jane nje forme miniserveri, perdor me pak burime fizike, eshte me fleksibel dhe ul kostot per te gjithe klientet.</h3>
+<h3 class="text-center">Numri i aplikacioneve lidhet me numrin e kerpudhave ne dispozicion. Nje kerpudhe mund te perdoret vetem nga nje aplikacion.<br/>Ne perpiqemi te krijojme ambientin me te 
+pershtatshem per zhvilluesit, prandaj, kemi krijuar paketa me kosto te ulet dhe shume lehte te krijueshme per fazat e zhvillimit dhe te testimit, duke u perpjekur te konservojme sa me shume kohen e zhvillueseve.</h3>
+</div>
+
+
+<script>
+  function RangeSlider(selector, callback) { 
+  this.elements = document.querySelectorAll(selector || '.range-slider');
+  this.callback = callback;
+  
+  // if IE - listen for change
+  this.listenerType = /Trident|MSIE/.test(navigator.userAgent) ? 'change' : 'input';
+  
+  for (var i = 0, len = this.elements.length; i < len; i++) {
+      this._bindListener(this.elements[i]);
+  }
+};
+
+RangeSlider.prototype = {
+  _bindListener: function(el) {
+      var self = this;
+      var input = el.querySelector('input[type=range]');
+      var output = el.querySelector('.range-value');
+
+      this._render(el, input, output);
+
+      input.addEventListener(this.listenerType, function() {
+          self._render(el, input, output);
+      }, false);
+  },
+  _render: function(el, input, output) {
+      output.innerHTML = input.value;
+      
+      if (typeof this.callback === 'function') {
+          this.callback(el, input, output, parseInt(input.value, 10));
+      }
+  },
+};
+
+
+new RangeSlider(
+  '#lowPriceRange1', 
+  function(el, rangeEl, valueEl, value) {
+      var i18n = JSON.parse(el.getAttribute('data-i18n') || '{}');
+      var priceEl = el.querySelector('.pricing-total');
+      var pricingEl = el.querySelector('.pricing-value');
+      var max = parseInt(rangeEl.getAttribute('max'), 10);
+      var specs = document.getElementById('specification3');
+      
+      if (value <= 5) {
+          var finalprice = (value * 0.25).toPrecision(3);
+          pricingEl.innerHTML = "$0.25/kerpudhe";
+          priceEl.innerHTML = "$".concat(finalprice, "/muaj");
+          specs.innerHTML = '1 GB / 1 vCPU';
+      } else if (value > 5) {
+        var finalprice = (value * 0.45).toPrecision(3);
+        pricingEl.innerHTML = "$0.45/kerpudhe";
+          priceEl.innerHTML = "$".concat(finalprice, "/muaj");
+          specs.innerHTML = '2 GB / 1 vCPU';
+      } 
+     
+      else {
+          pricingEl.innerHTML = '<a href="'+i18n.askOfferURL+'" class="btn btn-gray">'+i18n.askOffer+'</a>';
+          specs.innerHTML = '';
+          priceEl.innerHTML = '';
+          valueEl.innerHTML += '+';
+      }
+  }
+);
+
+new RangeSlider(
+  '#mediumPriceRange1', 
+  function(el, rangeEl, valueEl, value) {
+      var priceEl = el.querySelector('.pricing-total');
+      var pricingEl = el.querySelector('.pricing-value');
+      var max = parseInt(rangeEl.getAttribute('max'), 10);
+      var specs = document.getElementById('specification4');
+      
+      if (value <= 8) {
+          var finalprice = (value * 0.75).toPrecision(3);
+          pricingEl.innerHTML = "$0.75/kerpudhe";
+          priceEl.innerHTML = "$".concat(finalprice, "/muaj");
+          specs.innerHTML = '3 GB / 1 vCPU';
+      } else if (value > 8 && value <= 13) {
+        var finalprice = (value * 0.85).toPrecision(3);
+        pricingEl.innerHTML = "$0.85/kerpudhe";
+          priceEl.innerHTML = "$".concat(finalprice, "/muaj");
+          specs.innerHTML = '3 GB / 2 vCPU';
+      } 
+      else if (value > 13) {
+        var finalprice = (value * 0.99).toPrecision(3);
+        pricingEl.innerHTML = "$0.99/kerpudhe";
+          priceEl.innerHTML = "$".concat(finalprice, "/muaj");
+          specs.innerHTML = '3 GB / 2 vCPU';
+      } 
+      else {
+          pricingEl.innerHTML = '<a href="'+i18n.askOfferURL+'" class="btn btn-gray">'+i18n.askOffer+'</a>';
+          specs.innerHTML = '';
+          priceEl.innerHTML = '';
+          valueEl.innerHTML += '+';
+      }
+  }
+);
+
+
+
+new RangeSlider(
+  '#highPriceRange1', 
+  function(el, rangeEl, valueEl, value) {
+      var priceEl = el.querySelector('.pricing-total');
+      var pricingEl = el.querySelector('.pricing-value');
+      var max = parseInt(rangeEl.getAttribute('max'), 10);
+      var specs = document.getElementById('specification5');
+      
+      if (value <= 10) {
+          var finalprice = value * 1.25;
+          pricingEl.innerHTML = "$1.25/kerpudhe";
+          priceEl.innerHTML = "$".concat(finalprice, "/muaj");
+          specs.innerHTML = '4 GB / 2 vCPU';
+      } else if (value > 10 && value < 15) {
+        var finalprice = (value * 1.85).toPrecision(3);
+        pricingEl.innerHTML = "$1.85/kerpudhe";
+          priceEl.innerHTML = "$".concat(finalprice, "/muaj");
+          specs.innerHTML = '4 GB / 3 vCPU';
+      } 
+      else if (value >= 15 && value <= 18) {
+        var finalprice = (value * 2.65).toPrecision(3);
+        pricingEl.innerHTML = "$2.65/kerpudhe";
+          priceEl.innerHTML = "$".concat(finalprice, "/muaj");
+          specs.innerHTML = '4 GB / 4 vCPU';
+      }
+      else if (value == 19) {
+        var finalprice = (value * 5.25).toPrecision(3);
+        pricingEl.innerHTML = "$5.25/kerpudhe";
+          priceEl.innerHTML = "$".concat(finalprice, "/muaj");
+          specs.innerHTML = '8 GB / 8 vCPU';
+      }
+      else if (value == 20) {
+        var finalprice = (value * 8.45).toPrecision(3);
+        pricingEl.innerHTML = "$8.45/kerpudhe";
+          priceEl.innerHTML = "$".concat(finalprice, "/muaj");
+          specs.innerHTML = '16 GB / 16 vCPU';
+      }
+      else {
+          pricingEl.innerHTML = '<a href="'+i18n.askOfferURL+'" class="btn btn-gray">'+i18n.askOffer+'</a>';
+          specs.innerHTML = '';
+          priceEl.innerHTML = '';
+          valueEl.innerHTML += '+';
+      }
+  }
+);
+</script>
+
+<script>
+   $(document).ready(function (){
+
+    $.ajax({
+   type: "POST",
+   url: '/dashboard/verify/db_eligibility/',
+   data: {'r&b':'jreuihgdfy73hfiushdgfyfcnxkcnvgsfd'}, 
+   success: function(data)
+   {
+   
+   if (data == 'false'){
+   $('.remove_button').remove();
+   $('#to_remove').remove();
+   $('#to_remove1').remove();
+   $('#to_remove2').remove();
+   
+   $('#alert').removeClass('imhidden');
+    $( ".writehere" ).attr('href','.');
+    
+    $( ".writehere2link" ).attr('href','/dashboard/learn_more/verification/');
+    $( ".writehere" ).html( 'You must verify your account In order to buy containers and use them.' );
+    $( ".writehere2" ).text( 'Learn more as to why we ask for verification.' );
+  
+    document.documentElement.scrollTop = 0;
+   }
+   else{
+  console.log('success');
+   }
+   }
+ });
+
+
+   });
+</script>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,157 @@
+{% extends "html/spec-comp/dashboard/index.html" %}
+{% block content %}
+
+<div class="main-content">
+
+
+
+
+{% if no_card %}
+
+
+<div class="sixteen wide column">
+    <div>
+        <div class="jumbotron" style=" background: white;
+        ">
+          <h1 class="heading heading-1 text-center" style="color: #7C7BE2;">Billing</h1>
+
+
+            <p class="lead text-center" style="font-size: 15px; color: #7C7BE2;">You have no payment methods set up.</p>
+           <br/>
+           <div class="paybutton field" style="text-align:center;">
+            <button class="ui inverted blue button" data-toggle="modal" data-target="#createmodal" id="edit_card">Create</button>
+        </div>
+    
+   
+          </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="createmodal" tabindex="-1" role="dialog" aria-labelledby="createmodal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+         
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="transform: scale(1.1);">
+          {% include 'html/spec-comp/dashboard/payment_create.html' %}
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  
+
+
+{% else %}
+
+    <div class="ui two column grid m-4">
+
+        <style>
+          
+          body {
+                background: linear-gradient(to right, #60bce0, #7333d3, #d7d0ff, #a4aada, #cedbff);
+        background-size: 400% 400%;
+        animation: gradient 20s ease infinite;
+    }
+    
+    
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    
+          .heading-1 {
+            text-transform: uppercase;
+      font-size: 3.5rem !important;
+      font-weight: 900;
+      letter-spacing: 3px;
+      color: #333;
+      
+      font-family: montserrat, sans-serif !important;
+          }
+          .btn-light:hover {
+            text-decoration: underline;
+          }
+    
+    
+    
+        </style>
+      
+      
+          <div class="sixteen wide column">
+            <div>
+                <div class="jumbotron" style=" background: white;
+                margin-left:300px; margin-right: 300px;">
+                  <h1 class="heading heading-1 text-center" style="color: #7C7BE2;">Billing</h1>
+    
+
+                    <p class="lead text-center" style="font-size: 15px; color: #7C7BE2;">Edit your payment methods.</p>
+                   <br/>
+                  
+            
+           
+                  </div>
+            </div>
+          </div>
+
+          <div class="sixteen wide column">
+            <div>
+                <div class="jumbotron" style=" background: white;
+                border-radius: 0px; pad: 0px;margin-left: 200px; margin-right: 200px;">
+                  <h2 class=" text-center" style="color: #7C7BE2;">Owner: {{ card_handler }}</h2>
+    
+
+                    <p class="lead text-center" style="font-size: 15px; color: #7C7BE2;">Card Number: {{ card_number_1 }} **** **** {{ card_number_2 }}</p>
+
+                    <p class="lead text-center" style="font-size: 15px; color: #7C7BE2;">Expiration: {{ card_exp_month }}/{{ card_exp_year }}</p>
+                   <br/>
+                   <div class="paybutton field" style="text-align:center;">
+                    <button class="ui inverted blue button" data-toggle="modal" data-target="#editmodal" id="edit_card">Edit</button>
+                </div>
+            
+           
+                  </div>
+            </div>
+          </div>
+
+          </div>
+    </div>
+
+
+    <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="editmodal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+             
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="transform: scale(1.1);">
+              {% include 'html/spec-comp/dashboard/payment_edit.html' %}
+            </div>
+           
+          </div>
+        </div>
+      </div>
+      
+      <script>
+
+      $('.close').click(function() {
+          $('#exampleModal').modal('hide');
+      });
+      </script>
+
+{% endif %}
+{% endblock %}
