@@ -52,10 +52,12 @@ def dashboard(request):
             dbms_user_name = UserTrait.objects.filter(email=request.user).first().dbms_username
             dbms_user_password = UserTrait.objects.filter(email=request.user).first().dbms_password
             dbms_status = UserTrait.objects.filter(email=request.user).first().dbms_enabled
+
         else:
             dbms_user_name = 'false'
             dbms_user_password = 'false'
             dbms_status = 'false'
+
 
         return render(request, 'html/spec-comp/dashboard/overview.html', {'instances':Node.objects.filter(Email=request.user), 
                                                                             'initials':str(request.user).split('@')[0],
@@ -309,7 +311,7 @@ def new_db(request):
                     os.system("echo KmQfcsnpdUrrRL2qzE8P | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"GRANT ALL ON " + DB_Details.db_name + ".* TO '" + DB_Details.username + "'@'%'; FLUSH PRIVILEGES;\"")
 
                     a = DBNode.objects.filter(db_uid=DB_Details.db_uid).first()
-                    a.db_internal_ip = (subprocess.Popen(["echo", "toor", "|", "sudo", "-S", "docker", "inspect", "-f", "'{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'", DB_Details.db_uid], stdout=subprocess.PIPE)[0].strip()).decode("utf-8")
+                    a.db_internal_ip = os.popen("echo toor | sudo -S docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' " + DB_Details.db_uid).read().strip()
                     a.save()
                     
                     
@@ -979,7 +981,7 @@ def get_db_data(request, node_id):
     if request.user.is_authenticated:
         db = DBNode.objects.filter(db_uid=node_id).first()
       
-        return HttpResponse(db.db_name+'&'+db.db_uid+'&'+str(db.Date_Created)+'&'+''+'&'+''+'&'+db.db_hostname+'&'+db.db_name+'&'+str(db.db_port)+'&'+db.db_username+'&'+db.db_password)
+        return HttpResponse(db.db_name+'&'+db.db_uid+'&'+str(db.Date_Created)+'&'+db.db_internal_ip+'&'+db.db_external_ip+'&'+db.db_hostname+'&'+db.db_name+'&'+str(db.db_port)+'&'+db.db_username+'&'+db.db_password)
 
 
 def get_payment(request, user_id):
