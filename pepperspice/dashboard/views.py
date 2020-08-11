@@ -185,9 +185,6 @@ def verify_db_eligibility(request):
             else:
                 return HttpResponse('false')
 
-
-
-
 def new_db(request):
     if request.user.is_authenticated:
         import random
@@ -317,10 +314,7 @@ def new_db(request):
                     
                     return HttpResponse('success')
 
-                
-
-                
-                
+             
 def mikro_instance(request):
     if request.user.is_authenticated:
         return render(request, 'html/spec-comp/dashboard/new_mikro_instance.html')
