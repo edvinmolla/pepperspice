@@ -707,8 +707,9 @@ def delete_container(request,id):
                 a.delete()
                 return HttpResponse('success')
 
-            if DBNode.objects.filter(node_ID=node_id).exists():
+            if DBNode.objects.filter(db_uid=node_id).exists():
                 a = DBNode.objects.filter(db_uid=node_id).first()
+                os.system("echo toor | sudo -S docker stop " + str(db_uid))
                 a.delete()
 
                 return HttpResponse('success')

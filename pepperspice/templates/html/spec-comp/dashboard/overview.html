@@ -524,7 +524,7 @@
         <div class="node_name_" style=" display: inline-block;"><strong>Remove container with</strong>
           <div class="node-type ui pink image label" style="margin: 2.5px; display: inline-block;">
           
-            <div class="node_name__1" style=" display: inline-block;"></div>
+            <div class="node_name__" style=" display: inline-block;"></div>
           </div>
         </div>
 
@@ -532,7 +532,7 @@
         <div class="node_id_" style=" display: inline-block;"><strong>and</strong>
           <div class="node-type ui pink image label" style="margin: 2.5px; display: inline-block;">
           
-            <div class="node_id__1"></div>
+            <div class="node_id__"></div>
           </div>
         </div><strong>?</strong>
         
@@ -656,8 +656,8 @@ $.get('/dashboard/get/data/' + node_id + '/',  // url
       $("#node_modal .detail_3").text('Private IPv4: ' + data.split('&')[3]);
       $("#node_modal .detail_4").text('Public IPv4: ' + data.split('&')[4]);
       $("#node_modal .detail_5").text('Domain Name: ' + data.split('&')[5]);
-      $("#exampleModal .node_name__1").text('Name: ' + data.split('&')[0]);
-      $("#exampleModal .node_id__1").text('ID: ' + data.split('&')[1]);
+      $("#exampleModal .node_name__").text('Name: ' + data.split('&')[0]);
+      $("#exampleModal .node_id__").text('ID: ' + data.split('&')[1]);
           
     });}
 </script>
