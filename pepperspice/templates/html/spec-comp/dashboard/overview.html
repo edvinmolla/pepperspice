@@ -615,7 +615,7 @@ e.preventDefault(); // avoid to execute the actual submit of the form.
 
 $.ajax({
       type: "POST",
-      url: "/dashboard/send/delete/container/" + document.getElementById('node&id').value + '/' + document.getElementById('node&name').value + "/",
+      url: "/dashboard/send/delete/container/" + document.getElementById('node&id').value + '/',
       data: formData, // serializes the form's elements.
     success: function(data)
       {

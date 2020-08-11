@@ -419,12 +419,11 @@
           <input type="hidden" name="node&id1" id="node&id">
           <input type="hidden" name="node&name1" id="node&name">
           <input type="hidden" name="_token2" value="{{ csrf_token }}">
-        
-        
+    
         <div class="node_name_" style=" display: inline-block;"><strong>Remove container with</strong>
           <div class="node-type ui pink image label" style="margin: 2.5px; display: inline-block;">
           
-            <div class="node_name__" style=" display: inline-block;"></div>
+            <div class="node_name__1" style=" display: inline-block;"></div>
           </div>
         </div>
 
@@ -432,25 +431,24 @@
         <div class="node_id_" style=" display: inline-block;"><strong>and</strong>
           <div class="node-type ui pink image label" style="margin: 2.5px; display: inline-block;">
           
-            <div class="node_id__"></div>
+            <div class="node_id__1"></div>
           </div>
         </div><strong>?</strong>
         
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="submit" class="ui negative basic button remove_container_button">Delete</button>
+        <button type="submit" class="ui negative basic button remove_container_button1">Delete</button>
       </div>
+     
     </div>
   </div>
 </div>
 
 <script>
-  $('.remove_container_button').click(function() {
-
+  $('.remove_container_button1').click(function() {
 document.getElementById('node&id1').value=window.node_id;
 document.getElementById('node&name1').value=window.node_name;
-
 var formData = $('#formData6').serialize();
                 $("#formData6").submit(function(e) {
 
@@ -459,7 +457,7 @@ e.preventDefault(); // avoid to execute the actual submit of the form.
 
 $.ajax({
   type: "POST",
-  url: "/dashboard/send/delete/container/" + document.getElementById('node&id').value + '/' + document.getElementById('node&name').value + "/",
+  url: "/dashboard/send/delete/container/" + document.getElementById('node&id').value + '/',
   data: formData, // serializes the form's elements.
 success: function(data)
   {
@@ -484,8 +482,9 @@ success: function(data)
         $("#database_modal .detail_5").text('Hostname: ' + data.split('&')[5] + '.database.pepperspice.co');
         $("#database_modal .detail_6").text('DB Username: ' + data.split('&')[8]);
         $("#database_modal .detail_7").text('DB Password: ' + data.split('&')[9]);
-        $("#exampleModal .node_name__").text('Name: ' + data.split('&')[0]);
-        $("#exampleModal .node_id__").text('ID: ' + data.split('&')[1]);
+        $("#deletedatabase .node_name__1").text('Name: ' + data.split('&')[0]);
+        $("#deletedatabase .node_id__1").text('ID: ' + data.split('&')[1]);
+
   
             
       });
@@ -577,16 +576,9 @@ cursor: pointer;
 	color: white;
 }
 
-.card:hover {
-	transform: scale(.81);
-}
-
 .hoverandzoom {
   transition: 1s;
 }
 
-.hoverandzoom:hover {
-  transform: scale(1.02);
-}
 
 </style>

@@ -697,11 +697,10 @@ def get_container_data(request):
         return HttpResponse(str(used_containers_count)+'&'+str(free_containers_count))
 
 
-def delete_container(request,id, name):
+def delete_container(request,id):
     if request.user.is_authenticated:
         if request.method == 'POST':
             node_id = str(id)
-            node_name = str(name)
 
             if Node.objects.filter(node_ID=node_id).exists():
                 a = Node.objects.filter(node_ID=node_id).first()
