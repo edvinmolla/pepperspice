@@ -702,10 +702,20 @@ def delete_container(request,id, name):
         if request.method == 'POST':
             node_id = str(id)
             node_name = str(name)
-            db_container = Node.objects.filter(node_ID=node_id)
-            db_container.delete()
 
-            return HttpResponse('success')
+            if Node.objects.filter(node_ID=node_id).exists():
+                a = Node.objects.filter(node_ID=node_id).first()
+                a.delete()
+                return HttpResponse('success')
+
+            if DBNode.objects.filter(node_ID=node_id).exists():
+                a = DBNode.objects.filter(db_uid=node_id).first()
+                a.delete()
+
+                return HttpResponse('success')
+                
+            messages.success(request, 'Something went wrong, we couldn\'t finish your request.')
+            return redirect('/overview/')
 
 
 def send_credit_card(request):

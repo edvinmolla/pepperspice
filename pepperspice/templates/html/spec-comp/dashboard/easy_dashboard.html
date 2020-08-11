@@ -387,11 +387,14 @@
 				</div>
 
       </div><!-- modal-content -->
-      <a href="db_hostname" target="_blank" id="db_manage" class="ui primary basic button">Manage Database</a>
+      <a href="http://localhost:some port" target="_blank" id="db_manage" class="ui primary basic button">DBMS</a>
      
       <button style="margin-top: 5px;" class="ui negative basic button"  data-toggle="modal" data-target="#deletedatabase">Delete Node</button>
-      <div class="modal-footer">
-        
+
+
+
+    
+      <div class="medium ui buttons">
        
       </div>
 		</div><!-- modal-dialog -->
@@ -399,8 +402,74 @@
 
 </div>
 
+<div class="modal fade" id="deletedatabase" tabindex="-1" role="dialog" aria-labelledby="deletedatabase" aria-hidden="true" style="background-color: #7C7BE2;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"  style="width: 110%;"> 
+      <div class="modal-header">
+        <h5 class="modal-title" id="deletedatabase">Are you sure?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="remove-body">
+        <form method="post" id="formData6" enctype='text/plain' action="#">
+          {% csrf_token %}
+          
+         
+          <input type="hidden" name="node&id1" id="node&id">
+          <input type="hidden" name="node&name1" id="node&name">
+          <input type="hidden" name="_token2" value="{{ csrf_token }}">
+        
+        
+        <div class="node_name_" style=" display: inline-block;"><strong>Remove container with</strong>
+          <div class="node-type ui pink image label" style="margin: 2.5px; display: inline-block;">
+          
+            <div class="node_name__" style=" display: inline-block;"></div>
+          </div>
+        </div>
+
+
+        <div class="node_id_" style=" display: inline-block;"><strong>and</strong>
+          <div class="node-type ui pink image label" style="margin: 2.5px; display: inline-block;">
+          
+            <div class="node_id__"></div>
+          </div>
+        </div><strong>?</strong>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="ui negative basic button remove_container_button">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
+  $('.remove_container_button').click(function() {
+
+document.getElementById('node&id1').value=window.node_id;
+document.getElementById('node&name1').value=window.node_name;
+
+var formData = $('#formData6').serialize();
+                $("#formData6").submit(function(e) {
+
+e.preventDefault(); // avoid to execute the actual submit of the form.
+
+
+$.ajax({
+  type: "POST",
+  url: "/dashboard/send/delete/container/" + document.getElementById('node&id').value + '/' + document.getElementById('node&name').value + "/",
+  data: formData, // serializes the form's elements.
+success: function(data)
+  {
+
+   window.location='/dashboard/';
+  }
+});
+});
+}); 
+
   
   function getDB(node_id){
   $.get('/dashboard/get/db/' + node_id + '/',  // url
@@ -418,7 +487,7 @@
         $("#exampleModal .node_name__").text('Name: ' + data.split('&')[0]);
         $("#exampleModal .node_id__").text('ID: ' + data.split('&')[1]);
   
-            document.getElementById('db_manage').setAttribute('href','http://'+ data.split('&')[5] + ':' + data.split('&')[7] )
+            
       });
       
       }
