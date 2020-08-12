@@ -20,7 +20,144 @@
 
 <div class="main-content">
  
+  <style>
+    .browser-screen-loading-content {
+      position: fixed !important;
+
+ height: 2em;
+ width: 100%;
+height: 100%;
+
+ left: 50%;
+ top: 10%;
+ margin: auto;
+}
+.loading-dots {
+ margin-left: -1.5em;
+ opacity: 0;
+ -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+ filter: alpha(opacity=0);
+ -webkit-animation: loading-dots-fadein .5s linear forwards;
+ -moz-animation: loading-dots-fadein .5s linear forwards;
+ -o-animation: loading-dots-fadein .5s linear forwards;
+ -ms-animation: loading-dots-fadein .5s linear forwards;
+ animation: loading-dots-fadein .5s linear forwards;
+}
+.loading-dots i {
+ width: .5em;
+ height: .5em;
+ display: inline-block;
+ vertical-align: middle;
+ background: #e0e0e0;
+ -webkit-border-radius: 50%;
+ border-radius: 50%;
+ margin: 0 .125em;
+ -webkit-animation: loading-dots-middle-dots .5s linear infinite;
+ -moz-animation: loading-dots-middle-dots .5s linear infinite;
+ -o-animation: loading-dots-middle-dots .5s linear infinite;
+ -ms-animation: loading-dots-middle-dots .5s linear infinite;
+ animation: loading-dots-middle-dots .5s linear infinite;
+}
+.loading-dots.dark-gray i {
+ background: red;
+}
+.loading-dots i:first-child {
+ -webkit-animation: loading-dots-first-dot .5s infinite;
+ -moz-animation: loading-dots-first-dot .5s linear infinite;
+ -o-animation: loading-dots-first-dot .5s linear infinite;
+ -ms-animation: loading-dots-first-dot .5s linear infinite;
+ animation: loading-dots-first-dot .5s linear infinite;
+ opacity: 0;
+ -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+ filter: alpha(opacity=0);
+ -webkit-transform: translate(-1em);
+ -moz-transform: translate(-1em);
+ -o-transform: translate(-1em);
+ -ms-transform: translate(-1em);
+ transform: translate(-1em);
+}
+.loading-dots i:last-child {
+ -webkit-animation: loading-dots-last-dot .5s linear infinite;
+ -moz-animation: loading-dots-last-dot .5s linear infinite;
+ -o-animation: loading-dots-last-dot .5s linear infinite;
+ -ms-animation: loading-dots-last-dot .5s linear infinite;
+ animation: loading-dots-last-dot .5s linear infinite;
+}
+
+
+@-moz-keyframes loading-dots-fadein{100%{opacity:1;-ms-filter:none;filter:none}}
+@-webkit-keyframes loading-dots-fadein{100%{opacity:1;-ms-filter:none;filter:none}}
+@-o-keyframes loading-dots-fadein{100%{opacity:1;-ms-filter:none;filter:none}}
+@keyframes loading-dots-fadein{100%{opacity:1;-ms-filter:none;filter:none}}
+
+@-moz-keyframes loading-dots-first-dot{100%{-webkit-transform:translate(1em);-moz-transform:translate(1em);-o-transform:translate(1em);-ms-transform:translate(1em);transform:translate(1em);opacity:1;-ms-filter:none;filter:none}}
+@-webkit-keyframes loading-dots-first-dot{100%{-webkit-transform:translate(1em);-moz-transform:translate(1em);-o-transform:translate(1em);-ms-transform:translate(1em);transform:translate(1em);opacity:1;-ms-filter:none;filter:none}}
+@-o-keyframes loading-dots-first-dot{100%{-webkit-transform:translate(1em);-moz-transform:translate(1em);-o-transform:translate(1em);-ms-transform:translate(1em);transform:translate(1em);opacity:1;-ms-filter:none;filter:none}}
+@keyframes loading-dots-first-dot{100%{-webkit-transform:translate(1em);-moz-transform:translate(1em);-o-transform:translate(1em);-ms-transform:translate(1em);transform:translate(1em);opacity:1;-ms-filter:none;filter:none}}
+
+
+@-moz-keyframes loading-dots-middle-dots{100%{-webkit-transform:translate(1em);-moz-transform:translate(1em);-o-transform:translate(1em);-ms-transform:translate(1em);transform:translate(1em)}}
+@-webkit-keyframes loading-dots-middle-dots{100%{-webkit-transform:translate(1em);-moz-transform:translate(1em);-o-transform:translate(1em);-ms-transform:translate(1em);transform:translate(1em)}}
+@-o-keyframes loading-dots-middle-dots{100%{-webkit-transform:translate(1em);-moz-transform:translate(1em);-o-transform:translate(1em);-ms-transform:translate(1em);transform:translate(1em)}}
+@keyframes loading-dots-middle-dots{100%{-webkit-transform:translate(1em);-moz-transform:translate(1em);-o-transform:translate(1em);-ms-transform:translate(1em);transform:translate(1em)}}
+
+
+@-moz-keyframes loading-dots-last-dot{100%{-webkit-transform:translate(2em);-moz-transform:translate(2em);-o-transform:translate(2em);-ms-transform:translate(2em);transform:translate(2em);opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}}
+@-webkit-keyframes loading-dots-last-dot{100%{-webkit-transform:translate(2em);-moz-transform:translate(2em);-o-transform:translate(2em);-ms-transform:translate(2em);transform:translate(2em);opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}}
+@-o-keyframes loading-dots-last-dot{100%{-webkit-transform:translate(2em);-moz-transform:translate(2em);-o-transform:translate(2em);-ms-transform:translate(2em);transform:translate(2em);opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}}
+@keyframes loading-dots-last-dot{100%{-webkit-transform:translate(2em);-moz-transform:translate(2em);-o-transform:translate(2em);-ms-transform:translate(2em);transform:translate(2em);opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}}
+  </style>
   
+  <div class="browser-screen-loading-content" style="z-index: 1600;">
+    <div class="loading-dots dark-gray">
+      <i></i>
+      <i></i>
+      <i></i>
+      <i></i>
+    </div>
+
+
+
+    <div class="jumbotron" style="position: fixed;">
+      <h1 class="display-5" style="font-size: 30px;">Set Up In <b>Our</b> Infrastructure</h1>
+      <p class="lead" style="font-size: 15px; font-weight: 700;">Fast Database Instances will waste you no time waiting for instances and management.</p>
+     <br/>
+     <br/>
+     
+     <br/>
+     <br/>
+     
+     <br/>
+     <br/><br/>
+     <br/>
+     <br/>
+     <br/>
+     <br/>
+     <br/>
+   
+     
+     <div class="text-center">
+      <a class="btn btn-primary btn-lg" href="#" role="button" id="own_infra" >Set Up</a>
+      
+  </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+  </div>
 
 
     <div class="tobeblurred">
@@ -46,7 +183,7 @@
          
            
            <div class="text-center">
-            <a class="btn btn-primary btn-lg" href="#" role="button" id="own_infra">Set Up</a>
+            <a class="btn btn-primary btn-lg" href="#" role="button" id="own_infra" >Set Up</a>
             
         </div>
           </div>
@@ -107,6 +244,8 @@
 }
         </style>
 
+  
+
 <!-- Modal -->
 <div class="modal custom-modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
@@ -114,14 +253,19 @@
       
 			<div class="modal-body">
 
-        
+       
       
 
-        <button type="button" class="custon-close-button-color close" data-dismiss="modal" aria-label="Close" style="color: white;" onclick="restoreURL()">
+
+      <div class="hideforloader">
+
+        <button type="button" class="custon-close-button-color close" data-dismiss="modal" aria-label="Close" style="color: white;">
 					<span aria-hidden="true"><i class="external alternate icon"></i></span>
 				</button>
 
                 <div class="container mt-4">
+
+                  
                   <div class="myAlert-top alert imhidden alert-warning" id="alert">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <a href="#" class="writehere" style="text-decoration: none;">
@@ -545,7 +689,7 @@
                 </form>
                 
            
-
+              </div>
                 
 </div>
 
@@ -578,6 +722,9 @@ $(document).ready(function () {
    }
    }
  });
+
+
+//  $('.browser-screen-loading-content').css('visibility', 'hidden')
 
 });
 
@@ -648,6 +795,8 @@ else{
     return false;
   }
 
+ 
+
 
 if($('#low_load_1').is(':checked')) { document.getElementById('load_type').value="low_load";}
 if($('#medium_load_1').is(':checked')) { document.getElementById('load_type').value="medium_load";}
@@ -660,25 +809,17 @@ if($('#sqlite').is(':checked')){document.getElementById('db_engine').value="sqli
 document.getElementById('db_name_form').value=document.getElementById('db_name').value;
 
 
-// $('#exampleModal').modal({
-//     		backdrop: 'static',
-//     		keyboard: false
-// 		});
 
-document.querySelector("input").addEventListener("keydown",function(e){
-    var charCode = e.charCode || e.keyCode || e.which;
-    if (charCode == 27){
-         alert("Escape is not allowed!");
-        return false;
-    }
-});
 
 
 
 var formData2 = $('#formData2').serialize();
+
+
 $('#prg').removeClass('hideprogress');
 
-
+$('.hideforloader').fadeOut();
+$('.browser-screen-loading-content').css('visibility', 'visible')
 
 
 var progressed = 0;
@@ -714,8 +855,6 @@ $.ajax({
 </script>
               
   
-
-
 
 <style>
 
