@@ -16,7 +16,7 @@ import sys
 from django.core.wsgi import get_wsgi_application
 
  
-sys.path.append('/var/www/pepperspice-web/pepperspice') 
+sys.path.append('/var/www/html/pepperspice-web/pepperspice') 
 # adjust the Python version in the line below as needed 
 sys.path.append('/usr/bin/python3.6') 
 
