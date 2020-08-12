@@ -2,17 +2,6 @@
 {% block content %}
 
 
-<style>
-  .hideprogress {
-    visibility: hidden;
-  }
-
-  .showaftersubmit{
-    visibility: hidden;
-  }
-</style>
-
-
 
 <div class="col-lg-12 " style="z-index: 1500; top: 0px; position: fixed;">
 
@@ -109,7 +98,9 @@ animation: loading-dots-last-dot .5s linear infinite;
 @keyframes loading-dots-last-dot{100%{-webkit-transform:translate(2em);-moz-transform:translate(2em);-o-transform:translate(2em);-ms-transform:translate(2em);transform:translate(2em);opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}}
 </style>
 
-<div class="row showaftersubmit aftermodal" style="position: fixed; z-index: 1600;">
+
+
+<div class="row aftermodal" style="position: fixed; z-index: 1600;">
   
   
   <div class="browser-screen-loading-content">
@@ -853,7 +844,8 @@ function linknode(id){
         }
     });});
 
-
+    $('.aftermodal').hide();
+    
 $('#submit_db').click(function(e) {
   
 
@@ -912,15 +904,30 @@ document.getElementById('db_name_form').value=document.getElementById('db_name')
 var formData2 = $('#formData2').serialize();
 
 
-$('#prg').removeClass('hideprogress');
-
 $('.hideforloader').fadeOut();
 
-$('.aftermodal').removeClass('showaftersubmit');
+
 $('.aftermodal').fadeIn();
+
+$('#exampleModal').modal({
+    backdrop: 'static',
+    keyboard: false
+})
 
 
 $('.browser-screen-loading-content').css('visibility', 'visible')
+
+
+
+$(window).bind('beforeunload', function(e) { 
+    return "Your request may not be processed If your reload the page."
+    e.preventDefault();
+});
+
+window.history.pushState(null, "", window.location.href);        
+        window.onpopstate = function() {
+            window.history.pushState(null, "", window.location.href);
+        };
 
 
 var progressed = 0;
