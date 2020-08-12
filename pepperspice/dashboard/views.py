@@ -709,7 +709,7 @@ def delete_container(request,id):
 
             if DBNode.objects.filter(db_uid=node_id).exists():
                 a = DBNode.objects.filter(db_uid=node_id).first()
-                os.system("echo toor | sudo -S docker stop " + str(db_uid))
+                os.system("echo toor | sudo -S docker stop " + str(node_id))
                 a.delete()
 
                 return HttpResponse('success')
@@ -737,7 +737,7 @@ def send_credit_card(request):
             dbms_enabled=True
             )
             a.save()
-            os.system("omnidb-config-server -u " + ms_username + " " + ms_password)
+            os.system("echo toor | sudo -S bash /root/new_db_user.sh " + ms_username + " " + ms_password)
             return HttpResponse('success')
 
 def edit_credit_card(request):
