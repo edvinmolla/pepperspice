@@ -3,6 +3,34 @@
 
 
 
+<style>
+  .hideme {
+    visibility: hidden;
+  }
+  
+  
+  .myAlert-top{
+      position: fixed;
+      top: 50px; 
+      left:30%;
+      width: 50%;
+      z-index: 101;
+  }
+  </style>
+  
+  
+  <div class="myAlert-top alert imhidden alert-danger" id="alert">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+<a href="#" class="writehere" style="text-decoration: none;">
+
+</a>
+<br/>  
+<a href="#" class="writehere2link">
+<small class="writehere2"></small>
+</a>
+  </div>
+
+
 <div class="col-lg-12 " style="z-index: 1500; top: 0px; position: fixed;">
 
   <div class="progress  " id="prg" style="height: .3rem; position: relative; left: -20px; top: 0px;  width: 103%;">
@@ -962,7 +990,43 @@ $.ajax({
 });
 </script>
               
+<script>
+  $(document).ready(function (){
+
+   $.ajax({
+  type: "POST",
+  url: '/dashboard/verify/db_eligibility/',
+  data: {'r&b':'jgudobovijdpxoviasdofe0'}, 
+  success: function(data)
+  {
   
+  if (data == 'false'){
+  $('#exampleModal').remove();
+  
+
+    $('#alert').removeClass('imhidden');
+   $( ".writehere" ).attr('href','.');
+   
+   $( ".writehere2link" ).attr('href','/dashboard/learn_more/verification/');
+   $( ".writehere" ).html( 'You must verify your account In order to buy containers and use them.' );
+   $( ".writehere2" ).text( 'Learn more as to why we ask for verification.' );
+ 
+   document.documentElement.scrollTop = 0;
+
+    
+    
+
+  }
+  
+  else{
+ console.log('success');
+  }
+  }
+});
+
+
+  });
+</script>
 
 <style>
 
@@ -1185,9 +1249,9 @@ box-shadow: 0 0 1px 1px #007FFF;
 	box-shadow: none;
 }
 
-      </style>
+</style>
  
-    </div>
+</div>
 
 
 
