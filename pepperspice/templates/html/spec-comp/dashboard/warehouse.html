@@ -2,13 +2,33 @@
 {% block content %}
 
 <div class="main-content">
-  {% if messages %}
-    {% for message in messages %}
-  {{ message }}
 
-{% endfor %}
-{% endif %}
   
+
+  <style>
+    .hideme {
+      visibility: hidden;
+    }
+    
+    
+    .myAlert-top{
+        position: fixed;
+        top: 50px; 
+        left:30%;
+        width: 50%;
+        z-index: 101;
+    }
+    </style>
+    
+    
+    <div class="myAlert-top alert hideme alert-warning">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+     {{ message_1 }}<br/>
+     <small>{{ message_2 }}</small>
+    </div>
+
+
+
   <form method="post" enctype="multipart/form-data" action="#">
     {% csrf_token %}
     <input type="file" name="file" id="zipfile" accept=".zip,.rar,.7zip,.sql" />
@@ -21,7 +41,8 @@
 <script>
 function dothis(){
   var one = document.getElementById('zipfile').value.split(':')[1].split('.')[0].split('\\')
-alert(one[one.length-1]);
+var package_name = one[one.length-1];
+var package_type = document.getElementById('zipfile').value.split(':')[1].split('.')[1];
 }
 </script>
 
