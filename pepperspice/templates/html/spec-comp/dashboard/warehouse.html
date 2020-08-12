@@ -39,10 +39,22 @@
 </div>
 
 <script>
+  $(document).ready(function() {
+  $('#zipfile').on('change', function(evt) {
+    var mb = 1000000
+    var file_size = this.files[0].size
+    console.log((file_size/mb).toPrecision(2) + ' Mb');
+  });
+});
+</script>
+
+<script>
 function dothis(){
   var one = document.getElementById('zipfile').value.split(':')[1].split('.')[0].split('\\')
 var package_name = one[one.length-1];
 var package_type = document.getElementById('zipfile').value.split(':')[1].split('.')[1];
+
+// alert(package_name + ' - ' + package_type);
 }
 </script>
 
