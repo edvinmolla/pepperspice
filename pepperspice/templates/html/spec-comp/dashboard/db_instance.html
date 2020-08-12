@@ -6,6 +6,10 @@
   .hideprogress {
     visibility: hidden;
   }
+
+  .showaftersubmit{
+    visibility: hidden;
+  }
 </style>
 
 
@@ -17,71 +21,68 @@
   </div>
 </div>
 
+<style>
+  .browser-screen-loading-content {
+    position: absolute;
 
-<div class="main-content">
- 
-  <style>
-    .browser-screen-loading-content {
-      position: fixed !important;
-
- height: 2em;
- width: 100%;
+height: 2em;
+width: 100%;
 height: 100%;
 
- left: 50%;
- top: 10%;
- margin: auto;
+left: 49%;
+top: 10%;
+margin: auto;
 }
 .loading-dots {
- margin-left: -1.5em;
- opacity: 0;
- -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
- filter: alpha(opacity=0);
- -webkit-animation: loading-dots-fadein .5s linear forwards;
- -moz-animation: loading-dots-fadein .5s linear forwards;
- -o-animation: loading-dots-fadein .5s linear forwards;
- -ms-animation: loading-dots-fadein .5s linear forwards;
- animation: loading-dots-fadein .5s linear forwards;
+margin-left: -1.5em;
+opacity: 0;
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+filter: alpha(opacity=0);
+-webkit-animation: loading-dots-fadein .5s linear forwards;
+-moz-animation: loading-dots-fadein .5s linear forwards;
+-o-animation: loading-dots-fadein .5s linear forwards;
+-ms-animation: loading-dots-fadein .5s linear forwards;
+animation: loading-dots-fadein .5s linear forwards;
 }
 .loading-dots i {
- width: .5em;
- height: .5em;
- display: inline-block;
- vertical-align: middle;
- background: #e0e0e0;
- -webkit-border-radius: 50%;
- border-radius: 50%;
- margin: 0 .125em;
- -webkit-animation: loading-dots-middle-dots .5s linear infinite;
- -moz-animation: loading-dots-middle-dots .5s linear infinite;
- -o-animation: loading-dots-middle-dots .5s linear infinite;
- -ms-animation: loading-dots-middle-dots .5s linear infinite;
- animation: loading-dots-middle-dots .5s linear infinite;
+width: .5em;
+height: .5em;
+display: inline-block;
+vertical-align: middle;
+background: #e0e0e0;
+-webkit-border-radius: 50%;
+border-radius: 50%;
+margin: 0 .125em;
+-webkit-animation: loading-dots-middle-dots .5s linear infinite;
+-moz-animation: loading-dots-middle-dots .5s linear infinite;
+-o-animation: loading-dots-middle-dots .5s linear infinite;
+-ms-animation: loading-dots-middle-dots .5s linear infinite;
+animation: loading-dots-middle-dots .5s linear infinite;
 }
 .loading-dots.dark-gray i {
- background: red;
+background: red;
 }
 .loading-dots i:first-child {
- -webkit-animation: loading-dots-first-dot .5s infinite;
- -moz-animation: loading-dots-first-dot .5s linear infinite;
- -o-animation: loading-dots-first-dot .5s linear infinite;
- -ms-animation: loading-dots-first-dot .5s linear infinite;
- animation: loading-dots-first-dot .5s linear infinite;
- opacity: 0;
- -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
- filter: alpha(opacity=0);
- -webkit-transform: translate(-1em);
- -moz-transform: translate(-1em);
- -o-transform: translate(-1em);
- -ms-transform: translate(-1em);
- transform: translate(-1em);
+-webkit-animation: loading-dots-first-dot .5s infinite;
+-moz-animation: loading-dots-first-dot .5s linear infinite;
+-o-animation: loading-dots-first-dot .5s linear infinite;
+-ms-animation: loading-dots-first-dot .5s linear infinite;
+animation: loading-dots-first-dot .5s linear infinite;
+opacity: 0;
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+filter: alpha(opacity=0);
+-webkit-transform: translate(-1em);
+-moz-transform: translate(-1em);
+-o-transform: translate(-1em);
+-ms-transform: translate(-1em);
+transform: translate(-1em);
 }
 .loading-dots i:last-child {
- -webkit-animation: loading-dots-last-dot .5s linear infinite;
- -moz-animation: loading-dots-last-dot .5s linear infinite;
- -o-animation: loading-dots-last-dot .5s linear infinite;
- -ms-animation: loading-dots-last-dot .5s linear infinite;
- animation: loading-dots-last-dot .5s linear infinite;
+-webkit-animation: loading-dots-last-dot .5s linear infinite;
+-moz-animation: loading-dots-last-dot .5s linear infinite;
+-o-animation: loading-dots-last-dot .5s linear infinite;
+-ms-animation: loading-dots-last-dot .5s linear infinite;
+animation: loading-dots-last-dot .5s linear infinite;
 }
 
 
@@ -106,59 +107,153 @@ height: 100%;
 @-webkit-keyframes loading-dots-last-dot{100%{-webkit-transform:translate(2em);-moz-transform:translate(2em);-o-transform:translate(2em);-ms-transform:translate(2em);transform:translate(2em);opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}}
 @-o-keyframes loading-dots-last-dot{100%{-webkit-transform:translate(2em);-moz-transform:translate(2em);-o-transform:translate(2em);-ms-transform:translate(2em);transform:translate(2em);opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}}
 @keyframes loading-dots-last-dot{100%{-webkit-transform:translate(2em);-moz-transform:translate(2em);-o-transform:translate(2em);-ms-transform:translate(2em);transform:translate(2em);opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}}
-  </style>
+</style>
+
+<div class="row showaftersubmit aftermodal" style="position: fixed; z-index: 1600;">
   
-  <div class="browser-screen-loading-content" style="z-index: 1600;">
-    <div class="loading-dots dark-gray">
-      <i></i>
-      <i></i>
-      <i></i>
-      <i></i>
-    </div>
-
-
-
-    <div class="jumbotron" style="position: fixed;">
-      <h1 class="display-5" style="font-size: 30px;">Set Up In <b>Our</b> Infrastructure</h1>
-      <p class="lead" style="font-size: 15px; font-weight: 700;">Fast Database Instances will waste you no time waiting for instances and management.</p>
-     <br/>
-     <br/>
-     
-     <br/>
-     <br/>
-     
-     <br/>
-     <br/><br/>
-     <br/>
-     <br/>
-     <br/>
-     <br/>
-     <br/>
-   
-     
-     <div class="text-center">
-      <a class="btn btn-primary btn-lg" href="#" role="button" id="own_infra" >Set Up</a>
-      
+  
+  <div class="browser-screen-loading-content">
+         
+  <div class="loading-dots dark-gray">
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
   </div>
+ 
+  </div>
+
+  
+  <div class="ui centered grid ">
+    <div class="computer only row"  style="top: 20% !important;">
+
+      <div class="column">
+
+        
+<div class="row p-4" >
+
+  
+  
+  <div class="col-md-6">
+ 
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          
+          <div class="jumbotron bg-cover">
+            <div class="container">
+            <h1 class="display-6">Linking your Database</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            
+              </div>
+        
+          </div>
+
+        </div>
+        <div class="carousel-item">
+          
+          <div class="jumbotron bg-cover">
+            <div class="container">
+            <h1 class="display-6">Managing your Database</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            
+              </div>
+        
+          </div>
+
+        </div>
+        <div class="carousel-item">
+          
+          <div class="jumbotron bg-cover">
+            <div class="container">
+            <h1 class="display-6">Linking your Database</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            
+              </div>
+        
+          </div>
+
+        </div>
+      </div>
     </div>
+  </div>
+  
+  
+  <div class="col-md-6">
+  
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          
+          <div class="jumbotron bg-cover">
+            <div class="container">
+            <h1 class="display-6">Linking your Database</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            
+              </div>
+        
+          </div>
 
+        </div>
+        <div class="carousel-item">
+          
+          <div class="jumbotron bg-cover">
+            <div class="container">
+            <h1 class="display-6">Managing your Database</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            
+              </div>
+        
+          </div>
 
+        </div>
+        <div class="carousel-item">
+          
+          <div class="jumbotron bg-cover">
+            <div class="container">
+            <h1 class="display-6">Linking your Database</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            
+              </div>
+        
+          </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
+        </div>
+      </div>
+    </div>
     
   </div>
+  
+  </div>
+  
+  
 
+
+
+      </div>
+    </div>
+   
+  </div>
+
+
+
+</div>
+
+
+
+<div class="main-content">
 
     <div class="tobeblurred">
     <div class="ui grid mt-2 stackable">
@@ -698,8 +793,9 @@ height: 100%;
 
 
 </div>
+	</div>
 
-
+</div>
 <script>
 
 $(document).ready(function () {
@@ -819,6 +915,11 @@ var formData2 = $('#formData2').serialize();
 $('#prg').removeClass('hideprogress');
 
 $('.hideforloader').fadeOut();
+
+$('.aftermodal').removeClass('showaftersubmit');
+$('.aftermodal').fadeIn();
+
+
 $('.browser-screen-loading-content').css('visibility', 'visible')
 
 
