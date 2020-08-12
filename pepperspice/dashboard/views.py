@@ -737,7 +737,7 @@ def send_credit_card(request):
             dbms_enabled=True
             )
             a.save()
-            os.system("echo toor | sudo -S bash /root/new_db_user.sh " + ms_username + " " + ms_password)
+            os.system("omnidb-config-server -u " + ms_username + " " + ms_password)
             return HttpResponse('success')
 
 def edit_credit_card(request):
