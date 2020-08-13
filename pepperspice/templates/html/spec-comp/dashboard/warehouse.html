@@ -42,10 +42,7 @@
   </div> -->
 
 
-  
-  <div class="progress">
-    <div id="progressbar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-  </div>
+ 
 
 
 
@@ -55,7 +52,7 @@
 
 
 
-<div class="ui three top attached steps">
+<div class="ui three top attached steps" style="margin-bottom: 20px;">
   <div class="step">
     <i class="truck icon"></i>
     <div class="content">
@@ -81,7 +78,7 @@
       <form method="post" enctype="multipart/form-data" action="http://localhost:8000/dashboard/warehouse/">
         {% csrf_token %}
         <!-- <input type="file" name="file" id="zipfile" accept=".zip,.rar,.7zip,.sql,.tar.gz,.tar" /> -->
-        <button type="submit">Upload</button>
+        <!-- <button type="submit">Upload</button> -->
 
   <div class="drop-zone" style="z-index: -5;">
 
@@ -105,24 +102,64 @@
 
 
 
-    <div class="row centered">
-      <h2>Drag and Drop or click to Browse</h2>
+    <div class="row centered" >
+      <h2>Drag and Drop or click to browse</h2>
+    </div>
+
+
+    <div class="row centered" style="margin-top: -30px;">
+      <h4>(.zip, .rar, .7zip, .tar.gz, .tar)</h4>
     </div>
 
     <div class="row centered">
-      <h2 class="namehere">Drag and Drop or click to Browse</h2>
+      
+      <h2 class="namehere">File to upload: </h2>
     </div>
+
+
 
   </div>
 
 
+  
 
 </div>
 
 
-
+ 
+<div class="progress" style="height: 5px;">
+  <div id="progressbar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
 
     </div>
+
+
+    <div class="sixteen wide column">
+
+    <div class="ui  grid">
+
+
+
+
+
+      <div class="row centered">
+       
+      
+        <button class="ui active button" type="submit">
+          <i class="cloud upload icon"></i>
+          Follow
+        </button>
+
+
+
+      </div>
+  
+    </div>
+  
+     
+    </div>
+
+  
   </div>
   
 
@@ -137,6 +174,8 @@
 
 
 <script>
+
+$(".namehere").hide();
   document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
   const dropZoneElement = inputElement.closest(".drop-zone");
 
@@ -146,7 +185,14 @@
 
   inputElement.addEventListener("change", (e) => {
     if (inputElement.files.length) {
-      updateThumbnail(dropZoneElement, inputElement.files[0]);
+      var one = document.getElementById('zipfile').value.split(':')[1].split('.')[0].split('\\')
+      var two = document.getElementById('zipfile').value.split(':')[1].split('\\');
+      var package_name = one[one.length-1];
+      var package_type = document.getElementById('zipfile').value.split(':')[1].split('.')[1];
+      $(".namehere").append(two[two.length-1]);
+      $(".namehere").fadeIn();
+  
+      // updateThumbnail(dropZoneElement, inputElement.files[0]);
     }
   });
 
@@ -282,7 +328,7 @@ if (e.lengthComputable){
 
   var percent = Math.round((e.loaded / e.total) * 100);
 
-  $('#progressbar').attr('aria-valuenow', percent).css('width', percent + '%').text(percent + '%');
+  $('#progressbar').attr('aria-valuenow', percent).css('width', percent + '%');
   
   }
 });
@@ -320,15 +366,7 @@ success: function(){
 
 </script>
 
-<script>
-function dothis(){
-  var one = document.getElementById('zipfile').value.split(':')[1].split('.')[0].split('\\')
-var package_name = one[one.length-1];
-var package_type = document.getElementById('zipfile').value.split(':')[1].split('.')[1];
-alert(package_name);
-// alert(package_name + ' - ' + package_type);
-}
-</script>
+
 
 </div>
 
