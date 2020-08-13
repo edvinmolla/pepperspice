@@ -1,6 +1,39 @@
 {% extends "html/spec-comp/dashboard/index.html" %}
 {% block content %}
 
+
+
+<style>
+  .hideme {
+    visibility: hidden;
+  }
+  
+  
+  .myAlert-top{
+      position: fixed;
+      top: 50px; 
+      left:30%;
+      width: 50%;
+      z-index: 101;
+  }
+  </style>
+  
+  
+  <div class="myAlert-top alert hideme alert-danger" id="alert">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+<a href="#" class="writehere" style="text-decoration: none;">
+
+</a>
+<br/>  
+<a href="#" class="writehere2link">
+<small class="writehere2"></small>
+</a>
+  </div>
+
+  
+
+
+
 <div class="main-content">
 
   <div class="ui one column grid m-4">
@@ -69,9 +102,9 @@
       <h4>(.zip, .rar, .7zip, .tar.gz, .tar)</h4>
     </div>
 
+
     <div class="row centered">
-      
-      <h2 class="namehere">File to upload: </h2>
+      <h2 class="namehere"></h2>
     </div>
 
 
@@ -99,7 +132,7 @@
 
       <div class="row centered">
 
-        <button class="ui green button" type="submit" id="submit_btn" disabled>
+        <button class="ui green loading button disabled" type="submit" id="submit_btn" >
           <i class="cloud upload icon"></i>
           Upload
         </button>
@@ -128,7 +161,6 @@
 
 
 <script>
-
 $(".namehere").hide();
   document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
   const dropZoneElement = inputElement.closest(".drop-zone");
@@ -142,11 +174,10 @@ $(".namehere").hide();
       var one = document.getElementById('zipfile').value.split(':')[1].split('.')[0].split('\\')
       var two = document.getElementById('zipfile').value.split(':')[1].split('\\');
       window.package_name = one[one.length-1];
-      var package_type = document.getElementById('zipfile').value.split(':')[1].split('.')[1];
-      $(".namehere").append(two[two.length-1]);
+      window.package_type = document.getElementById('zipfile').value.split(':')[1].split('.')[1];
+      $(".namehere").text(two[two.length-1]);
       $(".namehere").fadeIn();
-  
-      // updateThumbnail(dropZoneElement, inputElement.files[0]);
+
     }
   });
 
@@ -274,7 +305,7 @@ function updateThumbnail(dropZoneElement, file) {
         $('input:file').change(
             function(){
                 if ($(this).val()) {
-                    $('#submit_btn').attr('disabled',false);
+                  $("#submit_btn").removeClass('disabled');
                     $("#submit_btn").removeClass('loading');
                     // or, as has been pointed out elsewhere:
                     // $('input:submit').removeAttr('disabled'); 
@@ -284,13 +315,24 @@ function updateThumbnail(dropZoneElement, file) {
 
 
 
-
+accepted_types = ['zip', '7zip', 'rar', 'tar.gz', 'tar', 'sql'];
 
 $('form').on('submit', function(event){
 
 
 if (!$("#zipfile").val()){
   location.reload(); 
+}
+
+if (accepted_types.includes(window.package_type) == false){
+  $('#alert').removeClass('hideme');
+    $( ".writehere" ).html( 'That file type Is not supported.' );
+  return false;
+}
+
+else {
+  $('#alert').fadeOut;
+  
 }
 
 event.preventDefault();
@@ -325,11 +367,16 @@ url: 'http://localhost:8000/dashboard/warehouse/',
 data: formData,
 processData: false,
 contentType: false,
-success: function(){
- window.location='/dashboard/';
+success: function(data1){
+  
+if (data1 == 'false'){
+  $('#alert').removeClass('hideme');
+    $( ".writehere" ).html( 'That file type Is not supported.' );
 }
-
-
+else if (data1 == 'true'){
+  console.log('success');
+}
+}
 });
 
 });
