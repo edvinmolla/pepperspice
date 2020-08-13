@@ -3,49 +3,6 @@
 
 <div class="main-content">
 
-  
-
-  <style>
-    .hideme {
-      visibility: hidden;
-    }
-    
-    
-    .myAlert-top{
-        position: fixed;
-        top: 50px; 
-        left:30%;
-        width: 50%;
-        z-index: 101;
-    }
-    </style>
-    
-    
-    <div class="myAlert-top alert hideme alert-warning">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-     {{ message_1 }}<br/>
-     <small>{{ message_2 }}</small>
-    </div>
-
-
-
-  
-  
-
-  
-
-
-
-  <!-- <div class="drop-zone">
-    <span class="drop-zone__prompt">Drop file here or click to upload</span>
-    <input type="file" name="myFile" class="drop-zone__input" id="zipfile">
-  </div> -->
-
-
- 
-
-
-
   <div class="ui one column grid m-4">
     <div class="sixteen wide column">
 
@@ -71,7 +28,7 @@
     <i class="arrow circle up icon"></i>
     <div class="content">
       <div class="title">Deploy</div>
-      <div class="description">Let everyone else see your awesome project.</div>
+      <div class="description">Let the world see your awesome project.</div>
     </div>
   </div>
 </div>
@@ -118,7 +75,6 @@
     </div>
 
 
-
   </div>
 
 
@@ -141,14 +97,11 @@
 
 
 
-
-
       <div class="row centered">
-       
-      
-        <button class="ui active button" type="submit">
+
+        <button class="ui active button" type="submit" id="submit_btn">
           <i class="cloud upload icon"></i>
-          Follow
+          Upload
         </button>
 
 
@@ -314,7 +267,30 @@ function updateThumbnail(dropZoneElement, file) {
 <script>
   $(document).ready(function() {
 
+    $("#submit_btn").addClass('loading');
+    $('#submit_btn').attr('disabled',true);
+
+        $('input:file').change(
+            function(){
+                if ($(this).val()) {
+                    $('#submit_btn').attr('disabled',false);
+                    $("#submit_btn").removeClass('loading');
+                    // or, as has been pointed out elsewhere:
+                    // $('input:submit').removeAttr('disabled'); 
+                } 
+            }
+            );
+
+
+
+
+
 $('form').on('submit', function(event){
+
+if ($("#zipfile").val()){
+  location.reload(); 
+}
+
 event.preventDefault();
 
 // $("#zipfile").attr('name', window.package_name);
