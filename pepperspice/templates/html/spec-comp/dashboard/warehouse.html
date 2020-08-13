@@ -33,7 +33,7 @@
   </div>
 </div>
 
-<form method="post" enctype="multipart/form-data" action="http://localhost:8000/dashboard/warehouse/">
+<form method="post" enctype="multipart/form-data" action="#">
         {% csrf_token %}
         <!-- <input type="file" name="file" id="zipfile" accept=".zip,.rar,.7zip,.sql,.tar.gz,.tar" /> -->
         <!-- <button type="submit">Upload</button> -->
@@ -83,7 +83,7 @@
 </div>
 
 
- 
+
 <div class="progress" style="height: 5px;">
   <div id="progressbar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
@@ -99,7 +99,7 @@
 
       <div class="row centered">
 
-        <button class="ui active button" type="submit" id="submit_btn">
+        <button class="ui green button" type="submit" id="submit_btn">
           <i class="cloud upload icon"></i>
           Upload
         </button>
@@ -266,6 +266,7 @@ function updateThumbnail(dropZoneElement, file) {
 
 <script>
   $(document).ready(function() {
+    $(".progress").hide();
 
     $("#submit_btn").addClass('loading');
     $('#submit_btn').attr('disabled',true);
@@ -287,13 +288,14 @@ function updateThumbnail(dropZoneElement, file) {
 
 $('form').on('submit', function(event){
 
-if ($("#zipfile").val()){
+
+if (!$("#zipfile").val()){
   location.reload(); 
 }
 
 event.preventDefault();
 
-// $("#zipfile").attr('name', window.package_name);
+$(".progress").fadeIn();
 
 var formData = new FormData($('form')[0]);
 $.ajax({
@@ -310,10 +312,13 @@ if (e.lengthComputable){
   $('#progressbar').attr('aria-valuenow', percent).css('width', percent + '%');
   
   }
+
+ 
 });
 
 
 return xhr;
+
 },
 type : 'POST',
 url: 'http://localhost:8000/dashboard/warehouse/',
@@ -321,7 +326,7 @@ data: formData,
 processData: false,
 contentType: false,
 success: function(){
-  alert('file uploaded');
+ window.location='/dashboard/';
 }
 
 
