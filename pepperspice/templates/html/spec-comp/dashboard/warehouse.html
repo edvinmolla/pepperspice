@@ -29,406 +29,240 @@
 
 
 
-  <form method="post" enctype="multipart/form-data" action="http://localhost:8000/dashboard/warehouse/">
-    {% csrf_token %}
-   
-   
-   
-   
-   
-    <input type="file" name="file" id="zipfile" accept=".zip,.rar,.7zip,.sql,.tar.gz,.tar" />
-    <button type="submit">Upload</button>
- 
+  
+  
 
+  
+
+
+
+  <!-- <div class="drop-zone">
+    <span class="drop-zone__prompt">Drop file here or click to upload</span>
+    <input type="file" name="myFile" class="drop-zone__input" id="zipfile">
+  </div> -->
+
+
+  
   <div class="progress">
     <div id="progressbar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
   </div>
 
 
 
+  <div class="ui one column grid m-4">
+    <div class="sixteen wide column">
+
+
+
+
+<div class="ui three top attached steps">
+  <div class="step">
+    <i class="truck icon"></i>
+    <div class="content">
+      <div class="title">Shipping</div>
+      <div class="description">Choose your shipping options</div>
+    </div>
+  </div>
+  <div class="active step">
+    <i class="payment icon"></i>
+    <div class="content">
+      <div class="title">Billing</div>
+      <div class="description">Enter billing information</div>
+    </div>
+  </div>
+  <div class="disabled step">
+    <i class="info icon"></i>
+    <div class="content">
+      <div class="title">Confirm Order</div>
+      <div class="description">Verify order details</div>
+    </div>
+  </div>
+</div>
+      <form method="post" enctype="multipart/form-data" action="http://localhost:8000/dashboard/warehouse/">
+        {% csrf_token %}
+        <!-- <input type="file" name="file" id="zipfile" accept=".zip,.rar,.7zip,.sql,.tar.gz,.tar" /> -->
+        <button type="submit">Upload</button>
+
+  <div class="drop-zone" style="z-index: -5;">
+
+
+
+    
+   
+    <input type="file" name="myFile" class="drop-zone__input" id="zipfile">
+
+    
+
+    <div class="ui  grid">
 
 
 
 
 
+    <div class="row centered">
+      <img src="https://image.flaticon.com/icons/svg/101/101314.svg" width="200px">
+    </div>
+
+
+
+    <div class="row centered">
+      <h2>Drag and Drop or click to Browse</h2>
+    </div>
+
+    <div class="row centered">
+      <h2 class="namehere">Drag and Drop or click to Browse</h2>
+    </div>
+
+  </div>
+
+
+
+</div>
 
 
 
 
-
-  <main>
-    <section>
-      <label for="uploadBills" class="upload" id="uploadBox">
-          <div class="advantages-section">
-            <div class="advantage-block">
-              <div class="advantage-block__img-container">
-                <i class="fas fa-user-shield fa-lg"></i>
-              </div>
-              <div class="advantage-block__text-container">
-                <h2 class="advantage-block__text-container__title">
-                  Safe Upload
-                </h2>
-                <p class="advantage-block__text-container__content">
-                  HIPAA compliant which means that your data is safe
-                </p>
-              </div>
-            </div>
-            <div class="advantage-block">
-              <div class="advantage-block__img-container">
-                <p>FREE</p>
-              </div>
-              <div class="advantage-block__text-container">
-                <h2 class="advantage-block__text-container__title">
-                  Free Consultation
-                </h2>
-                <p class="advantage-block__text-container__content">
-                  Payment planning with zero extra fees
-                </p>
-              </div>
-            </div>
-            <div class="advantage-block">
-              <div class="advantage-block__img-container">
-             <i class="fab fa-cc-visa fa-lg"></i>
-              </div>
-              <div class="advantage-block__text-container">
-                <h2 class="advantage-block__text-container__title">
-                  Easy Payment
-                </h2>
-                <p class="advantage-block__text-container__content">
-                  Pay your bills from the comfort of your home
-                </p>
-              </div>
-            </div>
-          </div>
-
-
-
-
-<img src="https://image.flaticon.com/icons/svg/101/101314.svg" width="200px" style="margin-top: 60px;">
-        
-<!-- <i class="glyphicon glyphicon-cloud-upload" style="font-size: 200px;"></i>  -->
-
-
-
-
-
-
-
-          <h3 class="img-title" id="drag-title">
-            Drag and drop to upload
-            <span class="clarify">(multiple files allowed)</span>
-          </h3>
-          <p class="img-subtitle" id="drag-subTitle">
-            or <span class="blue">Browse</span> to choose a file
-          </p>
-          <h3 class="img-title uploading d-none">Uploading...</h3>
-          <h3 class="img-title done d-none">
-            Done. <span class="blue">Upload More</span>
-          </h3>
-          <input type="file" name="uploadBills" id="uploadBills" />
-        </label>
-      <div class="success d-none">Files sent</div>
-      <button class="btn" id="submitButton" disabled>
-          Upload
-        </button>
-    </section>
-  </main>
-
+    </div>
+  </div>
+  
 
 </form>
+
+
+
+</div>
 
 
 
 
 
 <script>
+  document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+  const dropZoneElement = inputElement.closest(".drop-zone");
 
+  dropZoneElement.addEventListener("click", (e) => {
+    inputElement.click();
+  });
 
-// upload box where you can drag files
-let dropArea = document.getElementById("uploadBox");
-      let fileURL;
-      let fileArray = [];
-// we put an eventlistner on the upload box
-      ["dragenter", "dragover", "dragleave", "drop"].forEach(eventName => {
-        dropArea.addEventListener(eventName, preventDefaults, false);
-      });
+  inputElement.addEventListener("change", (e) => {
+    if (inputElement.files.length) {
+      updateThumbnail(dropZoneElement, inputElement.files[0]);
+    }
+  });
 
-      function preventDefaults(e) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
+  dropZoneElement.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    dropZoneElement.classList.add("drop-zone--over");
+  });
 
-// on draging element over the box we fire the highlight function
-      ["dragenter", "dragover"].forEach(eventName => {
-        dropArea.addEventListener(eventName, highlight, false);
-      });
-// on draging element out of the box or droping it we fire the unhighlight function
-      ["dragleave", "drop"].forEach(eventName => {
-        dropArea.addEventListener(eventName, unhighlight, false);
-      });
+  ["dragleave", "dragend"].forEach((type) => {
+    dropZoneElement.addEventListener(type, (e) => {
+      dropZoneElement.classList.remove("drop-zone--over");
+    });
+  });
 
-      function highlight(e) {
-        dropArea.classList.add("highlight");
-      }
+  dropZoneElement.addEventListener("drop", (e) => {
+    e.preventDefault();
 
-      function unhighlight(e) {
-        dropArea.classList.remove("highlight");
-      }
-// on drop fire function handle drop
-      dropArea.addEventListener("drop", handleDrop, false);
+    if (e.dataTransfer.files.length) {
+      inputElement.files = e.dataTransfer.files;
+      updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+    }
 
-// handle drop function which uploads the files using firebase when you drop the selected files
-      function handleDrop(e) {
-        let dt = e.dataTransfer;
-        let files = dt.files;
-        handleFiles(files);
-      }
-      function handleFiles(files) {
-        [...files].forEach(uploadFile);
-      }
-      function uploadFile(file) {
-        // create ref
-        const storageRef = firebase.storage().ref("uploaded_files/" + Date.now() + '-' + file.name); //Date.now() + '-' +
-        // upload file
-        const task = storageRef.put(file);
-        // upload indicator
-        task.on(
-          "state_changed",
-          function progress(snapshot) {
-            const percentage =
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log(percentage);
-            $("#drag-title,#drag-subTitle").addClass("d-none");
-            $(".uploading").removeClass("d-none");
-            $(".done").addClass("d-none");
-          },
-          function error() {},
-          function complete() {
-            $("#sendbtn").removeAttr("disabled");
-            task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-              fileURL = downloadURL;
-              $(".done").removeClass("d-none");
-              $(".uploading").addClass("d-none");
-              fileArray.push(fileURL);
-              $("#submitButton").removeAttr("disabled");
-            });
-          }
-        );
-      }
-  // here we store files in database
-      function storeFiles() {
-        const db = firebase.firestore();
-        db.collection("uploadedfiles")
-          .add({
-            files: fileArray
-          })
-          .then(function(docRef) {
-            console.log("Document written with ID: ", docRef.id);
-            $(".success").removeClass("d-none");
-            $("#submitButton").attr("disabled", "disabled");
-          })
-          .catch(function(error) {
-            console.error("Error adding document: ", error);
-            $("#submitButton").removeAttr("disabled");
-          });
-      }
+    dropZoneElement.classList.remove("drop-zone--over");
+  });
+});
 
-// on input change we upload the given files -- Used only when you click the box and use the normal method to upload
-      $("input").change(function(e) {
-        // Get the file
-        const file = e.target.files[0];
-        // create ref
-        const storageRef = firebase.storage().ref("uploaded_files /" + Date.now() + '-' + file.name);
-        // upload file
-        const task = storageRef.put(file);
-        // upload indicator
-        task.on(
-          "state_changed",
-          function progress(snapshot) {
-            const percentage =
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log(percentage);
-            $("#drag-title,#drag-subTitle").addClass("d-none");
-            $(".uploading").removeClass("d-none");
-            $(".done").addClass("d-none");
-          },
-          function error() {},
-          function complete() {
-            $("#sendbtn").removeAttr("disabled");
-            task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-              $(".done").removeClass("d-none");
-              $(".uploading").addClass("d-none");
-              console.log(downloadURL);
-              fileArray.push(downloadURL);
-              $("#submitButton").removeAttr("disabled");
-            });
-          }
-        );
-      });
+/**
+ * Updates the thumbnail on a drop zone element.
+ *
+ * @param {HTMLElement} dropZoneElement
+ * @param {File} file
+ */
+function updateThumbnail(dropZoneElement, file) {
+  let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
 
-// when click submit button we store the files urls in the database
-      $("#submitButton").click(function() {
-        storeFiles();
-      });
+  // First time - remove the prompt
+  if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+    dropZoneElement.querySelector(".drop-zone__prompt").remove();
+  }
+
+  // First time - there is no thumbnail element, so lets create it
+  if (!thumbnailElement) {
+    thumbnailElement = document.createElement("div");
+    thumbnailElement.classList.add("drop-zone__thumb");
+    dropZoneElement.appendChild(thumbnailElement);
+  }
+
+  thumbnailElement.dataset.label = file.name;
+
+  // Show thumbnail for image files
+  if (file.type.startsWith("image/")) {
+    const reader = new FileReader();
+
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+    };
+  } else {
+    thumbnailElement.style.backgroundImage = null;
+  }
+}
+
 </script>
 
 
-
-
-</div>
 <style>
-
-.header-title-bar {
-  height: 8.125rem;
-  background-color: #c5c7c945;
+  .drop-zone {
+  max-width: 100%;
+  
+  height: 100%;
+  padding: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #434343;
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer;
+  color: #cccccc;
+  border: 2px dashed #dce0e0;
+  border-radius: 10px;
+}
+
+.drop-zone--over {
+  border-style: solid;
+}
+
+.drop-zone__input {
+  display: none;
+}
+
+.drop-zone__thumb {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #cccccc;
+  background-size: cover;
+  position: relative;
+}
+
+.drop-zone__thumb::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 0;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.75);
+  font-size: 14px;
   text-align: center;
 }
 
-.advantages-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.advantages-section .advantage-block {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin: 0 1em;
-}
-.advantages-section .advantage-block__img-container {
-  width: 4.5em;
-  height: 3.125em;
-  border: 2px solid #999999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0.5em;
-  margin-right: 1em;
-  color: #999999;
-}
-.advantages-section .advantage-block__img-container p {
-  font-weight: 700;
-  font-size: 1.3rem;
-}
-.advantages-section .advantage-block__text-container__title {
-  font-size: 1.2rem;
-  font-weight: 700;
-  padding-bottom: 0.3em;
-}
-.advantages-section .advantage-block__text-container__content {
-  line-height: 1.5em;
-  max-width: 16em;
-  font-size: 0.9rem;
-}
-
-.upload {
-  width: 90%;
-  max-width: 1400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 2em auto;
-  margin-bottom: 1em;
-  padding: 2em;
-  color: #434343;
-  cursor: pointer;
-  border: 0.1875em dashed #c5c7c945;
-}
-.upload svg {
-  width: 15em;
-  transition: all 0.4s ease;
-}
-.upload svg path {
-  transition: all 0.4s ease;
-}
-.upload .cloud-img {
-  padding-top: 3em;
-}
-.upload input {
-  display: none;
-}
-.upload .img-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1.5em;
-  position: relative;
-}
-.upload .img-title span.clarify {
-  display: block;
-  color: #999999;
-  font-size: 1rem;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  transform: translateX(101%);
-}
-.upload .blue {
-  color: #3588b9;
-  text-decoration: none;
-  cursor: pointer;
-}
-.upload .img-subtitle {
-  color: #999999;
-}
-.upload.highlight {
-  border-color: salmon;
-}
-.upload.highlight svg {
-  transform: scale(1.1);
-}
-.upload.highlight svg path {
-  fill: #209957;
-}
-
-.d-none {
-  display: none;
-}
-
-.btn {
-  height: 40px;
-  border-radius: 8px;
-  padding: 0 16px;
-  -webkit-transition: 0.1s ease-in-out;
-  transition: 0.1s ease-in-out;
-  font-weight: 500;
-  cursor: pointer;
-  color: #fff;
-  -webkit-transition: 0.1s linear;
-  transition: 0.1s linear;
-  background-color: #209957;
-  position: relative;
-  border: none;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-bottom: 2em;
-}
-
-.btn:disabled {
-  opacity: 0.6;
-}
-
-.success {
-  color: #155724;
-  background-color: #d4edda;
-  border-color: #c3e6cb;
-  position: relative;
-  padding: .75rem 1.25rem;
-  margin-bottom: 1rem;
-  border: 1px solid transparent;
-  border-radius: .25rem;
-  width: 80%;
-  margin: 1em auto;
-}
 </style>
-
 
 <script>
   $(document).ready(function() {
@@ -491,7 +325,7 @@ function dothis(){
   var one = document.getElementById('zipfile').value.split(':')[1].split('.')[0].split('\\')
 var package_name = one[one.length-1];
 var package_type = document.getElementById('zipfile').value.split(':')[1].split('.')[1];
-
+alert(package_name);
 // alert(package_name + ' - ' + package_type);
 }
 </script>
