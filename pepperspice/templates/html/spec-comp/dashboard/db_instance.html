@@ -817,6 +817,47 @@ animation: loading-dots-last-dot .5s linear infinite;
 	</div>
 
 </div>
+
+<script>
+
+
+  $(document).ready(function () {
+ 
+ $.ajax({
+type: "POST",
+url: '/dashboard/get/container/count/',
+data: {'r&w':'jvhcbhvsf309q093idfspfjskdlfdfa'}, // serializes the form's elements.
+success: function(data)
+{
+
+window.low_node = data.split('&')[0]
+window.medium_node = data.split('&')[1]
+window.high_node = data.split('&')[2]
+if(low_node == 0 && medium_node == 0 && high_node == 0){
+  $('#exampleModal').remove();
+  $('#alert').removeClass('imhidden');
+    $( ".writehere" ).attr('href','#load_options');
+    $( ".writehere" ).html( 'No containers available.' );
+}
+}
+//  $('.browser-screen-loading-content').css('visibility', 'hidden')
+
+
+
+});
+
+
+$('#own_infra').click(function(){
+
+if(window.low_node == 0 && window.medium_node == 0 && window.high_node == 0){
+window.location='/dashboard/new/knot/';
+}
+
+});
+
+  });
+</script>
+
 <script>
 
 $(document).ready(function () {
@@ -833,13 +874,13 @@ $(document).ready(function () {
     $('#own_infra').attr('data-target','#exampleModal');
    }
    else{
+     window.is_true = 'false';
      $("#exampleModal").remove();
      $("#to_remove").remove();
      $('#own_infra').attr('href','/dashboard/new/knot/');
    }
    }
  });
-
 
 //  $('.browser-screen-loading-content').css('visibility', 'hidden')
 
@@ -880,6 +921,8 @@ function linknode(id){
 
     $('.aftermodal').hide();
     
+   
+
 $('#submit_db').click(function(e) {
   
 
