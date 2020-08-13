@@ -1005,30 +1005,22 @@ def warehouse(request):
     
     if request.method == 'POST':
 
-        # class FileDetails():
-        #     file_size = request.FILES['file'].size
-        #     file_name = request.FILES['file'].name
-        #     file_type = request.FILES['file'].content_type.split('/')[1]  
+        accepted_types = ['zip', 'tar.gz', 'tar', '7zip', 'sql']
 
+        class FileDetails():
+            file_size = request.FILES['myfile'].size
+            file_name = request.FILES['myfile'].name
+            file_type = request.FILES['myfile'].content_type.split('/')[1]  
+       
 
-        # if FileDetails.file_type == 'zip':
-        #     fs = FileSystemStorage()  
-        #     # filename = fs.save(FileDetails.file_name, request.FILES['file'])
-        #     # uploaded_file_url = fs.url(FileDetails.file_name)
+        if FileDetails.file_type in accepted_types:
+            fs = FileSystemStorage()  
+            # filename = fs.save(FileDetails.file_name, request.FILES['file'])
+            # uploaded_file_url = fs.url(FileDetails.file_name)
             
-        #     return render(request, 'html/spec-comp/dashboard/warehouse.html')
-
-
-        # elif FileDetails.file_type == 'sql':
-        #     fs = FileSystemStorage() 
-        #     # filename = fs.save(FileDetails.file_name, request.FILES['file'])
-        #     # uploaded_file_url = fs.url(FileDetails.file_name)
-        #     return render(request, 'html/spec-comp/dashboard/warehouse.html')
-
-        # if FileDetails.file_type != 'zip' and FileDetails.file_type != 'sql':
-           
-        #     return render(request, 'html/spec-comp/dashboard/warehouse.html')
-
+            return render(request, 'html/spec-comp/dashboard/warehouse.html')
+        
+        return render(request, 'html/spec-comp/dashboard/warehouse.html')       
         
     
 
