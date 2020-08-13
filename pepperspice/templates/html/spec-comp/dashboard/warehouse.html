@@ -75,7 +75,8 @@
     </div>
   </div>
 </div>
-      <form method="post" enctype="multipart/form-data" action="http://localhost:8000/dashboard/warehouse/">
+
+<form method="post" enctype="multipart/form-data" action="http://localhost:8000/dashboard/warehouse/">
         {% csrf_token %}
         <!-- <input type="file" name="file" id="zipfile" accept=".zip,.rar,.7zip,.sql,.tar.gz,.tar" /> -->
         <!-- <button type="submit">Upload</button> -->
@@ -86,7 +87,7 @@
 
     
    
-    <input type="file" name="myFile" class="drop-zone__input" id="zipfile">
+    <input type="file" name="myfile" class="drop-zone__input" id="zipfile">
 
     
 
@@ -187,7 +188,7 @@ $(".namehere").hide();
     if (inputElement.files.length) {
       var one = document.getElementById('zipfile').value.split(':')[1].split('.')[0].split('\\')
       var two = document.getElementById('zipfile').value.split(':')[1].split('\\');
-      var package_name = one[one.length-1];
+      window.package_name = one[one.length-1];
       var package_type = document.getElementById('zipfile').value.split(':')[1].split('.')[1];
       $(".namehere").append(two[two.length-1]);
       $(".namehere").fadeIn();
@@ -315,6 +316,8 @@ function updateThumbnail(dropZoneElement, file) {
 
 $('form').on('submit', function(event){
 event.preventDefault();
+
+// $("#zipfile").attr('name', window.package_name);
 
 var formData = new FormData($('form')[0]);
 $.ajax({

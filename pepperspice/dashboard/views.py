@@ -1004,24 +1004,18 @@ def warehouse(request):
     from django.core.files.storage import FileSystemStorage
     
     if request.method == 'POST':
-        
-        # uploaded_file = request.FILES['file']
-        # fs = FileSystemStorage() 
-        # filename = fs.save(uploaded_file.name, uploaded_file)
-        # uploaded_file_url = fs.url(filename)
-        # return render(request, 'html/spec-comp/dashboard/warehouse.html')
-
 
         class FileDetails():
-            file_size = request.FILES['file'].size
-            file_name = request.FILES['file'].name
-            file_type = request.FILES['file'].content_type.split('/')[1]
+            file_size = request.FILES['myfile'].size
+            file_name = request.FILES['myfile'].name
+            file_type = request.FILES['myfile'].content_type.split('/')[1]  
+
 
         if FileDetails.file_type == 'zip':
             fs = FileSystemStorage()  
             # filename = fs.save(FileDetails.file_name, request.FILES['file'])
             # uploaded_file_url = fs.url(FileDetails.file_name)
-            messages.success(request, 'Successfully uploaded ' + FileDetails.file_name + ' Type: ' + FileDetails.file_type + ' Size: ' + size(FileDetails.file_size))
+            
             return render(request, 'html/spec-comp/dashboard/warehouse.html')
 
 
@@ -1029,17 +1023,15 @@ def warehouse(request):
             fs = FileSystemStorage() 
             # filename = fs.save(FileDetails.file_name, request.FILES['file'])
             # uploaded_file_url = fs.url(FileDetails.file_name)
-            messages.success(request, 'Successfully uploaded ' + FileDetails.file_name + ' Type: ' + FileDetails.file_type + ' Size: ' + size(FileDetails.file_size))
             return render(request, 'html/spec-comp/dashboard/warehouse.html')
 
         if FileDetails.file_type != 'zip' and FileDetails.file_type != 'sql':
-            messages.success(request, 'Only ZIP and SQL files are allowed.')
+           
             return render(request, 'html/spec-comp/dashboard/warehouse.html')
 
         
     
 
-        messages.success(request, 'Success')
         return render(request, 'html/spec-comp/dashboard/warehouse.html')
     else:
         return render(request, 'html/spec-comp/dashboard/warehouse.html')
