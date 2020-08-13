@@ -99,7 +99,7 @@
 
       <div class="row centered">
 
-        <button class="ui green button" type="submit" id="submit_btn">
+        <button class="ui green button" type="submit" id="submit_btn" disabled>
           <i class="cloud upload icon"></i>
           Upload
         </button>
@@ -267,9 +267,9 @@ function updateThumbnail(dropZoneElement, file) {
 <script>
   $(document).ready(function() {
     $(".progress").hide();
-
+    document.getElementById("submit_btn").style='opacity: 1 !important';
     $("#submit_btn").addClass('loading');
-    $('#submit_btn').attr('disabled',true);
+
 
         $('input:file').change(
             function(){
