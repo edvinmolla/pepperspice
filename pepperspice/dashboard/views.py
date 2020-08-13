@@ -28,8 +28,6 @@ def supply_container_count(request):
             else:
                 return HttpResponse('false')
 
-            
-
 def dashboard(request):
 
     if request.user.is_authenticated:
@@ -162,7 +160,6 @@ def new_db_instance(request):
 
     else:
         return redirect('/accounts/login/')
-
 
 @csrf_exempt
 def verify_request(request, user_id, request_key):
@@ -313,8 +310,7 @@ def new_db(request):
                     
                     
                     return HttpResponse('success')
-
-             
+    
 def mikro_instance(request):
     if request.user.is_authenticated:
         return render(request, 'html/spec-comp/dashboard/new_mikro_instance.html')
@@ -369,7 +365,6 @@ def profile(request):
     else:
         return redirect('/accounts/login/')
 
-
 def fast_easy(request):
     if request.user.is_authenticated:
         db_user = CustomUser.objects.filter(email=request.user).first()
@@ -414,7 +409,6 @@ def new_knot(request):
             return render(request, 'html/spec-comp/dashboard/buy_containers.html', {'hide_or_not':'hideme', 'disable_or_not':'disabled', 'variable':True})
     else:
         return redirect('/accounts/login/')
-
 
 def create_order(request):
     
@@ -472,7 +466,6 @@ def create_order(request):
         
     else:
         return redirect('/accounts/login/')
-
 
 def new_node(request, uuid, mode):
     import uuid
@@ -658,7 +651,6 @@ def create_node(request, name_domain):
     else:
         return redirect('/accounts/login/')
 
-
 def get_data(request, node_id):
     if request.user.is_authenticated:
         db_user = Node.objects.filter(Email=request.user)
@@ -678,7 +670,6 @@ def get_data(request, node_id):
     
         return HttpResponse(a.Name+'&'+a.node_ID+'&'+str(a.Date_Created)+'&'+a.Private_IPv4+'&'+a.IPv4+'&'+a.Domain_Name+'&'+app_icon)
     
-
 def get_container_data(request):
     if request.user.is_authenticated:
         db_user = Node.objects.filter(Email=request.user)
@@ -695,7 +686,6 @@ def get_container_data(request):
         
         
         return HttpResponse(str(used_containers_count)+'&'+str(free_containers_count))
-
 
 def delete_container(request,id):
     if request.user.is_authenticated:
@@ -716,7 +706,6 @@ def delete_container(request,id):
                 
             messages.success(request, 'Something went wrong, we couldn\'t finish your request.')
             return redirect('/overview/')
-
 
 def send_credit_card(request):
     if request.user.is_authenticated:
@@ -980,20 +969,17 @@ def create_node_technical(request, name_domain_subdomain):
     else:
         return redirect('/accounts/login/')
 
-
 def get_db_data(request, node_id):
     if request.user.is_authenticated:
         db = DBNode.objects.filter(db_uid=node_id).first()
       
         return HttpResponse(db.db_name+'&'+db.db_uid+'&'+str(db.Date_Created)+'&'+db.db_internal_ip+'&'+db.db_external_ip+'&'+db.db_hostname+'&'+db.db_name+'&'+str(db.db_port)+'&'+db.db_username+'&'+db.db_password)
 
-
 def get_payment(request, user_id):
     if request.user.is_authenticated:
         if not UserTrait.objects.filter(email=user_id).exists():
 
             return HttpResponse('false')
-
 
 def warehouse(request):
     from hurry.filesize import size
