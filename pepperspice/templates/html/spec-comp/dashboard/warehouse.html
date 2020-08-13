@@ -30,7 +30,7 @@
 </a>
   </div>
 
-  
+
 
 
 
@@ -374,7 +374,8 @@ if (data1 == 'false'){
     $( ".writehere" ).html( 'That file type Is not supported.' );
 }
 else if (data1 == 'true'){
-  console.log('success');
+  $('#alert').addClass('hideme');
+  location.reload();
 }
 }
 });

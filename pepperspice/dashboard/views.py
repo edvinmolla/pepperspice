@@ -1015,16 +1015,17 @@ def warehouse(request):
 
         if FileDetails.file_type in accepted_types:
             fs = FileSystemStorage()  
-            # filename = fs.save(FileDetails.file_name, request.FILES['file'])
+            filename = fs.save(str((uuid.uuid4().hex)[0:4]) + '_' + str(request.user) + '_' + FileDetails.file_name, request.FILES['myfile'])
             # uploaded_file_url = fs.url(FileDetails.file_name)
             
-            return render(request, 'html/spec-comp/dashboard/warehouse.html')
-        
-        return render(request, 'html/spec-comp/dashboard/warehouse.html')       
+            return HttpResponse('true')
+        else:
+
+            return HttpResponse('false')
         
     
 
-        return render(request, 'html/spec-comp/dashboard/warehouse.html')
+        
     else:
         return render(request, 'html/spec-comp/dashboard/warehouse.html')
     
