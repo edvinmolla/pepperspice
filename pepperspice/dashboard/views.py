@@ -262,23 +262,7 @@ def new_db(request):
                     node.id_link_color = db_id_link_color
                     node.save()
                     
-                    db = DBNode(user_ID=request.user,
-                    Email=request.user,
-                    linked_to_node_uuid=DB_Details.linked_to_app,
-                    db_hostname=request.POST.get('database_hostname'),
-                    Date_Created=DB_Details.Date_Created,
-                    link_status=link_status,
-                    id_link_color=db_id_link_color,
-                    db_name=DB_Details.db_name,
-                    db_username=DB_Details.username,
-                    db_password=DB_Details.password,
-                    db_uid=DB_Details.db_uid,
-                    db_engine=DB_Details.db_engine,
-                    # db_port=DB_Details.db_port,
-                    db_port=3309,
-                    db_version=DB_Details.db_version,
-                    db_load_type=DB_Details.load_option)
-                    db.save()
+                    
 
                     os.system("echo esxiforme | sudo -S docker run -d " + "--name '" + DB_Details.db_uid + "' -e MYSQL_ROOT_PASSWORD=KmQfcsnpdUrrRL2qzE8P --network=net1 mysql")
                     time.sleep(30)             
@@ -288,9 +272,31 @@ def new_db(request):
                     os.system("echo KmQfcsnpdUrrRL2qzE8P | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"GRANT ALL ON " + DB_Details.db_name + ".* TO '" + DB_Details.username + "'@'localhost'; FLUSH PRIVILEGES;\"")
                     os.system("echo KmQfcsnpdUrrRL2qzE8P | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"GRANT ALL ON " + DB_Details.db_name + ".* TO '" + DB_Details.username + "'@'%'; FLUSH PRIVILEGES;\"")
 
-                    a = DBNode.objects.filter(db_uid=DB_Details.db_uid).first()
-                    a.db_internal_ip = os.popen("echo esxiforme | sudo -S docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' " + DB_Details.db_uid).read().strip()
-                    a.save()
+
+                    time.sleep(1)
+                    check_val = os.system("echo esxiforme | sudo -S docker ps -a | grep " + str(DB_Details.db_uid))
+                    if check_val == 0:
+                        db = DBNode(user_ID=request.user,
+                        Email=request.user,
+                        linked_to_node_uuid=DB_Details.linked_to_app,
+                        db_hostname=request.POST.get('database_hostname'),
+                        Date_Created=DB_Details.Date_Created,
+                        link_status=link_status,
+                        id_link_color=db_id_link_color,
+                        db_name=DB_Details.db_name,
+                        db_username=DB_Details.username,
+                        db_password=DB_Details.password,
+                        db_uid=DB_Details.db_uid,
+                        db_engine=DB_Details.db_engine,
+                        # db_port=DB_Details.db_port,
+                        db_port=3309,
+                        db_version=DB_Details.db_version,
+                        db_load_type=DB_Details.load_option)
+                        db.save()
+
+                        a = DBNode.objects.filter(db_uid=DB_Details.db_uid).first()
+                        a.db_internal_ip = os.popen("echo esxiforme | sudo -S docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' " + DB_Details.db_uid).read().strip()
+                        a.save()
 
                     return HttpResponse('success')
             #    The creation of mysql docker container and the omnidb container will be done here.
