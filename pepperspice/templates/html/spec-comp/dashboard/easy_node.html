@@ -4,7 +4,7 @@
    <br/>
    <br/>
    <br/>
-   <br/>
+
 
    <div class="myAlert-top alert imhidden alert-warning" id="alert">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -17,7 +17,16 @@
     }
   </style>
 
-
+<form class="ui form">
+ 
+    <div class="ui fluid labeled input big">
+      <div class="ui label aligned center">
+        Node Name
+      </div>
+        <input type="text" placeholder="Node Name" id="node_name_">
+        
+      </div>
+  </form>
 
     <h1 style="display: inline-block;">Select Your Application's Framework</h1>
     <div class="ui icon button" data-tooltip="Selecting the correct version for your framework is very important as most version do not have backwards compatability." data-position="bottom center"  data-inverted="" style="font-size: 8px;  top: -8px;">
@@ -42,6 +51,7 @@
         <input type="hidden" name="monitor_type" id="monitor_type">
         <input type="hidden" name="server_region" id="server_region">
         <input type="hidden" name="node_name" id="node_name"> 
+        <input type="hidden" name="request_key" id="request_key" value={{ key }}> 
         <input type="hidden" name="node_domain" id="node_domain">
         <input type="hidden" name="load_type" id="load_type">
         <input type="hidden" name="app_type" id="app_type">
@@ -70,8 +80,8 @@
                         <i class="angular icon" style="float: right; font-size: 40px; color: red;"></i>
                         <a class="header">Angular</a>
                         <div class="meta">
-                            <span class="date">Version: 10.0.4</span>
-                        </div>
+                            <span class="date" style="font-size: 12px;">Latest: 10.0.4</span>
+                          </div>
                         
                         
                     </div>
@@ -99,8 +109,8 @@
                         <i class="laravel icon" style="float: right; font-size: 40px; color:orangered;"></i>
                         <a class="header">Laravel</a>
                         <div class="meta">
-                            <span class="date">Version: 7.21.0</span>
-                        </div>
+                            <span class="date" style="font-size: 12px;">Latest: 7.21.0</span>
+                          </div>
                         
                     </div>
                     <select class="ui selection compact dropdown" id="dropdown_laravel">
@@ -126,8 +136,8 @@
                         <img src="https://cdn2.hubspot.net/hubfs/3885898/django.png" width="45px" height="40px" style="float: right;">
                         <a class="header">Django</a>
                         <div class="meta">
-                            <span class="date">Version: 3.0.8 </span>
-                        </div>
+                            <span class="date" style="font-size: 12px;">Latest: 3.0.8</span>
+                          </div>
                         
                     </div>
                     <select class="ui selection compact dropdown" id="dropdown_django">
@@ -154,7 +164,7 @@
                         <i class="wordpress icon" style="float: right; font-size: 40px; color: skyblue;"></i>
                         <a class="header">WordPress</a>
                         <div class="meta">
-                            <span class="date" style="font-size: 12px;">Latest Version: 5.4.2</span>
+                            <span class="date" style="font-size: 12px;">Latest: 5.4.2</span>
                         </div>
                         
                     </div>
@@ -426,19 +436,9 @@
 <br/>
 
     <form class="ui form">
-        Node Name
-        <div class="ui fluid icon input" >
-            <input type="text" placeholder="Node Name" id="node_name_">
-            
-          </div>
 
-          <br/>
           <small>If you have a domain available, go ahead and type It In below.</small>
-          <br/>
-        
-         
-         
-         
+       
          
          
          <br/>
@@ -465,7 +465,10 @@
 
 </form>
 
-
+<br/>
+<br/>
+<br/>
+<br/>
 <script>
 $(document).ready(function () {
     document.getElementById("submit_button").disabled=true;
@@ -516,6 +519,12 @@ if($('#rotterdam').is(':checked')) { var DOMAIN_NAME = window.location.href;hist
 if($('#low_load').is(':checked')) { document.getElementById('load_type').value="low_load";}
 if($('#medium_load').is(':checked')) { document.getElementById('load_type').value="medium_load";}
 if($('#high_load').is(':checked')) { document.getElementById('load_type').value="high_load";}
+
+
+$('#submit_button').addClass('loading');
+$('#submit_button').removeClass('blue');
+$('#submit_button').addClass('green');
+$('#submit_button').addClass('disabled');
 
 var formData = $('#formData').serialize();
                  $("#formData").submit(function(e) {

@@ -1,5 +1,5 @@
 
-<div class="container mt-4 ">
+<div class="container  ">
 
   <div class="myAlert-top alert imhidden alert-warning" id="alert1">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -12,8 +12,12 @@
     }
   </style>
  
-  <h1 style="display: inline-block; font-weight: 100;">Deploy New Application - Technical</h1>
- 
+  <h1 style="display: inline-block; font-weight: 100; margin-top: -100px;">Deploy New Application - Technical</h1>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
 
 <form class="ui form">
  
@@ -972,7 +976,8 @@ if($('#sqlite').is(':checked')){document.getElementById('database').value="sqlit
 
 
 
-
+$('#submit_button_1').addClass('disabled');
+$('#submit_button_1').addClass('loading');
 
 
 var formData1 = $('#formData1').serialize();
