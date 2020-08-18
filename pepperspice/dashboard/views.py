@@ -299,7 +299,8 @@ def new_db(request):
                         a.db_internal_ip = os.popen("echo esxiforme | sudo -S docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' " + DB_Details.db_uid).read().strip()
                         a.save()
 
-                    return HttpResponse('success')
+                     
+                        return HttpResponse('success')
             #    The creation of mysql docker container and the omnidb container will be done here.
                 else:
                     
@@ -337,7 +338,7 @@ def new_db(request):
                         a.db_internal_ip = os.popen("echo esxiforme | sudo -S docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' " + DB_Details.db_uid).read().strip()
                         a.save()
                         
-                        
+                      
                         return HttpResponse('success')
                     else:
                         return HttpResponse('error')
