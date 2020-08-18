@@ -296,6 +296,7 @@ def new_db(request):
 
 
 
+
                         a = DBNode.objects.filter(db_uid=DB_Details.db_uid).first()
                         a.db_internal_ip = os.popen("echo esxiforme | sudo -S docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' " + DB_Details.db_uid).read().strip()
                         a.save()
