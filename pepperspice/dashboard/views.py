@@ -56,8 +56,7 @@ def dashboard(request):
             dbms_user_password = 'false'
             dbms_status = 'false'
 
-        a= (timezone.now() - db.first().Date_Created).strftime("%Y-%m-%d %H:%M:%S") 
-        print(a)
+    
         return render(request, 'html/spec-comp/dashboard/overview.html', {'instances':Node.objects.filter(Email=request.user), 
                                                                             'initials':str(request.user).split('@')[0],
                                                                             'webapps':Node.objects.filter(is_webapp=True), 

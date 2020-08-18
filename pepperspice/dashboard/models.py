@@ -1,5 +1,6 @@
 from django.db import models
 from authentication.models import CustomUser
+import datetime
 from django.utils import timezone
 
 
@@ -42,7 +43,7 @@ class DBNode(models.Model):
     linked_to_node_uuid = models.CharField(max_length=256, default='')
     Status = models.BooleanField(default=True)
     db_hostname = models.CharField(max_length=256, default='')
-    Date_Created = models.DateTimeField(default=timezone.now)
+    Date_Created = models.DateTimeField(default=datetime.datetime.now())
     link_status = models.BooleanField(default=True)
     db_internal_ip = models.CharField(max_length=64, default='')
     db_external_ip = models.CharField(max_length=64, default='')
@@ -66,7 +67,7 @@ class Node(models.Model):
     Status = models.BooleanField()
     Name = models.CharField(max_length=32)
     Framework = models.CharField(max_length=32, default='') # Show only if instance is webapp
-    Date_Created = models.DateTimeField(default=timezone.now)
+    Date_Created = models.DateTimeField(default=datetime.datetime.now())
     Load_Type = models.CharField(max_length=16, default='')
     link_status = models.BooleanField(default=False)
     server_region = models.CharField(max_length=32, default='')
@@ -88,7 +89,7 @@ class Deleted_Node(models.Model):
     user_id = models.CharField(max_length=128 ,default='')
     email = models.EmailField(default='')
     instance_type = models.CharField(max_length=16, default='')
-    date_deleted = models.DateTimeField(default=timezone.now)
+    date_deleted = models.DateTimeField(default=datetime.datetime.now())
 
     def __str__(self):
         return self.email
