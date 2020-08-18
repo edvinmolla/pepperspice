@@ -439,7 +439,7 @@ animation: loading-dots-last-dot .5s linear infinite;
                                      
                                     </div>
                                
-                                      <select class="ui selection dropdown" id="dropdown_mysql">
+                                      <select class="ui selection compact dropdown" id="dropdown_mysql">
                                     
                                         <option value="8_0" selected>Version 8.0</option>
                                         <option value="5_7">Version 5.7</option>
@@ -485,7 +485,7 @@ animation: loading-dots-last-dot .5s linear infinite;
                             
                 
                 
-                                      <select class="ui selection dropdown" id="dropdown_postgresql">
+                                      <select class="ui selection compact dropdown" id="dropdown_postgresql">
                                     
                                         <option value="12_3" selected>Version 12.3</option>
                                         <option value="11_8">Version 11.8</option>
@@ -530,7 +530,7 @@ animation: loading-dots-last-dot .5s linear infinite;
                                    
                        
                 
-                                      <select class="ui selection dropdown" id="dropdown_mariadb">
+                                      <select class="ui selection compact dropdown" id="dropdown_mariadb">
                                     
                                         <option value="10_5" selected>Version 10.5</option>
                                         <option value="10_4">Version 10.4</option>
@@ -575,7 +575,7 @@ animation: loading-dots-last-dot .5s linear infinite;
                                   </div>
                             
                 
-                                  <select class="ui selection dropdown" id="dropdown_sqlite">
+                                  <select class="ui selection compact dropdown" id="dropdown_sqlite">
                                     
                                     <option value="3_32" selected>Version 3.32</option>
                                     <option value="3_30">Version 3.30</option>
@@ -795,7 +795,7 @@ animation: loading-dots-last-dot .5s linear infinite;
                 
                   
 
-                <div class="ui centered grid">
+                <div class="ui centered grid" style="margin-bottom: 50px;">
                 
                     
                         <button class="ui big blue button" id="submit_db" type="submit">Create Database</button>
@@ -977,7 +977,8 @@ if($('#sqlite').is(':checked')){document.getElementById('db_engine').value="sqli
 document.getElementById('db_name_form').value=document.getElementById('db_name').value;
 
 
-
+$('#submit_db').addClass('disabled');
+$('#submit_db').addClass('loading');
 
 
 
