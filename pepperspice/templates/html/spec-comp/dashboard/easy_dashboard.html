@@ -214,10 +214,9 @@
           <a href="/dashboard/profile/" alt="{{ request.user }}">
          
             <div style="margin-bottom: -60px; margin-left: -50px;">
-              {% with date_diff=db.Date_Created-now %}
-              <a class="ui teal label">{{ date_diff }}</a>
-              {% endwith %}
-           
+
+              <a class="ui teal label">{{ request.user.username }}</a>
+             
             <!-- <i class="fas fa-user-circle" style="font-size: 40px; color: {{ db.id_link_color }};"></i> -->
     
           </div>
