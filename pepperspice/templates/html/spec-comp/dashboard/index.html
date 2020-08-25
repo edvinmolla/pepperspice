@@ -261,6 +261,10 @@ body ::-webkit-scrollbar {
 <script>
   $(document).ready(function (){
 
+    document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+
    $.ajax({
   type: "POST",
   url: '/dashboard/get/container/count/',
