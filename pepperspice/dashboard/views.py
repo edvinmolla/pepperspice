@@ -1007,7 +1007,8 @@ def warehouse(request):
             filename = fs.save(str((uuid.uuid4().hex)[0:4]) + '_' + str(request.user) + '_' + FileDetails.file_name, request.FILES['myfile'])
             # uploaded_file_url = fs.url(FileDetails.file_name)
             db = UploadedProject(user_ID=request.user, email=request.user,
-                            Date_Uploaded=datetime.now(), file_name=filename, filetype=FileDetails.file_type)
+                            Date_Uploaded=datetime.now(), file_name=filename, file_type=FileDetails.file_type, file_size=size(FileDetails.file_size),
+                            linked_to_node_uuid='')
             db.save()
             
             return HttpResponse('true')

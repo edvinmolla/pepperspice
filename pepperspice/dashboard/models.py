@@ -9,6 +9,8 @@ class UploadedProject(models.Model):
     Date_Uploaded = models.DateTimeField(default=datetime.now())
     file_name = models.CharField(max_length=128, default='')
     file_type = models.CharField(max_length=16, default='')
+    file_size = models.CharField(max_length=256, default='')
+    linked_to_node_uuid = models.CharField(max_length=256, default='')
 
     def __str__(self):
         return self.email
