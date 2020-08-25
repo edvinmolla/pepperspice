@@ -8,6 +8,7 @@ class UploadedProject(models.Model):
     email = models.EmailField(default='')
     Date_Uploaded = models.DateTimeField(default=datetime.now())
     file_name = models.CharField(max_length=128, default='')
+    file_type = models.CharField(max_length=16, default='')
 
     def __str__(self):
         return self.email
