@@ -1007,7 +1007,7 @@ def create_node_technical(request, name_domain_subdomain):
 
             
             
-                
+            
             
             
 
