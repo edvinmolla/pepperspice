@@ -7,13 +7,15 @@ from authentication.models import CustomUser
 from django.http import HttpResponse
 from .models import UserTrait      
 from .models import DBNode   
-import subprocess                                                                             
+import subprocess      
+from datetime import datetime
 import uuid
 import os
 import time
 import docker
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
+from .models import UploadedProject
 
 
 @csrf_exempt
@@ -32,7 +34,7 @@ def dashboard(request):
 
     if request.user.is_authenticated:
         node = CustomUser.objects.filter(email=request.user).first()
-        node.last_login = timezone.now()
+        node.last_login = datetime.now()()
         node.save()
  
         web_app_count = 0
@@ -224,7 +226,7 @@ def new_db(request):
 
                 class DB_Details():
                     linked_to_app = request.POST.get('linked_node_id')
-                    Date_Created = timezone.now()
+                    Date_Created = datetime.now()()
                     db_name = request.POST.get('db_name_form')
                     db_uid = str((uuid.uuid4().hex)[0:12])
                     username = str((uuid.uuid4().hex)[0:12])
@@ -636,7 +638,7 @@ def create_node(request, name_domain):
             framework_version=request.POST.get('framework_version'),
             is_webapp=True, 
             id_link_color=color_pick,
-            Date_Created=timezone.now(), 
+            Date_Created=datetime.now()(), 
             Load_Type=NodeDetails.load_type, 
             Private_IPv4='152.25.33.54', 
             Monitoring=NodeDetails.monitor_type, 
@@ -788,7 +790,7 @@ def create_node_technical(request, name_domain_subdomain):
             NodeDetailsTechnical.Name = name_domain_subdomain.split('&')[0]
             NodeDetailsTechnical.Framework = request.POST.get('framework_1')
             NodeDetailsTechnical.NodeType = request.POST.get('app_type')
-            NodeDetailsTechnical.Date_Created = timezone.now()
+            NodeDetailsTechnical.Date_Created = datetime.now()()
             NodeDetailsTechnical.Load_Type = request.POST.get('load_type_1')
             NodeDetailsTechnical.IPv4 = '195.25.15.35'
             NodeDetailsTechnical.Private_IPv4 = '172.14.23.66'
@@ -838,7 +840,7 @@ def create_node_technical(request, name_domain_subdomain):
                     db_uid=NodeDetailsTechnical.DatabaseUUID,
                     db_username=str((uuid.uuid4().hex)[0:12]),
                     db_password=str((uuid.uuid4().hex)[0:12]),
-                    Date_Created=timezone.now(),
+                    Date_Created=datetime.now()(),
                     id_link_color=color_pick,
                     linked_to_node_uuid=NodeDetailsTechnical.node_ID,
                     link_status=True,
@@ -884,7 +886,7 @@ def create_node_technical(request, name_domain_subdomain):
                     db_uid=NodeDetailsTechnical.DatabaseUUID,
                     db_username=str((uuid.uuid4().hex)[0:12]),
                     db_password=str((uuid.uuid4().hex)[0:12]),
-                    Date_Created=timezone.now(),
+                    Date_Created=datetime.now()(),
                     id_link_color=color_pick,
                     db_load_type='medium_load')
                     db.save()
@@ -926,7 +928,7 @@ def create_node_technical(request, name_domain_subdomain):
                     db_uid=NodeDetailsTechnical.DatabaseUUID,
                     db_username=str((uuid.uuid4().hex)[0:12]),
                     db_password=str((uuid.uuid4().hex)[0:12]),
-                    Date_Created=timezone.now(),
+                    Date_Created=datetime.now()(),
                     link_status=True,
                     linked_to_node_uuid=NodeDetailsTechnical.node_ID,
                     id_link_color=color_pick,
@@ -998,11 +1000,15 @@ def warehouse(request):
             file_name = request.FILES['myfile'].name
             file_type = request.FILES['myfile'].content_type.split('/')[1]  
        
+        
 
         if FileDetails.file_type in accepted_types:
             fs = FileSystemStorage()  
             filename = fs.save(str((uuid.uuid4().hex)[0:4]) + '_' + str(request.user) + '_' + FileDetails.file_name, request.FILES['myfile'])
             # uploaded_file_url = fs.url(FileDetails.file_name)
+            db = UploadedProject(user_ID=request.user, email=request.user,
+                            Date_Uploaded=datetime.now(), file_name=filename)
+            db.save()
             
             return HttpResponse('true')
         else:
