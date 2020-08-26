@@ -70,9 +70,9 @@
 
          {% if app.linked_to_node_uuid == "" %}
 
-            <div class="ui bottom blue attached animated button" tabindex="0">
+            <div class="ui bottom blue attached animated button" tabindex="0" data-toggle="modal" data-target="#linkmodal">
               <div class="visible content">Not Linked</div>
-              <div class="hidden content link-btn" data-toggle="modal" data-target="#linkmodal">
+              <div class="hidden content link-btn" >
                 <i class="plus icon"></i>
                 Link
                 
@@ -111,44 +111,22 @@
 
                 <h1 style="color: black; font-weight: 50; display: inline-block;">Link To An Application</h1>
               
-                
                 <div class="row">
+              
+                  
+                  {% for application in applications %}
 
-                    {% for application in applications %}
-                    <div class="col-sm-3" style="max-width: 250ox;" onclick="linknode('{{ application.node_ID }}');">
-                      
-                      <label>
-                        <input type="checkbox" name="product" class="card-input-element theapplink"/>
-                
-                        <div class="ui card panel panel-default card-input">
-                
-                          <div class="content">
-                              <i class="{{ application.Framework }} icon" style="float: right; font-size: 40px; color:orangered;"></i>
-                              <a class="header">{{ application.Name }}</a>
-                              <br/>
-                              <div class="meta">
-                                <a class="ui teal label">ID: {{ application.node_ID }}</a>
-                              
-                              </div>
-                          
-                              <div class="meta" style="margin-top: 5px;">
-                                <a class="ui green label">{{ application.framework_version }}</a>
-                               
-                            </div>
-                            
-                          
-                              
-                          </div>
-                        <!-- extra field here -->
-                      </div>
-                
-                      </label>
-                      
-                    </div>
+                  <input type="checkbox" name="product" class="card-input-element" />
 
-                    {% endfor %}
-                    
+                 
+              
+                
+                  {% endfor %}
+               
                 </div>
+
+               
+             
 
               
                 </div>
@@ -167,6 +145,13 @@
     
      
 <style>
+
+
+.modal-dialog {
+  min-width: 600px;
+  width: 600px;
+}
+
 .card-file {
   max-width: 250px;
 }
@@ -176,20 +161,10 @@
 display: none;
 }
 
-.card-input {
 
-border-radius: 5px;
-margin: 10px;
-padding: 15px;
-}
 
-.card-input:hover {
-box-shadow: 0 0 1px 1px #2ecc71;
-cursor: pointer;
-}
-
-.card-input-element:checked + .card-input {
-background-color: #a4c5e7;
+.card-input-element:checked + .data-card {
+background-color: black;
 box-shadow: 0 0 1px 1px #007FFF;
 }
  
