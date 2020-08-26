@@ -983,23 +983,33 @@ def get_payment(request, user_id):
 
             return HttpResponse('false')
 
+
+
 @csrf_exempt
 def check_duplicate(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
-            print('got it')
-            print(request.POST['file_name'])
-            return HttpResponse('true')
+            
+            if os.path.isfile('uploaded_projects/' + str(request.user) + '_' + request.POST['file_name']):
+                print('it exists')
+                return HttpResponse('true')
+            else:
+                print('doesnt exist')
+                return HttpResponse('false')
+
+
+            
 
 def warehouse(request):
     from hurry.filesize import size
-
     from .forms import DocumentForm
     from os.path import basename
     from django.core.files import File
     from django.core.files.storage import FileSystemStorage
     
     if request.method == 'POST':
+
+        
 
         accepted_types = ['zip', 'tar.gz', 'tar', '7zip', 'sql']
 

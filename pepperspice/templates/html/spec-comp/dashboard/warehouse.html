@@ -25,9 +25,14 @@
   }
   </style>
   
+  <script>
+    function reload(){
+      location.reload();
+    }
+  </script>
   
   <div class="myAlert-top alert imhidden alert-danger not-supported">That type of file is not supported.
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <a href="#" class="close" data-dismiss="alert" aria-label="close" onclick="reload();">&times;</a>
 <a href="#" class="writehere" style="text-decoration: none;">
 
 </a>
@@ -41,7 +46,7 @@
 
 
   <div class="myAlert-top alert imhidden alert-danger multiple-file">Multiple uploads of the same file are not permitted.
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <a href="#" class="close" data-dismiss="alert" aria-label="close" onclick="reload();">&times;</a>
 <a href="#" class="writehere" style="text-decoration: none;">
 
 
@@ -227,8 +232,7 @@ url: '/dashboard/unlink/file_to_app/',
 data: {'g&w':'uw9ugf39diewu4ufjksdcnsdjk','file_name':file_name}, // serializes the form's elements.
 success: function(data)
 {
-alert('sent');
-
+  console.log('ok');
 }
 });
 
@@ -596,29 +600,21 @@ function updateThumbnail(dropZoneElement, file) {
             );
 
 
+          });
 
-accepted_types = ['zip', '7zip', 'rar', 'tar.gz', 'tar', 'sql'];
 
-$('form').on('submit', function(event){
-event.preventDefault();
-alert(window.system_name[2]);
-  $.ajax({
-type: "POST",
-url: '/dashboard/check_duplicate/',
-data: {'g&w':'jsafhiuwef8uewfoisdfssdlk','file_name':window.system_name[2]}, // serializes the form's elements.
-success: function(data)
-{
-if (data == 'true'){
+
+</script>
+<script>
+  function set_values(data){
+
+    window.file_status = data;
+    
+    if (window.file_status=='true'){ 
   $('.multiple-file').removeClass('imhidden');
-  window.status = false;
-}
-}
-});
-
-if (window.status == false){
   $("#submit_btn").addClass('loading');
   $("#submit_btn").addClass('disabled');
-  return none;
+  return false;
 }
 
 if (!$("#zipfile").val()){
@@ -637,13 +633,15 @@ else {
   
 }
 
-event.preventDefault();
 
 $(".progress").fadeIn();
 
 $("#submit_btn").addClass('loading');
-  $("#submit_btn").addClass('disabled');
+$("#submit_btn").addClass('disabled');
+
 var formData = new FormData($('form')[0]);
+
+
 $.ajax({
 xhr: function(){
 var xhr = new window.XMLHttpRequest();
@@ -683,25 +681,34 @@ else if (data1 == 'true'){
 }
 });
 
-});
-
-
-
-
-
-
-
-  // $('#zipfile').on('change', function(evt) {
-  //   var mb = 1000000
-  //   var file_size = this.files[0].size
-  //   console.log((file_size/mb).toPrecision(5) + ' Mb');
-  // });
-});
-
-
+  }
 </script>
 
+<script>
+  accepted_types = ['zip', '7zip', 'rar', 'tar.gz', 'tar', 'sql'];
 
+$('#submit_btn').click(function(event){
+
+  event.preventDefault();
+  $.ajax({
+type: "POST",
+url: '/dashboard/check_duplicate/',
+data: {'g&w':'jsafhiuwef8uewfoisdfssdlk','file_name':window.system_name[2]}, // serializes the form's elements.
+success: function(data)
+{
+  set_values(data);
+ 
+}
+});
+
+
+
+
+
+
+
+});
+</script>
 
 </div>
 
