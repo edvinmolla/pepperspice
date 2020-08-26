@@ -124,15 +124,15 @@
                     
                     <div class="content">
                         <i class="{{ application.Framework }} icon" style="float: right; font-size: 25px; color:orangered;"></i>
-                        <a class="header">{{ application.Name }}</a>
+                        <h3 class="header">{{ application.Name }}</h3>
                         <br/>
                         <div class="meta">
-                          <a class="ui teal label" style="font-size: 10px;">ID: {{ application.node_ID }}</a>
+                          <h3 class="ui teal label" style="font-size: 10px;">ID: {{ application.node_ID }}</h3>
                         
                         </div>
                     
                         <div class="meta" style="margin-top: 5px;">
-                          <a class="ui green label" style="font-size: 9px;">{{ application.framework_version }}</a>
+                          <h3 class="ui green label" style="font-size: 9px;">{{ application.framework_version }}</h3>
                          
                       </div>
                       
@@ -156,8 +156,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary submit-link">Link</button>
             </div>
           </div>
         </div>
@@ -172,7 +172,27 @@
                 $('.card-input-element').not(this).prop('checked', false);
             });
             
+            
         });
+
+        </script>
+
+        <script>
+
+$('.submit-link').click(function(e) {
+
+  if($('.card-input-element').prop("checked") == false){
+alert('not checked');
+
+  }
+  else{
+    alert('all ok');
+  }
+
+
+});
+
+
         </script>
      
 <style>
