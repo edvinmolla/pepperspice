@@ -983,6 +983,14 @@ def get_payment(request, user_id):
 
             return HttpResponse('false')
 
+@csrf_exempt
+def check_duplicate(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            print('got it')
+            print(request.POST['file_name'])
+            return HttpResponse('true')
+
 def warehouse(request):
     from hurry.filesize import size
 
@@ -1006,12 +1014,7 @@ def warehouse(request):
             fs = FileSystemStorage()  
 
             
-            if os.path.isfile('uploaded_projects/' + str(request.user) + '_' + FileDetails.file_name):
-                db_files = UploadedProject.objects.filter(email=request.user)
-                print('im here')
-                return render(request, 'html/spec-comp/dashboard/warehouse.html', {'db_files':db_files, 'applications':Node.objects.filter(Email=request.user), 'same_file_prevent':'nein'})
-                
-
+            
             filename = fs.save(str(request.user) + '_' + FileDetails.file_name, request.FILES['myfile'])
             # uploaded_file_url = fs.url(FileDetails.file_name)
             db = UploadedProject(user_ID=request.user, email=request.user,
