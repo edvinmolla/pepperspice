@@ -36,4 +36,5 @@ urlpatterns = [
     path('get/container/count/', supply_container_count, name='supply_container_count'),
     path('warehouse/', warehouse, name='warehouse'),
     path('link/file_to_app/', link_file, name='link_file'),
+    path('unlink/file_to_app/', unlink_file, name='unlink_file'),
 ]

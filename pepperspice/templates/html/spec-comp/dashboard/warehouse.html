@@ -1,7 +1,17 @@
 {% extends "html/spec-comp/dashboard/index.html" %}
 {% block content %}
 
-
+<div class="myAlert-top alert {{ same_file_prevent }} alert-warning" id="alert">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+<a href="#" class="writehere" style="text-decoration: none;">
+</a>
+</div>
+<style>
+  .imhidden {
+    visibility: hidden;
+  }
+  
+</style>
 
 <style>
   .hideme {
@@ -81,7 +91,7 @@
 
         {% else %}
         <div class="ui top right orange attached label">Linked</div>
-
+        <div class="ui bottom red attached button" tabindex="0" onclick="unlink('{{ app.file_name }}');">Unlink</div>
 
         {% endif %}
 
@@ -198,10 +208,24 @@ function set_file_name(file_name){
   window.file_name = file_name;
 }
 
+function unlink(file_name){
+  $.ajax({
+type: "POST",
+url: '/dashboard/unlink/file_to_app/',
+data: {'g&w':'uw9ugf39diewu4ufjksdcnsdjk','file_name':file_name}, // serializes the form's elements.
+success: function(data)
+{
+alert('sent');
+
+}
+});
+
+}
+
 $('.submit-link').click(function(e) {
 
   if($('.card-input-element8').prop("checked") == false){
-alert(window.app_id);
+console.log('ok');
 
   }
   else{
@@ -584,6 +608,8 @@ event.preventDefault();
 
 $(".progress").fadeIn();
 
+$("#submit_btn").addClass('loading');
+  $("#submit_btn").addClass('disabled');
 var formData = new FormData($('form')[0]);
 $.ajax({
 xhr: function(){
@@ -619,6 +645,8 @@ if (data1 == 'false'){
     $( ".writehere" ).html( 'That file type Is not supported.' );
 }
 else if (data1 == 'true'){
+ 
+
   $('#alert').addClass('hideme');
   location.reload();
 }

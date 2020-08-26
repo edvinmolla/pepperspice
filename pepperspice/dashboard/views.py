@@ -1004,7 +1004,15 @@ def warehouse(request):
 
         if FileDetails.file_type in accepted_types:
             fs = FileSystemStorage()  
-            filename = fs.save(str((uuid.uuid4().hex)[0:4]) + '_' + str(request.user) + '_' + FileDetails.file_name, request.FILES['myfile'])
+
+            
+            if os.path.isfile('uploaded_projects/' + str(request.user) + '_' + FileDetails.file_name):
+                db_files = UploadedProject.objects.filter(email=request.user)
+                print('im here')
+                return render(request, 'html/spec-comp/dashboard/warehouse.html', {'db_files':db_files, 'applications':Node.objects.filter(Email=request.user), 'same_file_prevent':'nein'})
+                
+
+            filename = fs.save(str(request.user) + '_' + FileDetails.file_name, request.FILES['myfile'])
             # uploaded_file_url = fs.url(FileDetails.file_name)
             db = UploadedProject(user_ID=request.user, email=request.user,
                             Date_Uploaded=datetime.now(), file_name=FileDetails.file_name, file_type=FileDetails.file_type, file_size=size(FileDetails.file_size),
@@ -1013,21 +1021,34 @@ def warehouse(request):
             
             return HttpResponse('true')
         else:
-
-            return HttpResponse('false')
+            db_files = UploadedProject.objects.filter(email=request.user)
+            return render(request, 'html/spec-comp/dashboard/warehouse.html', {'db_files':db_files, 'applications':Node.objects.filter(Email=request.user), 'same_file_prevent':'imhidden'})
         
     
 
         
     else:
         db_files = UploadedProject.objects.filter(email=request.user)
-        return render(request, 'html/spec-comp/dashboard/warehouse.html', {'db_files':db_files, 'applications':Node.objects.filter(Email=request.user)})
+        return render(request, 'html/spec-comp/dashboard/warehouse.html', {'db_files':db_files, 'applications':Node.objects.filter(Email=request.user), 'same_file_prevent':'imhidden'})
     
 @csrf_exempt
 def link_file(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
 
-            print(request.POST.get)
+            app_id = request.POST['app_id']
+            file_name = request.POST['file_name']
+
+            mod_file = UploadedProject.objects.filter(file_system_name=file_name).first()
+            mod_file.linked_to_node_uuid = app_id
+            mod_file.save()
+
 
             return HttpResponse('succes')
+
+@csrf_exempt
+def unlink_file(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            print(request.POST.get)
+            return HttpResponse('success')
