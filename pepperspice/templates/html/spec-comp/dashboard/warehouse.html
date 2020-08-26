@@ -116,9 +116,33 @@
                   
                   {% for application in applications %}
 
+                  <div class="col-sm-3" onclick="linknode('{{ application.node_ID }}');">
+
                   <input type="checkbox" name="product" class="card-input-element" />
 
-                 
+                  <div class="ui card panel panel-default card-input">
+                    
+                    <div class="content">
+                        <i class="{{ application.Framework }} icon" style="float: right; font-size: 25px; color:orangered;"></i>
+                        <a class="header">{{ application.Name }}</a>
+                        <br/>
+                        <div class="meta">
+                          <a class="ui teal label" style="font-size: 10px;">ID: {{ application.node_ID }}</a>
+                        
+                        </div>
+                    
+                        <div class="meta" style="margin-top: 5px;">
+                          <a class="ui green label" style="font-size: 9px;">{{ application.framework_version }}</a>
+                         
+                      </div>
+                      
+                    
+                        
+                    </div>
+                  <!-- extra field here -->
+                </div>
+
+                  </div>
               
                 
                   {% endfor %}
@@ -158,13 +182,25 @@
 
 .card-input-element {
 
+
+
 display: none;
 }
 
+.card-input {
 
+border-radius: 5px;
+margin: 10px;
+padding: 15px;
+}
 
-.card-input-element:checked + .data-card {
-background-color: black;
+.card-input:hover {
+box-shadow: 0 0 1px 1px #2ecc71;
+cursor: pointer;
+}
+
+.card-input-element:checked + .card-input {
+background-color: #a4c5e7;
 box-shadow: 0 0 1px 1px #007FFF;
 }
  
