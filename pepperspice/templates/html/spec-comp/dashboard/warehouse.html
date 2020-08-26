@@ -117,7 +117,7 @@
                   {% for application in applications %}
 
                   <div class="col-sm-3" onclick="linknode('{{ application.node_ID }}');">
-
+                    <label>
                   <input type="checkbox" name="product" class="card-input-element" />
 
                   <div class="ui card panel panel-default card-input">
@@ -141,7 +141,7 @@
                     </div>
                   <!-- extra field here -->
                 </div>
-
+              </label>
                   </div>
               
                 
@@ -166,7 +166,14 @@
 
 
 
-    
+      <script>
+        $(document).ready(function(){
+            $('.card-input-element').click(function() {
+                $('.card-input-element').not(this).prop('checked', false);
+            });
+            
+        });
+        </script>
      
 <style>
 
@@ -178,6 +185,11 @@
 
 .card-file {
   max-width: 250px;
+}
+label {
+
+
+width: 100%;
 }
 
 .card-input-element {
