@@ -1023,3 +1023,11 @@ def warehouse(request):
         db_files = UploadedProject.objects.filter(email=request.user)
         return render(request, 'html/spec-comp/dashboard/warehouse.html', {'db_files':db_files, 'applications':Node.objects.filter(Email=request.user)})
     
+@csrf_exempt
+def link_file(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+
+            print(request.POST.get)
+
+            return HttpResponse('succes')

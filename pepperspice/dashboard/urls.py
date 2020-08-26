@@ -35,4 +35,5 @@ urlpatterns = [
     path('verify/db_eligibility/', verify_db_eligibility, name='verify_db_eligibility'),
     path('get/container/count/', supply_container_count, name='supply_container_count'),
     path('warehouse/', warehouse, name='warehouse'),
+    path('link/file_to_app/', link_file, name='link_file'),
 ]
