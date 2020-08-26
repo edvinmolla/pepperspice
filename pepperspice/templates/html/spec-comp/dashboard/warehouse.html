@@ -72,7 +72,7 @@
 
             <div class="ui bottom blue attached animated button" tabindex="0">
               <div class="visible content">Not Linked</div>
-              <div class="hidden content" onclick="dothis();">
+              <div class="hidden content link-btn" data-toggle="modal" data-target="#linkmodal">
                 <i class="plus icon"></i>
                 Link
                 
@@ -91,50 +91,107 @@
       </div>
 
       {% endif %}
-<style>
-  .ui.page.modals.transition.visible {
-    display: flex !important;
-}
-</style>
-<script>
-  function dothis(){
 
-    $('.ui.modal')
-  .modal('show')
-;
-  }
-</script>
 
-      <div class="ui modal">
-        <i class="close icon"></i>
-        <div class="header">
-          Profile Picture
-        </div>
-        <div class="image content">
-          <div class="ui medium image">
-            <img src="/images/avatar/large/chris.jpg">
-          </div>
-          <div class="description">
-            <div class="ui header">We've auto-chosen a profile image for you.</div>
-            <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
-            <p>Is it okay to use this photo?</p>
-          </div>
-        </div>
-        <div class="actions">
-          <div class="ui black deny button">
-            Nope
-          </div>
-          <div class="ui positive right labeled icon button">
-            Yep, that's me
-            <i class="checkmark icon"></i>
+      <!--  Modal  -->
+      <div class="modal fade" id="linkmodal" tabindex="-1" role="dialog" aria-labelledby="linkmodal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Link Project</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+
+
+              <div class="container mt-4">
+
+                <h1 style="color: black; font-weight: 50; display: inline-block;">Link To An Application</h1>
+              
+                
+                <div class="row">
+
+                    {% for application in applications %}
+                  
+                    <div class="col-sm-3" style="max-width: 250ox;" onclick="linknode('{{ application.node_ID }}');">
+                      
+                      <label>
+                        <input type="checkbox" name="product" class="card-input-element theapplink"/>
+                
+                        <div class="ui card panel panel-default card-input">
+                
+                          <div class="content">
+                              <i class="{{ application.Framework }} icon" style="float: right; font-size: 40px; color:orangered;"></i>
+                              <a class="header">{{ application.Name }}</a>
+                              <br/>
+                              <div class="meta">
+                                <a class="ui teal label">ID: {{ application.node_ID }}</a>
+                              
+                              </div>
+                          
+                              <div class="meta" style="margin-top: 5px;">
+                                <a class="ui green label">{{ application.framework_version }}</a>
+                               
+                            </div>
+                            
+                          
+                              
+                          </div>
+                        <!-- extra field here -->
+                      </div>
+                
+                      </label>
+                      
+                    </div>
+
+                    {% endfor %}
+                    
+                </div>
+
+              
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
           </div>
         </div>
       </div>
 
+
+
+
+    
      
 <style>
 .card-file {
   max-width: 250px;
+}
+
+.card-input-element {
+
+display: none;
+}
+
+.card-input {
+
+border-radius: 5px;
+margin: 10px;
+padding: 15px;
+}
+
+.card-input:hover {
+box-shadow: 0 0 1px 1px #2ecc71;
+cursor: pointer;
+}
+
+.card-input-element:checked + .card-input {
+background-color: #a4c5e7;
+box-shadow: 0 0 1px 1px #007FFF;
 }
  
 </style>
