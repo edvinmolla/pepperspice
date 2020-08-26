@@ -34,7 +34,7 @@ def dashboard(request):
 
     if request.user.is_authenticated:
         node = CustomUser.objects.filter(email=request.user).first()
-        node.last_login = datetime.now()()
+        node.last_login = datetime.now()
         node.save()
  
         web_app_count = 0
@@ -1007,8 +1007,8 @@ def warehouse(request):
             filename = fs.save(str((uuid.uuid4().hex)[0:4]) + '_' + str(request.user) + '_' + FileDetails.file_name, request.FILES['myfile'])
             # uploaded_file_url = fs.url(FileDetails.file_name)
             db = UploadedProject(user_ID=request.user, email=request.user,
-                            Date_Uploaded=datetime.now(), file_name=filename, file_type=FileDetails.file_type, file_size=size(FileDetails.file_size),
-                            linked_to_node_uuid='')
+                            Date_Uploaded=datetime.now(), file_name=FileDetails.file_name, file_type=FileDetails.file_type, file_size=size(FileDetails.file_size),
+                            linked_to_node_uuid='', file_system_name=filename, file_uuid=uuid.uuid4().hex)
             db.save()
             
             return HttpResponse('true')

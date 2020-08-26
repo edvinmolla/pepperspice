@@ -38,7 +38,7 @@
 
   <div class="ui one column grid m-4">
     <div class="sixteen wide column">
-      <h1 style="font-weight: 1;">Upload Project</h1>
+      <h1 style="font-weight: 1;">Files & Projects</h1>
       <br/>
 
       {% if db_files %}
@@ -61,27 +61,76 @@
             <img src="https://icon-library.com/images/sql-icon/sql-icon-14.jpg" width="110px" style="margin-top: 20px;">
             {% endif %}
             <div class="card-body">
+              <h5 class="card-title">Name: {{ app.file_name }}</h5>
               <h5 class="card-title">Owner: {{ app.email }}</h5>
               <h6 class="card-title">Type: {{ app.file_type }}</h6>
               <h6 class="card-title">Size: {{ app.file_size }}</h6>
             </div>
-            <div class="ui bottom attached button">
-              <i class="add icon"></i>
-              Link to App
+
+
+         {% if app.linked_to_node_uuid == "" %}
+
+            <div class="ui bottom blue attached animated button" tabindex="0">
+              <div class="visible content">Not Linked</div>
+              <div class="hidden content" onclick="dothis();">
+                <i class="plus icon"></i>
+                Link
+                
+              </div>
             </div>
+
+        {% else %}
+        <div class="ui top right orange attached label">Linked</div>
+
+
+        {% endif %}
+
           </div>
         </div>
-          
-       
-        
-
         {% endfor %}
       </div>
 
-      
-          
-
       {% endif %}
+<style>
+  .ui.page.modals.transition.visible {
+    display: flex !important;
+}
+</style>
+<script>
+  function dothis(){
+
+    $('.ui.modal')
+  .modal('show')
+;
+  }
+</script>
+
+      <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+          Profile Picture
+        </div>
+        <div class="image content">
+          <div class="ui medium image">
+            <img src="/images/avatar/large/chris.jpg">
+          </div>
+          <div class="description">
+            <div class="ui header">We've auto-chosen a profile image for you.</div>
+            <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+            <p>Is it okay to use this photo?</p>
+          </div>
+        </div>
+        <div class="actions">
+          <div class="ui black deny button">
+            Nope
+          </div>
+          <div class="ui positive right labeled icon button">
+            Yep, that's me
+            <i class="checkmark icon"></i>
+          </div>
+        </div>
+      </div>
+
      
 <style>
 .card-file {
