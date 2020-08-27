@@ -125,17 +125,22 @@
 
         {% else %}
         {% if not applications %}
+
+        
         <div class="ui top right red attached label">Broken Link</div>
+         
         {% endif %}
           {% for webapp in applications %}
             {% if app.linked_to_node_uuid == webapp.node_ID %}
               <div class="ui top right orange attached label">Linked</div>
             {% else %}
-            <div class="ui top right red attached label">Broken Link</div>
+              <div class="ui top right red attached label">Broken Link</div>
+         
             
             {% endif %}
+            
           {% endfor %}
-        <div class="ui bottom red attached button" tabindex="0" onclick="unlink('{{ app.file_name }}');">Unlink</div>
+          <div class="ui bottom red attached button" tabindex="0" onclick="unlink('{{ app.file_name }}');">Unlink</div>
 
         {% endif %}
 
@@ -231,7 +236,7 @@
                 Cancel
               </button>
               
-              <button class="ui blue active button submit-link">
+              <button class="ui blue active button submit-link" disabled>
                
                 Link
               </button>

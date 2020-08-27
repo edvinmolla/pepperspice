@@ -1041,7 +1041,22 @@ def warehouse(request):
 
         
     else:
+
+
+
+        nodes = Node.objects.filter(Email=request.user)
         db_files = UploadedProject.objects.filter(email=request.user)
+
+        if nodes.count() == 0:
+            for file in db_files:
+                file.linked_to_node_uuid = ''
+
+        elif nodes.count() > 0:
+            for file in db_files:
+                if not Node.objects.filter(node_ID=file.linked_to_node_uuid).exists():
+                    file.linked_to_node_uuid = ''
+
+
         return render(request, 'html/spec-comp/dashboard/warehouse.html', {'db_files':db_files, 'applications':Node.objects.filter(Email=request.user)})
     
 @csrf_exempt
