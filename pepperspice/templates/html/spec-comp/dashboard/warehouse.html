@@ -45,6 +45,8 @@
   
 
 
+
+
   <div class="myAlert-top alert imhidden alert-danger multiple-file">Multiple uploads of the same file are not permitted.
     <a href="#" class="close" data-dismiss="alert" aria-label="close" onclick="reload();">&times;</a>
 <a href="#" class="writehere" style="text-decoration: none;">
@@ -66,6 +68,9 @@
   <div class="ui one column grid m-4">
     <div class="sixteen wide column">
       <h1 style="font-weight: 1;">Files & Projects</h1>
+      <h4 style="font-weight: 1;">You can use files & projects to link them to your containers In order to deploy them.<br/>
+        In just a few clicks and a couple seconds you will have your Application up & running.</h4>
+   
       <br/>
 
       {% if db_files %}
@@ -107,7 +112,13 @@
             </div>
           </div>
           <div class="or"></div>
-          <button class="ui button" onclick="delete_file('{{ app.file_system_name }}');">Delete</button>
+
+          <div class="ui" data-inverted="" data-tooltip="Deleting a file is an irreversible action." data-position="bottom center">
+          
+          
+          <button class="ui red inverted button" onclick="delete_file('{{ app.file_system_name }}');">Delete</button>
+        </div>
+
         </div>
 
       
@@ -126,10 +137,25 @@
       {% endif %}
 
 
-      <!--  Modal  -->
+      <!-- <div class="myAlert-top alert  alert-danger none_selected">No Application selected.
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" onclick="reload();">&times;</a>
+    <a href="#" class="writehere" style="text-decoration: none;">
+    
+    </a>
+    <br/>  
+    <a href="#" class="writehere2link">
+    <small class="writehere2"></small>
+    </a>
+      </div> -->
+
+
       <div class="modal fade" id="linkmodal" tabindex="-1" role="dialog" aria-labelledby="linkmodal" aria-hidden="true">
+        
         <div class="modal-dialog">
+          
           <div class="modal-content">
+
+            
             <div class="modal-header">
               <h4 class="modal-title" id="myModalLabel">Link Project</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -138,7 +164,7 @@
             </div>
             <div class="modal-body">
 
-
+              <a class="ui red ribbon label none_selected">No Application selected.</a>
 
               <div class="container mt-4">
 
@@ -195,7 +221,7 @@
                 Cancel
               </button>
               
-              <button class="ui blue active button submit-link" disabled>
+              <button class="ui blue active button submit-link">
                
                 Link
               </button>
@@ -225,6 +251,7 @@ success: function(data)
 
       <script>
         $(document).ready(function(){
+          $('.none_selected').hide();
             $('.card-input-element8').click(function() {
                 $('.card-input-element8').not(this).prop('checked', false);
             });
@@ -263,6 +290,12 @@ success: function(data)
 }
 
 $('.submit-link').click(function(e) {
+
+  if (!window.app_id){
+
+    $('.none_selected').fadeIn();
+    return false;
+  }
 
   if($('.card-input-element8').prop("checked") == false){
 console.log('ok');
@@ -447,10 +480,10 @@ box-shadow: 0 0 1px 1px #007FFF;
 
 
       </div>
-  
+ 
     </div>
   
-     
+    <br/>
     </div>
 
   
