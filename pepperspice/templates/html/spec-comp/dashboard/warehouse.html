@@ -124,7 +124,17 @@
       
 
         {% else %}
-        <div class="ui top right orange attached label">Linked</div>
+        {% if not applications %}
+        <div class="ui top right red attached label">Broken Link</div>
+        {% endif %}
+          {% for webapp in applications %}
+            {% if app.linked_to_node_uuid == webapp.node_ID %}
+              <div class="ui top right orange attached label">Linked</div>
+            {% else %}
+            <div class="ui top right red attached label">Broken Link</div>
+            
+            {% endif %}
+          {% endfor %}
         <div class="ui bottom red attached button" tabindex="0" onclick="unlink('{{ app.file_name }}');">Unlink</div>
 
         {% endif %}
@@ -434,7 +444,7 @@ box-shadow: 0 0 1px 1px #007FFF;
 
 
     <div class="row centered" >
-      <h2>Drag and Drop or click to browse</h2>
+      <h2>Drag & Drop or click to browse</h2>
     </div>
 
 

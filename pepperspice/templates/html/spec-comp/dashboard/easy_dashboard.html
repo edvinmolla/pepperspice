@@ -95,13 +95,41 @@
   
   {% if webapplications > 0 %}
   <h1 class="text-center" style="font-weight: 1; display: inline-block;">Web Applications</h1>
+
   <a href="/dashboard/new/web_app/">
-  <div class="ui vertical animated button" style="float: right; background-color: #222b42; color: white;" tabindex="0">
-    <div class="hidden content">Deploy Now</div>
-    <div class="visible content">
-      New App<i class="plus icon" style="margin-left: 5px;"></i>
+    <div class="ui vertical animated button" style="float: right; background-color: #222b42; color: white;" tabindex="0">
+      <div class="hidden content">Deploy Now</div>
+      <div class="visible content">
+        New App<i class="plus icon" style="margin-left: 5px;"></i>
+      </div>
+    </div></a>
+
+    <div class="ui teal buttons" style="float: right; margin-right: 10px;">
+      <div class="ui button">Deploy All</div>
+      <div class="ui floating dropdown icon button">
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          {% for webapp in webapps %}
+          {% if webapp.linked_to_project == True %}
+          
+          <div class="item" style="display: inline-block;"><p class="ui teal label">{{ webapp.node_ID }}</p><a class="ui green label" style="margin-left: 5px;">Deploy</a></div>
+          <br/>
+          
+          {% else %}
+
+          <div class="ui error message">
+            <div class="header">Oops</div>
+            <p>No Application ready for deployment.</p>
+          </div>
+
+          {% endif %}
+
+          {% endfor %}
+        </div>
+      </div>
     </div>
-  </div></a>
+
+ 
   
   
  

@@ -1069,10 +1069,14 @@ def unlink_file(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
 
+            
             project = UploadedProject.objects.filter(file_name=request.POST['file_name']).first()
-            node = Node.objects.filter(node_ID=project.linked_to_node_uuid).first()
-            node.linked_to_project = False
-            node.save()
+            try:
+                node = Node.objects.filter(node_ID=project.linked_to_node_uuid).first()
+                node.linked_to_project = False
+                node.save()
+            except:
+                pass
             
             project.linked_to_node_uuid = ''
             project.save() 
