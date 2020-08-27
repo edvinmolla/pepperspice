@@ -1035,14 +1035,14 @@ def warehouse(request):
             return HttpResponse('true')
         else:
             db_files = UploadedProject.objects.filter(email=request.user)
-            return render(request, 'html/spec-comp/dashboard/warehouse.html', {'db_files':db_files, 'applications':Node.objects.filter(Email=request.user), 'same_file_prevent':'imhidden'})
+            return render(request, 'html/spec-comp/dashboard/warehouse.html', {'db_files':db_files, 'applications':Node.objects.filter(Email=request.user)})
         
     
 
         
     else:
         db_files = UploadedProject.objects.filter(email=request.user)
-        return render(request, 'html/spec-comp/dashboard/warehouse.html', {'db_files':db_files, 'applications':Node.objects.filter(Email=request.user), 'same_file_prevent':'imhidden'})
+        return render(request, 'html/spec-comp/dashboard/warehouse.html', {'db_files':db_files, 'applications':Node.objects.filter(Email=request.user)})
     
 @csrf_exempt
 def link_file(request):
@@ -1052,9 +1052,13 @@ def link_file(request):
             app_id = request.POST['app_id']
             file_name = request.POST['file_name']
 
-            mod_file = UploadedProject.objects.filter(file_system_name=file_name).first()
-            mod_file.linked_to_node_uuid = app_id
-            mod_file.save()
+            node = Node.objects.filter(node_ID=app_id).first()
+            node.linked_to_project = True
+            node.save()
+
+            project = UploadedProject.objects.filter(file_system_name=file_name).first()
+            project.linked_to_node_uuid = app_id
+            project.save()
 
 
             return HttpResponse('succes')
@@ -1063,5 +1067,12 @@ def link_file(request):
 def unlink_file(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
-            print(request.POST.get)
+
+            project = UploadedProject.objects.filter(file_name=request.POST['file_name']).first()
+            node = Node.objects.filter(node_ID=project.linked_to_node_uuid).first()
+            node.linked_to_project = False
+            node.save()
+            
+            project.linked_to_node_uuid = ''
+            project.save() 
             return HttpResponse('success')

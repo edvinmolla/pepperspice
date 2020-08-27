@@ -1,6 +1,6 @@
 {% extends "html/spec-comp/dashboard/index.html" %}
 {% block content %}
-
+<a href="https://icons8.com/icon/oaMmpx1c7yDA/sql">SQL icon by Icons8</a>
   
 </div>
 <style>
@@ -81,11 +81,12 @@
         <div class="four wide column">
           <div class="card card-file">
             {% if app.file_type == "zip" %}
-            <img src="https://image.apphit.com/image/filetype/zip/zip-logo.png" width="120px" style="margin-top: 10px;">
+            <img src="https://image.flaticon.com/icons/svg/28/28814.svg" width="70px" style="margin-top: 10px;margin-left: 10px;">
             {% elif app.file_type == "tar" %}
-            <img src="https://image.flaticon.com/icons/png/512/29/29575.png" width="120px" style="margin-top: 10px;">
+            <img src="https://cdn3.iconfinder.com/data/icons/file-types-30/30/TAR-512.png" width="70px" style="margin-top: 10px;">
             {% elif app.file_type == "sql" %}
-            <img src="https://icon-library.com/images/sql-icon/sql-icon-14.jpg" width="110px" style="margin-top: 20px;">
+
+            <img src="https://icons.iconarchive.com/icons/icons8/windows-8/512/Files-Sql-icon.png" width="60px" style="margin-top: 20px; margin-left: 10px;">
             {% endif %}
             <div class="card-body">
               <h5 class="card-title">Name: {{ app.file_name }}</h5>
@@ -142,7 +143,8 @@
               
                   
                   {% for application in applications %}
-
+                  
+                    {% if application.linked_to_project == False %}
                   <div class="col-sm-3" onclick="linkapp('{{ application.node_ID }}');">
                     <label>
                   <input type="checkbox" name="product8" class="card-input-element8" />
@@ -171,7 +173,7 @@
               </label>
                   </div>
               
-                
+                {% endif %}
                   {% endfor %}
                
                 </div>
@@ -183,7 +185,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button class="ui red active button">
+              <button class="ui red active button close" data-dismiss="modal">
                
                 Cancel
               </button>
@@ -232,7 +234,7 @@ url: '/dashboard/unlink/file_to_app/',
 data: {'g&w':'uw9ugf39diewu4ufjksdcnsdjk','file_name':file_name}, // serializes the form's elements.
 success: function(data)
 {
-  console.log('ok');
+  location.reload();
 }
 });
 
@@ -244,9 +246,7 @@ $('.submit-link').click(function(e) {
 console.log('ok');
 
   }
-  else{
-    alert('all ok');
-  }
+
 
 
 

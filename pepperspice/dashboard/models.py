@@ -78,6 +78,7 @@ class Node(models.Model):
     user_ID = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     node_ID = models.CharField(max_length=256, default='')
     id_link_color = models.CharField(max_length=10, default='')
+    linked_to_project = models.BooleanField(default=False)
     Email = models.EmailField(default='')
     Status = models.BooleanField()
     Name = models.CharField(max_length=32)
