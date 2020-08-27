@@ -1076,3 +1076,13 @@ def unlink_file(request):
             project.linked_to_node_uuid = ''
             project.save() 
             return HttpResponse('success')
+
+@csrf_exempt
+def delete_file(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            os.remove("uploaded_projects/" + request.POST['file_name'])
+            db_file = UploadedProject.objects.filter(file_system_name=request.POST['file_name']).first()
+            db_file.delete()
+            
+            return HttpResponse('true')

@@ -97,15 +97,20 @@
 
 
          {% if app.linked_to_node_uuid == "" %}
-
-            <div class="ui bottom blue attached animated button" tabindex="0" data-toggle="modal" data-target="#linkmodal" onclick="set_file_name('{{ app.file_system_name }}');">
-              <div class="visible content">Not Linked</div>
-              <div class="hidden content link-btn" >
-                <i class="plus icon"></i>
-                Link
-                
-              </div>
+         <div class="ui large buttons">
+          <div class="ui bottom blue attached animated button" tabindex="0" data-toggle="modal" data-target="#linkmodal" onclick="set_file_name('{{ app.file_system_name }}');">
+            <div class="visible content">Not Linked</div>
+            <div class="hidden content link-btn" >
+              <i class="plus icon"></i>
+              Link
+              
             </div>
+          </div>
+          <div class="or"></div>
+          <button class="ui button" onclick="delete_file('{{ app.file_system_name }}');">Delete</button>
+        </div>
+
+      
 
         {% else %}
         <div class="ui top right orange attached label">Linked</div>
@@ -189,16 +194,34 @@
                
                 Cancel
               </button>
+              
               <button class="ui blue active button submit-link" disabled>
                
                 Link
               </button>
+             
             </div>
+            
           </div>
         </div>
       </div>
 
+<script>
+  function delete_file(file_name){
 
+    $.ajax({
+type: "POST",
+url: '/dashboard/delete/file/',
+data: {'g&w':'fiw00r3iokfsdlfmsdls','file_name':file_name}, // serializes the form's elements.
+success: function(data)
+{
+  location.reload();
+}
+});
+
+
+  }
+</script>
 
       <script>
         $(document).ready(function(){

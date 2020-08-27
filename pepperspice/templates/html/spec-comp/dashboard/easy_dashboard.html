@@ -112,7 +112,7 @@
 
 		<div class="col-lg-4 hoverandzoom">
      
-			<div class="card webapp" id="open-modal" onclick="getdata('{{ webapp.node_ID }}');" data-target="#node_modal" data-toggle="modal" style="background-image: url('https://themarketingnerdz.com/wp-content/uploads/2018/06/abstract-shades-blue-shade-free-desktop-background-1920x1080.png');">
+			<div class="card webapp" id="open-modal" onclick="getdata('{{ webapp.node_ID }}');" data-target="#node_modal" data-toggle="modal" style="background-color:#7f69a8;">
        
         <div class="overlay"></div>
        
@@ -133,23 +133,23 @@
                       {% endif %}
                   {% endfor %}
               {% else %}
-              <h6>DB Linked: <a class="ui red label">Broken Link</a></h6>
+              <h6>DB Linked: <p class="ui red label">Broken Link</p></h6>
               {% endif %}
           {% else %}
-            <h6>DB Linked: </a><a class="ui orange label">No Link Set</a></h6>
+            <h6>DB Linked: </a><p class="ui orange label">No Link Set</p></h6>
           {% endif %}
 
           {% if webapp.Framework == 'angular' %}
-          <h6 style="display: inline-block;">Framework: <strong>Angular</strong></h6><a class="ui green label">{{ webapp.framework_version }}</a>
+          <h6 style="display: inline-block;">Framework: <strong>Angular</strong></h6><p class="ui green label">{{ webapp.framework_version }}</p>
 
           {% elif webapp.Framework == 'laravel' %}
-          <h6 style="display: inline-block;">Framework: <strong>Laravel</strong></h6><a class="ui green label">{{ webapp.framework_version }}</a>
+          <h6 style="display: inline-block;">Framework: <strong>Laravel</strong></h6><p class="ui green label">{{ webapp.framework_version }}</p>
 
           {% elif webapp.Framework == 'django' %}
-          <h6 style="display: inline-block;">Framework: <strong>Django</strong></h6><a class="ui green label">{{ webapp.framework_version }}</a>
+          <h6 style="display: inline-block;">Framework: <strong>Django</strong></h6><p class="ui green label">{{ webapp.framework_version }}</p>
 
           {% elif webapp.Framework == 'wordpress' %}
-          <h6 style="display: inline-block;">Framework: <strong>Wordpress</strong></h6><a class="ui green label">{{ webapp.framework_version }}</a>
+          <h6 style="display: inline-block;">Framework: <strong>Wordpress</strong></h6><p class="ui green label">{{ webapp.framework_version }}</p>
           {% endif %}
          
           
@@ -310,7 +310,71 @@
 
 	</div>
 
-  <div class="modal right fade" id="database_modal" tabindex="-1" role="dialog" aria-labelledby="database_modal" style="font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif !important;">
+
+
+  <style>.modal.left .modal-dialog,
+    .modal.right .modal-dialog {
+      position: fixed;
+      margin: auto;
+      width: 320px;
+      height: 100%;
+      -webkit-transform: translate3d(0%, 0, 0);
+          -ms-transform: translate3d(0%, 0, 0);
+           -o-transform: translate3d(0%, 0, 0);
+              transform: translate3d(0%, 0, 0);
+    }
+  
+    .modal.left .modal-content,
+    .modal.right .modal-content {
+      height: 100%;
+      overflow-y: auto;
+    }
+    
+    .modal.left .modal-body,
+    .modal.right .modal-body {
+      padding: 15px 15px 80px;
+    }
+  
+  /*Left*/
+    .modal.left.fade .modal-dialog{
+      left: -320px;
+      -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+         -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+           -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+              transition: opacity 0.3s linear, left 0.3s ease-out;
+    }
+    
+    .modal.left.fade.in .modal-dialog{
+      left: 0;
+    }
+          
+  /*Right*/
+    .modal.right.fade .modal-dialog {
+      right: -320px;
+      -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+         -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+           -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+              transition: opacity 0.3s linear, right 0.3s ease-out;
+    }
+    
+    .modal.right.fade.in .modal-dialog {
+      right: 0;
+    }
+  
+  /* ----- MODAL STYLE ----- */
+    .modal-content {
+      border-radius: 0;
+      border: none;
+    }
+  
+    .modal-header {
+      border-bottom-color: #EEEEEE;
+      background-color: #FAFAFA;
+    }
+  </style>
+
+
+<div class="modal right fade" id="database_modal" tabindex="-1" role="dialog" aria-labelledby="database_modal" style="font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif !important;">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 
@@ -386,7 +450,7 @@
         </div>
 				</div>
 
-      </div><!-- modal-content -->
+      </div>
       <a href="https://cloud.db.pepperspice.co" target="_blank" id="db_manage" class="ui primary basic button">DBMS</a>
      
       <button style="margin-top: 5px;" class="ui negative basic button"  data-toggle="modal" data-target="#deletedatabase">Delete Node</button>
@@ -397,10 +461,13 @@
       <div class="medium ui buttons">
        
       </div>
-		</div><!-- modal-dialog -->
-	</div><!-- modal -->
+		</div>
+	</div>
 
-</div>
+</div> 
+
+
+
 
 <div class="modal fade" id="deletedatabase" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color: #7C7BE2;">
   <div class="modal-dialog" role="document">
