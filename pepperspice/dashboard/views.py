@@ -1064,8 +1064,10 @@ def warehouse(request):
                 if not Node.objects.filter(node_ID=file.linked_to_node_uuid).exists():
                     file.linked_to_node_uuid = ''
 
+        webapp_count =Node.objects.filter(Email=request.user).count()
 
-        return render(request, 'html/spec-comp/dashboard/warehouse.html', {'db_files':db_files, 'applications':Node.objects.filter(Email=request.user)})
+
+        return render(request, 'html/spec-comp/dashboard/warehouse.html', {'db_files':db_files, 'applications':Node.objects.filter(Email=request.user), 'webapp_count':webapp_count})
     
 @csrf_exempt
 def link_file(request):

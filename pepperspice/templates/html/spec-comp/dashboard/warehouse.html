@@ -164,7 +164,7 @@
       </div> -->
 
 
-      <div class="modal fade" id="linkmodal" tabindex="-1" role="dialog" aria-labelledby="linkmodal" aria-hidden="true">
+      <div class="modal fade" id="linkmodal" tabindex="-1" role="dialog" aria-labelledby="linkmodal" aria-hidden="true" style="z-index: 1300;">
         
         <div class="modal-dialog">
           
@@ -183,8 +183,16 @@
 
               <div class="container mt-4">
 
+                {% if webapp_count == 0 %}
+
+                <h1 style="color: black; font-weight: 50; display: inline-block;">No Applications available.</h1>
+
+                {% else %}
                 <h1 style="color: black; font-weight: 50; display: inline-block;">Link To An Application</h1>
               
+
+                {% endif %}
+
                 <div class="row">
               
                   
