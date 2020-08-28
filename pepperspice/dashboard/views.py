@@ -1068,11 +1068,14 @@ def link_file(request):
             app_id = request.POST['app_id']
             file_name = request.POST['file_name']
 
+            project = UploadedProject.objects.filter(file_system_name=file_name).first()
+
             node = Node.objects.filter(node_ID=app_id).first()
             node.linked_to_project = True
+            node.projet_link_uuid = project.file_uuid
             node.save()
 
-            project = UploadedProject.objects.filter(file_system_name=file_name).first()
+            
             project.linked_to_node_uuid = app_id
             project.save()
 
@@ -1089,6 +1092,7 @@ def unlink_file(request):
             try:
                 node = Node.objects.filter(node_ID=project.linked_to_node_uuid).first()
                 node.linked_to_project = False
+                node.projet_link_uuid = ''
                 node.save()
             except:
                 pass

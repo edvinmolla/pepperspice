@@ -79,6 +79,7 @@ class Node(models.Model):
     node_ID = models.CharField(max_length=256, default='')
     id_link_color = models.CharField(max_length=10, default='')
     linked_to_project = models.BooleanField(default=False)
+    projet_link_uuid = models.CharField(max_length=64, default='')
     Email = models.EmailField(default='')
     Status = models.BooleanField()
     Name = models.CharField(max_length=32)
