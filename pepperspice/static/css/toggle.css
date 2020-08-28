@@ -2,7 +2,7 @@
     font-size: 1rem;
     position: fixed;
     right: 2%;
-    z-index: 1000;
+    z-index: 500;
   }
   .switch-1 input {
     position: absolute;
