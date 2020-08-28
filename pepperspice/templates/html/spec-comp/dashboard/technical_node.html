@@ -836,6 +836,7 @@ $("input:radio").change(function () {
 <button class="ui big blue button submit_button_1" type="submit" id="submit_button_1">Create Node</button>
       </form>
    
+      
     </form>
    
 <style>
@@ -984,6 +985,8 @@ var formData1 = $('#formData1').serialize();
 
 e.preventDefault(); // avoid to execute the actual submit of the form.
 
+$('#submit_button_1').addClass('disabled');
+$('#submit_button_1').addClass('loading');
 
 $.ajax({
    type: "POST",

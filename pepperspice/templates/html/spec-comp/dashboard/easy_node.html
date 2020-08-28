@@ -456,6 +456,8 @@
     <button class="ui big blue button submit_button" type="submit" id="submit_button">Create Node</button>
       </form>
 
+    
+
 <style>
         .submit_button {
           position: relative;
@@ -527,6 +529,8 @@ var formData = $('#formData').serialize();
 
 e.preventDefault(); // avoid to execute the actual submit of the form.
 
+$('#submit_button').addClass('disabled');
+$('#submit_button').addClass('loading');
 
 $.ajax({
    type: "POST",
