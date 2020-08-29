@@ -90,8 +90,9 @@
             {% elif app.file_type == "tar" %}
             <img src="https://cdn3.iconfinder.com/data/icons/file-types-30/30/TAR-512.png" width="70px" style="margin-top: 10px;">
             {% elif app.file_type == "sql" %}
-
             <img src="https://icons.iconarchive.com/icons/icons8/windows-8/512/Files-Sql-icon.png" width="60px" style="margin-top: 20px; margin-left: 10px;">
+            {% elif app.file_type == "x-rar" %}
+            <img src="https://image.flaticon.com/icons/png/512/28/28792.png" width="70px" style="margin-top: 10px; margin-left: 10px;">
             {% endif %}
             <div class="card-body">
               <h5 class="card-title">Name: {{ app.file_name }}</h5>
@@ -327,7 +328,8 @@ console.log('ok');
 
 
 
-
+$('.submit-link').addClass('disabled');
+$('.submit-link').addClass('loading');
 
 
 
@@ -355,6 +357,7 @@ location.reload();
 .modal-dialog {
   min-width: 600px;
   width: 600px;
+  
 }
 
 .card-file {
@@ -495,7 +498,7 @@ box-shadow: 0 0 1px 1px #007FFF;
 
       <div class="row centered">
 
-        <button class="ui green loading button disabled" type="submit" id="submit_btn" >
+        <button class="ui green loading big button disabled" type="submit" id="submit_btn" >
           <i class="cloud upload icon"></i>
           Upload
         </button>

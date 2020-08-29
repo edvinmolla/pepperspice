@@ -1017,14 +1017,14 @@ def warehouse(request):
 
         
 
-        accepted_types = ['zip', 'tar.gz', 'tar', '7zip', 'sql']
+        accepted_types = ['zip', 'x-rar','tar.gz', 'tar', '7zip', 'sql']
 
         class FileDetails():
             file_size = request.FILES['myfile'].size
             file_name = request.FILES['myfile'].name
             file_type = request.FILES['myfile'].content_type.split('/')[1]  
        
-        
+       
 
         if FileDetails.file_type in accepted_types:
             fs = FileSystemStorage()  
