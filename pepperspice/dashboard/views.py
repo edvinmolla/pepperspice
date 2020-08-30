@@ -997,10 +997,8 @@ def check_duplicate(request):
         if request.method == 'POST':
             
             if os.path.isfile('uploaded_projects/' + str(request.user) + '_' + request.POST['file_name']):
-                print('it exists')
                 return HttpResponse('true')
-            else:
-                print('doesnt exist')
+            else:          
                 return HttpResponse('false')
 
 
@@ -1015,9 +1013,8 @@ def warehouse(request):
     
     if request.method == 'POST':
 
-        
 
-        accepted_types = ['zip', 'x-rar','tar.gz', 'tar', '7zip', 'sql']
+        accepted_types = ['zip', 'x-rar', 'tar', '7zip', 'sql']
 
         class FileDetails():
             file_size = request.FILES['myfile'].size
@@ -1040,8 +1037,7 @@ def warehouse(request):
             
             return HttpResponse('true')
         else:
-            db_files = UploadedProject.objects.filter(email=request.user)
-            return render(request, 'html/spec-comp/dashboard/warehouse.html', {'db_files':db_files, 'applications':Node.objects.filter(Email=request.user)})
+            return HttpResponse('not_supported')
         
     
 
