@@ -83,6 +83,7 @@ class Node(models.Model):
     linked_to_project = models.BooleanField(default=False)
     projet_link_uuid = models.CharField(max_length=64, default='')
     Email = models.EmailField(default='')
+    exposed = models.BooleanField(default=False)
     Status = models.BooleanField()
     Name = models.CharField(max_length=32)
     Framework = models.CharField(max_length=32, default='') # Show only if instance is webapp
