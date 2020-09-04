@@ -222,7 +222,7 @@
     
     {% endfor %} -->
 
-    {% for webapp in webapps %}
+    <!-- {% for webapp in webapps %}
 
     <a class="project" style="transform: scale(.7);">
       <div class="front">
@@ -375,202 +375,424 @@
       </div>
       <div class="background"></div>
   </a>
-{% endfor %}
+{% endfor %} -->
+
+
+
+
 <style>
 
-img{
-    max-width: 100%;
+figure.snip0056 {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 380px;
+  max-width: 480px;
+  width: 100%;
+  background: #ffffff;
+  color: #000000;
 }
 
-.project{
- 
-    position: relative;
-    max-width: 300px;
-    color: #000;
-    text-decoration: none;
-}
-.project .front{
-    transition: 200ms ease-out;
-}
-.project .front .project-cover{
-    border-radius: 8px;
-    box-shadow: 0 2px 8px #0008;
-}
-.project .front .project-name{
-    margin: 5px;
-    text-align: left;
-    font-size: 1.5rem;
-}
-.project .stats{
-    display: flex;
-    justify-content: space-between;
-}
-.project .stats .tag{
-    font-family: "Roboto Mono", monospace;
-    font-size: .7rem;
-    margin: auto 5px;
-    padding: 5px;
-    background: #323232;
-    color: #fff;
-    border-radius: 3px;
-    border: 1px 1px 2px 1px solid #222;
-    box-shadow: 0 0 10px #0008;
-    text-transform: uppercase;
-}
-.project .tools{
-    display: flex;
-}
-.project .tool{
-    width: 32px;
-    height: 32px;
-    margin: 0 5px;
-}
+figure.snip0056 > img {
+  transform: scale(.8);
+  width: 50%;
+  border: 4px solid #ffffff;
+  -webkit-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
 
-.project .back{
-    display: none;
-    opacity: 0;
+  position: relative;
+  float: right;
+  
+  z-index: 1;
 }
-.project .back .project-info{
-    text-align: center;
+figure.snip0056 figcaption {
+  padding: 20px 30px 20px 20px;
+  position: absolute;
+  left: 0;
+  width: 50%;
 }
-.project .back .project-info .description{
-    transform: translateY(-160%);
-    font-size: 1.5rem;
-    font-weight: 300;
+figure.snip0056 figcaption h2,
+figure.snip0056 figcaption p {
+  margin: 0;
+  text-align: left;
+  padding: 10px 0;
+  width: 100%;
 }
-.project .back .project-info .view-project{
-    transform: translateY(-30%);
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 10px;
-    border: none;
-    border-radius: 20px;
-    color: #fff;
-    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
-    background-size: 300% 100%;
-    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
-    animation: button-background-off 500ms forwards;
-    -webkit-animation: button-background-off 500ms forwards;
+figure.snip0056 figcaption h2 {
+  font-size: 1.3em;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
-.project .back .project-info .view-project:hover{
-    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.85);
-    animation: button-background-on 500ms forwards;
-    -webkit-animation: button-background-on 500ms forwards;
+figure.snip0056 figcaption h2 span {
+  font-weight: 800;
 }
-.project .background{
-    position: absolute;
-    background: #ddd;
-    border-radius: 5px;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    transform: scale(.4);
-    opacity: 0;
+figure.snip0056 figcaption p {
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+figure.snip0056 figcaption .icons {
+  width: 100%;
+  text-align: left;
+}
+figure.snip0056 figcaption .icons i {
+  font-size: 26px;
+  padding: 5px;
+  top: 50%;
+  color: #000000;
+}
+figure.snip0056 figcaption a {
+  opacity: 0.3;
+  -webkit-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+figure.snip0056 figcaption a:hover {
+  opacity: 0.8;
+}
+figure.snip0056 .position {
+  width: 100%;
+  text-align: left;
+  padding: 15px 30px;
+  font-size: 0.9em;
+  opacity: 1;
+  font-style: italic;
+  color: #ffffff;
+  background: #000000;
+  clear: both;
 }
 
 
-.project:hover .front{
-    transform: translateY(-20%);
-}
-.project:hover .front .project-cover{
-    box-shadow: 0 4px 12px #0008;
-}
-.project:hover .front .project-name{
-    font-size: 2.1rem;
-    animation: project-name 80ms forwards;
-    -webkit-animation:project-name 80ms forwards;
-}
-.project:hover .back{
-    display: block;
-    animation: fade-in 400ms ease-out forwards 50ms;
-    -webkit-animation: fade-in 400ms ease-out forwards 50ms;
-}
-.project:hover .background{
-    transform: scale(1.2,1.1);
-    opacity: 1;
-    background: #fff;
-    box-shadow: 0 0 8px #0004;
-    background-size: 100%;
-    background-position: top;
-    transition: transform 170ms 50ms cubic-bezier(0,.6,0,1), opacity 100ms linear;
-}
-.project:hover .front .stats{
-    display: none;
-}
-.project:hover .stats{
-    margin-top: 25px;
-}
-.project:hover .stats .tools{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    animation: swipe-up 500ms forwards;
-    -webkit-animation: swipe-up 500ms forwards;
-}
-.project:hover .stats .tools p{
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-    font-size: .95rem;
-}
-.project:hover .stats .tool{
-    width: 42px;
-    height: 42px;
-}
-
-@keyframes project-name{
-    0%{
-        opacity: 1;
-        text-align: left;
-    }
-    33%{
-        opacity: 0;
-        text-align: left;
-    }
-    66%{
-        opacity: 0;
-        text-align: center;
-    }
-    100%{
-        opacity: 1;
-        text-align: center;
-    }
-}
-@keyframes fade-in{
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
-}
-@keyframes button-background-on{
-    0%{
-        background-position: left;
-    }
-    100%{
-        background-position: right;
-    }
-}
-@keyframes button-background-off{
-    0%{
-        background-position: right;
-    }
-    100%{
-        background-position: left;
-    }
-}
-@keyframes swipe-up{
-    0%{
-        transform: translateY(50%);
-    }
-    100%{
-        transform: translateY(0);
-    }
-}
 </style>
+
+
+
+<div class="wrapper">
+
+  <div class="slides-rail">
+
+    {% for webapp in webapps %}
+    
+      <figure class="snip0056" style=" transform: scale(.9); border-radius: 5px; ">
+        <figcaption>
+          <span>{{ webapp.Name }}</span>
+          
+          <br/>
+          <br/>
+          
+          {% if webapp.Framework == 'laravel' %}
+                    {% if not webapp.linked_to_project %}
+                    <div class="ui green label" >
+                     Ready
+                    </div>
+                    {% else %}
+                    <div class="ui purple label">
+                      Deploy
+                     </div>
+                    {% endif %}
+                    {% endif %}
+                    {% if webapp.Framework == 'angular' %}
+                    {% if not webapp.linked_to_project %}
+                    <div class="ui green label">
+                     Ready
+                    </div>
+                    {% else %}
+                    <div class="ui purple label">
+                      Deploy
+                     </div>
+                    {% endif %}
+                    {% endif %}
+                    {% if webapp.Framework == 'django' %}
+                    {% if not webapp.linked_to_project %}
+                    <div class="ui green label">
+                     Ready
+                    </div>
+                    {% else %}
+                    <div class="ui purple label">
+                      Deploy
+                     </div>
+                    {% endif %}
+                    {% endif %}
+                    {% if webapp.Framework == 'wordpress' %}
+                    {% if not webapp.linked_to_project %}
+                    <div class="ui green label">
+                     Ready
+                    </div>
+                    {% else %}
+                    <div class="ui purple label">
+                      Deploy
+                     </div>
+                    {% endif %}
+                    {% endif %} 
+      
+        </figcaption>
+
+        {% if webapp.Framework == 'laravel' %}
+        <img src="https://raw.githubusercontent.com/elegantcha0s/images/master/cropped-Screenshot-from-2019-10-24-10-29-12-1024x576.jpg" alt="ColorRoad" class="project-cover">
+        {% elif webapp.Framework == 'angular' %}
+       
+        <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1589465644206/o_QlYgMet.png" alt="ColorRoad" class="project-cover">
+
+        {% elif webapp.Framework == 'django' %}
+        <img src="https://cdn.pixabay.com/photo/2014/05/07/15/19/django-339744_960_720.png" alt="ColorRoad" class="project-cover">
+        {% elif webapp.Framework == 'wordpress' %}
+
+        <img src="https://venturebeat.com/wp-content/uploads/2019/11/wordpress-logo.png?fit=1600%2C800&strip=all" alt="ColorRoad" class="project-cover">
+        {% endif %}
+
+
+        <div class="position">
+          {% if webapp.Framework == 'laravel' %}
+          <div class="ui label">
+             {{ webapp.framework_version }}
+         </div>
+ 
+         {% elif webapp.Framework == 'angular' %}
+          <div class="ui label">
+             {{ webapp.framework_version }}
+         </div>
+ 
+         {% elif webapp.Framework == 'django' %}
+          <div class="ui label">
+             {{ webapp.framework_version }}
+         </div>
+ 
+         {% elif webapp.Framework == 'wordpress' %}
+          <div class="ui label">
+             {{ webapp.framework_version }}
+         </div>
+           {% endif %}
+
+
+           {% if webapp.link_status %}
+           {% if databases_currently > 0 %}
+               {% for database in dbs %}
+                  {% if webapp.linked_to_db_uuid == database.db_uid %}
+                     <h6>DB Linked: <a class="ui {{ webapp.id_link_color }} label">{{ webapp.linked_to_db_uuid }}</a><a class="ui green label">Active</a></h6>
+                   {% endif %}
+               {% endfor %}
+           {% else %}
+           <h6 style="font-size: 18px;">DB Link: <p class="ui red label">Broken Link</p></h6>
+           <br/>
+           {% endif %}
+       {% else %}
+       <div class="ui teal label">No Link Set</div>
+       {% endif %}
+
+
+          </div>
+
+         
+
+          <div class="ui bottom teal attached button" tabindex="0"  id="open-modal" onclick="getdata('{{ webapp.node_ID }}');" data-target="#node_modal" data-toggle="modal">More</div>
+
+        
+      </figure>
+      
+  
+    {% endfor %}
+    
+
+ 
+   
+   
+
+    <!-- {% for webapp in webapps %}
+
+    <a class="project">
+      <div class="front">
+        {% if webapp.Framework == 'laravel' %}
+          <img src="https://raw.githubusercontent.com/elegantcha0s/images/master/cropped-Screenshot-from-2019-10-24-10-29-12-1024x576.jpg" alt="ColorRoad" class="project-cover">
+          {% elif webapp.Framework == 'angular' %}
+         
+          <img src="https://raw.githubusercontent.com/elegantcha0s/images/master/angular-2%20(1).jpg" alt="ColorRoad" class="project-cover">
+
+          {% elif webapp.Framework == 'django' %}
+          <img src="https://raw.githubusercontent.com/elegantcha0s/images/master/Django_logo.jpg" alt="ColorRoad" class="project-cover">
+          {% elif webapp.Framework == 'wordpress' %}
+
+          <img src="https://raw.githubusercontent.com/elegantcha0s/images/master/wordpress-logo-wallpaper-62785-64776-hd-wallpapers-845x321.jpg" alt="ColorRoad" class="project-cover">
+          {% endif %}
+
+          <h3 class="project-name" style="margin-top: 10px;">{{ webapp.Name }}</h3>
+      
+          <div class="stats">
+              <div class="">
+                    {% if webapp.Framework == 'laravel' %}
+                    {% if not webapp.linked_to_project %}
+                    <div class="ui green label" style="font-size: 15px;">
+                     Ready
+                    </div>
+                    {% else %}
+                    <div class="ui purple label" style="font-size: 15px;">
+                      Deploy
+                     </div>
+                    {% endif %}
+                    {% endif %}
+                    {% if webapp.Framework == 'angular' %}
+                    {% if not webapp.linked_to_project %}
+                    <div class="ui green label" style="font-size: 15px;">
+                     Ready
+                    </div>
+                    {% else %}
+                    <div class="ui purple label" style="font-size: 15px;">
+                      Deploy
+                     </div>
+                    {% endif %}
+                    {% endif %}
+                    {% if webapp.Framework == 'django' %}
+                    {% if not webapp.linked_to_project %}
+                    <div class="ui green label" style="font-size: 15px;">
+                     Ready
+                    </div>
+                    {% else %}
+                    <div class="ui purple label" style="font-size: 15px;">
+                      Deploy
+                     </div>
+                    {% endif %}
+                    {% endif %}
+                    {% if webapp.Framework == 'wordpress' %}
+                    {% if not webapp.linked_to_project %}
+                    <div class="ui green label" style="font-size: 15px;">
+                     Ready
+                    </div>
+                    {% else %}
+                    <div class="ui purple label" style="font-size: 15px;">
+                      Deploy
+                     </div>
+                    {% endif %}
+                    {% endif %}
+              </div>
+              <div class="tools">
+                {% if webapp.Framework == 'laravel' %}
+         <i class="laravel icon" style="font-size: 40px;"></i>
+         
+         <div class="ui label" style="font-size: 15px;margin-top: 5px;">
+            {{ webapp.framework_version }}
+        </div>
+
+        {% elif webapp.Framework == 'angular' %}
+         <i class="angular red icon" style="font-size: 40px;"></i>
+         
+         <div class="ui label" style="font-size: 15px;margin-top: 5px;">
+            {{ webapp.framework_version }}
+        </div>
+
+        {% elif webapp.Framework == 'django' %}
+        <span class="iconify" data-icon="simple-icons:django" data-inline="false" style="font-size: 30px;margin-top: 10px;"></span>
+        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+         <div class="ui label" style="font-size: 15px;margin-top: 5px;">
+            {{ webapp.framework_version }}
+        </div>
+
+        {% elif webapp.Framework == 'wordpress' %}
+         <i class="wordpress blue icon" style="font-size: 40px;"></i>
+         
+         <div class="ui label" style="font-size: 15px;margin-top: 5px;">
+            {{ webapp.framework_version }}
+        </div>
+          {% endif %}
+             
+              </div>
+          </div>
+      </div>
+      <div class="back">
+          <div class="project-info">
+
+            {% if webapp.link_status %}
+              {% if databases_currently > 0 %}
+                  {% for database in dbs %}
+                     {% if webapp.linked_to_db_uuid == database.db_uid %}
+                        <h6 style="font-size: 18px;">DB Linked: <a class="ui {{ webapp.id_link_color }} label">{{ webapp.linked_to_db_uuid }}</a><a class="ui green label">Active</a></h6>
+                      {% endif %}
+                  {% endfor %}
+              {% else %}
+              <h6 style="font-size: 18px;">DB Link: <p class="ui red label" style="font-size: 18px;">Broken Link</p></h6>
+              <br/>
+              {% endif %}
+          {% else %}
+          <div class="ui teal label" style="font-size: 18px;">No Link Set</div>
+          <br/>
+          <br/>
+          
+          {% endif %}
+          <div class="ui orange label" style="font-size: 18px;">{{ webapp.Date_Created }}</div>
+            
+
+             <br/>
+             <br/>
+              <button class="view-project">View Project</button>
+              <div class="stats">
+                  <div class="tools">
+                      <div>
+                        {% if webapp.Framework == 'laravel' %}
+                        <i class="laravel icon" style="font-size: 30px;"></i>
+                        <p>Laravel</p>
+                        {% elif webapp.Framework == 'angular' %}
+                        <i class="angular icon" style="font-size: 30px;"></i>
+                        <p>Angular</p>
+                        {% elif webapp.Framework == 'django' %}
+                        <span class="iconify" data-icon="simple-icons:django" data-inline="false" style="font-size: 30px;margin-top: 10px;"></span>
+                        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+                        <p>Django</p>
+                        {% elif webapp.Framework == 'wordpress' %}
+                        <i class="wordpress icon" style="font-size: 30px;"></i>
+                        <p>Wordpress</p>
+                         {% endif %}
+                      </div>
+                      <div>
+                        <button class="ui large red  button" data-toggle="modal" data-target="#deletedatabase"><i class="trash icon"></i> Delete</button>
+                      </div>
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="background"></div>
+  </a>
+{% endfor %} -->
+
+    
+  
+
+
+</div>
+  </div>
+
+
+
+<style>
+  .wrapper{
+  display:flex;
+  flex-direction:row;
+/*   border:1px solid orange; */
+  width:90%;
+  height:300px;
+  overflow-y:hidden;
+  overflow-x:auto;
+  position:relative;
+  margin:0 5%;
+}
+
+.slides-rail{
+  height:300px;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+
+}
+.div1{
+  width:150px;
+  height:250px;
+  margin:10px;
+    box-shadow:inset 5px 8px 8px rgba(0,0,0,.2),inset -2px -2px 10px hsla(0,0%,100%,.2);
+  border-radius: 20px;
+}
+
+</style>
+
+
 
 
 	
