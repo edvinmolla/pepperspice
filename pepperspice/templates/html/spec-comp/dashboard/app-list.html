@@ -1,0 +1,180 @@
+
+    <div id="profile-1" class="expandable-card">
+      <div cardContent>
+        <div collapsedContent>
+          <div class="expandable-card--left-col col">
+            <div class="expandable-card--profile-image">
+              JD
+            </div>
+          </div>
+          <div class="expandable-card--right-col col">
+            <div class="expandable-card--title">
+              Profile Information
+            </div>
+            <div class="expandable-card--sub-title">
+              <p>Jane Doe</p>
+              <p>03/03/1976</p>
+              <p>St. Louis, MO</p>
+            </div>
+          </div>
+        </div>
+   
+      </div>
+    </div>
+    <div id="profile-2" class="expandable-card">
+      <div cardContent>
+        <div collapsedContent>
+          <div class="expandable-card--left-col col">
+            <div class="expandable-card--profile-image" style="background: cyan;">
+              HG
+            </div>
+          </div>
+          <div class="expandable-card--right-col col">
+            <div class="expandable-card--title">
+              Profile Information
+            </div>
+            <div class="expandable-card--sub-title" >
+              <p>Henry Gregson</p>
+              <p>10/11/1990</p>
+              <p>Chicago, IL</p>
+            </div>
+          </div>
+        </div>
+        <div expandedContent>
+          <div class="mock-content"></div>
+        </div>
+      </div>
+    </div>
+    <div id="profile-3" class="expandable-card">
+      <div cardContent>
+        <div collapsedContent>
+          <div class="expandable-card--left-col col">
+            <div class="expandable-card--profile-image" style="background: pink;">
+              PF
+            </div>
+          </div>
+          <div class="expandable-card--right-col col">
+            <div class="expandable-card--title">
+              Profile Information
+            </div>
+            <div class="expandable-card--sub-title">
+              <p>Perry Ferento</p>
+              <p>04/01/1988</p>
+              <p>New York, NY</p>
+            </div>
+          </div>
+        </div>
+        <div expandedContent>
+          <div class="mock-content"></div>
+        </div>
+      </div>
+    </div>
+    <div id="profile-4" class="expandable-card">
+      <div cardContent>
+        <div collapsedContent>
+          <div class="expandable-card--left-col col">
+            <div class="expandable-card--profile-image" style="background: gold;">
+              JP
+            </div>
+          </div>
+          <div class="expandable-card--right-col col">
+            <div class="expandable-card--title">
+              Profile Information
+            </div>
+            <div class="expandable-card--sub-title">
+              <p>Juan Pedro</p>
+              <p>04/01/1988</p>
+              <p>San Francisco, CA</p>
+            </div>
+          </div>
+        </div>
+        <div expandedContent>
+          <div class="mock-content"></div>
+        </div>
+      </div>
+    </div>
+    
+ 
+
+
+
+
+<style>
+
+
+.expandable-card {
+  position: relative;
+  margin-bottom: 16px;
+  margin: 20px;
+}
+
+[cardContent] {
+  position: relative;
+  background: rgb(228, 151, 151);
+  border-radius: 8px;
+  box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+[cardContent] [collapsedContent] {
+  display: flex;
+  flex-direction: row;
+  padding: 24px;
+}
+[cardContent] [expandedContent] {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  padding: 24px;
+}
+
+.expanding-card--backdrop {
+  background: black;
+  opacity: .50;
+}
+
+.expandable-card--title {
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+.expandable-card--sub-title {
+  font-size: 14px;
+  color: #888888;
+}
+
+.expandable-card--profile-image {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #69f0ae;
+  color: black;
+  font-size: 21px;
+  font-weight: bold;
+  border-radius: 1000px;
+}
+
+.col:first-child {
+  margin-right: 24px;
+}
+
+.expanding-card--placeholder {
+  position: relative;
+  height: 0;
+  visibility: hidden;
+}
+
+.mock-content .mock-content-line {
+  background: #888888;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+</style>
+

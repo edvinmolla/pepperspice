@@ -264,25 +264,37 @@ def new_db(request):
                     f.save()
 
                 if DB_Details.linked_to_app:
-                    node = Node.objects.filter(node_ID=DB_Details.linked_to_app).first()
-                    node.link_status = True
-                    node.linked_to_db_uuid = DB_Details.db_uid
-                    node.id_link_color = db_id_link_color
-                    node.save()
-                    print("Executing: echo esxiforme | sudo -S docker run -d " + "--name " + DB_Details.db_uid + " --network=net1 -e MYSQL_ROOT_PASSWORD=esxiforme" + " mysql")
-                    os.system("echo esxiforme | sudo -S docker run -d " + "--name " + DB_Details.db_uid + " --network=net1 -e MYSQL_ROOT_PASSWORD=esxiforme" + " mysql")
-                    time.sleep(5)
-                    print("Executing: echo esxiforme | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"CREATE USER '" + DB_Details.username + "'@'localhost' IDENTIFIED BY '" + DB_Details.password + "'; FLUSH PRIVILEGES;\"")
-                    os.system("echo esxiforme | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"CREATE USER '" + DB_Details.username + "'@'localhost' IDENTIFIED BY '" + DB_Details.password + "'; FLUSH PRIVILEGES;\"")
-                    time.sleep(1)
-                    print("Executing: echo esxiforme | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"GRANT ALL PRIVILEGES ON " + DB_Details.db_name + ".* TO '" + DB_Details.username + "'@'localhost'; FLUSH PRIVILEGES; \"")
-                    os.system("echo esxiforme | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"GRANT ALL PRIVILEGES ON " + DB_Details.db_name + ".* TO '" + DB_Details.username + "'@'localhost'; FLUSH PRIVILEGES; \"")
-                    time.sleep(1)
-                    print("Executing: echo esxiforme | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"DELETE FROM mysql.user WHERE User='root'; FLUSH PRIVILEGES;\"")
-                    os.system("echo esxiforme | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"DELETE FROM mysql.user WHERE User='root'; FLUSH PRIVILEGES;\"")
-                    time.sleep(1)
-                    print("Executing: echo " + DB_Details.password + " | docker exec -i " + DB_Details.db_uid + " -u " + DB_Details.username + " -p -e \"create database " + DB_Details.db_name + ";\"")
-                    os.system("echo " + DB_Details.password + " | docker exec -i " + DB_Details.db_uid + " -u " + DB_Details.username + " -p -e \"create database " + DB_Details.db_name + ";\"")
+                    db = DBNode(user_ID=request.user,
+                    Email=request.user,
+                    linked_to_node_uuid=DB_Details.linked_to_app,
+                    db_hostname=request.POST.get('database_hostname'),
+                    Date_Created=DB_Details.Date_Created,
+                    link_status=link_status,
+                    id_link_color=db_id_link_color,
+                    db_name=DB_Details.db_name,
+                    db_username=DB_Details.username,
+                    db_password=DB_Details.password,
+                    db_uid=DB_Details.db_uid,
+                    db_engine=DB_Details.db_engine,
+                    # db_port=DB_Details.db_port,
+                    db_port=3309,
+                    db_version=DB_Details.db_version,
+                    db_load_type=DB_Details.load_option)
+                    db.save()
+
+                    os.system("echo toor | sudo -S docker run -d " + "--name '" + DB_Details.db_uid + "' -e MYSQL_ROOT_PASSWORD=KmQfcsnpdUrrRL2qzE8P --network=net1 mysql")
+                    time.sleep(30)             
+                    os.system("echo KmQfcsnpdUrrRL2qzE8P | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"CREATE USER '" + DB_Details.username + "'@'localhost' IDENTIFIED BY '" + DB_Details.password + "';\"")
+                    os.system("echo KmQfcsnpdUrrRL2qzE8P | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"CREATE USER '" + DB_Details.username + "'@'%' IDENTIFIED BY '" + DB_Details.password + "';\"")             
+                    os.system("echo KmQfcsnpdUrrRL2qzE8P | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"CREATE DATABASE " + DB_Details.db_name + ";\"")
+                    os.system("echo KmQfcsnpdUrrRL2qzE8P | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"GRANT ALL ON " + DB_Details.db_name + ".* TO '" + DB_Details.username + "'@'localhost'; FLUSH PRIVILEGES;\"")
+                    os.system("echo KmQfcsnpdUrrRL2qzE8P | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"GRANT ALL ON " + DB_Details.db_name + ".* TO '" + DB_Details.username + "'@'%'; FLUSH PRIVILEGES;\"")
+
+                    a = DBNode.objects.filter(db_uid=DB_Details.db_uid).first()
+                    a.db_internal_ip = os.popen("echo toor | sudo -S docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' " + DB_Details.db_uid).read().strip()
+                    a.save()
+                    
+                    
                     return HttpResponse('success')
             #    The creation of mysql docker container and the omnidb container will be done here.
                 else:
@@ -304,7 +316,7 @@ def new_db(request):
                     db_load_type=DB_Details.load_option)
                     db.save()
 
-                    os.system("echo esxiforme | sudo -S docker run -d " + "--name '" + DB_Details.db_uid + "' -e MYSQL_ROOT_PASSWORD=KmQfcsnpdUrrRL2qzE8P --network=net1 mysql")
+                    os.system("echo toor | sudo -S docker run -d " + "--name '" + DB_Details.db_uid + "' -e MYSQL_ROOT_PASSWORD=KmQfcsnpdUrrRL2qzE8P --network=net1 mysql")
                     time.sleep(30)             
                     os.system("echo KmQfcsnpdUrrRL2qzE8P | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"CREATE USER '" + DB_Details.username + "'@'localhost' IDENTIFIED BY '" + DB_Details.password + "';\"")
                     os.system("echo KmQfcsnpdUrrRL2qzE8P | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"CREATE USER '" + DB_Details.username + "'@'%' IDENTIFIED BY '" + DB_Details.password + "';\"")             
@@ -313,7 +325,7 @@ def new_db(request):
                     os.system("echo KmQfcsnpdUrrRL2qzE8P | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"GRANT ALL ON " + DB_Details.db_name + ".* TO '" + DB_Details.username + "'@'%'; FLUSH PRIVILEGES;\"")
 
                     a = DBNode.objects.filter(db_uid=DB_Details.db_uid).first()
-                    a.db_internal_ip = os.popen("echo esxiforme | sudo -S docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' " + DB_Details.db_uid).read().strip()
+                    a.db_internal_ip = os.popen("echo toor | sudo -S docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' " + DB_Details.db_uid).read().strip()
                     a.save()
                     
                     
@@ -707,7 +719,7 @@ def delete_container(request,id):
 
             if DBNode.objects.filter(db_uid=node_id).exists():
                 a = DBNode.objects.filter(db_uid=node_id).first()
-                os.system("echo esxiforme | sudo -S docker stop " + str(node_id))
+                os.system("echo toor | sudo -S docker stop " + str(node_id))
                 a.delete()
 
                 return HttpResponse('success')
