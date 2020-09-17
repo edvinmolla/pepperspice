@@ -835,12 +835,17 @@ figure.snip0056 .position {
 {% endif %}
 
 {% if databases > 0 %}
-    <h1 class="" style="font-weight: 10;">Databases</h1>
+    <h1 class="text-center" style="font-weight: 1; display: inline-block;">Databases</h1>
+
+
     <hr>
 
     <div class="row justify-content-center">
+
+
+      {% include 'html/spec-comp/dashboard/db-list.html' %}
     
-      {% for db in dbs %}
+      <!-- {% for db in dbs %}
 
       
        
@@ -853,7 +858,6 @@ figure.snip0056 .position {
             <div style="margin-bottom: -60px; margin-left: -50px;">
               <a class="ui teal label">{{ initials }}</a>
            
-            <!-- <i class="fas fa-user-circle" style="font-size: 40px; color: {{ db.id_link_color }};"></i> -->
     
           </div>
           
@@ -862,7 +866,6 @@ figure.snip0056 .position {
        
         
  
-        <!-- <img src="https://www.logolynx.com/images/logolynx/97/97e88682fa82ed11f3bf96dcf8479635.png" class="float-left rounded-circle" style="margin-top: 30px;margin-right: -30px;" width="6%"> -->
         
         <div class="card db" onclick="getDB('{{ db.db_uid }}');" data-target="#database_modal" data-toggle="modal" style="background-image: url('https://themarketingnerdz.com/wp-content/uploads/2018/06/abstract-shades-blue-shade-free-desktop-background-1920x1080.png');">
        
@@ -870,7 +873,6 @@ figure.snip0056 .position {
          
           <div class="content">
            
-          <!-- Try and add a table to the card or find a way to add something in the middle of the card-->
            
             <h6>ID: <a class="ui {{ db.id_link_color }} label">{{ db.db_uid }}</a></h6>
             
@@ -949,13 +951,14 @@ figure.snip0056 .position {
       </div>
 
 
-      {% endfor %}
+      {% endfor %} -->
     
       </div>
 <br/>
       {% endif %}
 
-
+      <br/>
+      <br/>
 
 	</div>
 
