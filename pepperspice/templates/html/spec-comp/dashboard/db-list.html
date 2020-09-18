@@ -1,4 +1,4 @@
-<div class="grid">
+<!-- <div class="grid">
     <div class="grid-container">
  
         <div class="card card1" >
@@ -191,4 +191,644 @@ for(header of allCardsHeaders) {
 function clickCard(e) {
     this.parentElement.classList.toggle('cardActive');
 }
-    </script>
+    </script> -->
+
+    <div id="menu">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div id="popup-bg"></div>
+      <div id="popup-nav">
+        <nav>
+          <ul>
+            <li><a href="" class="large">Alpha</a></li>
+            <li><a href="" class="large">Beta</a></li>
+            <li class="secondary-nav"><a href="">Capa</a></li>
+            <li><a href="">Delta</a></li>
+            <li><a href="">Echo</a></li>
+            <li><a href="">Foxtrot</a></li>
+            <li><a href="">Gamma</a></li>
+          </ul>
+        </nav>
+        
+        <div id="utility">
+          <a href="" class="tel">+ 44 (0) 12 1234 1234</a>
+          <a href="">info@here.com</a>
+          <ul class="social">
+            <li><a href="" class="icon--fb">Facebook</a></li>
+            <li><a href="" class="icon--tw">Twitter</a></li>
+            <li><a href="" class="icon--in">Instagram</a></li>
+            <li><a href="" class="icon--pt">Pinterest</a></li>
+            <li><a href="" class="icon--tm">Tumblr</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="call-to-action-popup">
+        <div id="close">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div id="call-to-action-logo">LOGO</div>
+        <div id="heading">CALL TO ACTION CONTENT</div>
+        
+        <div id="another-cta">ANOTHER CALL TO ACTION</div>
+      </div>
+ 
+      <div class="main">
+      </div>
+
+
+
+<script>
+    $(document).ready(function(){
+	$('#menu').click(function(){
+		$(this).toggleClass('open');
+    $('#popup-bg').fadeToggle();
+    $('#popup-nav').toggleClass('open-popup');
+	});
+  $('#cta-btn').click(function(){
+    $('.call-to-action-popup').fadeIn();
+  });
+  $('#close').click(function(){
+    $('.call-to-action-popup').fadeOut();
+  });
+});
+</script>
+
+<style>
+    #menu {
+  width: 25px;
+  height: 18px;
+  position: absolute;
+  left: 20px;
+  top: 29px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  z-index: 99;
+}
+#menu span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  top: 200px;
+  width: 50%;
+  background: #15123D;
+  opacity: 1;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+#menu span:nth-child(even) {
+  left: 50%;
+}
+#menu span:nth-child(odd) {
+  left: 0px;
+}
+#menu span:nth-child(1), #menu span:nth-child(2) {
+  top: 0px;
+}
+#menu span:nth-child(3), #menu span:nth-child(4) {
+  top: 8px;
+}
+#menu span:nth-child(5), #menu span:nth-child(6) {
+  top: 16px;
+}
+#menu.open span {
+  background: #ffffff;
+}
+#menu.open span:nth-child(1), #menu.open span:nth-child(6) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#menu.open span:nth-child(2), #menu.open span:nth-child(5) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+#menu.open span:nth-child(1) {
+  left: 2px;
+  top: 5px;
+}
+#menu.open span:nth-child(2) {
+  left: calc(50% - 2px);
+  top: 5px;
+}
+#menu.open span:nth-child(3) {
+  left: -50%;
+  opacity: 0;
+}
+#menu.open span:nth-child(4) {
+  left: 100%;
+  opacity: 0;
+}
+#menu.open span:nth-child(5) {
+  left: 2px;
+  top: 14px;
+}
+#menu.open span:nth-child(6) {
+  left: calc(50% - 2px);
+  top: 14px;
+}
+
+#close {
+  width: 25px;
+  height: 18px;
+  position: absolute;
+  right: 20px;
+  top: 29px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  z-index: 99;
+}
+#close span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 50%;
+  background: #15123D;
+  opacity: 1;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+#close span:nth-child(even) {
+  left: 50%;
+}
+#close span:nth-child(odd) {
+  left: 0px;
+}
+#close span:nth-child(1), #close span:nth-child(2) {
+  top: 0px;
+}
+#close span:nth-child(3), #close span:nth-child(4) {
+  top: 8px;
+}
+#close span:nth-child(5), #close span:nth-child(6) {
+  top: 16px;
+}
+#close span {
+  background: #ffffff;
+}
+#close span:nth-child(1), #close span:nth-child(6) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#close span:nth-child(2), #close span:nth-child(5) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+#close span:nth-child(1) {
+  left: 2px;
+  top: 5px;
+}
+#close span:nth-child(2) {
+  left: calc(50% - 2px);
+  top: 5px;
+}
+#close span:nth-child(3) {
+  left: -50%;
+  opacity: 0;
+}
+#close span:nth-child(4) {
+  left: 100%;
+  opacity: 0;
+}
+#close span:nth-child(5) {
+  left: 2px;
+  top: 14px;
+}
+#close span:nth-child(6) {
+  left: calc(50% - 2px);
+  top: 14px;
+}
+
+#header {
+  width: 100%;
+  text-align: center;
+}
+#header #logo {
+  font-size: 30px;
+  font-family: helvetica, arial;
+  font-weight: 800;
+  margin-top: 22px;
+  color: #15123D;
+}
+#header #cta-btn {
+  position: absolute;
+  right: 20px;
+  top: 22px;
+  background: #15123D;
+  color: #ffffff;
+  -mox-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-family: helvetica, arial;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+#header #cta-btn:hover {
+  background: #322F5A;
+}
+
+#popup-bg {
+  z-index: 50;
+  background: rgba(21, 18, 61, 0.5);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+}
+
+#popup-nav {
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  position: absolute;
+  width: 100%;
+  max-width: 450px;
+  height: 100vh;
+  background: #15123D;
+  top: 0;
+  left: -450px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 100px 60px;
+  z-index: 60;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+#popup-nav.open-popup {
+  left: 0;
+}
+#popup-nav nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 30px;
+}
+#popup-nav nav ul li {
+  display: block;
+}
+#popup-nav nav ul li.secondary-nav {
+  margin-top: 30px;
+}
+#popup-nav nav a {
+  font-size: 18px;
+  font-family: helvetica, arial;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  text-transform: uppercase;
+  line-height: 36px;
+}
+#popup-nav nav a:hover {
+  border-bottom: 2px solid #FDC13C;
+}
+#popup-nav nav a.large {
+  font-size: 60px;
+  line-height: 80px;
+  border-bottom: 10px solid transparent;
+  text-transform: uppercase;
+}
+#popup-nav nav a.large:hover {
+  border-bottom: 10px solid #FDC13C;
+}
+#popup-nav #utility a {
+  font-size: 16px;
+  font-family: helvetica, arial;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  text-transform: uppercase;
+  line-height: 36px;
+  border-bottom: 2px solid #FDC13C;
+}
+#popup-nav #utility a:hover {
+  border-bottom: 2px solid transparent;
+}
+#popup-nav #utility a.tel {
+  font-size: 18px;
+  font-weight: 800;
+  border-bottom: 2px solid transparent;
+}
+#popup-nav #utility a.tel:hover {
+  border-bottom: 2px solid #FDC13C;
+}
+#popup-nav #utility ul.social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 40px;
+}
+#popup-nav #utility ul.social li {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+}
+#popup-nav #utility ul.social li a {
+  border-bottom: none;
+  text-indent: -99999px;
+  position: absolute;
+  background: #ffffff;
+}
+#popup-nav #utility ul.social li a:hover {
+  background: #FDC13C;
+}
+#popup-nav #utility ul.social li a.icon--fb {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-image: url(http://image005.flaticon.com/1/svg/59/59439.svg);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+#popup-nav #utility ul.social li a.icon--tw {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-image: url(http://image005.flaticon.com/9/svg/8/8800.svg);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+#popup-nav #utility ul.social li a.icon--in {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-image: url(http://image005.flaticon.com/1/svg/48/48898.svg);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+#popup-nav #utility ul.social li a.icon--pt {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-image: url(http://image005.flaticon.com/9/svg/9/9150.svg);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+#popup-nav #utility ul.social li a.icon--tm {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-image: url(http://image005.flaticon.com/28/svg/33/33985.svg);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.call-to-action-popup {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  background: #15123D;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #ffffff;
+  text-align: center;
+}
+.call-to-action-popup #call-to-action-logo {
+  font-size: 25px;
+  font-family: helvetica, arial;
+  font-weight: 800;
+  margin-top: 100px;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 80px;
+  color: #FDC13C;
+}
+.call-to-action-popup #call-to-action-logo:after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 5px;
+  background: #ffffff;
+  text-align: center;
+  bottom: -10px;
+  left: 50%;
+  margin-left: -20px;
+}
+.call-to-action-popup #heading {
+  display: block;
+  font-size: 35px;
+  font-family: helvetica, arial;
+  font-weight: 800;
+  position: relative;
+  text-align: center;
+}
+.call-to-action-popup #another-cta {
+  background: #FDC13C;
+  color: #15123D;
+  -mox-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px 40px;
+  font-size: 16px;
+  font-family: helvetica, arial;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.call-to-action-popup #another-cta:hover {
+  background: #FFCB58;
+}
+
+</style>
+
+
+
+
+
+
+      
+    <div class="grid">
+        <div class="grid-container">
+   
+            
+            <div class="all">
+                <div class="cards">
+                  <div class="card card1 shadow-1">
+
+                    <div class="ui grid">
+                        <div class="four wide column">
+                            <img src="https://www.iconfinder.com/data/icons/logos-3/181/MySQL-512.png" width="110" height="70" style="margin-top: 10px;margin-left: 10px;">
+
+                        </div>
+                        <div class="four wide column" style="margin-top: 10px;"><i class="ui label teal">ID: 2934urf</i><br/><br/><i class="ui label teal">ID: 2934urf</i></div>
+                        <div class="four wide column"></div>
+                        <div class="four wide column" style="margin-top: 150px;"> werwrt</div>
+                      </div>
+                    
+
+                  </div>
+                  <div class="card card1 shadow-1"></div>
+                  <div class="card card1 shadow-1"></div>
+          
+ 
+                </div>
+              </div>
+       
+
+
+
+        </div>
+    </div>
+
+
+    <style>
+        .grid {
+
+/* border: 1px solid #000; */
+width:100%;
+}
+.grid-container {
+overflow-y: auto;
+overflow-x: hidden;
+height: 400px;
+}
+
+    </style>
+    
+    <style>
+
+
+.shadow-1:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: inherit;
+  height: inherit;
+  z-index: -2;
+  box-sizing: border-box;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.13);
+}
+
+.shadow-1:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: inherit;
+  height: inherit;
+  z-index: -2;
+  box-sizing: border-box;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.08);
+}
+
+.card1:hover {
+    cursor: pointer;
+}
+
+.card1 {
+  position: relative;
+  height: 100px;
+  background: #fcfcfc;
+  margin: 20px 40px;
+  transition: 0.4s all;
+}
+
+.card1.open {
+  height: 250px;
+  background: #ffffff;
+}
+
+@media only screen and (min-width: 600px) {
+  .card1 {
+  width:600px;
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
+
+@media only screen and (max-device-width: 800px) and (orientation: portrait) {
+  .card1 {
+    margin: 12px 10px;
+  }
+}
+    </style>
+
+
+<script>
+    $('.card1').on('click', function() {
+  if ($(this).hasClass('open')) {
+    $('.card1').removeClass('open');
+    $('.card1').removeClass('shadow-2');
+    $(this).addClass('shadow-1');
+    return false;
+  } else {
+    $('.card1').removeClass('open');
+    $('.card1').removeClass('shadow-2');
+    $(this).addClass('open');
+    $(this).addClass('shadow-2');
+  }
+});
+</script>
