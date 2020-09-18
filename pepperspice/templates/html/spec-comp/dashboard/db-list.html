@@ -194,18 +194,41 @@ function clickCard(e) {
     </script> -->
 
     <div id="menu">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+     
+      
+      <a class="btn book-now desktop open-datepicker-popup" href="#" title="Book Now"><div style="margin-top: -10px;">Tutorials</div></a>
+
+<style>
+.btn.book-now {
+  background: #efc468;
+  border-radius: 0;
+  color: #232323;
+  display: inline-block;
+  font-size: 1rem;
+  height: 35px;
+
+  line-height: 50px;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform-origin: bottom right;
+  width: 100px;
+}
+
+</style>
+
       </div>
       <div id="popup-bg"></div>
       <div id="popup-nav">
       
 
-        <div class="ui column " style="margin-top: 50px;">
+        <div class="ui column " style="margin-top: -50px;">
 
 <section id="accordion-wrapper" style="color: white;">
     <section class="accordion">
@@ -217,660 +240,50 @@ function clickCard(e) {
       </h2>  
       <div class="accordion__content"  hidden>  
        
-        <script>
-            $(function(){
-	
-    // Return a DOM object
-    var objectVideo = $('video');
-    var video = objectVideo.get(0);
-    setVolume(0.8); // Set default volume to 80%
-    
-    objectVideo.on('mouseenter mouseleave', function(e) {
-        $(this).data('isHovered', e.type==='mouseenter');
-    });
-    
-    $(document).on('keyup', function(e) {
-        if (e.which == 32) {
-            var fullScreen = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
-            var isHovered  = objectVideo.data('isHovered');
-    
-            if (fullScreen || isHovered) {		            
-                playVideo();
-                viewContorls(3000);
-            }
-        }
-    });
-    
-    objectVideo.click(function(){
-        playVideo();
-    });
-    
-    // Play/Pause control clicked
-    $(".play").click(function(){
-        playVideo();
-    });
-    
-    function playVideo() {
-        if(video.paused) {
-            video.play();
-            $(".play").removeClass("video-play");
-            $(".play").addClass("video-pause");
-        }
-        else {
-            video.pause();
-            $(".play").addClass("video-play");
-            $(".play").removeClass("video-pause");
-        }
-    }
-
-    $('.videoContainer').mouseenter(function() {
-        showControls();
-    });
-    $('.videoContainer').mouseleave(function() {
-        hideControls();
-    });
-
-
-    var timer;
-    $('.videoContainer').mousemove(function() {
-        viewContorls(3000);
-    });
-
-    function viewContorls(ms) {
-        if (timer) {
-            clearTimeout(timer);
-            timer = 0;
-        }
-        
-        showControls()
-        $('.videoContainer').css('cursor', 'auto');
-        timer = setTimeout(function() {
-            hideControls();
-            $('.videoContainer').css('cursor', 'none');
-        }, ms)
-    };
-
-    
-    /*
-    * Animate controls
-    * --------------------------------------- */
-    
-    function showControls() {
-        $('.control').fadeIn( 150 );
-    }
-
-    function hideControls() {
-        $('.control').fadeOut( 150 );
-    }
-
-
-    /*
-    * Fullscreen
-    * --------------------------------------- */ 
-    $(".fullscreen").click(function(){
-        
-        if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
-            // exit full-screen
-    $(".fullscreen").addClass('video-fullscreen-enter');
-    $(".fullscreen").removeClass('video-fullscreen-exit');
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
-            } else if (document.mozCancelFullScreen) {
-                document.mozCancelFullScreen();
-            } else if (document.msExitFullscreen) {
-                document.msExitFullscreen();
-            }
-            
-        }else if (document.fullscreenEnabled || document.webkitFullscreenEnabled || document.mozFullScreenEnabled || document.msFullscreenEnabled) {
-            var i = document.getElementById("videoContainer");
-    
-    $(".fullscreen").removeClass('video-fullscreen-enter');
-    $(".fullscreen").addClass('video-fullscreen-exit');
-    
-            // go full-screen
-            if (i.requestFullscreen) {
-                i.requestFullscreen();
-            } else if (i.webkitRequestFullscreen) {
-                i.webkitRequestFullscreen();
-            } else if (i.mozRequestFullScreen) {
-                i.mozRequestFullScreen();
-            } else if (i.msRequestFullscreen) {
-                i.msRequestFullscreen();
-            }
-        }			
-    });
-    
-    
-    
-    
-    /*
-    * Progress time
-    * --------------------------------------- */ 
-    setInterval(function(){
-        // Update HTML5 video current play time
-        $('.ctime').html(formatTime(Math.round(video.currentTime)));
-        
-        // Get HTML5 video time duration
-        $('.ttime').html(formatTime(video.duration - Math.round(video.currentTime)));    
-    }, 500);
-    
-    
-    function formatTime(seconds) {
-        minutes = Math.floor(seconds / 60);
-        minutes = (minutes >= 10) ? minutes : "0" + minutes;
-        seconds = Math.floor(seconds % 60);
-        seconds = (seconds >= 10) ? seconds : "0" + seconds;
-        return minutes + ":" + seconds;
-    }
-    
-    var scrubber = $(".progress");
-    var progress = $(".progress-bar");
-            
-    objectVideo.bind("timeupdate", videoTimeUpdateHandler);
-    scrubber.bind("mousedown", scrubberMouseDownHandler);
-    
-    function videoTimeUpdateHandler(e) {
-        var percent = video.currentTime / video.duration;
-        updateProgressWidth(percent);
-    }
-    
-    function scrubberMouseDownHandler(e) {
-        var $this = $(this);
-        var x = e.pageX - $this.offset().left;
-        var percent = x / $this.width();
-        updateProgressWidth(percent);
-        updateVideoTime(percent);
-    }
-    
-    function updateProgressWidth(percent) {
-        progress.width((percent * 100) + "%");
-    }
-    
-    function updateVideoTime(percent) {
-        video.currentTime = percent * video.duration;
-    }
-
-
-
-
-    /*
-    * Volume
-    * --------------------------------------- */ 
-    var savedVolume;
-    $(".volume a").click( function (){
-        if( $("video").prop('muted')) {
-            $("video").prop('muted', false);
-    setVolume(savedVolume)
-        }else {
-            $("video").prop('muted', true);
-    savedVolume = video.volume;
-    setVolume(0)
-        }
-    });
-
-
-    $(".volume-slider").slider({
-        orientation: "vertical",
-        min: 0,
-        max: 100,
-        value: 80,
-        range: "min",
-        slide: function(event, ui) {
-            setVolume(ui.value / 100);
-        }
-    });
-        
-    function setVolume($volume) {
-        video.volume = $volume;
-        
-        switch(true) {
-            case ($volume >= 0.8):
-                // High
-                $('.toggle-sound').addClass('video-volume-high');
-                $('.toggle-sound').removeClass('video-volume-mediumm');
-                $('.toggle-sound').removeClass('video-volume-low');
-                $('.toggle-sound').removeClass('video-volume-muted');
-                break;
-            case ($volume < 0.8 && $volume >= 0.4):
-                // Medium
-                $('.toggle-sound').addClass('video-volume-medium');
-                $('.toggle-sound').removeClass('video-volume-high');
-                $('.toggle-sound').removeClass('video-volume-low');
-      $('.toggle-sound').removeClass('video-volume-muted');
-                break;
-            case ($volume < 0.4 && $volume > 0):
-                // Low
-                $('.toggle-sound').addClass('video-volume-low');
-                $('.toggle-sound').removeClass('video-volume-high');
-                $('.toggle-sound').removeClass('video-volume-medium');
-                $('.toggle-sound').removeClass('video-volume-muted');
-                break;
-            default:
-                // Off
-                $('.toggle-sound').addClass('video-volume-muted');
-                $('.toggle-sound').removeClass('video-volume-high');
-                $('.toggle-sound').removeClass('video-volume-medium');
-                $('.toggle-sound').removeClass('video-volume-low');
-        }
-    }
-
-
-
-    /* -------------------------- Safari Webkit -------------------------- */
-
-
-
-    /*
-     * Picture in Picture
-     * --------------------------------------- */ 
-
-    var PiP = document.getElementById('picture-in-picture');
-
-    if (video.webkitSupportsPresentationMode && typeof video.webkitSetPresentationMode === "function") {
-        // Toggle PiP when the user clicks the button.
-        PiP.addEventListener("click", function(event) {
-    $("#picture-in-picture").toggleClass("video-picture-in-picture-enter video-picture-in-picture-exit");
-            video.webkitSetPresentationMode(video.webkitPresentationMode === "picture-in-picture" ? "inline" : "picture-in-picture");
-        });
-    } else {
-        PiP.style.display = 'none';
-    }
-    
-
-
-    /*
-    * Airplay
-    * --------------------------------------- */ 
-
-    var airPlay = document.getElementById('airplay');
-
-    if (window.WebKitPlaybackTargetAvailabilityEvent) {
-        video.addEventListener('webkitplaybacktargetavailabilitychanged', function(event) {
-            switch (event.availability) {
-                case "available":
-                    airPlay.style.display = 'block';
-                    break;
-                default:
-                    airPlay.style.display = 'none';
-            }
-            airPlay.addEventListener('click', function() {
-                video.webkitShowPlaybackTargetPicker();
-            });
-        });
-    }else {
-        airPlay.style.display = 'none';
-    }
-
-// End document ready
-});
-
-        </script>
+     
         
         <h3>1.1 Welcome</h3>
         <div class="contain" style="margin-left: -25px;">
             
 
-            <div id="videoContainer" class="videoContainer">
-                <video id="video" playsinline x-webkit-airplay="allow" allowfullscreen="allow" preload="metadata" poster="http://camendesign.com/code/video_for_everybody/poster.jpg">
-                    <source src="http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4" type="video/mp4">
-                    <p>Your browser does not support the video tag.</p>
-                </video>
-                
-                <div class="control">
-                    <a class="play video-play"></a>
-                    
-                    
-                    <div class="progress">
-                        <div class="progress-bar"></div>
-                    </div>
-                    <div class="time">
-                        <span class="ctime">0:00</span>
-                        <span class="stime"> / </span>
-                        <span class="ttime">0:00</span>
-                    </div>
-                    
-                    <div class="volume">
-                        <a class="toggle-sound video-volume-high"></a>
-                        <div class="volume-piller">
-                            <div class="volume-slider"></div>
-                        </div>
-                    </div>
-                    <a id="picture-in-picture" class="video-picture-in-picture-enter"></a>
-                    <a id="airplay" class="video-airplay"></a>
-                    <a class="fullscreen video-fullscreen-enter"></a>
-                </div>
-            </div>
           
+        
+            <div class="o-video">
+              <iframe src="https://www.youtube.com/embed/nwjAHQERL08?list=PLGLfVvz_LVvTn3cK5e6LjhgGiSeVlIRwt" allowfullscreen></iframe>
+            </div>
+        
+        
+        <style>
+              .o-video {
+  width: 110%;
+  height: 0;
+  position: relative;
+  padding-top: 56.25%; /* 9 / 16 * 100 */
+}
+.o-video > iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+}
+
+            </style>
+
           </div>
 
 
           <h3>1.2 Containers</h3>
         <div class="contain" style="margin-left: -25px;">
-        <div id="videoContainer" class="videoContainer">
-            <video id="video" playsinline x-webkit-airplay="allow" allowfullscreen="allow" preload="metadata" poster="http://camendesign.com/code/video_for_everybody/poster.jpg">
-                <source src="http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4" type="video/mp4">
-                <p>Your browser does not support the video tag.</p>
-            </video>
-            
-            <div class="control">
-                <a class="play video-play"></a>
-                
-                
-                <div class="progress">
-                    <div class="progress-bar"></div>
-                </div>
-                <div class="time">
-                    <span class="ctime">0:00</span>
-                    <span class="stime"> / </span>
-                    <span class="ttime">0:00</span>
-                </div>
-                
-                <div class="volume">
-                    <a class="toggle-sound video-volume-high"></a>
-                    <div class="volume-piller">
-                        <div class="volume-slider"></div>
-                    </div>
-                </div>
-                <a id="picture-in-picture" class="video-picture-in-picture-enter"></a>
-                <a id="airplay" class="video-airplay"></a>
-                <a class="fullscreen video-fullscreen-enter"></a>
-            </div>
-        </div>
+       
+          <div class="o-video">
+            <iframe src="https://www.youtube.com/embed/nwjAHQERL08?list=PLGLfVvz_LVvTn3cK5e6LjhgGiSeVlIRwt" allowfullscreen></iframe>
+          </div>
 
 
         </div>
 
-<style>
-    .videoContainer {
-  position: relative;
-  width: 370px;
-transition: 1s;
-  font-family: Arial;
-  background-color: black;
-}
-.videoContainer video {
-  width: 100%;
-  height: 100%;
- 
-  display: block;
-}
-
-/* ---- Controls ---- */
-.control {
-  width: 100%;
-  height: 30px;
-  background-color: #262626;
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-  display: -webkit-box;
-  display: flex;
-  z-index: 2147483647;
-  /* ---- Progress ---- */
-}
-.control label {
-  display: block;
-  padding: 0px 10px;
-  color: white;
-  line-height: 30px;
-}
-.control a {
-  display: block;
-  width: 40px;
-  height: 30px;
-  color: #bebebe;
-  text-align: center;
-  text-decoration: none;
-  line-height: 30px;
-  position: relative;
-  cursor: pointer;
-  font-size: 14px;
-}
-.control a:hover {
-  color: #33b5d5;
-  text-decoration: none;
-  background-color: #3f3f3f;
-}
-.control .play {
-  margin-right: 5px;
-}
-.control .progress {
-  width: 100%;
-  height: 10px;
-  background: #1b1b1b;
-  -webkit-backdrop-filter: blur(20px);
-  float: left;
-  cursor: pointer;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  left: 0px;
-  top: -10px;
-  font-variant: normal;
-  opacity: 0.7;
-  overflow-x: hidden;
-}
-.control .progress-bar {
-  background: #33b5d5;
-
-  height: 100%;
-  position: relative;
-  z-index: 999;
-  width: 0;
-}
-.control .progress-bar:before {
-  width: 5px;
-  height: 10px;
-  top: 0px;
-  right: 0px;
-  content: ' ';
-  background-color: #fff;
-  position: absolute;
-}
-.control .time {
-  color: #fff;
-  font-weight: bold;
-  font-size: 10px;
-  line-height: 30px;
-  width: 100%;
-}
-
-/* ----- Fullscreen ----- */
-.videoContainer:-webkit-full-screen {
-  width: 100%;
-  height: 100%;
-}
-.videoContainer:-ms-fullscreen {
-  width: 100%;
-  height: 100%;
-}
-.videoContainer:fullscreen {
-  width: 100%;
-  height: 100%;
-}
-
-.videoContainer:-ms-fullscreen {
-  width: 100%;
-  height: 100%;
-}
-
-.videoContainer:-webkit-full-screen {
-  width: 100%;
-  height: 100%;
-}
-
-video:-webkit-full-screen::media-controls-panel, video:-webkit-full-screen::media-controls, video:-webkit-full-screen::media-text-track-container {
-  display: none !important;
-  opacity: 0;
-}
-
-video:-ms-fullscreen::media-controls-panel, video:-ms-fullscreen::media-controls, video:-ms-fullscreen::media-text-track-container {
-  display: none !important;
-  opacity: 0;
-}
-
-video:fullscreen::media-controls-panel, video:fullscreen::media-controls, video:fullscreen::media-text-track-container {
-  display: none !important;
-  opacity: 0;
-}
-
-video:-ms-fullscreen::-ms-media-controls-panel, video:-ms-fullscreen::-ms-media-controls, video:-ms-fullscreen::-ms-media-text-track-container {
-  display: none !important;
-  opacity: 0;
-}
-
-video:-moz-full-screen::-moz-media-controls-panel, video:-moz-full-screen::-moz-media-controls, video:-moz-full-screen::-moz-media-text-track-container {
-  display: none !important;
-  opacity: 0;
-}
-
-video:-o-full-screen::-o-media-controls-panel, video:-o-full-screen::-o-media-controls, video:-o-full-screen::-o-media-text-track-container {
-  display: none !important;
-  opacity: 0;
-}
-
-video:-webkit-full-screen::-webkit-media-controls-panel, video:-webkit-full-screen::-webkit-media-controls, video:-webkit-full-screen::-webkit-media-text-track-container {
-  display: none !important;
-  opacity: 0;
-}
-
-.volume {
-  width: 30px;
-}
-
-.volume:hover {
-  background-color: #3f3f3f;
-}
-
-.volume a {
-  width: 30px;
-}
-
-.volume:hover .volume-piller {
-  display: block;
-}
-
-.volume-piller {
-  width: 30px;
-  height: 120px;
-  bottom: 30px;
-  display: none;
-  overflow: hidden;
-  position: absolute;
-  z-index: 10100;
-  background-color: #3f3f3f;
-}
-
-.volume-slider {
-  position: relative;
-  margin: 0 auto;
-  height: 100px;
-  width: 6px;
-  background-color: #1d1d1d;
-  border-radius: 10px;
-  top: 15px;
-}
-
-.ui-slider-range-min {
-  height: 300px;
-  width: 6px;
-  position: absolute;
-  background: #2ea7cc;
-  border: none;
-  border-radius: 10px;
-  outline: none;
-  bottom: 0;
-}
-
-.ui-slider-handle {
-  width: 12px;
-  height: 12px;
-  border-radius: 20px;
-  background: #FFF;
-  position: absolute;
-  margin-left: -3px;
-  margin-bottom: -6px;
-  cursor: pointer;
-  outline: none;
-}
-
-/* ----- Ignore this ---- */
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Chrome/Safari/Opera */
-  /* Konqueror */
-  -moz-user-select: none;
-  /* Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  -webkit-font-smoothing: antialiased;
-}
-
-body {
-  font-family: 'Raleway', sans-serif;
-}
-
-.videoContainer {
-  margin: 0 auto;
-}
-.videoContainer:hover{
-    transform: scale(1.05);
-}
-
-h1 {
-  text-align: center;
-  color: #4585d4;
-  font-weight: 100;
-  margin: 50px;
-  position: relative;
-}
-h1 small {
-  color: gray;
-  font-size: 14px;
-  position: absolute;
-  bottom: 0;
-}
-
-center {
-  margin-top: 20px;
-}
-
-p {
-  font-size: 0.9rem;
-}
-
-table {
-  width: 720px;
-  border-collapse: collapse;
-  font-size: 1rem;
-  margin: 50px 0;
-}
-table thead {
-  background-color: #262626;
-  font-weight: bold;
-  color: white;
-}
-table tbody td:first-of-type {
-  font-weight: bold;
-}
-table tbody tr:nth-child(odd) {
-  background-color: lightgray;
-}
-table tbody td[data-false] {
-  color: #F00;
-}
-table td, table th {
-  padding: 10px;
-}
-
-</style>
 
       </div>  
     </section>
@@ -886,37 +299,10 @@ table td, table th {
         
         <h3>1.2 Containers</h3>
         <div class="contain" style="margin-left: -25px;">
-        <div id="videoContainer" class="videoContainer">
-            <video id="video" playsinline x-webkit-airplay="allow" allowfullscreen="allow" preload="metadata" poster="http://camendesign.com/code/video_for_everybody/poster.jpg">
-                <source src="http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4" type="video/mp4">
-                <p>Your browser does not support the video tag.</p>
-            </video>
-            
-            <div class="control">
-                <a class="play video-play"></a>
-                
-                
-                <div class="progress">
-                    <div class="progress-bar"></div>
-                </div>
-                <div class="time">
-                    <span class="ctime">0:00</span>
-                    <span class="stime"> / </span>
-                    <span class="ttime">0:00</span>
-                </div>
-                
-                <div class="volume">
-                    <a class="toggle-sound video-volume-high"></a>
-                    <div class="volume-piller">
-                        <div class="volume-slider"></div>
-                    </div>
-                </div>
-                <a id="picture-in-picture" class="video-picture-in-picture-enter"></a>
-                <a id="airplay" class="video-airplay"></a>
-                <a class="fullscreen video-fullscreen-enter"></a>
-            </div>
-        </div>
-
+       
+          <div class="o-video">
+            <iframe src="https://www.youtube.com/embed/nwjAHQERL08?list=PLGLfVvz_LVvTn3cK5e6LjhgGiSeVlIRwt" allowfullscreen></iframe>
+          </div>
 
         </div>
 
@@ -968,7 +354,7 @@ Array.prototype.forEach.call(headings, heading => {
 
 
 .accordion h2 {
-  font-family: 'Lato', sans-serif;
+  font-family:'Montserrat', sans-serif;
   font-weight: 900;
   font-size: 2rem;
   margin: 0.25em 0;
@@ -977,7 +363,7 @@ Array.prototype.forEach.call(headings, heading => {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   cursor: pointer;
 }
 .accordion h2 button {
@@ -1003,24 +389,8 @@ Array.prototype.forEach.call(headings, heading => {
 
 
       </div>
-      
-      <div class="call-to-action-popup">
-        <div id="close">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div id="call-to-action-logo">LOGO</div>
-        <div id="heading">CALL TO ACTION CONTENT</div>
-        
-        <div id="another-cta">ANOTHER CALL TO ACTION</div>
-      </div>
+  
  
-      <div class="main">
-      </div>
 
 
 
@@ -1037,18 +407,19 @@ Array.prototype.forEach.call(headings, heading => {
   $('#close').click(function(){
     $('.call-to-action-popup').fadeOut();
   });
+
 });
 </script>
 
 <style>
-    #menu {
-        
+
+#menu { 
   width: 25px;
   height: 18px;
   position: fixed;
-  right: 25px;
+  right: 0px;
   z-index: 2000;
-  top: 83px;
+  top: 130px;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -1060,78 +431,14 @@ Array.prototype.forEach.call(headings, heading => {
   cursor: pointer;
   z-index: 99;
 }
-#menu span {
-  display: block;
-  position: absolute;
 
-  height: 4px;
 
-  width: 50%;
-  background: teal;
-  opacity: 1;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: .25s ease-in-out;
-  -moz-transition: .25s ease-in-out;
-  -o-transition: .25s ease-in-out;
-  transition: .25s ease-in-out;
+
+#menu.open {
+  right: 450px;
 }
-#menu span:nth-child(even) {
-  left: 50%;
-}
-#menu span:nth-child(odd) {
-  left: 0px;
-}
-#menu span:nth-child(1), #menu span:nth-child(2) {
-  top: 0px;
-}
-#menu span:nth-child(3), #menu span:nth-child(4) {
-  top: 8px;
-}
-#menu span:nth-child(5), #menu span:nth-child(6) {
-  top: 16px;
-}
-#menu.open span {
-  background: #ffffff;
-}
-#menu.open span:nth-child(1), #menu.open span:nth-child(6) {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-#menu.open span:nth-child(2), #menu.open span:nth-child(5) {
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
-#menu.open span:nth-child(1) {
-  left: 2px;
-  top: 5px;
-}
-#menu.open span:nth-child(2) {
-  left: calc(50% - 2px);
-  top: 5px;
-}
-#menu.open span:nth-child(3) {
-  left: -50%;
-  opacity: 0;
-}
-#menu.open span:nth-child(4) {
-  left: 100%;
-  opacity: 0;
-}
-#menu.open span:nth-child(5) {
-  left: 2px;
-  top: 14px;
-}
-#menu.open span:nth-child(6) {
-  left: calc(50% - 2px);
-  top: 14px;
-}
+
+
 
 #close {
   width: 25px;
@@ -1149,76 +456,6 @@ Array.prototype.forEach.call(headings, heading => {
   transition: .5s ease-in-out;
   cursor: pointer;
   z-index: 99;
-}
-#close span {
-  display: block;
-  position: absolute;
-  height: 4px;
-  width: 50%;
-  background: #15123D;
-  opacity: 1;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: .25s ease-in-out;
-  -moz-transition: .25s ease-in-out;
-  -o-transition: .25s ease-in-out;
-  transition: .25s ease-in-out;
-}
-#close span:nth-child(even) {
-  left: 50%;
-}
-#close span:nth-child(odd) {
-  left: 0px;
-}
-#close span:nth-child(1), #close span:nth-child(2) {
-  top: 0px;
-}
-#close span:nth-child(3), #close span:nth-child(4) {
-  top: 8px;
-}
-#close span:nth-child(5), #close span:nth-child(6) {
-  top: 16px;
-}
-#close span {
-  background: #ffffff;
-}
-#close span:nth-child(1), #close span:nth-child(6) {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-#close span:nth-child(2), #close span:nth-child(5) {
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
-#close span:nth-child(1) {
-  left: 2px;
-  top: 5px;
-}
-#close span:nth-child(2) {
-  left: calc(50% - 2px);
-  top: 5px;
-}
-#close span:nth-child(3) {
-  left: -50%;
-  opacity: 0;
-}
-#close span:nth-child(4) {
-  left: 100%;
-  opacity: 0;
-}
-#close span:nth-child(5) {
-  left: 2px;
-  top: 14px;
-}
-#close span:nth-child(6) {
-  left: calc(50% - 2px);
-  top: 14px;
 }
 
 #header {
@@ -1253,7 +490,8 @@ Array.prototype.forEach.call(headings, heading => {
 
 #popup-bg {
   z-index: 50;
-  background: rgba(21, 18, 61, 0.5);
+ background-color: #15123D;
+ opacity: .7;
   position: fixed;
   top: 0;
   bottom: 0;
