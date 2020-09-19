@@ -543,50 +543,60 @@ Array.prototype.forEach.call(headings, heading => {
       
     <div class="grid">
         <div class="grid-container">
-   
-            
-            <!-- <div class="all">
-                <div class="cards">
-                  <div class="card card1 shadow-1">
 
-                    <div class="ui grid">
-                        <div class="four wide column">
-                            <img src="https://www.iconfinder.com/data/icons/logos-3/181/MySQL-512.png" width="110" height="70" style="margin-top: 10px;margin-left: 10px;">
-
-                        </div>
-                        <div class="four wide column" style="margin-top: 10px;"><i class="ui label teal">ID: 2934urf</i><br/><br/><i class="ui label teal">ID: 2934urf</i></div>
-                        <div class="four wide column"></div>
-                        <div class="four wide column" style="margin-top: 150px;"> werwrt</div>
-                      </div>
-                    
-
-                  </div>
-                  <div class="card card1 shadow-1"></div>
-                  <div class="card card1 shadow-1"></div>
-          
- 
-                </div>
-              </div> -->
-       
-
-
-
-             
+              {% for db in dbs %}
 
 <div class="card card3" style="font-family: 'Montserrat', sans-serif;">
   <div class="ch-row">
     <div class="ch-col1">
       <div class="ch-c1c1">
-        MySQL - <h5 class="label pink ui">dasd745asda8sd</h5>
-      </div>
+        {% if db.db_engine == 'mysql' %}
+        MySQL
+        {% elif db.db_engine == 'postgresql' %}
+PostgreSQL
+        {% elif db.db_engine == 'sqlite' %}
+SQLite
+        {% elif db.db_engine == 'mariadb' %}
+MariaDB
+{% endif %}
+
+        <h5 class="label pink grey">{{ db.db_uid }}</h5>
+      </div> 
     </div>
     <div class="ch-col2">
+      {% if db.db_engine == 'mysql' %}
      <img src="https://pngimg.com/uploads/mysql/mysql_PNG1.png" width="80px" height="50px">
+     {% elif db.db_engine == 'postgresql' %}
+     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1200px-Postgresql_elephant.svg.png" width="50px" height="50px" style="margin-right: 20px;">
+     {% elif db.db_engine == 'mariadb' %}
+     <img src="https://www.grchive.com/assets/images/logos/mariadb.png" width="55px" height="45px" style="margin-right: 20px;">
+     {% elif db.db_engine == 'sqlite' %}
+     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/SQLite370.svg/1280px-SQLite370.svg.png" width="80px" height="35px" style="margin-right: 10px;">
+
+     {% endif %}
     </div>
   </div>
   <div class="row1">
     <div class="col1 flex-container">
-      <div class="d2r1c1"><span class="caption"><h4>Link Status</h4></span><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+      <div class="d2r1c1"><span class="caption"><h4>Link Status</h4></span><br>
+      
+        {% if db.link_status %}
+
+        {% if webapplications > 0 %}
+          {% for instance in instances %}
+          {% if db.linked_to_node_uuid == instance.node_ID %}
+            Active
+          {% endif %}
+        {% endfor %}
+         {% else %}
+       Broken Link
+       {% endif %}
+       
+        {% else %}
+      Not Linked
+        {% endif %}
+      
+      </div>
     </div>
     <div class="col1 flex-container">
       <div class="d2r1c1"><span class="caption"><h4>Uptime</h4></span><br>4.5 hrs</div>
@@ -607,16 +617,27 @@ Array.prototype.forEach.call(headings, heading => {
               <dd class="accordion-content accordionItem is-collapsed" id="accordion1" aria-hidden="true">
                 <div class="row1">
     <div class="col1 flex-container">
-      <div class="d2r1c1"><span class="caption"><h4>DB Version</h4></span><br>Version 8.0</div>
+      <div class="d2r1c1"><span class="caption"><h4>DB Version</h4></span><br>{{ db.db_version }}</div>
     </div>
     <div class="col1 flex-container">
-      <div class="d2r1c1"><span class="caption"><h4>Linked to -</h4></span><br>87dwedwqd5sd</div>
+      <div class="d2r1c1"><span class="caption"><h4>Linked to -</h4></span><br>{{ db.linked_to_node_uuid }}</div>
     </div>
     <div class="col1 flex-container">
-      <div class="d2r1c1"><span class="caption"><h4>Hostname / IP</h4></span><br>dasd745asda8sd-expose.pepperspice.co</div>
+      <div class="d2r1c1"><span class="caption"><h4>Hostname / IP</h4></span><br>56.541.122.215</div>
     </div>
     <div class="col1 flex-container">
-      <div class="d2r1c1"><span class="caption"><h4>Load Type</h4></span><br>Medium Load</div>
+      <div class="d2r1c1"><span class="caption"><h4>Load Type</h4></span><br>
+        {% if db.db_load_type == 'low_load' %}
+Low Load
+        {% elif db.db_load_type == 'medium_load' %}
+Medium Load
+        {% elif db.db_load_type == 'high_load' %}
+        High Load
+
+        {% endif %}
+      
+      
+      </div>
     </div>
   </div>
               </dd>
@@ -626,10 +647,7 @@ Array.prototype.forEach.call(headings, heading => {
 </div>
 
 
-
-           
-
-
+              {% endfor %}
 
         </div>
     </div>
@@ -669,7 +687,7 @@ Array.prototype.forEach.call(headings, heading => {
   color: #0071CE;
 }
 .card3 {
-  background-color: #c5cae9;
+  background-color: #eaedff;
   padding-bottom: 10px;
   border-radius: 3px;
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.12), 0px 1px 5px 0px rgba(0,0,0,0.14);
@@ -944,7 +962,7 @@ width:100%;
 .grid-container {
 overflow-y: auto;
 overflow-x: hidden;
-height: 400px;
+height: 440px;
 }
 
     </style>
