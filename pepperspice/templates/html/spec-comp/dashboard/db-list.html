@@ -213,14 +213,7 @@ Array.prototype.forEach.call(headings, heading => {
 
 </style>
 
-
-
-
       </div>
-  
- 
-
-
 
 <script>
     $(document).ready(function(){
@@ -340,13 +333,7 @@ Array.prototype.forEach.call(headings, heading => {
 
 
 </style>
-
-
-
-
-
-
-      
+   
     <div class="grid">
       
         <div class="grid-container">
@@ -356,7 +343,23 @@ Array.prototype.forEach.call(headings, heading => {
                    
 <div class="card card3" style="font-family: 'Montserrat', sans-serif;">
   <div class="ch-row">
+   
     <div class="ch-col1">
+
+      {% if db.Status %}
+     
+        <div class="ui right white corner label">
+          <i class="toggle on  green icon"></i>
+          </div>
+
+        {% else %}
+
+        <div class="ui right white corner label">
+          <i class="toggle off  red icon"></i>
+          </div>
+
+          {% endif %}
+    
       <div class="ch-c1c1">
         {% if db.db_engine == 'mysql' %}
         MySQL
@@ -419,17 +422,18 @@ MariaDB
     <div class="col1 flex-container">
       <div class="d2r1c1"><span class="caption"><h4>Security Risks</h4></span><br>None</div>
     </div>
-    <button class="ui blue button">
+    <button class="ui blue button" style="margin-left: 10px;">
       Analytics
     </button>
     <button class="ui blue button">
       Manage
     </button>
     <button class="ui red button" style="margin-left: 560px;">
-      Shut Down
+      <i class="icon power off" style="margin-left: 5px;"></i>
     </button>
     <button class="ui red button">
-      Delete
+   
+      <i class="icon trash alternate" style="margin-left: 5px;"></i>
     </button>
    
   </div>
@@ -512,7 +516,7 @@ Medium Load
   color: #0071CE;
 }
 .card3 {
-  background-color: #eaedff;
+  background-color: white;
   /* background-color: #dcedc8; */
   padding-bottom: 10px;
   border-radius: 3px;
@@ -788,7 +792,7 @@ width:100%;
 .grid-container {
 overflow-y: auto;
 overflow-x: hidden;
-height: 440px;
+height: 510px;
 }
 
     </style>

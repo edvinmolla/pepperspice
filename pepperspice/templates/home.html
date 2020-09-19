@@ -1,14 +1,3 @@
-<!-- {% block raw %}{% if user.is_authenticated %}
-  Hi {{ user.email }}!
-  <p><a href="{% url 'account_logout' %}">Log Out</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'account_login' %}">Log In</a> |
-  <a href="{% url 'account_signup' %}">Sign Up</a>
-{% endif %}{% endblock %} -->
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +11,8 @@
 <style>
 .thisthis {
  /* background-image: url("https://cdn.dribbble.com/users/1803663/screenshots/11642671/media/d5c69a82283658c232b68cb96824ced3.jpg"); */
-background-image: url("{% static 'wallpapers_logos/welcome/back.jpg'%}");
+/* background-image: url("{% static 'wallpapers_logos/welcome/back.jpg'%}"); */
+background-image: url("https://mir-cdn.behance.net/v1/rendition/project_modules/1400/3912e8103963461.5f58a5bfbc845.jpg");
 background-size:cover;
 background-position: inherit;
 background-repeat: no-repeat;
