@@ -256,9 +256,9 @@ function clickCard(e) {
         
             <div class="extra content">
               <div style="font-family: 'Montserrat', sans-serif;">
-                <a class="ui orange label">Deploying</a>
-                <a class="ui green label">First time</a>
-                <a class="ui purple label">Starting</a>
+                <h6 class="ui orange label">Deploying</h6>
+                <h6 class="ui green label">First time</h6>
+                <h6 class="ui purple label">Introduction</h6>
                </div>
             </div>
           </div>
@@ -509,7 +509,7 @@ Array.prototype.forEach.call(headings, heading => {
   padding: 100px 60px;
   z-index: 60;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overflow-scrolling: touch;
 }
@@ -545,7 +545,7 @@ Array.prototype.forEach.call(headings, heading => {
         <div class="grid-container">
    
             
-            <div class="all">
+            <!-- <div class="all">
                 <div class="cards">
                   <div class="card card1 shadow-1">
 
@@ -566,14 +566,374 @@ Array.prototype.forEach.call(headings, heading => {
           
  
                 </div>
-              </div>
+              </div> -->
        
+
+
+
+             
+
+<div class="card card3" style="font-family: 'Montserrat', sans-serif;">
+  <div class="ch-row">
+    <div class="ch-col1">
+      <div class="ch-c1c1">
+        MySQL - <h5 class="label pink ui">dasd745asda8sd</h5>
+      </div>
+    </div>
+    <div class="ch-col2">
+     <img src="https://pngimg.com/uploads/mysql/mysql_PNG1.png" width="80px" height="50px">
+    </div>
+  </div>
+  <div class="row1">
+    <div class="col1 flex-container">
+      <div class="d2r1c1"><span class="caption"><h4>Link Status</h4></span><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+    </div>
+    <div class="col1 flex-container">
+      <div class="d2r1c1"><span class="caption"><h4>Uptime</h4></span><br>4.5 hrs</div>
+    </div>
+    <div class="col1 flex-container">
+      <div class="d2r1c1"><span class="caption"><h4>Usage</h4></span><br>$0.40</div>
+    </div>
+    <div class="col1 flex-container">
+      <div class="d2r1c1"><span class="caption"><h4>Security Risks</h4></span><br>None</div>
+    </div>
+  </div>
+  <div class="row1 more-fields">
+    <div class="accordion accordion2 col-full">
+            <dl>
+              <dt>
+                <a href="#accordion1" aria-expanded="false" aria-controls="accordion1" class="accordion-title accordionTitle js-accordionTrigger">Details</a>
+              </dt>
+              <dd class="accordion-content accordionItem is-collapsed" id="accordion1" aria-hidden="true">
+                <div class="row1">
+    <div class="col1 flex-container">
+      <div class="d2r1c1"><span class="caption"><h4>DB Version</h4></span><br>Version 8.0</div>
+    </div>
+    <div class="col1 flex-container">
+      <div class="d2r1c1"><span class="caption"><h4>Linked to -</h4></span><br>87dwedwqd5sd</div>
+    </div>
+    <div class="col1 flex-container">
+      <div class="d2r1c1"><span class="caption"><h4>Hostname / IP</h4></span><br>dasd745asda8sd-expose.pepperspice.co</div>
+    </div>
+    <div class="col1 flex-container">
+      <div class="d2r1c1"><span class="caption"><h4>Load Type</h4></span><br>Medium Load</div>
+    </div>
+  </div>
+              </dd>
+            </dl>
+          </div>
+  </div>
+</div>
+
+
+
+           
 
 
 
         </div>
     </div>
 
+    <style>
+.row1, .ch-row {
+  display: flex;
+  padding:8px 8px 0 8px;
+  margin-bottom:0;
+  flex-wrap: wrap;
+}
+.ch-row {
+  flex-wrap: nowrap;
+  border-bottom:1px solid white;
+  padding: 12px 16px;
+  align-items: baseline;
+}
+.accordion2 .row1 {
+  padding:0;
+}
+.row1.morefields {
+  
+}
+.ch-col1 {
+  flex:5;
+}
+.ch-col2 {
+ 
+}
+.ch-c1c1 {
+  font-size:18px;
+}
+.ch-c2c1 {
+  border:1px solid #ccc;
+  border-radius:3px;
+  padding:4px 8px;
+  color: #0071CE;
+}
+.card3 {
+  background-color: #c5cae9;
+  padding-bottom: 10px;
+  border-radius: 3px;
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.12), 0px 1px 5px 0px rgba(0,0,0,0.14);
+  margin-bottom:24px;
+}
+
+.h-c1 {
+  
+}
+.h-c2 {
+  
+}
+.col1 {
+  width: 25%;
+}
+.col-full {
+  width:100%;
+}
+
+@media (max-width:767px) {
+  .col1 {
+    width:50%;
+  }
+}
+@media (max-width:420px) {
+  .col1 {
+    width:100%;
+  }
+}
+/* second demo */
+
+.d2r1c1, .d2r1c2, .d2r1c3, .d1r1c4 {
+  flex:1;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.flex-container>div {
+  margin:8px;
+  padding:4px;
+/*   border:1px solid green; */
+/*   background-color: rgba(11,148,68,.10); */
+}
+
+.caption {
+  font-weight: lighter;
+  font-size: 10px;
+  color:#6c6c6c;
+  margin-bottom:4px;
+  display:inline-block;
+}
+
+.card-header {
+  border-bottom:1px solid #ccc;
+}
+
+//updated ver
+* {
+  box-sizing:border-box;
+}
+.heading-primary {
+  font-size:14px;
+  padding:12px;
+  text-align:left;
+}
+.accordion2 dl,
+.accordion-list {
+/*    border:1px solid #ddd; */
+  border-radius:3px;
+   &:after {
+       content: "";
+       display:block;
+       height:1em;
+       width:100%;
+       background-color:darken(#38cc70, 10%);
+     }
+}
+.accordion2 dd,
+.accordion__panel {
+   background-color:#fff;
+   font-size:14px;
+/*    line-height:1.5em;  */
+}
+.accordion2 p {
+/*   padding:1em 2em 1em 2em; */
+}
+
+.accordion2 {
+    position:relative;
+    background-color:#fff;
+}
+.container {
+  max-width:960px;
+  margin:0 auto;
+  padding:2em 0 2em 0;
+}
+.accordionTitle,
+.accordion__Heading {
+ background-color:white; 
+   text-align:left;
+     font-weight:700; 
+          padding:4px;
+          display:block;
+          text-decoration:none;
+          color:#2c2c2c;
+          transition:background-color 0.5s ease-in-out;
+  border-bottom:1px solid darken(#38cc70, 5%);
+  &:before {
+   content: "+";
+   font-size:1.5em;
+   line-height:0.5em;
+   float:left; 
+   transition: transform 0.2s ease-in-out;
+  }
+  &:hover {
+    background-color:darken(#38cc70, 10%);
+  }
+}
+.accordionTitleActive, 
+.accordionTitle.is-expanded {
+   background-color:darken(#38cc70, 10%);
+    &:before {
+     
+      transform:rotate(-225deg);
+    }
+}
+.accordionItem {
+    height:auto;
+    overflow:hidden; 
+    //SHAME: magic number to allow the accordion to animate
+    
+     max-height:50em;
+    transition:max-height 1s;   
+ 
+    
+    @media screen and (min-width:48em) {
+         max-height:15em;
+        transition:max-height 0.2s
+        
+    }
+    
+   
+}
+ 
+.accordionItem.is-collapsed {
+    max-height:0;
+}
+.no-js .accordionItem.is-collapsed {
+  max-height: auto;
+}
+.animateIn {
+     animation: accordionIn 0.2s normal ease-in-out both 1; 
+}
+.animateOut {
+     animation: accordionOut 0.2s alternate ease-in-out both 1;
+}
+@keyframes accordionIn {
+  0% {
+    opacity: 0;
+    transform:scale(0.9) rotateX(-60deg);
+    transform-origin: 50% 0;
+  }
+  100% {
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+@keyframes accordionOut {
+    0% {
+       opacity: 1;
+       transform:scale(1);
+     }
+     100% {
+          opacity:0;
+           transform:scale(0.9) rotateX(-60deg);
+       }
+}
+dd, dl {
+  margin:0;
+}
+.accordionTitle:before, .accordion__Heading:before {
+    content: url(https://www.beyondsoftware.com/hubfs/App%20icons/baseline_expand_more_black_16.png);
+
+/*     font-size: 1.5em;
+    line-height: 0.5em; */
+    float: left;
+    transition: -webkit-transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  transform: rotate(-90deg);
+}
+.accordionTitleActive:before, .accordionTitle.is-expanded:before {
+    -webkit-transform: rotate(-180deg);
+    transform: rotate(0);
+}
+    </style>
+<script>
+  //uses classList, setAttribute, and querySelectorAll
+//if you want this to work in IE8/9 youll need to polyfill these
+(function(){
+	var d = document,
+	accordionToggles = d.querySelectorAll('.js-accordionTrigger'),
+	setAria,
+	setAccordionAria,
+	switchAccordion,
+  touchSupported = ('ontouchstart' in window),
+  pointerSupported = ('pointerdown' in window);
+  
+  skipClickDelay = function(e){
+    e.preventDefault();
+    e.target.click();
+  }
+
+		setAriaAttr = function(el, ariaType, newProperty){
+		el.setAttribute(ariaType, newProperty);
+	};
+	setAccordionAria = function(el1, el2, expanded){
+		switch(expanded) {
+      case "true":
+      	setAriaAttr(el1, 'aria-expanded', 'true');
+      	setAriaAttr(el2, 'aria-hidden', 'false');
+      	break;
+      case "false":
+      	setAriaAttr(el1, 'aria-expanded', 'false');
+      	setAriaAttr(el2, 'aria-hidden', 'true');
+      	break;
+      default:
+				break;
+		}
+	};
+//function
+switchAccordion = function(e) {
+  console.log("triggered");
+	e.preventDefault();
+	var thisAnswer = e.target.parentNode.nextElementSibling;
+	var thisQuestion = e.target;
+	if(thisAnswer.classList.contains('is-collapsed')) {
+		setAccordionAria(thisQuestion, thisAnswer, 'true');
+	} else {
+		setAccordionAria(thisQuestion, thisAnswer, 'false');
+	}
+  	thisQuestion.classList.toggle('is-collapsed');
+  	thisQuestion.classList.toggle('is-expanded');
+		thisAnswer.classList.toggle('is-collapsed');
+		thisAnswer.classList.toggle('is-expanded');
+ 	
+  	thisAnswer.classList.toggle('animateIn');
+	};
+	for (var i=0,len=accordionToggles.length; i<len; i++) {
+		if(touchSupported) {
+      accordionToggles[i].addEventListener('touchstart', skipClickDelay, false);
+    }
+    if(pointerSupported){
+      accordionToggles[i].addEventListener('pointerdown', skipClickDelay, false);
+    }
+    accordionToggles[i].addEventListener('click', switchAccordion, false);
+  }
+})();
+</script>
 
     <style>
         .grid {
