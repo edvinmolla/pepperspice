@@ -1,6 +1,15 @@
 <section class="carousel">
   <div class="carousel__container">
     
+   <style>
+      .truncate {
+         white-space: nowrap; 
+  width: 120px; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  font-size: 15px;
+      }
+   </style>
 {% for webapp in webapps %}
 {% load humanize %}
     <div class="carousel-item">
@@ -15,7 +24,7 @@
       <img class="carousel-item__img" src="https://theme.fm/wp-content/uploads/2016/09/wordpress-46.jpg" alt="People">
       {% endif %}
       <div class="carousel-item__details">          
-        <p class="carousel-item__details--title"><strong>{{ webapp.Name}}</strong> is your 
+        <p class="carousel-item__details--title"><div class="truncate"><strong>{{ webapp.Name}}</strong></div> is your 
         
         
          {% if webapp.Framework == 'angular' %}

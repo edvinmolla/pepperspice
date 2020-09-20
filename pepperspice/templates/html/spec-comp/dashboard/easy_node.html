@@ -9,7 +9,7 @@
       <div class="ui label aligned center">
         Node Name
       </div>
-        <input type="text" placeholder="Node Name" id="node_name_" maxlength="12">
+        <input type="text" placeholder="Node Name" id="node_name_" maxlength="28">
         
       </div>
   </form>
@@ -508,7 +508,7 @@ $('.submit_button').click(function(e) {
   }
 
 var name_length = document.getElementById('node_name_').value;
-  if(name_length.length > 12)
+  if(name_length.length > 28)
 {
   $('#alert').removeClass('imhidden');
   e.preventDefault();
