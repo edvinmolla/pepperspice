@@ -2,7 +2,7 @@
   <div class="carousel__container">
     
 {% for webapp in webapps %}
-    
+{% load humanize %}
     <div class="carousel-item">
 
       {% if webapp.Framework == 'angular' %}
@@ -15,8 +15,21 @@
       <img class="carousel-item__img" src="https://theme.fm/wp-content/uploads/2016/09/wordpress-46.jpg" alt="People">
       {% endif %}
       <div class="carousel-item__details">          
-        <p class="carousel-item__details--title">Título descriptivo del vídeo en curso</p>
-         <p class="carousel-item__details--subtitle">2019 16+ 114 minutos</p>
+        <p class="carousel-item__details--title"><strong>{{ webapp.Name}}</strong> is your 
+        
+        
+         {% if webapp.Framework == 'angular' %}
+         Angular
+         {% elif webapp.Framework == 'laravel' %}
+         Laravel
+         {% elif webapp.Framework == 'django' %}
+         Django
+         {% elif webapp.Framework == 'wordpress' %}
+         Wordpress
+         {% endif %}
+         
+         project.</p>
+         <p class="carousel-item__details--subtitle">Created {{ webapp.Date_Created | naturaltime }}</p>
         <div class="carousel-item__details--icons">                  
              <i class="fa fa-2x fa-play-circle"></i>
              <i class="fa fa-2x fa-plus-circle"></i>
@@ -50,7 +63,6 @@
    padding-bottom: 10px; 
 }
 .carousel-item {
-   background-color: #caa5f1;
    width: 200px;
    height: 250px;
    border-radius: 20px;
@@ -99,13 +111,13 @@
    opacity: 1;
 }
 .carousel-item__details--title {
-  font-size: 15px;
+  font-size: 16px;
 }
 .carousel-item__details--subtitle {
   
 }
 .carousel-item__details--icons {
-  color: #caa5f1;
+  color: white;
 }
 .carousel::-webkit-scrollbar {    
 	height: 5px;

@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'dashboard.apps.DashboardConfig',
     'django_extensions',
+    'django.contrib.humanize',
     'crispy_forms',
 ]
 

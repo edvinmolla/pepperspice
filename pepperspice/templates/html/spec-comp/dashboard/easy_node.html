@@ -9,7 +9,7 @@
       <div class="ui label aligned center">
         Node Name
       </div>
-        <input type="text" placeholder="Node Name" id="node_name_">
+        <input type="text" placeholder="Node Name" id="node_name_" maxlength="12">
         
       </div>
   </form>
@@ -504,9 +504,19 @@ $('.submit_button').click(function(e) {
     $( ".writehere" ).attr('href','#load_options');
     $( ".writehere" ).html( 'You haven\'t selected any Load Options' );
     document.documentElement.scrollTop = 0;
-    $('#submit_db').removeClass('loading');
     return false;
   }
+
+var name_length = document.getElementById('node_name_').value;
+  if(name_length.length > 12)
+{
+  $('#alert').removeClass('imhidden');
+  e.preventDefault();
+    $( ".writehere" ).html( 'App Name Is too long.' );
+    document.documentElement.scrollTop = 0;
+    return false;
+}
+
 
 
 

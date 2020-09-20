@@ -72,6 +72,7 @@ def dashboard(request):
                                                                             'dbs':DBNode.objects.filter(Email=request.user),
                                                                             'webapplications': web_app_count, 
                                                                             'databases':database_count,
+                                                                            'datenow':datetime.now(),
                                                                             'ready_to_deploy_count':ready_to_deploy_count,
                                                                             'databases_currently':DBNode.objects.filter(Email=request.user).count(),
                                                                             'dbms_username':dbms_user_name,
