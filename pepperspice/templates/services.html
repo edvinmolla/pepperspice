@@ -69,7 +69,7 @@
             <div class="banner-outer">
                 <div class="banner responsive-wrapper">
                     <div class="banner-search-wrapper">
-                        <h1 class="banner-title">
+                        <h1 class="banner-title" style="color: #60cc69;">
                             You Can Already Do It All
 						</h1>
 						<br/>
@@ -283,7 +283,8 @@
                 <nav class="services responsive-wrapper">
                     <ul class="services-list">
                         <li class="services-item">
-                            <a href="#" class="services-item-link">Low Cost Exposure</a>
+                            <a class="services-item-link"  data-toggle="modal"
+                            data-target="#fsModal" id="own_infra">Low Cost Exposure</a>
                             <p class="services-item-description">Maintain contact with your audience through low cost, green tech possibilities.</p>
                         </li>
                         <li class="services-item">
@@ -378,34 +379,91 @@
 
 
 
+
+
+
+
+    <div class="modal custom-modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" >
+      
+          <div class="modal-body">
+    
+           
+            <button type="button" class="custon-close-button-color close" data-dismiss="modal" aria-label="Close" style="color: black;">
+            close
+              </button>
+    
+        
+    
+    
+                    <div class="container mt-4">
+    
+                      
+                     
+ 
+    
+    
+                        <h2 style="color: black; font-weight: 50; display: inline-block;" id="database_row">Select Database Engine</h2>
+                        <div class="row">
+                 
+             
+                      
+                     
+                      
+
+                      </div>
+                </div>
+    </div>
+    </div>
+      </div>
+    </div>
+
+
+
+
+<script>
+  $(document).ready(function () {
+
+
+    $('#own_infra').attr('data-toggle','modal');
+    $('#own_infra').attr('data-target','#exampleModal');
+  });
+</script>
+<style>
+  .container {
+max-width: 900px;
+margin: 0 auto;
+}
+</style>
+
+<style>
+  .custom-modal .modal-dialog {
+	position: absolute;
+	top: 0;
+    right: 0;
+    height: 130%;
+	bottom: 0;
+	left: 0;
+	max-width: none;
+	margin: 0;
+}
+
+.custom-modal .modal-content {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	border: 2px;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+</style>
+
 <style>
 	@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Manrope:wght@400;500;600;700;800&display=swap");
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-ul,
-ol,
-li,
-figure,
-figcaption,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
-
-html {
-  overflow-x: hidden;
-}
 
 body {
   scroll-behavior: smooth;
