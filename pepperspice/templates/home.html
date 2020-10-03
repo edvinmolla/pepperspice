@@ -7,7 +7,8 @@
   {% include 'html/gen-comp/headers.html' %}
   <link rel="stylesheet" type="text/css" href="{% static 'welcome/style.css' %}">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/build/tailwind.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/brands.min.css" integrity="sha512-AMDXrE+qaoUHsd0DXQJr5dL4m5xmpkGLxXZQik2TvR2VCVKT/XRPQ4e/LTnwl84mCv+eFm92UG6ErWDtGM/Q5Q==" crossorigin="anonymous" /> -->
 </head>
 <style>
 .thisthis {
@@ -39,7 +40,7 @@ opacity: 0.9;
     AOS.init();
   </script>
   
-  
+  <div class="tobeblurred">
   
 <header id='first'>
 <style>
@@ -55,6 +56,8 @@ opacity: 0.9;
     background-size: cover;
 }
 </style>
+
+
     <div class="row m-1" >
    
       <div class="col-md-6">
@@ -97,7 +100,8 @@ opacity: 0.9;
       <br/>
 
       <div class="box1 color-1" data-aos="fade-up" data-aos-duration="3000" data-aos-once="true"><a href=""></a><p class="p1">learn more</p></a></div>
-      <style>
+  
+     <style>
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
         .box1 {
   padding: 1rem;
@@ -234,8 +238,8 @@ opacity: 0.9;
       
       </nav>
  
-      <div class="tobeblurred">
 
+    
 <div class="second-wall">
 <br/>
 <br/>
@@ -387,11 +391,11 @@ opacity: 0.9;
 </div>
 
 
-      </div>
+   
 
 
 
-
+</div>
 
 
 <div class="modal fade" id="glassAnimals" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -402,9 +406,10 @@ opacity: 0.9;
       <div class="modal-body">
      
         <div class="body_container">
-          
+         
           <div class="app">
             <div class="app_content">
+              <i class="fa fa-close"></i><i class="fa fa-close" style="font-size:24px"></i>
               <div class="form_nav"><span class="login active">Login</span> / <span class="register">Register</span></div>
               <form class="the_form signin">
                 <label>Email:</label>
@@ -442,6 +447,10 @@ opacity: 0.9;
 
 
 <style>
+  .blurthat {
+    filter: blur(8px);
+  }
+
   .modal-content {
     position: absolute;
     overflow: hidden;
@@ -473,7 +482,7 @@ $(document).ready(function(){
   $(function(){
  $('#modalbutton').click(function() {
    $('#glassAnimals').modal('show');
-   $('.tobeblurred').css('filter', 'blur(10px)');
+   $('.tobeblurred').addClass('blurthat');
  });
 });
 </script>
