@@ -216,7 +216,7 @@ opacity: 0.9;
         
         <!-- <button class="btn btn-sm btn-outline-primary tata">Sign Up
         </button> -->
-        <a class="nav-link page-scroll btn btn-sm tata" href="{% url 'account_signup' %}">Sign Up</a>
+        <button class="nav-link page-scroll btn btn-sm tata" id="modalbutton">Sign Up</button>
         <p style="margin: 5px;"></p>
         <a class="nav-link page-scroll btn btn-sm tata1" href="{% url 'account_login' %}">Sign In</a>
         
@@ -233,6 +233,7 @@ opacity: 0.9;
       
       </nav>
  
+      <div class="tobeblurred">
 
 <div class="second-wall">
 <br/>
@@ -296,10 +297,10 @@ opacity: 0.9;
       </div>
     </div>
 
-  </div>
 
 
   </section>
+  
   <section class='bg-alt' id='two'>
     <div class='container'>
       <div class='row'>
@@ -382,6 +383,448 @@ opacity: 0.9;
     </div>
   </aside>
 
+</div>
+
+
+  <div class="modal-overlay">
+    <div class="modal">
+      
+      <a class="close-modal">
+        <svg viewBox="0 0 20 20">
+          <path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+        </svg>
+      </a><!-- close modal -->
+  
+      <div class="modal-content">
+        <div class="app">
+          <div class="app_content">
+            <div class="form_nav"><span class="login active">Login</span> / <span class="register">Register</span></div>
+            <form class="the_form signin">
+              <label>Email:</label>
+              <input type="email" name="email" required="">
+              <label>Password:</label>
+              <input type="password" name="pass" required="">
+              <ul class="social_options"><span class="socio_title">Or signin with</span>
+                <li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a class="google" href="#"><i class="fab fa-google"></i></a></li>
+                <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+              </ul>
+              <button class="submit_btn">Sign in</button>
+            </form>
+            <form class="the_form signup">
+              <label>Name:</label>
+              <input type="text" name="text" required="">
+              <label>Email:</label>
+              <input type="email" name="email" required="">
+              <label>Phone:</label>
+              <input type="text" name="text" required="">
+              <label>Password:</label>
+              <input type="password" name="pass" required="">
+              <button class="submit_btn">Sign in</button>
+            </form>
+          </div>
+        </div>
+      </div><!-- content -->
+      
+    </div><!-- modal -->
+  </div><!-- overlay -->
+
+
+
+<script>
+//   $(function(){
+//  $('#modalbutton').click(function() {
+//    $('#myModal--effect-pulse').modal('show');
+//  });
+// });
+
+var elements = $('.modal-overlay, .modal');
+
+$('#modalbutton').click(function(){
+    elements.addClass('active');
+    $('.tobeblurred').blur();
+});
+
+$('.close-modal').click(function(){
+    elements.removeClass('active');
+});
+
+</script>
+
+<style>
+
+
+/**
+ * Overlay
+ * -- only show for tablet and up
+ */
+@media only screen and (min-width: 40em) {
+  .modal-overlay {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 500;
+    opacity: 0;
+    visibility: hidden;
+    
+    transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), visibility 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  }
+  .modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+/**
+ * Modal
+ */
+.modal {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  position: relative;
+  margin: 0 auto;
+  background-color: transparent;
+  width: 380px;
+  padding: 1rem;
+  border-radius: 3px;
+  opacity: 0;
+  overflow-y: auto;
+  visibility: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+}
+.modal .close-modal {
+  position: absolute;
+  cursor: pointer;
+  top: 5px;
+  right: 15px;
+  opacity: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), transform 0.6s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+.modal .close-modal svg {
+  width: 1.75em;
+  height: 1.75em;
+}
+.modal .modal-content {
+  opacity: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+.modal.active {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+.modal.active .modal-content {
+  opacity: 1;
+}
+.modal.active .close-modal {
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+  opacity: 1;
+}
+
+/**
+ * Mobile styling
+ */
+@media only screen and (max-width: 39.9375em) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 0;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    padding: 0 !important;
+  }
+
+  .close-modal {
+    right: 20px !important;
+  }
+}
+
+</style>
+
+
+
+
+<!-- <style>
+ 
+
+.modal-content {
+   position: fixed;
+   left: 20%;
+   background-color: transparent;
+   max-width: 330px;
+  
+}
+
+</style> -->
+
+
+<style>
+
+
+  /* Fix the thick text rendering on OSX */
+ 
+
+  .app {
+    width: 330px;
+    position: relative;
+    display: block;
+    background: transparent;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .app:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 100%;
+    background: transparent;
+    z-index: 1;
+    -webkit-transition: all 0.3s cubic-bezier(0.5, 0, 0, 1.25);
+    transition: all 0.3s cubic-bezier(0.5, 0, 0, 1.25);
+    transition-delay: 0.2s;
+  }
+
+  .app:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 100%;
+    background: transparent;
+    -webkit-transition: all 0.3s cubic-bezier(0.5, 0, 0, 1.25);
+    transition: all 0.3s cubic-bezier(0.5, 0, 0, 1.25);
+    transition-delay: 0.1s;
+  }
+
+  .app_content {
+    position: relative;
+    display: block;
+    padding: 30px;
+    padding-left: 70px;
+    -webkit-transition: all 0.3s cubic-bezier(0.5, 0, 0, 1.25);
+    transition: all 0.3s cubic-bezier(0.5, 0, 0, 1.25);
+    z-index: 99;
+  }
+
+  .form_nav {
+    position: relative;
+    display: inline-block;
+    text-align: right;
+    font-size: 17px;
+    float: left;
+  }
+
+  .form_nav span {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+  }
+
+  .active, .form_nav span:hover {
+    box-shadow: 0 34px 34px rgba(0,0,0,.1);
+    background: transparent;
+  }
+
+  .the_form {
+    position: relative;
+    display: block;
+    margin-top: 60px;
+    width: 100%;
+    height: 360px;
+  }
+
+  .the_form label {
+    position: relative;
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .the_form input {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1.5px solid #484c7f;
+    background: #eee;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  .submit_btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #484c7f;
+    color: #fff;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .social_options {
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    width: 100%;
+  }
+
+  .socio_title {
+    position: relative;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .socio_title:before, .socio_title:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: #000;
+  }
+
+  .socio_title:before {
+    left: 30px;
+  }
+  .socio_title:after {
+    right: 30px;
+  }
+
+  .social_options li {
+    display: inline-block;
+    position: relative;
+    margin: 0 10px;
+  }
+
+  .social_options li a {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-size: 14px;
+  }
+
+  .facebook {
+    color: #3b5998;
+    border: 1.5px solid #3b5998;
+  }
+
+  .google {
+    color: #dd4b39;
+    border: 1.5px solid #dd4b39;
+  }
+
+  .twitter {
+    color: #1da1f2;
+    border: 1.5px solid #1da1f2;
+  }
+
+
+  /*ANIMATIONS*/
+
+  .signin {
+    display: block;
+  }
+
+  .signup {
+    display: none;
+  }
+
+  .register_open .signup {
+    display: block;
+  }
+
+  .register_open .signin {
+    display: none;
+  }
+
+  .register_open .app {
+    background: #ac8daf;
+  }
+
+  .register_open .app:before {
+    width: 90%;
+    background: #fff;
+  }
+
+  .register_open .app:after {
+    width: 95%;
+    background: #f1d4d4;
+  }
+
+  .register_open .app_content {
+    padding: 30px;
+    padding-right: 70px;
+    -webkit-transition: all 0.3s cubic-bezier(0.5, 0, 0, 1.25);
+    transition: all 0.3s cubic-bezier(0.5, 0, 0, 1.25);
+  }
+
+</style>
+
+
+
+
+
   
 </body>
 
@@ -424,4 +867,6 @@ function testScroll() {
         }
     });
 </script>
+
+
 </html>

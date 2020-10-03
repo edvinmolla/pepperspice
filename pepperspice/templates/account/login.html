@@ -148,13 +148,14 @@
 <section class="flex flex-col md:flex-row h-screen items-center">
 
   <div class="bg-blue-600 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
-    <section class="chooseus-section d-flex align-items-center" style="background-image: url('https://cdn.dribbble.com/users/1568450/screenshots/14086792/media/56e211ad7975c6ec4678e899ce667c6d.png');  background-position: center;
+    <!-- <section class="chooseus-section d-flex align-items-center" style="background-image: url('https://cdn.dribbble.com/users/1568450/screenshots/14086792/media/56e211ad7975c6ec4678e899ce667c6d.png');  background-position: center;
     background-repeat: no-repeat;
     background-size: cover;" >
      
-  </section>
+  </section> -->
 
-  <style>
+
+  <!-- <style>
 
         a,
         a:active,
@@ -398,7 +399,150 @@ button.close {
     padding: 0px 6px 5px !important;
     opacity: 1;
 }
-  </style>
+  </style> -->
+
+  <div class="container" style="background-image: url('https://cdn.dribbble.com/users/4510127/screenshots/13973103/media/480f05b09518c9a19e1aef99863ea4d8.jpg'); background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  " >
+    <div class="left">
+      <div class="text">
+        <br/>
+        <br/>
+          <h2 class="text__heading" style="color: black;">
+            Get your work done. Grow together.
+          </h2>
+
+        </div>
+    </div>
+    
+  
+  </div>
+
+<style>
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.left {
+  flex: 0 0 30%;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #3d3d3d;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+}
+.list__item {
+  list-style: none;
+}
+.list__link:link, .list__link:visited {
+  padding: 2rem 2rem;
+  text-decoration: none;
+  color: #3d3d3d;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.list__link--brand:link, .list__link--brand:visited {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-right: 3rem;
+  letter-spacing: .2rem;
+}
+
+.text {
+  padding: 0 2rem;
+  color: #3d3d3d;
+}
+.text__heading {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+.text__para {
+  padding: 1rem 0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.btn {
+  padding: .6rem 2rem;
+  background-color: transparent;
+  border: 2px solid #3d3d3d;
+  outline: none;
+  color: #3d3d3d;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin-top: 4rem;
+  font-weight: 400;
+}
+
+.right {
+  padding: 4rem;
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box {
+  flex: 0 0 25%;
+  background-color: green;
+}
+.box-1 {
+  background-color: #156064;
+  border-top-left-radius: 100%;
+}
+.box-2 {
+  background-color: #00c49a;
+  border-bottom-right-radius: 100%;
+}
+.box-3, .box-5 {
+  background-color: #fb8f67;
+  border-radius: 50%;
+}
+.box-4 {
+  background-color: #ffc2b4;
+  border-bottom-left-radius: 100%;
+}
+.box-6 {
+  background-color: #f8e16c;
+  border-top-left-radius: 100%;
+}
+.box-7 {
+  background-color: #00c49a;
+  border-bottom-left-radius: 100%;
+}
+.box-8 {
+  background-color: #156064;
+  border-top-left-radius: 100%;
+}
+.box-9 {
+  background-color: #ffc2b4;
+  border-top-left-radius: 100%;
+}
+.box-10 {
+  background-color: #f8e16c;
+  border-bottom-left-radius: 100%;
+}
+.box-11 {
+  background-color: #156064;
+  border-radius: 50%;
+}
+.box-12 {
+  background-color: #fb8f67;
+  border-bottom-left-radius: 100%;
+}
+
+</style>
+
   <!-- chooseus-section end -->
     <div class="modal fade" id="myModal">
   <div class="modal-dialog  modal-lg modal-dialog-centered">
@@ -424,7 +568,7 @@ button.close {
 
     <div class="w-full h-150">
 
-      <img src="{% static 'wallpapers_logos/universal/logo2.png' %}" width="200px" height="45px">
+     <a href="/"> <img src="{% static 'wallpapers_logos/universal/logo2.png' %}" width="200px" height="45px"></a>
 
       <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Log in to your account</h1>
 
@@ -450,7 +594,7 @@ button.close {
           <a href="#" class="text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700">Forgot Password?</a>
         </div>
 
-        <button type="submit" class="w-full block bg-blue-500 hover:bg-blue-400 focus:bg-blue-400 text-white font-semibold rounded-lg
+        <button type="submit" class="w-full block bg-blue-400 hover:bg-blue-500 focus:bg-blue-400 text-white font-bold rounded-lg
               px-4 py-3 mt-6">Log In</button>
       </form>
 
