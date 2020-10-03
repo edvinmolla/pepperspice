@@ -1,9 +1,10 @@
 from django.urls import path
 from allauth.account.views import LoginView, SignupView
 from .views import *
+from allauth.account import views as vw
 
 urlpatterns = [
-    path('', HomePageView.as_view(), name='home'),
+    path('', vw.signup, name='account_signup'),
     path('services/', ServicesView.as_view(), name='services'),
     path('products/', ProductsView.as_view(), name='products'),
     path('pricing/', PricingView.as_view(), name='pricing'),

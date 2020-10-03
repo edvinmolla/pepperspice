@@ -7,8 +7,7 @@
   {% include 'html/gen-comp/headers.html' %}
   <link rel="stylesheet" type="text/css" href="{% static 'welcome/style.css' %}">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/brands.min.css" integrity="sha512-AMDXrE+qaoUHsd0DXQJr5dL4m5xmpkGLxXZQik2TvR2VCVKT/XRPQ4e/LTnwl84mCv+eFm92UG6ErWDtGM/Q5Q==" crossorigin="anonymous" /> -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <style>
 .thisthis {
@@ -390,12 +389,23 @@ opacity: 0.9;
 
 </div>
 
-
-   
-
-
-
 </div>
+
+
+<!-- 
+<form class="mss-register-form" method="post" action="">
+  {% csrf_token %}
+  {% load crispy_forms_tags %}
+  {{ form|crispy}}
+  <small class="form-text text-muted">Perdor te pakten 8 karaktere.
+  </small><br/>
+
+<a href="/accounts/login/">
+<button onClick="window.location.reload()" type="submit" id="submitbtn" class="buttonload msc-btn msc-btn__block msc-btn__primary" >Regjistrohu <i class="fa fa-spinner fa-spin" id="spnr" hidden></i></button>
+</a>
+
+    </form> -->
+
 
 
 <div class="modal fade" id="glassAnimals" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -409,31 +419,39 @@ opacity: 0.9;
          
           <div class="app">
             <div class="app_content">
-              <i class="fa fa-close"></i><i class="fa fa-close" style="font-size:24px"></i>
-              <div class="form_nav"><span class="login active">Login</span> / <span class="register">Register</span></div>
-              <form class="the_form signin">
-                <label>Email:</label>
+              <button type="button" style="float: right;margin-right: -25px;margin-top: -25px;" id="modalclose" class="btn btn-light">x</button>
+              <h1 class="text-center">Sign Up</h1>
+              <form class="the_form  mss-register-form" method="post" action="">
+                <!-- <label>Email:</label>
                 <input type="email" name="email" required="">
                 <label>Password:</label>
-                <input type="password" name="pass" required="">
-                <ul class="social_options"><span class="socio_title">Or signin with</span>
-                  <li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
-                  <li><a class="google" href="#"><i class="fab fa-google"></i></a></li>
-                  <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
-                </ul>
-                <button class="submit_btn">Sign in</button>
+                <input type="password" name="pass" required=""> -->
+
+                {% csrf_token %}
+  {% load crispy_forms_tags %}
+
+{{ form.email.errors }}
+{{ form.email.label_tag }}
+{{ form.email }}
+
+{{ form.username.label_tag }}
+{{ form.username }}
+
+ 
+  
+  <!-- {{ form|crispy}} -->
+
+  <small class="form-text text-muted">Perdor te pakten 8 karaktere.
+  </small><br/>
+                
+                <div class="text-center">
+                  <small>
+                    Duke klikuar "Regjistrohu", ju pranoni <a href="" style="color: #1da1f2;">Termat e Sherbimit</a> dhe <a href="" style="color: #1da1f2;">Politikat e Privatesise</a>
+                  </small>
+                  </div>
+                <button class="submit_btn">Sign Up</button>
               </form>
-              <form class="the_form signup">
-                <label>Name:</label>
-                <input type="text" name="text" required="">
-                <label>Email:</label>
-                <input type="email" name="email" required="">
-                <label>Phone:</label>
-                <input type="text" name="text" required="">
-                <label>Password:</label>
-                <input type="password" name="pass" required="">
-                <button class="submit_btn">Sign in</button>
-              </form>
+             
             </div>
           </div>
         </div>
@@ -483,6 +501,13 @@ $(document).ready(function(){
  $('#modalbutton').click(function() {
    $('#glassAnimals').modal('show');
    $('.tobeblurred').addClass('blurthat');
+ });
+});
+
+$(function(){
+ $('#modalclose').click(function() {
+   $('#glassAnimals').modal('hide');
+   $('.tobeblurred').removeClass('blurthat');
  });
 });
 </script>

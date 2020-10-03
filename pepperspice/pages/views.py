@@ -1,5 +1,8 @@
 from django.views.generic import TemplateView
 from django.shortcuts import render, redirect
+from allauth.account.forms import LoginForm, SignupForm
+from authentication.forms import CustomUserCreationForm
+
 
 class AlbanianView(TemplateView):
     template_name = 'al/home_al.html'
@@ -22,6 +25,11 @@ class AlbanianExamplesView(TemplateView):
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
+
+def home(request):
+    
+    form = CustomUserCreationForm()
+    return render(request, "home.html", {'form':form})
 
 class ServicesView(TemplateView):
     template_name = 'services.html'
