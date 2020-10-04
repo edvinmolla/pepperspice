@@ -35,8 +35,8 @@ def products(request):
 def pricing(request):
     return render(request, 'pricing.html', {'signup_form': SignupForm })
 
-def community(request):
-    return render(request, 'community.html', {'signup_form': SignupForm })
+def support(request):
+    return render(request, 'support.html', {'signup_form': SignupForm })
 
 def examples(request):
     return render(request, 'examples.html', {'signup_form': SignupForm })
