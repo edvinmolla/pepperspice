@@ -2,12 +2,28 @@ from django.db import models
 from authentication.models import CustomUser
 import datetime
 from django.utils import timezone
+from datetime import datetime
 
+class UploadedProject(models.Model):
+    user_ID = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    email = models.EmailField(default='')
+    Date_Uploaded = models.DateTimeField(default=datetime.now())
+    file_uuid = models.CharField(max_length=128, default='')
+    file_name = models.CharField(max_length=128, default='')
+    file_system_name = models.CharField(max_length=256, default='')
+    file_type = models.CharField(max_length=16, default='')
+    file_size = models.CharField(max_length=256, default='')
+    linked_to_node_uuid = models.CharField(max_length=256, default='')
+
+    def __str__(self):
+        return self.email
+        
 
 class Purchases(models.Model):
     user_ID = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     email = models.EmailField(default='')
     purchase_id = models.CharField(max_length=256, default='')
+    
 
 class UserTrait(models.Model):
     user_ID = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
@@ -43,8 +59,14 @@ class DBNode(models.Model):
     linked_to_node_uuid = models.CharField(max_length=256, default='')
     Status = models.BooleanField(default=True)
     db_hostname = models.CharField(max_length=256, default='')
+<<<<<<< HEAD
+    Date_Created = models.DateTimeField(default=datetime.now())
+=======
     Date_Created = models.DateTimeField(default=datetime.datetime.now())
+>>>>>>> master
     link_status = models.BooleanField(default=True)
+    internal_hostname = models.CharField(max_length=64, default='')
+    external_hostname = models.CharField(max_length=64, default='')
     db_internal_ip = models.CharField(max_length=64, default='')
     db_external_ip = models.CharField(max_length=64, default='')
     db_name = models.CharField(max_length=256, default='')
@@ -63,11 +85,18 @@ class Node(models.Model):
     user_ID = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     node_ID = models.CharField(max_length=256, default='')
     id_link_color = models.CharField(max_length=10, default='')
+    linked_to_project = models.BooleanField(default=False)
+    projet_link_uuid = models.CharField(max_length=64, default='')
     Email = models.EmailField(default='')
+    exposed = models.BooleanField(default=False)
     Status = models.BooleanField()
     Name = models.CharField(max_length=32)
     Framework = models.CharField(max_length=32, default='') # Show only if instance is webapp
+<<<<<<< HEAD
+    Date_Created = models.DateTimeField(default=datetime.now())
+=======
     Date_Created = models.DateTimeField(default=datetime.datetime.now())
+>>>>>>> master
     Load_Type = models.CharField(max_length=16, default='')
     link_status = models.BooleanField(default=False)
     server_region = models.CharField(max_length=32, default='')
@@ -89,7 +118,11 @@ class Deleted_Node(models.Model):
     user_id = models.CharField(max_length=128 ,default='')
     email = models.EmailField(default='')
     instance_type = models.CharField(max_length=16, default='')
+<<<<<<< HEAD
+    date_deleted = models.DateTimeField(default=datetime.now())
+=======
     date_deleted = models.DateTimeField(default=datetime.datetime.now())
+>>>>>>> master
 
     def __str__(self):
         return self.email

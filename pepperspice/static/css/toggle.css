@@ -2,6 +2,7 @@
     font-size: 1rem;
     position: fixed;
     right: 2%;
+    z-index: 50;
   }
   .switch-1 input {
     position: absolute;
@@ -55,9 +56,7 @@
     transition: 0.2s all;
   }
   .switch-1 input:checked + label::before {
-  
-    
-
+ 
     right: 0;
     background-image: url('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/259/flag-albania_1f1e6-1f1f1.png');
     background-size: 55px 55px;

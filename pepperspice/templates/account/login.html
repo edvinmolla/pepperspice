@@ -12,6 +12,8 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css'>
+
   <link rel="stylesheet" href="{% static 'signin/style.css' %}">
 
 </head>
@@ -114,46 +116,20 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
-
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.1.2/tailwind.min.css'>
   <link rel="stylesheet" href="{% static 'signin/style.css' %}">
 
 </head>
-<body>
-  <div class="row">
-   
-</div>
-  <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-info fixed-top thisshi">
-    <div class="container">
-      <a class='navbar-brand page-scroll' href='/'>
-        <img src="{% static 'wallpapers_logos/universal/logo2white.png' %}" width="150px" height="25px">
-      </a>
-    <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
-      <span class="navbar-toggler-icon"></span>
 
-    </button>
-    
-    
-    <div class="collapse navbar-collapse" id="navbar4">
+ 
 
-    <ul class="navbar-nav ml-auto mt-3 mt-lg-0 txt">
-      <li class="nav-item"> 
-        Don't have an account? <a href="/accounts/signup/" style="color: white;"><u>Sign Up</u></a> for free.</li>
-        <a href="/al/accounts/login/" style="margin-left: 15px;"><span class="flag-icon flag-icon-al" title="Shqip"></span></a>
-    </ul>
-    </div>
-    </div>
-    </nav>
-
-<section class="section-register-one-side">
+<!-- <section class="section-register-one-side">
   <div class="mss-register-box">
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
+
+    
+
     <div class="mss-register-box-white">
+      
       <p class="text-center" style="font-size: 30px;">Sign In</p>
       <form class="mss-register-form" method="POST" action="">
         
@@ -167,9 +143,503 @@
       </form>
     </div>
 
-	</div>
-</section>
+  </div>
+  
+</section> -->
 
+<section class="flex flex-col md:flex-row h-screen items-center">
+
+  <div class="bg-blue-600 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
+    <!-- <section class="chooseus-section d-flex align-items-center" style="background-image: url('https://cdn.dribbble.com/users/1568450/screenshots/14086792/media/56e211ad7975c6ec4678e899ce667c6d.png');  background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;" >
+     
+  </section> -->
+
+
+  <!-- <style>
+
+        a,
+        a:active,
+        a:focus {
+            color: white;
+            text-decoration: none;
+            transition-timing-function: ease-in-out;
+            -ms-transition-timing-function: ease-in-out;
+            -moz-transition-timing-function: ease-in-out;
+            -webkit-transition-timing-function: ease-in-out;
+            -o-transition-timing-function: ease-in-out;
+            transition-duration: .2s;
+            -ms-transition-duration: .2s;
+            -moz-transition-duration: .2s;
+            -webkit-transition-duration: .2s;
+            -o-transition-duration: .2s;
+        }
+        
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        img {
+    max-width: 100%;
+    height: auto;
+}
+
+.chooseus-section{
+  position: relative;
+  background: #fff;
+  padding: 50px 0px;
+  min-height: 100vh;
+
+}
+
+.chooseus-section .sec-title{
+  margin-bottom: 60px;
+}
+
+#video_block_01 .video-inner{
+  position: relative;
+  width: 100%;
+  padding: 175px 0px 130px 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  box-shadow: 0 0px 30px rgba(0, 0, 0, 0.1);
+}
+
+#video_block_01 .video-inner .pattern-layer{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+#video_block_01 .video-inner .video-btn{
+  position: relative;
+  display: inline-block;
+  width: 116px;
+  height: 115px;
+  line-height: 115px;
+  text-align: center;
+  margin-left: 40px;
+  border-radius: 50%;
+}
+
+#video_block_01 .video-inner .video-btn .btn-bg{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 116px;
+  height: 115px;
+  background-repeat: no-repeat;
+}
+
+#video_block_01 .video-inner .video-btn a{
+  position: relative;
+  display: inline-block;
+  width: 116px;
+  height: 115px;
+  border-radius: 50%;
+  font-size: 24px;
+    z-index: 1;
+}
+#video_block_01 .video-inner .video-btn a i {
+    background: -webkit-linear-gradient(-45deg, #00bb6e, #0156d5 100%);
+}
+#video_block_01 .video-inner .video-btn a i{
+  position: relative;
+  color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#content_block_04 .content-box .single-item{
+  position: relative;
+}
+
+#content_block_04 .content-box .single-item:first-child{
+  padding-left: 190px;
+  margin-bottom: 67px;
+}
+
+#content_block_04 .content-box .single-item:last-child{
+  padding-right: 190px;
+}
+
+#content_block_04 .content-box .single-item .icon-box{
+  position: absolute;
+  top: 14px;
+  width: 158px;
+  height: 158px;
+  line-height: 158px;
+  text-align: center;
+  font-size: 70px;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+}
+
+#content_block_04 .content-box .single-item .icon-box:before{
+  position: absolute;
+  content: '';
+  background: #fbfbfb;
+  width: 138px;
+  height: 100%;
+  left: 10px;
+  border-radius: 10px;
+}
+
+#content_block_04 .content-box .single-item:first-child .icon-box:before{
+  top: 10px;
+}
+
+#content_block_04 .content-box .single-item:last-child .icon-box:before{
+  top: -10px;
+}
+
+#content_block_04 .content-box .single-item .icon-box i {
+    background: -webkit-linear-gradient(-45deg, #e273ff, #504bff 100%);
+    position: relative;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#content_block_04 .content-box .single-item .icon-box .bg-layer{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 158px;
+  height: 158px;
+  background-repeat: no-repeat;
+}
+
+#content_block_04 .content-box .single-item:first-child .icon-box{
+  left: 0px;
+}
+
+#content_block_04 .content-box .single-item:last-child .icon-box{
+  right: 0px;
+}
+
+#content_block_04 .content-box .single-item .box h4{
+  position: relative;
+  padding-bottom: 12px;
+  margin-bottom: 27px;
+}
+
+#content_block_04 .content-box .single-item .box h4:before{
+  position: absolute;
+  content: '';
+  width: 55px;
+  height: 2px;
+  bottom: 0px;
+}
+
+#content_block_04 .content-box .single-item:first-child .box h4:before{
+  left: 0px;
+}
+
+#content_block_04 .content-box .single-item:last-child .box h4:before{
+  right: 0px;
+}
+
+#content_block_04 .content-box .single-item .box p{
+  margin-bottom: 20px;
+  line-height: 28px;
+}
+
+#content_block_04 .content-box .single-item .box a{
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 26px;
+  font-family: 'Josefin Sans', Sans-serif;
+  font-weight: 600;
+  color: white;
+}
+
+#content_block_04 .content-box .single-item .box a:hover{
+    color: #5167f9;
+}
+
+#content_block_04 .content-box .single-item:first-child .box a i{
+  margin-right: 10px;
+}
+
+#content_block_04 .content-box .single-item:last-child .box a i{
+  margin-left: 10px;
+}
+
+
+.modal-body {
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+    padding-top: 0;
+    overflow: hidden;
+}
+
+.modal-body iframe, .modal-body object, .modal-body embed, .modal-body video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+button.close {
+    position: absolute;
+    right: -20px;
+    top: -30px;
+    border-radius: 50px;
+    background: white;
+    line-height: 1 !important;
+    padding: 0px 6px 5px !important;
+    opacity: 1;
+}
+  </style> -->
+
+  <div class="container" style="background-image: url('https://cdn.dribbble.com/users/4510127/screenshots/13973103/media/480f05b09518c9a19e1aef99863ea4d8.jpg'); background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  " >
+    <div class="left">
+      <div class="text">
+        <br/>
+        <br/>
+          <h2 class="text__heading" style="color: black;">
+            Get your work done. Grow together.
+          </h2>
+
+        </div>
+    </div>
+    
+  
+  </div>
+
+<style>
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.left {
+  flex: 0 0 30%;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #3d3d3d;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+}
+.list__item {
+  list-style: none;
+}
+.list__link:link, .list__link:visited {
+  padding: 2rem 2rem;
+  text-decoration: none;
+  color: #3d3d3d;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.list__link--brand:link, .list__link--brand:visited {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-right: 3rem;
+  letter-spacing: .2rem;
+}
+
+.text {
+  padding: 0 2rem;
+  color: #3d3d3d;
+}
+.text__heading {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+.text__para {
+  padding: 1rem 0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.btn {
+  padding: .6rem 2rem;
+  background-color: transparent;
+  border: 2px solid #3d3d3d;
+  outline: none;
+  color: #3d3d3d;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin-top: 4rem;
+  font-weight: 400;
+}
+
+.right {
+  padding: 4rem;
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box {
+  flex: 0 0 25%;
+  background-color: green;
+}
+.box-1 {
+  background-color: #156064;
+  border-top-left-radius: 100%;
+}
+.box-2 {
+  background-color: #00c49a;
+  border-bottom-right-radius: 100%;
+}
+.box-3, .box-5 {
+  background-color: #fb8f67;
+  border-radius: 50%;
+}
+.box-4 {
+  background-color: #ffc2b4;
+  border-bottom-left-radius: 100%;
+}
+.box-6 {
+  background-color: #f8e16c;
+  border-top-left-radius: 100%;
+}
+.box-7 {
+  background-color: #00c49a;
+  border-bottom-left-radius: 100%;
+}
+.box-8 {
+  background-color: #156064;
+  border-top-left-radius: 100%;
+}
+.box-9 {
+  background-color: #ffc2b4;
+  border-top-left-radius: 100%;
+}
+.box-10 {
+  background-color: #f8e16c;
+  border-bottom-left-radius: 100%;
+}
+.box-11 {
+  background-color: #156064;
+  border-radius: 50%;
+}
+.box-12 {
+  background-color: #fb8f67;
+  border-bottom-left-radius: 100%;
+}
+
+</style>
+
+  <!-- chooseus-section end -->
+    <div class="modal fade" id="myModal">
+  <div class="modal-dialog  modal-lg modal-dialog-centered">
+    <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+    
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+       <iframe width="100%" height="315" src="https://www.youtube.com/embed/WqUaM-ZueXU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       
+      </div>
+      
+      
+      
+    </div>
+  </div>
+</div>
+  </div>
+  {% load socialaccount %}
+  <div class="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
+        flex items-center justify-center">
+
+    <div class="w-full h-150">
+
+     <a href="/"> <img src="{% static 'wallpapers_logos/universal/logo2.png' %}" width="200px" height="45px"></a>
+
+      <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Log in to your account</h1>
+
+      <form class="mt-6" action="" method="POST">
+
+        {% csrf_token %}
+          {% load crispy_forms_tags %}
+          {{ form|crispy}}
+
+
+        <!-- <div>
+          <label class="block text-gray-700">Email Address</label>
+          <input type="email" name="" id="" placeholder="Enter Email Address" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required>
+        </div>
+
+        <div class="mt-4">
+          <label class="block text-gray-700">Password</label>
+          <input type="password" name="" id="" placeholder="Enter Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
+                focus:bg-white focus:outline-none" required>
+        </div> -->
+
+        <div class="text-right mt-2">
+          <a href="/accounts/password/reset/" class="text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="w-full block bg-red-400 hover:bg-red-700 focus:bg-blue-400 text-white font-bold rounded-lg
+              px-4 py-3 mt-6" id="signinbutton">Log In <i class="fa fa-spinner fa-spin" id="spnr" style="margin-left: 5px;" hidden></i></button>
+      </form>
+
+      <hr class="my-6 border-gray-300 w-full">
+
+      <a href="{% provider_login_url 'google' %}">
+      <button type="button" class="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300">
+            <div class="flex items-center justify-center" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-6 h-6" viewBox="0 0 48 48"><defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z"/><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z"/><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"/><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"/></svg>
+            <span class="ml-4">
+            Log in
+            with
+            Google</span>
+            </div>
+          </button></a>
+<script>
+
+$( document ).ready(function() {
+$('#signinbutton').click(function ()
+ { 
+  var in1 = $(".login_email").val();
+var in2 = $(".password_field").val();
+
+  if (in1.length > 0 && in2.length > 0) {
+    $('.fa-spinner').removeAttr('hidden');
+}
+   });
+
+
+});
+
+
+
+   
+</script>
+      <p class="mt-8">Need an account? <a href="/" class="text-blue-500 hover:text-blue-700 font-semibold">Create an
+              account</a></p>
+
+      <p class="text-sm text-gray-500 mt-12">&copy; 2020 PepperSpice</p>
+    </div>
+  </div>
+
+</section>
   
 </body>
  <script>

@@ -1,6 +1,9 @@
 
+<<<<<<< HEAD
+=======
 <div class="container  ">
 
+>>>>>>> master
   <div class="myAlert-top alert imhidden alert-warning" id="alert1">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 <a href="#" class="writehere1" style="text-decoration: none;">
@@ -12,12 +15,20 @@
     }
   </style>
  
+<<<<<<< HEAD
+<div class="container mt-4 ">
+
+
+  <h1 style="display: inline-block; font-weight: 100; margin-top: -80px; margin-bottom: 30px;">Deploy New Application - Technical</h1>
+
+=======
   <h1 style="display: inline-block; font-weight: 100; margin-top: -100px;">Deploy New Application - Technical</h1>
   <br/>
   <br/>
   <br/>
   <br/>
   <br/>
+>>>>>>> master
 
 <form class="ui form">
  
@@ -29,6 +40,9 @@
       
     </div>
 </form>
+
+<br/>
+<br/>
 
 <h1 style="display: inline-block;">Select Your Application's Framework</h1>
     
@@ -74,7 +88,7 @@
                     
                     <div class="content asdsadsda">
                         <i class="angular icon" style="float: right; font-size: 40px; color: red;"></i>
-                        <a class="header">Angular</a>
+                        <h3 class="header">Angular</h3>
                         <div class="meta">
                           <span class="date" style="font-size: 12px;">Latest: 10.0.4</span>
                         </div>
@@ -107,7 +121,7 @@
                     
                     <div class="content">
                         <i class="laravel icon" style="float: right; font-size: 40px; color:orangered;"></i>
-                        <a class="header">Laravel</a>
+                        <h3 class="header">Laravel</h3>
                         <div class="meta">
                           <span class="date" style="font-size: 12px;">Latest: 7.21.0</span>
                         </div>
@@ -136,7 +150,7 @@
                     
                     <div class="content">
                         <img src="https://cdn2.hubspot.net/hubfs/3885898/django.png" width="45px" height="40px" style="float: right;">
-                        <a class="header">Django</a>
+                        <h3 class="header">Django</h3>
                         <div class="meta">
                           <span class="date" style="font-size: 12px;">Latest: 3.0.8</span>
                         </div>
@@ -167,7 +181,7 @@
                     
                     <div class="content">
                         <i class="wordpress icon" style="float: right; font-size: 40px; color: skyblue;"></i>
-                        <a class="header">WordPress</a>
+                        <h3 class="header">Wordpress</h3>
                         <div class="meta">
                             <span class="date" style="font-size: 12px;">Latest: 5.4.2</span>
                         </div>
@@ -836,6 +850,7 @@ $("input:radio").change(function () {
 <button class="ui big blue button submit_button_1" type="submit" id="submit_button_1">Create Node</button>
       </form>
    
+      
     </form>
    
 <style>
@@ -985,6 +1000,8 @@ var formData1 = $('#formData1').serialize();
 
 e.preventDefault(); // avoid to execute the actual submit of the form.
 
+$('#submit_button_1').addClass('disabled');
+$('#submit_button_1').addClass('loading');
 
 $.ajax({
    type: "POST",

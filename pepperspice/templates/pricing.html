@@ -1,1 +1,167 @@
-pricing
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Semantic-ui Sidebar</title>
+  {% load static %}
+  {% include 'html/gen-comp/headers.html' %}
+  <link rel="stylesheet" type="text/css" href="{% static 'welcome/style.css' %}">
+
+
+</head>
+
+
+<body>
+  <div class="tobeblurred">
+  {% include 'html/gen-comp/navbar.html' %}
+
+
+
+<section class="section-a">
+  <div class="container">
+    <div>
+      <h1 style="color: #81b214;">For Everyone.</h1>
+      <p style="color: #00695c;">
+        We want you to grow, that's why we adapt flexible plans for you to customize them as per your needs.
+       <br/> <br/>We strive to keep your business up & connected to your audience 100% of the time.
+
+      </p>
+      <br/>
+      <button type="button" class="btn" style="color: white; background-color: #81b214;">Learn More</button>
+    </div>
+    <img src="{% static 'wallpapers_logos/universal/money2.1.png' %}" width="500" alt="" />
+  </div>
+</section>
+
+
+<style>
+
+
+
+
+.section-a .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-a h1 {
+  font-size: 4rem;
+  color: var(--primary-color);
+}
+
+.section-a p {
+  margin: 1rem 0;
+}
+
+
+
+@media (max-width: 700px) {
+  .section-a .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .section-a .container div:first-child {
+    order: 2;
+  }
+
+  .section-a .container div:nth-child(2) {
+    order: -1;
+  }
+
+  .section-a img {
+    width: 80%;
+    margin: auto;
+  }
+
+
+}
+</style>
+
+
+<section class="floatingHero" style="margin-top: -50px;margin-bottom: -100px;">
+  <div class="floatingHero-container">
+    <header class="floatingHero-header">      
+      <h1 class="floatingHero-headline" style="color: #81b214;">
+        Start from as low as $0.25/month
+      </h1>
+
+    </header>
+  </div>
+</section>
+
+
+
+
+<div class="main--bgc pb-5">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 130 1440 85"><path fill="#f8f9fa" fill-opacity="1" d="M0,224L60,224C120,224,240,224,360,213.3C480,203,600,181,720,181.3C840,181,960,203,1080,197.3C1200,192,1320,160,1380,144L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
+   
+    <div class="container container--title ">
+        <div class="row min-vh-75">
+            <div class="col text-center mt-5 mb-5">
+                <h1 class="mb-4">The easiest payment plans ever. <br/><p>- <em>Edvin Molla</em></p></h1>
+                <p class="h5">"I finally had time to worry about what really mattered for my business. It really took a lot of wight from my shoulders."</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+     .logo {
+            width: 3rem;
+        }
+        .footer--bgc{
+            background-color: #f6f8ff;
+        }
+        .main--bgc{
+            background-color: #eef1fc;
+        }
+        .img-1{
+            width: 50px!important;
+        }
+        .card--windows{
+            padding-top: 4rem!important;
+            
+        }
+
+       
+        .container--title{
+            max-width: 768px;
+        }
+        @media (min-width: 768px){
+            .w-md-100{
+                width: 100%!important;
+            }
+        }
+       
+</style>
+
+
+<style>
+
+@media (min-width: 48em) {
+  .floatingHero-headline {
+    font-size: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 475px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+
+</style>
+
+
+{% include 'html/gen-comp/footer.html' %}
+</div>
+
+{% include 'html/gen-comp/signup_section.html' %}
+
+</body>
+</html>

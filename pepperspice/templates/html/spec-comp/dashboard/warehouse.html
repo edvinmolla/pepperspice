@@ -1,10 +1,23 @@
 {% extends "html/spec-comp/dashboard/index.html" %}
 {% block content %}
+<style>
+  body {
+    background-color: #F8BBD0;
+  }
+</style>
 
-
+<a href="https://icons8.com/icon/oaMmpx1c7yDA/sql">SQL icon by Icons8</a>
+  
+</div>
+<style>
+  .imhidden {
+    visibility: hidden;
+  }
+  
+</style>
 
 <style>
-  .hideme {
+  .imhidden {
     visibility: hidden;
   }
   
@@ -18,9 +31,14 @@
   }
   </style>
   
+  <script>
+    function reload(){
+      location.reload();
+    }
+  </script>
   
-  <div class="myAlert-top alert hideme alert-danger" id="alert">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <div class="myAlert-top alert imhidden alert-danger not-supported">That type of file is not supported.
+    <a href="#" class="close" data-dismiss="alert" aria-label="close" onclick="reload();">&times;</a>
 <a href="#" class="writehere" style="text-decoration: none;">
 
 </a>
@@ -31,6 +49,19 @@
   </div>
 
 
+  <div class="myAlert-top alert imhidden alert-danger multiple-file">Multiple uploads of the same file are not permitted.
+    <a href="#" class="close" data-dismiss="alert" aria-label="close" onclick="reload();">&times;</a>
+<a href="#" class="writehere" style="text-decoration: none;">
+
+
+</a>
+<br/>  
+<a href="#" class="writehere2link">
+  You can relink the existing file instead.
+<small class="writehere2"></small>
+</a>
+  </div>
+
 
 
 
@@ -38,14 +69,473 @@
 
   <div class="ui one column grid m-4">
     <div class="sixteen wide column">
+      <h1 style="font-weight: 1; color: #880E4F;">Files & Projects</h1>
+      <h4 style="font-weight: 1;color: #880E4F;">You can use files & projects to link them to your containers In order to deploy them.<br/>
+        In just a few clicks and a couple seconds you will have your Application up & running.</h4>
+   
+      <br/>
+
+
+
+      <div class="wrapper">
+
+        <div class="slides-rail">
+
+          {% for app in db_files %}
+
+        <div class="div1">
+          <div class="ui card">
+
+            {% if app.linked_to_node_uuid %}
+          {% if not applications %}
+          <div class="ui top red attached label">Broken Link</div>
+              {% endif %}
+              {% endif %}
+              
+              
+              
+           
+
+            
+            <div class="content" style="background-color: #5967e1;"> 
+
+             
+              
+
+             
+              <div class="header" style="display: block;width: 130px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;color: white;">{{ app.file_name }}</div>
+              
+            </div>
+            <div class="content">
+            
+              <h4 class="ui sub header">Type: {{ app.file_type }}</h4>
+              <h4 class="ui sub header">Size: {{ app.file_size }}</h4>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              
+           <br/>
+            </div>
+            {% if app.linked_to_node_uuid == "" %}
+            
+            <div class="ui tiny buttons">
+              <div class="ui bottom blue attached animated button" tabindex="0" data-toggle="modal" data-target="#linkmodal" onclick="set_file_name('{{ app.file_system_name }}');">
+                <div class="visible content">Not Linked</div>
+                <div class="hidden content link-btn" >
+                  <i class="plus icon"></i>
+                  Link
+                  
+                </div>
+              </div>
+              <div class="or"></div>
+    
+              <div class="ui" data-inverted="" data-tooltip="Deleting a file is an irreversible action." data-position="top center">
+              
+              
+              <button class="ui red inverted button" onclick="delete_file('{{ app.file_system_name }}');"><i class="trash alternate icon" style="margin-right: -5px;"></i></button>
+            </div>
+    
+            </div>
+
+            {% elif app.linked_to_node_uuid %}
+            {% for webapp in applications %}
+            {% if app.linked_to_node_uuid == webapp.node_ID %}
+            
+            <div class="ui tiny button red attached button" tabindex="0" onclick="unlink('{{ app.file_name }}');">Unlink ({{ app.linked_to_node_uuid }})</div>
+              
+            {% endif %}
+            
+          {% endfor %}
+          {% endif %}
+           
+         
+     
+       
+          </div>
+          
+        </div>
+
+        {% endfor %}
+
+      </div>
+
+      
+
+      
+        </div>
+         
+
+        <style>
+          .wrapper{
+  display:flex;
+  flex-direction:row;
+  width:90%;
+  height:300px;
+  overflow-y:hidden;
+  overflow-x:auto;
+  position:relative;
+  margin:0 5%;
+}
+
+.slides-rail{
+  height:300px;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+
+}
+.div1{
+  width:150px;
+  height:250px;
+  margin:10px;
+    box-shadow:inset 5px 8px 8px rgba(0,0,0,.2),inset -2px -2px 10px hsla(0,0%,100%,.2);
+  border-radius: 20px;
+}
+
+        </style>
+
+      <!-- {% if db_files %}
+      <div class="ui stackable grid">
+       
+        
+     
+
+        {% for app in db_files %}
+        
+
+        
+        <div class="four wide column">
+          <div class="card card-file">
+            {% if app.file_type == "zip" %}
+            <img src="https://image.flaticon.com/icons/svg/28/28814.svg" width="70px" style="margin-top: 10px;margin-left: 10px;">
+            {% elif app.file_type == "tar" %}
+            <img src="https://cdn3.iconfinder.com/data/icons/file-types-30/30/TAR-512.png" width="70px" style="margin-top: 10px;">
+            {% elif app.file_type == "sql" %}
+            <img src="https://icons.iconarchive.com/icons/icons8/windows-8/512/Files-Sql-icon.png" width="60px" style="margin-top: 20px; margin-left: 10px;">
+            {% elif app.file_type == "x-rar" %}
+            <img src="https://image.flaticon.com/icons/png/512/28/28792.png" width="70px" style="margin-top: 10px; margin-left: 10px;">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">Name: {{ app.file_name }}</h5>
+              <h5 class="card-title">Owner: {{ app.email }}</h5>
+              <h6 class="card-title">Type: {{ app.file_type }}</h6>
+              <h6 class="card-title">Size: {{ app.file_size }}</h6>
+            </div>
+
+
+         {% if app.linked_to_node_uuid == "" %}
+         <div class="ui large buttons">
+          <div class="ui bottom blue attached animated button" tabindex="0" data-toggle="modal" data-target="#linkmodal" onclick="set_file_name('{{ app.file_system_name }}');">
+            <div class="visible content">Not Linked</div>
+            <div class="hidden content link-btn" >
+              <i class="plus icon"></i>
+              Link
+              
+            </div>
+          </div>
+          <div class="or"></div>
+
+          <div class="ui" data-inverted="" data-tooltip="Deleting a file is an irreversible action." data-position="bottom center">
+          
+          
+          <button class="ui red inverted button" onclick="delete_file('{{ app.file_system_name }}');">Delete</button>
+        </div>
+
+        </div>
+
+      
+
+        {% else %}
+        {% if not applications %}
+
+        
+        <div class="ui top right red attached label">Broken Link</div>
+         
+        {% endif %}
+          {% for webapp in applications %}
+            {% if app.linked_to_node_uuid == webapp.node_ID %}
+              <div class="ui top right orange attached label">Linked</div>
+            {% else %}
+              <div class="ui top right red attached label">Broken Link</div>
+         
+            
+            {% endif %}
+            
+          {% endfor %}
+          <div class="ui bottom red attached button" tabindex="0" onclick="unlink('{{ app.file_name }}');">Unlink</div>
+
+        {% endif %}
+
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      {% endif %} -->
+
+
+      <!-- <div class="myAlert-top alert  alert-danger none_selected">No Application selected.
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" onclick="reload();">&times;</a>
+    <a href="#" class="writehere" style="text-decoration: none;">
+    
+    </a>
+    <br/>  
+    <a href="#" class="writehere2link">
+    <small class="writehere2"></small>
+    </a>
+      </div> -->
+
+
+      <div class="modal fade" id="linkmodal" tabindex="-1" role="dialog" aria-labelledby="linkmodal" aria-hidden="true" style="z-index: 1300;">
+        
+        <div class="modal-dialog">
+          
+          <div class="modal-content">
+
+            
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Link Project</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <a class="ui red ribbon label none_selected">No Application selected.</a>
+
+              <div class="container mt-4">
+
+                {% if webapp_count == 0 %}
+
+                <h1 style="color: black; font-weight: 50; display: inline-block;">No Applications available.</h1>
+
+                {% else %}
+                <h1 style="color: black; font-weight: 50; display: inline-block;">Link To An Application</h1>
+              
+
+                {% endif %}
+
+                <div class="row">
+              
+                  
+                  {% for application in applications %}
+                  
+                    {% if application.linked_to_project == False %}
+                  <div class="col-sm-3" onclick="linkapp('{{ application.node_ID }}');">
+                    <label>
+                  <input type="checkbox" name="product8" class="card-input-element8" />
+
+                  <div class="ui card panel panel-default card-input8">
+                    
+                    <div class="content">
+                        <i class="{{ application.Framework }} icon" style="float: right; font-size: 25px; color:orangered;"></i>
+                        <h3 class="header" style="font-size: 15px;">{{ application.Name }}</h3>
+                        <br/>
+                        <div class="meta">
+                          <h3 class="ui teal label" style="font-size: 10px;">ID: {{ application.node_ID }}</h3>
+                        
+                        </div>
+                    
+                        <div class="meta" style="margin-top: 5px;">
+                          <h3 class="ui green label" style="font-size: 9px;">{{ application.framework_version }}</h3>
+                         
+                      </div>
+                      
+                    
+                        
+                    </div>
+                  <!-- extra field here -->
+                </div>
+              </label>
+                  </div>
+              
+                {% endif %}
+                  {% endfor %}
+               
+                </div>
+
+               
+             
+
+              
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button class="ui red active button close" data-dismiss="modal">
+               
+                Cancel
+              </button>
+              
+              <button class="ui blue active button submit-link" disabled>
+               
+                Link
+              </button>
+             
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+<script>
+  function delete_file(file_name){
+
+    $.ajax({
+type: "POST",
+url: '/dashboard/delete/file/',
+data: {'g&w':'fiw00r3iokfsdlfmsdls','file_name':file_name}, // serializes the form's elements.
+success: function(data)
+{
+  location.reload();
+}
+});
+
+
+  }
+</script>
+
+      <script>
+        $(document).ready(function(){
+          $('.none_selected').hide();
+            $('.card-input-element8').click(function() {
+                $('.card-input-element8').not(this).prop('checked', false);
+            });
+          
+            
+        });
+
+        var checkboxes = $("input[type='checkbox']"),
+    submitButt = $(".submit-link");
+   
+checkboxes.click(function() {
+    submitButt.attr("disabled", !checkboxes.is(":checked"));
+});
+
+        </script>
+
+        <script>
+function linkapp(app_id){
+  window.app_id = app_id;
+}
+function set_file_name(file_name){
+  window.file_name = file_name;
+}
+
+function unlink(file_name){
+  $.ajax({
+type: "POST",
+url: '/dashboard/unlink/file_to_app/',
+data: {'g&w':'uw9ugf39diewu4ufjksdcnsdjk','file_name':file_name}, // serializes the form's elements.
+success: function(data)
+{
+  location.reload();
+}
+});
+
+}
+
+$('.submit-link').click(function(e) {
+
+  if (!window.app_id){
+
+    $('.none_selected').fadeIn();
+    return false;
+  }
+
+  if($('.card-input-element8').prop("checked") == false){
+console.log('ok');
+
+  }
+
+
+
+$('.submit-link').addClass('disabled');
+$('.submit-link').addClass('loading');
+
+
+
+  $.ajax({
+type: "POST",
+url: '/dashboard/link/file_to_app/',
+data: {'g&w':'uw9ugf39diewu4ufjksdcnsdjk','app_id':window.app_id, 'file_name':window.file_name}, // serializes the form's elements.
+success: function(data)
+{
+location.reload();
+
+}
+});
+//  $('.browser-screen-loading-content').css('visibility', 'hidden')
+
+
+});
+
+
+        </script>
+     
+<style>
+
+
+.modal-dialog {
+  min-width: 600px;
+  width: 600px;
+  
+}
+
+.card-file {
+  max-width: 250px;
+}
+label {
+
+
+width: 100%;
+}
+
+.card-input-element8{
+
+
+
+display: none;
+}
+
+.card-input8 {
+
+box-shadow: 0 0 1px 1px #007FFF;
+border-radius: 5px;
+margin: 10px;
+padding: 15px;
+}
+
+.card-input8:hover {
+box-shadow: 0 0 1px 1px #2ecc71;
+cursor: pointer;
+}
+
+.card-input-element8:checked + .card-input8 {
+background-color: #a4c5e7;
+
+box-shadow: 0 0 1px 1px #007FFF;
+}
+</style>
+     
+
+   
+
+
+
+      <br/>
+      <br/>
+ 
 
 
 
 
 <div class="ui three top attached steps" style="margin-bottom: 20px;">
-  <div class="step">
+  <div class="step ">
     <i class="upload cloud icon"></i>
-    <div class="content">
+    <div class="content ">
       <div class="title">Upload</div>
       <div class="description">Upload a Database file or Web Application Project</div>
     </div>
@@ -77,7 +567,7 @@
 
     
    
-    <input type="file" name="myfile" class="drop-zone__input" id="zipfile">
+    <input type="file" name="myfile" class="drop-zone__input" id="zipfile" accept=".zip,.rar,.7zip,.sql,.tar,.sql">
 
     
 
@@ -87,23 +577,23 @@
 
 
 
-    <div class="row centered">
+    <div class="row centered" style="margin-top: 30px;">
       <img src="https://image.flaticon.com/icons/svg/101/101314.svg" width="200px">
     </div>
 
 
 
-    <div class="row centered" >
-      <h2>Drag and Drop or click to browse</h2>
+    <div class="row centered" style="color: black;">
+      <h2>Click to browse</h2>
     </div>
 
 
-    <div class="row centered" style="margin-top: -30px;">
-      <h4>(.zip, .rar, .7zip, .tar.gz, .tar)</h4>
+    <div class="row centered" style="margin-top: -30px;color: black;">
+      <h4>(.zip, .rar, .7zip, .tar)</h4>
     </div>
 
 
-    <div class="row centered">
+    <div class="row centered" style="color: black;">
       <h2 class="namehere"></h2>
     </div>
 
@@ -132,7 +622,7 @@
 
       <div class="row centered">
 
-        <button class="ui green loading button disabled" type="submit" id="submit_btn" >
+        <button class="ui green loading big button disabled" type="submit" id="submit_btn" >
           <i class="cloud upload icon"></i>
           Upload
         </button>
@@ -140,10 +630,10 @@
 
 
       </div>
-  
+ 
     </div>
   
-     
+    <br/>
     </div>
 
   
@@ -175,6 +665,7 @@ $(".namehere").hide();
       var two = document.getElementById('zipfile').value.split(':')[1].split('\\');
       window.package_name = one[one.length-1];
       window.package_type = document.getElementById('zipfile').value.split(':')[1].split('.')[1];
+      window.system_name = two;
       $(".namehere").text(two[two.length-1]);
       $(".namehere").fadeIn();
 
@@ -314,40 +805,56 @@ function updateThumbnail(dropZoneElement, file) {
             );
 
 
+          });
 
-accepted_types = ['zip', '7zip', 'rar', 'tar.gz', 'tar', 'sql'];
 
-$('form').on('submit', function(event){
 
+</script>
+<script>
+  function set_values(data){
+
+    window.file_status = data;
+    
+    if (window.file_status=='true'){ 
+  $('.multiple-file').removeClass('imhidden');
+  $("#submit_btn").addClass('loading');
+  $("#submit_btn").addClass('disabled');
+  return false;
+}
 
 if (!$("#zipfile").val()){
   location.reload(); 
 }
 
 if (accepted_types.includes(window.package_type) == false){
-  $('#alert').removeClass('hideme');
-    $( ".writehere" ).html( 'That file type Is not supported.' );
+  $('.not-supported').removeClass('imhidden');
+  $("#submit_btn").addClass('loading');
+  $("#submit_btn").addClass('disabled');
   return false;
 }
 
 else {
-  $('#alert').fadeOut;
+  $('.not-supported').fadeOut;
   
 }
 
-event.preventDefault();
 
 $(".progress").fadeIn();
 
+$("#submit_btn").addClass('loading');
+$("#submit_btn").addClass('disabled');
+
 var formData = new FormData($('form')[0]);
+
+
 $.ajax({
 xhr: function(){
 var xhr = new window.XMLHttpRequest();
 xhr.upload.addEventListener('progress', function(e){
 if (e.lengthComputable){
-  console.log('Bytes Loaded: ' + e.loaded);
-  console.log('Total Size: ' + e.total);
-  console.log('Percentage Uploadeed: ' + (e.loaded / e.total));
+  // console.log('Bytes Loaded: ' + e.loaded);
+  // console.log('Total Size: ' + e.total);
+  // console.log('Percentage Uploadeed: ' + (e.loaded / e.total));
 
   var percent = Math.round((e.loaded / e.total) * 100);
 
@@ -370,35 +877,47 @@ contentType: false,
 success: function(data1){
   
 if (data1 == 'false'){
-  $('#alert').removeClass('hideme');
-    $( ".writehere" ).html( 'That file type Is not supported.' );
+  
+  $('.not-supported').removeClass('imhidden');
+}
+else if (data1 == 'not_supported'){
+  $('.not-supported').removeClass('imhidden');
 }
 else if (data1 == 'true'){
-  $('#alert').addClass('hideme');
+ 
   location.reload();
 }
 }
 });
 
-});
-
-
-
-
-
-
-
-  // $('#zipfile').on('change', function(evt) {
-  //   var mb = 1000000
-  //   var file_size = this.files[0].size
-  //   console.log((file_size/mb).toPrecision(5) + ' Mb');
-  // });
-});
-
-
+  }
 </script>
 
+<script>
+  accepted_types = ['zip', '7zip', 'rar', 'tar.gz', 'tar', 'sql'];
 
+$('#submit_btn').click(function(event){
+
+  event.preventDefault();
+  $.ajax({
+type: "POST",
+url: '/dashboard/check_duplicate/',
+data: {'g&w':'jsafhiuwef8uewfoisdfssdlk','file_name':window.system_name[2]}, // serializes the form's elements.
+success: function(data)
+{
+  set_values(data);
+ 
+}
+});
+
+
+
+
+
+
+
+});
+</script>
 
 </div>
 

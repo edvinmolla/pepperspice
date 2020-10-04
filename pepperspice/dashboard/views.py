@@ -7,13 +7,15 @@ from authentication.models import CustomUser
 from django.http import HttpResponse
 from .models import UserTrait      
 from .models import DBNode   
-import subprocess                                                                             
+import subprocess      
+from datetime import datetime
 import uuid
 import os
 import time
 import docker
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
+from .models import UploadedProject
 
 
 @csrf_exempt
@@ -32,7 +34,7 @@ def dashboard(request):
 
     if request.user.is_authenticated:
         node = CustomUser.objects.filter(email=request.user).first()
-        node.last_login = timezone.now()
+        node.last_login = datetime.now()
         node.save()
  
         web_app_count = 0
@@ -56,7 +58,16 @@ def dashboard(request):
             dbms_user_password = 'false'
             dbms_status = 'false'
 
+<<<<<<< HEAD
+        ready_to_deploy = Node.objects.filter(linked_to_project=True)
+        ready_to_deploy_count = 0
+        for app in ready_to_deploy:
+            ready_to_deploy_count += 1
+
+
+=======
     
+>>>>>>> master
         return render(request, 'html/spec-comp/dashboard/overview.html', {'instances':Node.objects.filter(Email=request.user), 
                                                                             'initials':str(request.user).split('@')[0],
                                                                             'webapps':Node.objects.filter(is_webapp=True), 
@@ -65,6 +76,8 @@ def dashboard(request):
                                                                             'dbs':DBNode.objects.filter(Email=request.user),
                                                                             'webapplications': web_app_count, 
                                                                             'databases':database_count,
+                                                                            'datenow':datetime.now(),
+                                                                            'ready_to_deploy_count':ready_to_deploy_count,
                                                                             'databases_currently':DBNode.objects.filter(Email=request.user).count(),
                                                                             'dbms_username':dbms_user_name,
                                                                             'dbms_password':dbms_user_password,
@@ -224,7 +237,7 @@ def new_db(request):
 
                 class DB_Details():
                     linked_to_app = request.POST.get('linked_node_id')
-                    Date_Created = timezone.now()
+                    Date_Created = datetime.now()
                     db_name = request.POST.get('db_name_form')
                     db_uid = str((uuid.uuid4().hex)[0:12])
                     username = str((uuid.uuid4().hex)[0:12])
@@ -256,6 +269,27 @@ def new_db(request):
                     f.save()
 
                 if DB_Details.linked_to_app:
+<<<<<<< HEAD
+                    db = DBNode(user_ID=request.user,
+                    Email=request.user,
+                    linked_to_node_uuid=DB_Details.linked_to_app,
+                    db_hostname=request.POST.get('database_hostname'),
+                    Date_Created=DB_Details.Date_Created,
+                    link_status=link_status,
+                    id_link_color=db_id_link_color,
+                    db_name=DB_Details.db_name,
+                    db_username=DB_Details.username,
+                    db_password=DB_Details.password,
+                    db_uid=DB_Details.db_uid,
+                    db_engine=DB_Details.db_engine,
+                    # db_port=DB_Details.db_port,
+                    db_port=3309,
+                    db_version=DB_Details.db_version,
+                    db_load_type=DB_Details.load_option)
+                    db.save()
+
+                    os.system("echo toor | sudo -S docker run -d " + "--name '" + DB_Details.db_uid + "' -e MYSQL_ROOT_PASSWORD=KmQfcsnpdUrrRL2qzE8P --network=net1 mysql")
+=======
                     node = Node.objects.filter(node_ID=DB_Details.linked_to_app).first()
                     node.link_status = True
                     node.linked_to_db_uuid = DB_Details.db_uid
@@ -265,6 +299,7 @@ def new_db(request):
                     
 
                     os.system("echo esxiforme | sudo -S docker run -d " + "--name '" + DB_Details.db_uid + "' -e MYSQL_ROOT_PASSWORD=KmQfcsnpdUrrRL2qzE8P --network=net1 mysql")
+>>>>>>> master
                     time.sleep(30)             
                     os.system("echo KmQfcsnpdUrrRL2qzE8P | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"CREATE USER '" + DB_Details.username + "'@'localhost' IDENTIFIED BY '" + DB_Details.password + "';\"")
                     os.system("echo KmQfcsnpdUrrRL2qzE8P | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"CREATE USER '" + DB_Details.username + "'@'%' IDENTIFIED BY '" + DB_Details.password + "';\"")             
@@ -272,6 +307,14 @@ def new_db(request):
                     os.system("echo KmQfcsnpdUrrRL2qzE8P | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"GRANT ALL ON " + DB_Details.db_name + ".* TO '" + DB_Details.username + "'@'localhost'; FLUSH PRIVILEGES;\"")
                     os.system("echo KmQfcsnpdUrrRL2qzE8P | sudo -S docker exec -i " + DB_Details.db_uid + " mysql -u root -p -e \"GRANT ALL ON " + DB_Details.db_name + ".* TO '" + DB_Details.username + "'@'%'; FLUSH PRIVILEGES;\"")
 
+<<<<<<< HEAD
+                    a = DBNode.objects.filter(db_uid=DB_Details.db_uid).first()
+                    a.db_internal_ip = os.popen("echo toor | sudo -S docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' " + DB_Details.db_uid).read().strip()
+                    a.save()
+                    
+                    
+                    return HttpResponse('success')
+=======
 
                     time.sleep(1)
                     check_val = os.system("echo esxiforme | sudo -S docker ps -a | grep " + str(DB_Details.db_uid))
@@ -301,6 +344,7 @@ def new_db(request):
 
                      
                         return HttpResponse('success')
+>>>>>>> master
             #    The creation of mysql docker container and the omnidb container will be done here.
                 else:
                     
@@ -684,7 +728,7 @@ def create_node(request, name_domain):
             framework_version=request.POST.get('framework_version'),
             is_webapp=True, 
             id_link_color=color_pick,
-            Date_Created=timezone.now(), 
+            Date_Created=datetime.now(), 
             Load_Type=NodeDetails.load_type, 
             Private_IPv4='152.25.33.54', 
             Monitoring=NodeDetails.monitor_type, 
@@ -836,7 +880,7 @@ def create_node_technical(request, name_domain_subdomain):
             NodeDetailsTechnical.Name = name_domain_subdomain.split('&')[0]
             NodeDetailsTechnical.Framework = request.POST.get('framework_1')
             NodeDetailsTechnical.NodeType = request.POST.get('app_type')
-            NodeDetailsTechnical.Date_Created = timezone.now()
+            NodeDetailsTechnical.Date_Created = datetime.now()
             NodeDetailsTechnical.Load_Type = request.POST.get('load_type_1')
             NodeDetailsTechnical.IPv4 = '195.25.15.35'
             NodeDetailsTechnical.Private_IPv4 = '172.14.23.66'
@@ -886,7 +930,7 @@ def create_node_technical(request, name_domain_subdomain):
                     db_uid=NodeDetailsTechnical.DatabaseUUID,
                     db_username=str((uuid.uuid4().hex)[0:12]),
                     db_password=str((uuid.uuid4().hex)[0:12]),
-                    Date_Created=timezone.now(),
+                    Date_Created=datetime.now(),
                     id_link_color=color_pick,
                     linked_to_node_uuid=NodeDetailsTechnical.node_ID,
                     link_status=True,
@@ -932,7 +976,7 @@ def create_node_technical(request, name_domain_subdomain):
                     db_uid=NodeDetailsTechnical.DatabaseUUID,
                     db_username=str((uuid.uuid4().hex)[0:12]),
                     db_password=str((uuid.uuid4().hex)[0:12]),
-                    Date_Created=timezone.now(),
+                    Date_Created=datetime.now(),
                     id_link_color=color_pick,
                     db_load_type='medium_load')
                     db.save()
@@ -974,7 +1018,7 @@ def create_node_technical(request, name_domain_subdomain):
                     db_uid=NodeDetailsTechnical.DatabaseUUID,
                     db_username=str((uuid.uuid4().hex)[0:12]),
                     db_password=str((uuid.uuid4().hex)[0:12]),
-                    Date_Created=timezone.now(),
+                    Date_Created=datetime.now(),
                     link_status=True,
                     linked_to_node_uuid=NodeDetailsTechnical.node_ID,
                     id_link_color=color_pick,
@@ -1029,9 +1073,23 @@ def get_payment(request, user_id):
 
             return HttpResponse('false')
 
+
+
+@csrf_exempt
+def check_duplicate(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            
+            if os.path.isfile('uploaded_projects/' + str(request.user) + '_' + request.POST['file_name']):
+                return HttpResponse('true')
+            else:          
+                return HttpResponse('false')
+
+
+            
+
 def warehouse(request):
     from hurry.filesize import size
-
     from .forms import DocumentForm
     from os.path import basename
     from django.core.files import File
@@ -1039,27 +1097,106 @@ def warehouse(request):
     
     if request.method == 'POST':
 
-        accepted_types = ['zip', 'tar.gz', 'tar', '7zip', 'sql']
+
+        accepted_types = ['zip', 'x-rar', 'tar', '7zip', 'sql']
 
         class FileDetails():
             file_size = request.FILES['myfile'].size
             file_name = request.FILES['myfile'].name
             file_type = request.FILES['myfile'].content_type.split('/')[1]  
        
+       
 
         if FileDetails.file_type in accepted_types:
             fs = FileSystemStorage()  
-            filename = fs.save(str((uuid.uuid4().hex)[0:4]) + '_' + str(request.user) + '_' + FileDetails.file_name, request.FILES['myfile'])
+
+            
+            
+            filename = fs.save(str(request.user) + '_' + FileDetails.file_name, request.FILES['myfile'])
             # uploaded_file_url = fs.url(FileDetails.file_name)
+            db = UploadedProject(user_ID=request.user, email=request.user,
+                            Date_Uploaded=datetime.now(), file_name=FileDetails.file_name, file_type=FileDetails.file_type, file_size=size(FileDetails.file_size),
+                            linked_to_node_uuid='', file_system_name=filename, file_uuid=uuid.uuid4().hex)
+            db.save()
             
             return HttpResponse('true')
         else:
-
-            return HttpResponse('false')
+            return HttpResponse('not_supported')
         
     
 
         
     else:
-        return render(request, 'html/spec-comp/dashboard/warehouse.html')
+
+
+
+        nodes = Node.objects.filter(Email=request.user)
+        db_files = UploadedProject.objects.filter(email=request.user)
+
+        
+
+        if nodes.count() == 0:
+            for file in db_files:
+                file.linked_to_node_uuid = ''
+
+        elif nodes.count() > 0:
+            for file in db_files:
+                if not Node.objects.filter(node_ID=file.linked_to_node_uuid).exists():
+                    file.linked_to_node_uuid = ''
+
+        webapp_count =Node.objects.filter(Email=request.user).count()
+
+
+        return render(request, 'html/spec-comp/dashboard/warehouse.html', {'db_files':db_files, 'applications':Node.objects.filter(Email=request.user), 'webapp_count':webapp_count})
     
+@csrf_exempt
+def link_file(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+
+            print(request.POST.get)
+            app_id = request.POST['app_id']
+            file_name = request.POST['file_name']
+
+            project = UploadedProject.objects.filter(file_system_name=file_name).first()
+
+            node = Node.objects.filter(node_ID=app_id).first()
+            node.linked_to_project = True
+            node.projet_link_uuid = project.file_uuid
+            node.save()
+
+            
+            project.linked_to_node_uuid = app_id
+            project.save()
+
+
+            return HttpResponse('succes')
+
+@csrf_exempt
+def unlink_file(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+
+            
+            project = UploadedProject.objects.filter(file_name=request.POST['file_name']).first()
+            try:
+                node = Node.objects.filter(node_ID=project.linked_to_node_uuid).first()
+                node.linked_to_project = False
+                node.projet_link_uuid = ''
+                node.save()
+            except:
+                pass
+            
+            project.linked_to_node_uuid = ''
+            project.save() 
+            return HttpResponse('success')
+
+@csrf_exempt
+def delete_file(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            os.remove("uploaded_projects/" + request.POST['file_name'])
+            db_file = UploadedProject.objects.filter(file_system_name=request.POST['file_name']).first()
+            db_file.delete()
+
+            return HttpResponse('true')
