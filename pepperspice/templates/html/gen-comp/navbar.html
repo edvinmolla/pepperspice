@@ -65,10 +65,10 @@ transition: .5s;
 
 
 
-<a class='nav-link wadsda' href='#'  style="color: black;">Support</a>
+<a class='nav-link wadsda' href='#'  style="color: black;" data-tcs="#popup-1">Support</a>
 
 
-    <div class="ui fluid popup left center transition hidden">
+    <div class="ui fluid popup left center transition hidden " >
       <div class="ui grid  stackable">
       <div class="eight wide  column ">
        
@@ -156,12 +156,28 @@ transition: .5s;
     </div>
 
     <script type="application/javascript">
+  $(document).on('click', 'table td', function() {
+    $(this)
+       .popup({
+           title: $(this).text(),
+            on:'click'
+       })
+       .popup('show');
+});
 
 
-      $('.nav-link.wadsda')
-    .popup({
-      on: 'click'
-    });
+
+$('[data-tcs]')
+.popup({
+    popup : $(this).attr('data-tcs'),
+    on    : 'hover',
+    delay: {
+      show: 0,
+      hide: 500
+    },
+    hoverable: true
+});
+    
    
     </script>
 
