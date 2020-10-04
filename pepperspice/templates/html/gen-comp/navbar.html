@@ -1,112 +1,313 @@
 {% load static %}
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light fixed-top thisshi">
+      
+  <div class="container"> 
+    
+    <a class='navbar-brand page-scroll' href='/'>
 
-<style>
+      <img src="{% static 'wallpapers_logos/universal/logo2.png' %}" width="200px" height="45px">
 
-  .dropdown-toggle::after {
-    display: none;
-  }
-.text-decoration-none{
-  text-decoration: none!important;
-}
-/* Font Awesome Icons have variable width. Added fixed width to fix that.*/
-.icon-width { width: 2rem;}
-</style>
+    </a>
 
-<div class="container">
-  <div class="row">
+   
+
+    
+
+  <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
+
+
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+
+
+  
+  <div class="collapse navbar-collapse" id="navbar4">
+
+
+
+
+
+
+
+
+
+
+
+    <a class='nav-link' href='/services/' title='See services' style="color: black;">Services</a>
+    
+    
+    <button class=' ui button visible nav-link  blue inverted' style="transform: scale(.9);">Products</button>
+
+    <script type="application/javascript">
+
+
+      $('.ui.button')
+    .asdawdsd({
+      on: 'click'
+    });
+   
+    </script>
+
+    <div class="ui flowing popup left center transition hidden asdawdsd">
+      <div class="ui grid  stackable">
+      <div class="eight wide  column ">
+       
+       
+       <div class="onhover" style="cursor: pointer;">
+        <div class="ui comments">
+          <div class="comment">
+            <a class="avatar">
+              <img src="https://www.iconfinder.com/data/icons/paint-tools/512/status-512.png">
+            </a>
+            <div class="content">
+              <a class="author">Have a quesiton?</a>
+             
+              <div class="text">
+                Head to our friendly community forum and ask any question you have. 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<br/>
+
+      <div class="onhover" style="cursor: pointer;">
+        <div class="ui comments">
+          <div class="comment">
+            <a class="avatar">
+              <img src="https://cdn.iconscout.com/icon/free/png-256/network-389-461683.png">
+            </a>
+            <div class="content">
+              <a class="author">Network issues?</a>
+             
+              <div class="text">
+                Contact our 24/7 support staff to sort out any connectivity issues you are having.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="eight wide column ">
+      <div class="onhover" style="cursor: pointer;">
+      <div class="ui comments">
+        <div class="comment">
+          <a class="avatar">
+            <img src="https://www.jing.fm/clipimg/full/149-1491645_database-logos-blue-transparent-database-icon.png">
+          </a>
+          <div class="content">
+            <a class="author">Database troubles?</a>
+            <div class="text">
+              Our technical Q&A section has plenty of automated information ready for you.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br/>
+
+    <div class="onhover" style="cursor: pointer;">
+      <div class="ui comments">
+        <div class="comment">
+          <a class="avatar">
+            <img src="https://cdn.onlinewebfonts.com/svg/img_372046.png">
+          </a>
+          <div class="content">
+            <a class="author">Monitoring issues?</a>
+           
+            <div class="text">
+              Contact our 24/7 support staff to get you back up & analyzing your data.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+      
+
       
     
-    
-    
-    
-    
-    
-    
-    <div class="col-lg-3" style="left:258px; position: relative; top: 45px; z-index: 101;">
-          <div class="position-absolute">
-            
-            
-            
-            
-            
-            
-            
-            
-            <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light " style="font-size: 15px; font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; position: relative;">
-              <a class='navbar-brand page-scroll' href='/'>
-            
-                <img src="{% static 'wallpapers_logos/universal/logo2.png' %}" width="140px" height="35px">
-            
-              </a>
-            
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <a class='nav-link' href='/pricing/' title='See pricing' style="color: black;">Pricing</a>
+
+
+
+
+
+<style>
+.onhover:hover {
+opacity: .7;
+transition: .5s;
+}
+</style>
+
+
+
+
+
+    <button class=' ui button visible nav-link  blue inverted' style="transform: scale(.9);">Support</button>
+
+
+    <div class="ui fluid popup left center transition hidden">
+      <div class="ui grid  stackable">
+      <div class="eight wide  column ">
+       
+       
+       <div class="onhover" style="cursor: pointer;">
+        <div class="ui comments">
+          <div class="comment">
+            <a class="avatar">
+              <img src="https://www.iconfinder.com/data/icons/paint-tools/512/status-512.png">
+            </a>
+            <div class="content">
+              <a class="author">Have a quesiton?</a>
              
-              
-              
-              
-              <div class="collapse navbar-collapse" id="navbar4">
-              
-              <ul class="navbar-nav ml-auto mt-3 mt-lg-0">
-                <li class="nav-item cta cta-colored"><a href="#"  class="nav-link" type="button" style="color: black !important;" >Tutorials</a></li>
-              
-                <div class="dropdown">
-                  <li class="nav-item cta cta-colored" data-toggle="dropdown"><a href="" class="nav-link" type="button" style="color: black !important;" >Support</a></li>
-            
-                  <div class="dropdown-menu" style="font-size: 14px !important;">
-                    <a class="dropdown-item" href="#">Documentation</a>
-                    <a class="dropdown-item" href="#">Forum</a>
-            
-                  </div>
-                </div>
-                
-                
-                
-                <div class="dropdown">
-                  <li class="nav-item cta cta-colored" data-toggle="dropdown"><a href="" class="nav-link" type="button" style="color: black !important;" >{{ user.username }}</a></li>
-                  
-                  <div class="dropdown-menu" style="font-size: 14px !important;">
-                    <a class="dropdown-item" href="#">Profile</a>
-                    <a class="dropdown-item" href="/accounts/logout/">Sign Out</a>
-            
-                  </div>
-                  
-                </div>
-            
-            
-                <li class="nav-item cta cta-colored"><a href="" class="nav-link"><span class="flag-icon flag-icon-al" title="Shqip"></span></a></li>
-                
-              
-             
-              </ul>
+              <div class="text">
+                Head to our friendly community forum and ask any question you have. 
               </div>
-              </nav>
-
-
-
-
-
-
-
-
-
-
-
-
-              
+            </div>
           </div>
-      </div> 
-</div>
+        </div>
+      </div>
+<br/>
+
+      <div class="onhover" style="cursor: pointer;">
+        <div class="ui comments">
+          <div class="comment">
+            <a class="avatar">
+              <img src="https://cdn.iconscout.com/icon/free/png-256/network-389-461683.png">
+            </a>
+            <div class="content">
+              <a class="author">Network issues?</a>
+             
+              <div class="text">
+                Contact our 24/7 support staff to sort out any connectivity issues you are having.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="eight wide column ">
+      <div class="onhover" style="cursor: pointer;">
+      <div class="ui comments">
+        <div class="comment">
+          <a class="avatar">
+            <img src="https://www.jing.fm/clipimg/full/149-1491645_database-logos-blue-transparent-database-icon.png">
+          </a>
+          <div class="content">
+            <a class="author">Database troubles?</a>
+            <div class="text">
+              Our technical Q&A section has plenty of automated information ready for you.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br/>
+
+    <div class="onhover" style="cursor: pointer;">
+      <div class="ui comments">
+        <div class="comment">
+          <a class="avatar">
+            <img src="https://cdn.onlinewebfonts.com/svg/img_372046.png">
+          </a>
+          <div class="content">
+            <a class="author">Monitoring issues?</a>
+           
+            <div class="text">
+              Contact our 24/7 support staff to get you back up & analyzing your data.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+      
+
+      
+    
+    </div>
+    </div>
+
+    <script type="application/javascript">
+
+
+      $('.ui.button')
+    .popup({
+      on: 'click'
+    });
+   
+    </script>
+
+
+
+
+
+
+    <a class='nav-link' href='/examples/' title='See examples' style="color: black;">Examples</a>
+    <div class="ui button">Show flowing popup</div>
+<div class="ui flowing popup top left transition hidden">
+  <div class="ui three column divided center aligned grid">
+    <div class="column">
+      <h4 class="ui header">Basic Plan</h4>
+      <p><b>2</b> projects, $10 a month</p>
+      <div class="ui button">Choose</div>
+    </div>
+    <div class="column">
+      <h4 class="ui header">Business Plan</h4>
+      <p><b>5</b> projects, $20 a month</p>
+      <div class="ui button">Choose</div>
+    </div>
+    <div class="column">
+      <h4 class="ui header">Premium Plan</h4>
+      <p><b>8</b> projects, $25 a month</p>
+      <div class="ui button">Choose</div>
+    </div>
   </div>
+</div>
+ 
+   
+  <ul class="navbar-nav ml-auto mt-3 mt-lg-0">
+    
+    
+    <!-- <button class="btn btn-sm btn-outline-primary tata">Sign Up
+    </button> -->
+    <button class="nav-link page-scroll btn btn-sm tata" id="modalbutton">Sign Up</button>
+    <p style="margin: 5px;"></p>
+    <a class="nav-link page-scroll btn btn-sm tata1" href="{% url 'account_login' %}">Sign In</a>
+    
+    
+  
+ 
+  </ul>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <a class='nav-link page-scroll pp' data-toggle='modal' href='#aboutModal' title='A free Bootstrap theme' style="font-size: 10px;">Privacy Policy</a>
+  <a href="/al/"><span class="flag-icon flag-icon-al" title="Shqip"></span></a>
+  </div>
+  
+  </div>
+  
+  </nav>
