@@ -5,11 +5,11 @@ from allauth.account import views as vw
 
 urlpatterns = [
     path('', homepage, name='home'),
-    path('services/', ServicesView.as_view(), name='services'),
-    path('products/', ProductsView.as_view(), name='products'),
-    path('pricing/', PricingView.as_view(), name='pricing'),
-    path('support/', SupportView.as_view(), name='support'),
-    path('examples/', ExamplesView.as_view(), name='examples'),
+    path('services/', services, name='services'),
+    path('products/', products, name='products'),
+    path('pricing/', pricing, name='pricing'),
+    path('community/', community, name='community'),
+    path('examples/', examples, name='examples'),
     path('al/', AlbanianView.as_view(), name="albanian"),
     path('al/services/', AlbanianServicesView.as_view(), name='services_al'),
     path('al/products/', AlbanianProductsView.as_view(), name='products_al'),

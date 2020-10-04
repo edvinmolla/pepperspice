@@ -24,8 +24,22 @@ class AlbanianExamplesView(TemplateView):
     template_name = 'al/examples_al.html'
 
 def homepage(request):
-    
     return render(request, 'home.html', {'signup_form': SignupForm })
+
+def services(request):
+    return render(request, 'services.html', {'signup_form': SignupForm })
+
+def products(request):
+    return render(request, 'products.html', {'signup_form': SignupForm })
+
+def pricing(request):
+    return render(request, 'pricing.html', {'signup_form': SignupForm })
+
+def community(request):
+    return render(request, 'community.html', {'signup_form': SignupForm })
+
+def examples(request):
+    return render(request, 'examples.html', {'signup_form': SignupForm })
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
