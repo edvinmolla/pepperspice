@@ -416,12 +416,12 @@ opacity: 0.9;
       <div class="modal-body">
      
         <div class="body_container">
-         
+        
           <div class="app">
             <div class="app_content">
               <button type="button" style="float: right;margin-right: -25px;margin-top: -25px;" id="modalclose" class="btn btn-light">x</button>
               <h1 class="text-center">Sign Up</h1>
-              <form class="the_form  mss-register-form" method="post" action="">
+              <form class="the_form  mss-register-form" method="post" action="/accounts/register/">
                 <!-- <label>Email:</label>
                 <input type="email" name="email" required="">
                 <label>Password:</label>
@@ -429,27 +429,26 @@ opacity: 0.9;
 
                 {% csrf_token %}
   {% load crispy_forms_tags %}
+  {{ signup_form|crispy}}
 
-{{ form.email.errors }}
-{{ form.email.label_tag }}
-{{ form.email }}
-
-{{ form.username.label_tag }}
-{{ form.username }}
 
  
   
   <!-- {{ form|crispy}} -->
 
-  <small class="form-text text-muted">Perdor te pakten 8 karaktere.
+  <small class="form-text text-muted">Use at least 8 charachters.
   </small><br/>
                 
                 <div class="text-center">
-                  <small>
-                    Duke klikuar "Regjistrohu", ju pranoni <a href="" style="color: #1da1f2;">Termat e Sherbimit</a> dhe <a href="" style="color: #1da1f2;">Politikat e Privatesise</a>
+                  <small style="font-size: 10px;">
+                    By clicking "Sign Up", you aggree to our <a href="" style="color: #1da1f2;">Terms of Service</a> and <a href="" style="color: #1da1f2;">Privacy Policy</a>
                   </small>
                   </div>
-                <button class="submit_btn">Sign Up</button>
+
+
+              
+
+                <button class="submit_btn" type="submit" id="submitbtn">Sign Up</button>
               </form>
              
             </div>
@@ -514,75 +513,7 @@ $(function(){
 
 
 <style>
-  @import url('https://fonts.googleapis.com/css?family=Work+Sans:500&display=swap');
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: rgb(220, 20, 60,0.6);
-  -webkit-text-size-adjust:none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-/*** HTML5 Boilplate ***/
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
-}
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
-}
-
-fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
-  }
-
-  textarea {
-    resize: vertical;
-  }
-
-  /* Fix the thick text rendering on OSX */
-  html,
-  button {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
-    font-family: 'Work Sans', sans-serif;
-  }
-
-  body {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 150vh;
-    background: #f8f8f8;
-    color: #000;
-  }
-
-  a {
-    text-decoration: none;
-    cursor: pointer;
-    font-size: inherit;
-    color: inherit;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
+  
   .body_container {
     position: absolute;
     width: 100%;
@@ -854,6 +785,4 @@ function testScroll() {
         }
     });
 </script>
-
-
 </html>

@@ -4,7 +4,7 @@ from .views import *
 from allauth.account import views as vw
 
 urlpatterns = [
-    path('', vw.signup, name='account_signup'),
+    path('', homepage, name='home'),
     path('services/', ServicesView.as_view(), name='services'),
     path('products/', ProductsView.as_view(), name='products'),
     path('pricing/', PricingView.as_view(), name='pricing'),
