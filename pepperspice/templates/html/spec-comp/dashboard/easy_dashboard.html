@@ -103,6 +103,10 @@
   {% if webapplications > 0 %}
   <h1 class="text-center" style="font-weight: 1; display: inline-block;">Web Applications</h1>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
   <a href="/dashboard/new/web_app/">
     <div class="ui vertical animated button" style="float: right; background-color: #222b42; color: white;" tabindex="0">
       <div class="hidden content">Deploy Now</div>
@@ -836,6 +840,7 @@ figure.snip0056 .position {
 {% endif %}
 
 {% if databases > 0 %}
+<<<<<<< HEAD
     <h1 class="text-center" style="font-weight: 1; display: inline-block;margin-top: 0px;">Databases</h1>
     <a href="/dashboard/new/db_instance/">
       <div class="ui vertical animated button" style="float: right; background-color: #222b42; color: white;margin-top: 0px;" tabindex="0">
@@ -846,7 +851,21 @@ figure.snip0056 .position {
       </div></a>
 
     <hr>
+=======
+    <h1 class="" style="font-weight: 1; display: inline-block; margin-top: 0px;">Databases</h1>
+>>>>>>> master
 
+    <a href="/dashboard/new/db_instance/">
+      <div class="ui vertical animated button" style="float: right; background-color: #222b42; color: white;" tabindex="0">
+        <div class="hidden content">Deploy Now</div>
+        <div class="visible content">
+          New Database<i class="plus icon" style="margin-left: 5px;"></i>
+        </div>
+      </div>
+    </a>
+    
+    <hr>
+<br/>
     <div class="row justify-content-center">
 
 
@@ -863,8 +882,15 @@ figure.snip0056 .position {
           <a href="/dashboard/profile/" alt="{{ request.user }}">
          
             <div style="margin-bottom: -60px; margin-left: -50px;">
+<<<<<<< HEAD
               <a class="ui teal label">{{ initials }}</a>
            
+=======
+
+              <a class="ui teal label">{{ request.user.username }}</a>
+             
+            <!-- <i class="fas fa-user-circle" style="font-size: 40px; color: {{ db.id_link_color }};"></i> -->
+>>>>>>> master
     
           </div>
           
