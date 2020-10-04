@@ -11,20 +11,11 @@
               <div class="app_content">
                 <button type="button" style="float: right;margin-right: -25px;margin-top: -25px;" id="modalclose" class="btn btn-light">x</button>
                 <h1 class="text-center">Sign Up</h1>
-                <form class="the_form  mss-register-form" method="post" action="">
-                  <!-- <label>Email:</label>
-                  <input type="email" name="email" required="">
-                  <label>Password:</label>
-                  <input type="password" name="pass" required=""> -->
+                <form class="the_form  mss-register-form" method="post" action="/accounts/register/">
   
                   {% csrf_token %}
     {% load crispy_forms_tags %}
     {{ signup_form|crispy}}
-  
-  
-   
-    
-    <!-- {{ form|crispy}} -->
   
     <small class="form-text text-muted">Use at least 8 charachters.
     </small><br/>
