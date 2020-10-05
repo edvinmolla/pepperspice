@@ -181,20 +181,18 @@ background-repeat: no-repeat;
   
     <section class="belly" style="margin-top: -100px;">
       <div class="belly__item">
-        <img src="https://cdn.pixabay.com/photo/2017/07/10/08/27/fruit-2489367__340.png" class="belly__item__img">
+        <img src="https://beta-visuals.com/wp-content/uploads/2019/03/Logo-beta-copiafinal.png" class="belly__item__img" style="margin-top: -40px;">
         <div class="belly__item__text">
-          <h2 class="belly__item__tile">Best</h2>
-          <h3 class="belly__item__subtitle">Fresh Apple Juice</h3>
-          <p class="belly__item__p">Things Go Better With Juice</p>
+          <h2 class="belly__item__tile">Upcoming Beta</h2>
+          <h3>25<sup>th</sup> November 2020</h3>
         </div>
       </div>
       <!---->
       <div class="belly__item">
-        <img src="https://cdn.pixabay.com/photo/2018/01/17/13/43/pears-3088236__340.png" class="belly__item__img">
+        <img src="https://waynecountyfoundation.org/wp-content/uploads/2018/12/WCF-Wordmark-Leaf.png" class="belly__item__img">
         <div class="belly__item__text">
-          <h2 class="belly__item__tile">Pure</h2>
-          <h3 class="belly__item__subtitle">Juice for Everyday</h3>
-          <p class="belly__item__p">The Lighter Way to Enjoy Juice </p>
+          <h2 class="belly__item__tile">Nonprofits</h2>
+          <h3>Supporting nonprofits</h3>
         </div>
       </div>
       <!---->
@@ -207,6 +205,104 @@ background-repeat: no-repeat;
   
   </main>
 
+
+  <style>
+  
+    .belly {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .belly__item {
+      width: calc(50% - 64px);
+      margin: 16px;
+      padding: 40px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    
+    .belly__item {
+      background:;
+    }
+    
+    .belly__item:nth-of-type(3n+1), .belly__item:nth-of-type(4n+1) {
+      background: ;
+    }
+    
+    .belly__item__img {
+      width: 152px;
+      height: auto;
+    }
+    
+    .belly__item__text {
+      color: #fafafa;
+      margin: 0 4px;
+    }
+    
+    .belly__item__tile {
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    
+    .belly__item__subtitle {
+      font-family: "Nanum Pen Script", cursive;
+      font-weight: 100;
+      font-size: 24px;
+      margin: 8px 0;
+    }
+    
+    .belly__item__p {
+      font-family: "Roboto", sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      margin: 0;
+    }
+    
+    @media screen and (max-width: 750px) {
+      .header__nav__linkCont {
+        display: none;
+      }
+    
+      .header__nav__logo {
+        opacity: 1;
+      }
+    
+      .belly {
+        flex-direction: column;
+      }
+    
+      .belly__item {
+        width: calc(100% - 64px);
+      }
+    
+      .belly__item:nth-of-type(odd) {
+        background: ;
+      }
+    
+      .belly__item:nth-of-type(even) {
+        background: ;
+      }
+    }
+    @media screen and (max-width: 450px) {
+      .belly__item {
+        flex-direction: column;
+      }
+    
+      .belly__item__img {
+        width: 200px;
+        margin: 0 0 32px;
+      }
+    }
+    
+      </style>
+
+      
 
 <style>
  
@@ -238,101 +334,7 @@ background-repeat: no-repeat;
 
 </style>
 
-  <style>
-  
-.belly {
-  max-width: 1000px;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.belly__item {
-  width: calc(50% - 64px);
-  margin: 16px;
-  padding: 40px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.belly__item {
-  background: #A9C12D;
-}
-
-.belly__item:nth-of-type(3n+1), .belly__item:nth-of-type(4n+1) {
-  background: #FF6E6E;
-}
-
-.belly__item__img {
-  width: 152px;
-  height: auto;
-}
-
-.belly__item__text {
-  color: #fafafa;
-  margin: 0 4px;
-}
-
-.belly__item__tile {
-  font-family: "Roboto", sans-serif;
-  font-size: 24px;
-  font-weight: 900;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-.belly__item__subtitle {
-  font-family: "Nanum Pen Script", cursive;
-  font-weight: 100;
-  font-size: 24px;
-  margin: 8px 0;
-}
-
-.belly__item__p {
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-  margin: 0;
-}
-
-@media screen and (max-width: 750px) {
-  .header__nav__linkCont {
-    display: none;
-  }
-
-  .header__nav__logo {
-    opacity: 1;
-  }
-
-  .belly {
-    flex-direction: column;
-  }
-
-  .belly__item {
-    width: calc(100% - 64px);
-  }
-
-  .belly__item:nth-of-type(odd) {
-    background: #FF6E6E;
-  }
-
-  .belly__item:nth-of-type(even) {
-    background: #A9C12D;
-  }
-}
-@media screen and (max-width: 450px) {
-  .belly__item {
-    flex-direction: column;
-  }
-
-  .belly__item__img {
-    width: 200px;
-    margin: 0 0 32px;
-  }
-}
-
-  </style>
+ 
 
 
 
