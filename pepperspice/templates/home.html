@@ -6,6 +6,8 @@
   {% load static %}
   {% include 'html/gen-comp/headers.html' %}
   <link rel="stylesheet" type="text/css" href="{% static 'welcome/style.css' %}">
+
+  
 </head>
 <style>
 .thisthis {
@@ -141,96 +143,231 @@ opacity: 0.9;
    {% include 'html/gen-comp/navbar.html' %}
 
 
-   <section class="section-a">
-    <div class="container">
-      <div>
-        <h1>The headphones of the future.</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-          repudiandae rerum libero ipsum asperiores omnis mollitia, nostrum
-          commodi placeat ea itaque modi corrupti corporis nam voluptas aut
-          reprehenderit eaque culpa.
-        </p>
-        <a href="#" class="btn">Read More</a>
-      </div>
-      <img src="https://i.ibb.co/37Y74kv/showcase.jpg" alt="" />
-    </div>
-  </section>
 
+<div class="row" style="background-color:#ce203b">
+  
+  <div class="col-md-6 pt-5 pl-5 pr-5" style="margin-top: 100px;">
+  <div class="jumbotron bg-cover" style="background: none;">
+    <div class="container">
+    <h1 class="display-4" style="color: white;">30 seconds</h1>
+    <p class="h1" style="color: white;">You don't have to take our word for It.</p>
+    <div class="ui clearing divider" style="background-color: white;"></div>
+    <p class="h1" style="color: white;">Try out our platform free for the first month and see real growth results.</p>
+    
+
+      </div>
+  </div>
+  </div>
+  
+  
+  <div class="col-md-6" style="margin-top: 65px; display: flex;justify-content: space-evenly;">
+
+    <div class="banner banner--space">
+  <img src="{% static 'wallpapers_logos/universal/abc1.png' %}" width="800" style="margin-left: -100px;">
+    </div>
+    
+  </div>
+  
+  </div>
+  
+  
+  <main>
+
+    <!---------------------------->
+  
+    <section class="belly" style="margin-top: -100px;">
+      <div class="belly__item">
+        <img src="https://cdn.pixabay.com/photo/2017/07/10/08/27/fruit-2489367__340.png" class="belly__item__img">
+        <div class="belly__item__text">
+          <h2 class="belly__item__tile">Best</h2>
+          <h3 class="belly__item__subtitle">Fresh Apple Juice</h3>
+          <p class="belly__item__p">Things Go Better With Juice</p>
+        </div>
+      </div>
+      <!---->
+      <div class="belly__item">
+        <img src="https://cdn.pixabay.com/photo/2018/01/17/13/43/pears-3088236__340.png" class="belly__item__img">
+        <div class="belly__item__text">
+          <h2 class="belly__item__tile">Pure</h2>
+          <h3 class="belly__item__subtitle">Juice for Everyday</h3>
+          <p class="belly__item__p">The Lighter Way to Enjoy Juice </p>
+        </div>
+      </div>
+      <!---->
+
+      
+  
+    </section>
+  
+  
+  
+  </main>
+
+
+   <!-- <main>
+
+  
+  
+    <section class="belly">
+      <div class="belly__item">
+        <img src="https://cdn.pixabay.com/photo/2017/07/10/08/27/fruit-2489367__340.png" class="belly__item__img">
+        <div class="belly__item__text">
+          <h2 class="belly__item__tile">Best</h2>
+          <h3 class="belly__item__subtitle">Fresh Apple Juice</h3>
+          <p class="belly__item__p">Things Go Better With Juice</p>
+        </div>
+      </div>
+  
+
+      <div class="banner banner--space">
+        <button type="button" class="banner__close" title="close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <a class="banner__content" href="">
+          <span class="banner__title">Kickstart your business with these tips</span>
+          <span class="banner__button">Learn more</span>
+        </a>
+      </div>
+  
+  
+    </section>
+  
+  
+  
+  </main> -->
+
+<style>
+ 
+.banner {
+  background: transparent;
+  border-radius: 1rem;
+  position: relative;
+  width: 100%;
+  margin: 1em 0;
+  max-width: 630px;
+}
+
+.banner--space {
+  background-size: calc(40% - 4em) auto;
+  background-repeat: no-repeat;
+  background-position: 1em;
+}
+.banner--space .banner__content {
+  padding-left: 10em;
+  text-align: right;
+  align-items: flex-end;
+}
+.banner--space .banner__button {
+  background-color: #6c63ff;
+  border: 2px solid white;
+}
+
+
+
+</style>
 
   <style>
-
-
-.container {
-  max-width: 1100px;
- 
+  
+.belly {
+  max-width: 1000px;
   margin: auto;
-  overflow: hidden;
-  padding: 0 2rem;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-
-.section-a {
-  margin: 2rem 0;
-  background-color: red;
-  height: 100%;
-}
-
-.section-a .container {
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 3rem;
+.belly__item {
+  width: calc(50% - 64px);
+  margin: 16px;
+  padding: 40px 16px;
+  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
-.section-a h1 {
-  font-size: 4rem;
-  color: var(--primary-color);
+.belly__item {
+  background: #A9C12D;
 }
 
-.section-a p {
-  margin: 1rem 0;
+.belly__item:nth-of-type(3n+1), .belly__item:nth-of-type(4n+1) {
+  background: #FF6E6E;
 }
 
-.section-b {
-  position: relative;
-  background: url('https://i.ibb.co/1RS1dqC/section-b.jpg') no-repeat bottom center/cover;
-  height: 600px;
+.belly__item__img {
+  width: 152px;
+  height: auto;
 }
 
-
-.overlay {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: var(--overlay-color);
+.belly__item__text {
+  color: #fafafa;
+  margin: 0 4px;
 }
 
-@media (max-width: 700px) {
-  .section-a .container {
-    grid-template-columns: 1fr;
-    text-align: center;
+.belly__item__tile {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.belly__item__subtitle {
+  font-family: "Nanum Pen Script", cursive;
+  font-weight: 100;
+  font-size: 24px;
+  margin: 8px 0;
+}
+
+.belly__item__p {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0;
+}
+
+@media screen and (max-width: 750px) {
+  .header__nav__linkCont {
+    display: none;
   }
 
-  .section-a .container div:first-child {
-    order: 2;
+  .header__nav__logo {
+    opacity: 1;
   }
 
-  .section-a .container div:nth-child(2) {
-    order: -1;
+  .belly {
+    flex-direction: column;
   }
 
-  .section-a img {
-    width: 80%;
-    margin: auto;
+  .belly__item {
+    width: calc(100% - 64px);
+  }
+
+  .belly__item:nth-of-type(odd) {
+    background: #FF6E6E;
+  }
+
+  .belly__item:nth-of-type(even) {
+    background: #A9C12D;
+  }
+}
+@media screen and (max-width: 450px) {
+  .belly__item {
+    flex-direction: column;
+  }
+
+  .belly__item__img {
+    width: 200px;
+    margin: 0 0 32px;
   }
 }
 
   </style>
+
+
+
+
+
+
+
 
     
 <div class="second-wall">
