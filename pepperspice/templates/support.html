@@ -2,66 +2,15 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Semantic-ui Sidebar</title>
+  <title>PepperSpice | Support</title>
   {% load static %}
   {% include 'html/gen-comp/headers.html' %}
   <link rel="stylesheet" type="text/css" href="{% static 'welcome/style.css' %}">
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.min.js'></script>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light fixed-top thisshi">
-      
-		<div class="container"> 
-		  
-		  <a class='navbar-brand page-scroll' href='/'>
-  
-			<img src="{% static 'wallpapers_logos/universal/logo2.png' %}" width="200px" height="45px">
-  
-		  </a>
-  
-		 
-  
-		  
-  
-		<button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
-	 
-  
-		  <span class="navbar-toggler-icon"></span>
-		</button>
-	
-	  
-		
-		<div class="collapse navbar-collapse" id="navbar4">
-		  <a class='nav-link' href='/services/' title='See services' style="color: black;">Services</a>
-		  <a class='nav-link' href='/products/' title='See products' style="color: black;">Products</a>
-		  <a class='nav-link' href='/pricing/' title='See pricing' style="color: black;">Pricing</a>
-		  <a class='nav-link' href='/support/' title='See support' style="color: black;">Support</a>
-		  <a class='nav-link' href='/examples/' title='See examples' style="color: black;">Examples</a>
-		  
-	   
-		 
-		<ul class="navbar-nav ml-auto mt-3 mt-lg-0">
-		  
-		  
-		  <!-- <button class="btn btn-sm btn-outline-primary tata">Sign Up
-		  </button> -->
-		  <a class="nav-link page-scroll btn btn-sm tata" href="{% url 'account_signup' %}">Sign Up</a>
-		  <p style="margin: 5px;"></p>
-		  <a class="nav-link page-scroll btn btn-sm tata1" href="{% url 'account_login' %}">Sign In</a>
-		  
-		  
-		
-	   
-		</ul>
-  
-		<a class='nav-link page-scroll pp' data-toggle='modal' href='#aboutModal' title='A free Bootstrap theme' style="font-size: 10px;">Privacy Policy</a>
-		<a href="/al/"><span class="flag-icon flag-icon-al" title="Shqip"></span></a>
-		</div>
-		
-		</div>
-		
-		</nav>
+  <div class="tobeblurred">
+
+  {% include 'html/gen-comp/navbar.html' %}
 
 
 
@@ -76,8 +25,9 @@
               <div class="title">
                 Startup<span>To</span>Business
               </div>
-              <br/>
-              <h3 style="color: #26466D;">Grow faster than ever. Live In a thriving community.</h3>
+             
+              
+              <h3 style="color: #26466D; margin-top: 100px;">Grow faster than ever. Live In a thriving community.</h3>
             </div>
           </div>
 
@@ -89,7 +39,7 @@
               <div class="col-md-12">
               <h2 class="sec-title text-center" style="color: #00897b;">Live Webinars</h2>
           </div>
-          <div class="col-md-12">
+          <div class="col-md-12 pt-5">
               <div class="row">
                 <div class="col-md-12">
               <div class="card-group evet-card text-light mb-2">
@@ -110,7 +60,7 @@
                                       </div>
                                       <ul class="list-inline mt-auto">
                                           <li class="list-inline-item"> <strong>Hosted by :</strong></li>
-                                          <li class="list-inline-item"><i class="icon ion-android-person"></i> Edvin <a href="#">(PepperSpice)</a></li>
+                                          <li class="list-inline-item">Edvin <a href="#">(PepperSpice BackEnd Developer)</a></li>
                                       </ul>
                                   </div>
                               </div>
@@ -136,7 +86,7 @@
                                       </div>
                                       <ul class="list-inline mt-auto">
                                           <li class="list-inline-item"> <strong>Hosted by :</strong></li>
-                                          <li class="list-inline-item"><i class="icon ion-android-person"></i> Daniel <a href="#">(PepperSpice)</a></li>
+                                          <li class="list-inline-item">Daniel <a href="#">(PepperSpice Infrastructure Engineer)</a></li>
                                       </ul>
                                   </div>
                               </div>
@@ -163,14 +113,19 @@
   line-height: 1.4;
 }
 .evet-card > .card .list-inline-item {
-  color: #ba9643;
+  color: #26466D;
   font-size: 14px;
 }
 .evet-card > .card .badge {
-  background: #ba9643;
+  background: #26466D;
 }
 .evet-card > .card {
-  background: #242021;
+  background:#00897b;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
 </style>
 
@@ -207,7 +162,13 @@
 
         </style>
 
+
+
+
 {% include 'html/gen-comp/footer.html' %}
+</div>
+
+{% include 'html/gen-comp/signup_section.html' %}
 
 </body>
 </html>

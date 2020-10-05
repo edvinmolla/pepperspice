@@ -14,8 +14,6 @@
     
 
   <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
-
-
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -27,31 +25,8 @@
 
 
 
-
-
-
-
-
-
-
-
-    <a class='nav-link' href='/services/' title='See services' style="color: black;">Services</a>
-    
-    
-    <a class='nav-link' href='/products/' title='See services' style="color: black;">Products</a>
-
-
-
-
-
-
-
-
-
-
-    <a class='nav-link' href='/pricing/' title='See pricing' style="color: black;">Pricing</a>
-
-
+    <a class='nav-link ui button red inverted' href='/services/' title='See services' style="border-radius: 10px; padding: 10px;">Services</a>
+    <a class='nav-link ui button red inverted' href='/products/' title='See services' style="border-radius: 10px; padding: 10px;">Products</a>
 
 
 
@@ -65,10 +40,8 @@ transition: .5s;
 
 
 
-<a class='nav-link wadsda' href='#'  style="color: black;">Support</a>
-
-
-    <div class="ui fluid popup left center transition hidden">
+<a class='nav-link wadsda ui red button inverted ' style="border-radius: 10px; padding: 10px;" href='/support/' data-tcs="#popup-1">Support</a>
+    <div id="pop" class="ui fluid popup center transition hidden " >
       <div class="ui grid  stackable">
       <div class="eight wide  column ">
        
@@ -156,12 +129,40 @@ transition: .5s;
     </div>
 
     <script type="application/javascript">
+ $(document).on('mouseover', '.wadsda', function() {
+    $(this)
+       .popup({
+           popup: $('#pop'),
+            on:'hover',
+            hoverable: true,
+       })
+       .popup('show');
+});
 
 
-      $('.nav-link.wadsda')
-    .popup({
-      on: 'click'
-    });
+$(document).on('mouseover', '.dqwsdfd', function() {
+    $(this)
+       .popup({
+           popup: $('#pop1'),
+            on:'hover',
+            hoverable: true,
+       })
+       .popup('show');
+       
+});
+
+
+// $('[data-tcs]')
+// .popup({
+//     popup : $(this).attr('data-tcs'),
+//     on    : 'hover',
+//     delay: {
+//       show: 0,
+//       hide: 500
+//     },
+//     hoverable: true
+// });
+    
    
     </script>
 
@@ -170,8 +171,102 @@ transition: .5s;
 
 
 
-    <a class='nav-link' href='/examples/' title='See examples' style="color: black;">Examples</a>
+    <a class='nav-link dqwsdfd ui button red inverted' href='/examples/' title='See examples' style="border-radius: 10px; padding: 10px;">Examples</a>
+    <div id="pop1" class="ui fluid popup center transition hidden " >
+      <div class="ui grid  stackable">
+      <div class="eight wide  column ">
+       
+       
+       <div class="onhover" style="cursor: pointer;">
+        <div class="ui comments">
+          <div class="comment">
+            <a class="avatar">
+              <img src="https://img.icons8.com/cotton/2x/create-new.png">
+            </a>
+            <div class="content">
+              <a class="author">Setting up a Web App</a>
+             
+              <div class="text">
+                Learn from the best on how to quickly set up a Web Application environment.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<br/>
+
+      <div class="onhover" style="cursor: pointer;">
+        <div class="ui comments">
+          <div class="comment">
+            <a class="avatar">
+              <img src="https://www.pngfind.com/pngs/m/269-2693351_add-database-to-cloud-comments-cloud-database-icon.png">
+            </a>
+            <div class="content">
+              <a class="author">Deploying a Database</a>
+             
+              <div class="text">
+                Learn how to deploy a database within 30 seconds. Count on It!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<style>
+  .img1 {
+    width: 45px !important;
+  }
+</style>
+
+    <div class="eight wide column ">
+      <div class="onhover" style="cursor: pointer;">
+      <div class="ui comments">
+        <div class="comment">
+          <a class="avatar">
+            <img class="img1" src="https://www.iconfinder.com/data/icons/basic-ui-2-line/32/chain-link-linked-complement-links-512.png">
+          </a>
+          <div class="content">
+            <a class="author">Linking Projects</a>
+            <div class="text">
+              Link projects with nodes to prepare them for deployment.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br/>
+
+    <div class="onhover" style="cursor: pointer;">
+      <div class="ui comments">
+        <div class="comment">
+          <a class="avatar">
+            <img src="https://cdn1.iconfinder.com/data/icons/software-development-filled-outline/64/launch-startup-deployment-software-development-512.png">
+          </a>
+          <div class="content">
+            <a class="author">Deploying to the Web</a>
+           
+            <div class="text">
+              Learn how to expose your project to the entire world!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+      
+
+      
     
+    </div>
+    </div>
+
+  
+
+    <a class='nav-link ui button red inverted' href='/pricing/'  style="border-radius: 10px; padding: 10px;" title='See pricing' style="border-radius: 10px; padding: 10px;">Pricing</a>
  
    
   <ul class="navbar-nav ml-auto mt-3 mt-lg-0">
@@ -188,10 +283,16 @@ transition: .5s;
  
   </ul>
 
-  <a class='nav-link page-scroll pp' data-toggle='modal' href='#aboutModal' title='A free Bootstrap theme' style="font-size: 10px;">Privacy Policy</a>
+  <a class='nav-link page-scroll pp' data-toggle='modal' href='#aboutModal' title='A free Bootstrap theme' style="font-size: 10px; color: #007FFF !important;">Privacy Policy</a>
   <a href="/al/"><span class="flag-icon flag-icon-al" title="Shqip"></span></a>
   </div>
   
+
+
+
+
+
+
+
   </div>
-  
   </nav>
