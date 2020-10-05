@@ -39,7 +39,7 @@ opacity: 0.9;
   
   <div class="tobeblurred">
   
-<header id='first'>
+<!-- <header id='first'>
 <style>
   body {
     overflow-x: hidden !important;
@@ -95,6 +95,7 @@ opacity: 0.9;
       </div>
     
      <div style="margin-top: 80px;">
+   
       <div class="box1 color-1" data-aos="fade-up" data-aos-duration="2500" data-aos-once="true"><a href=""></a><p class="p2" style="font-size: 25px;font-family: 'Montserrat', sans-serif; " >the fastest way for ideas, from your brain to the world</p></a></div>
    
 
@@ -133,14 +134,103 @@ opacity: 0.9;
 
       </style>
 
-  </header>
+  </header> -->
 
   
   
    {% include 'html/gen-comp/navbar.html' %}
 
 
+   <section class="section-a">
+    <div class="container">
+      <div>
+        <h1>The headphones of the future.</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+          repudiandae rerum libero ipsum asperiores omnis mollitia, nostrum
+          commodi placeat ea itaque modi corrupti corporis nam voluptas aut
+          reprehenderit eaque culpa.
+        </p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+      <img src="https://i.ibb.co/37Y74kv/showcase.jpg" alt="" />
+    </div>
+  </section>
 
+
+  <style>
+
+
+.container {
+  max-width: 1100px;
+ 
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+
+.section-a {
+  margin: 2rem 0;
+  background-color: red;
+  height: 100%;
+}
+
+.section-a .container {
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-a h1 {
+  font-size: 4rem;
+  color: var(--primary-color);
+}
+
+.section-a p {
+  margin: 1rem 0;
+}
+
+.section-b {
+  position: relative;
+  background: url('https://i.ibb.co/1RS1dqC/section-b.jpg') no-repeat bottom center/cover;
+  height: 600px;
+}
+
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--overlay-color);
+}
+
+@media (max-width: 700px) {
+  .section-a .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .section-a .container div:first-child {
+    order: 2;
+  }
+
+  .section-a .container div:nth-child(2) {
+    order: -1;
+  }
+
+  .section-a img {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+  </style>
 
     
 <div class="second-wall">
