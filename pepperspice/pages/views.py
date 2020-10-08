@@ -24,7 +24,7 @@ class AlbanianExamplesView(TemplateView):
     template_name = 'al/examples_al.html'
 
 def homepage(request):
-    return render(request, 'home.html', {'signup_form': SignupForm })
+    return render(request, 'home2.html', {'signup_form': SignupForm })
 
 def services(request):
     return render(request, 'services.html', {'signup_form': SignupForm })

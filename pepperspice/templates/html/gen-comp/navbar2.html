@@ -1,27 +1,13 @@
-
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css'>
 
 {% load static %}
 
-<nav class="navbar ">
+<nav class="navbar is-fixed-top">
   <div class="navbar-brand">
    
     <a class='navbar-brand page-scroll' href='/'>
 
-      <img src="{% static 'wallpapers_logos/universal/logo2.png' %}" width="200px" height="45px">
-
-    </a>
-
-
-    <a class="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
-      <span class="icon" style="color: #333;">
-        <i class="fa fa-github"></i>
-      </span>
-    </a>
-
-    <a class="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
-      <span class="icon" style="color: #55acee;">
-        <i class="fa fa-twitter"></i>
-      </span>
+      <img src="{% static 'wallpapers_logos/universal/logo2.png' %}" width="150px">
     </a>
 
     <div class="navbar-burger burger" data-target="navMenubd-example">
@@ -34,82 +20,71 @@
   <div id="navMenubd-example" class="navbar-menu">
     <div class="navbar-start">
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link  is-active" href="/documentation/overview/start/">
-          Docs
+        <a class="navbar-link  is-active" href="/documentation/overview/start/" style="color: #ec3550;">
+          Cloud
         </a>
         <div class="navbar-dropdown ">
           <a class="navbar-item " href="/documentation/overview/start/">
-            Overview
+            Deployments
           </a>
           <a class="navbar-item " href="http://bulma.io/documentation/modifiers/syntax/">
-            Modifiers
+            Microservices
           </a>
           <a class="navbar-item " href="http://bulma.io/documentation/columns/basics/">
-            Columns
+            Security
           </a>
           <a class="navbar-item " href="http://bulma.io/documentation/layout/container/">
-            Layout
+            Networking
           </a>
           <a class="navbar-item " href="http://bulma.io/documentation/form/general/">
-            Form
+            Support
           </a>
           <a class="navbar-item " href="http://bulma.io/documentation/elements/box/">
-            Elements
+            Forum
           </a>
-
-          <a class="navbar-item is-active" href="http://bulma.io/documentation/components/breadcrumb/">
-              Components
-            </a>
 
           <hr class="navbar-divider">
           <div class="navbar-item">
             <div>
               <p class="is-size-6-desktop">
-                <strong class="has-text-info">0.5.1</strong>
+                <strong class="has-text-info">Comming soon</strong>
               </p>
 
               <small>
-                  <a class="bd-view-all-versions" href="/versions">View all versions</a>
+                  <a class="bd-view-all-versions" href="/versions">DevHub</a>
                 </small>
 
             </div>
           </div>
         </div>
       </div>
+
+
+      <style>
+        .curved {
+          border-radius: 10px;
+        }
+      </style>
+
+
       <div class="navbar-item has-dropdown is-hoverable is-mega">
-        <div class="navbar-link flex">
-          Blog <span class="tag is-info ml-2">Hover here<span>
+        <div class="navbar-link flex" style="color: #ec3550;">
+          Products
         </div>
         <div id="blogDropdown" class="navbar-dropdown " data-style="width: 18rem;">
           <div class="container is-fluid">
             <div class="columns">
               <div class="column">
-                <h1 class="title is-6 is-mega-menu-title">Sub Menu Title</h1>
-                <a class="navbar-item" href="/2017/08/03/list-of-tags/">
-                  <div class="navbar-content">
-                    <p>
-                      <small class="has-text-info">03 Aug 2017</small>
-                    </p>
-                    <p>New feature: list of tags</p>
-                  </div>
-                </a>
-                <a class="navbar-item" href="/2017/08/03/list-of-tags/">
-                  <div class="navbar-content">
-                    <p>
-                      <small class="has-text-info">03 Aug 2017</small>
-                    </p>
-                    <p>New feature: list of tags</p>
-                  </div>
-                </a>
-                <a class="navbar-item" href="/2017/08/03/list-of-tags/">
-                  <div class="navbar-content">
-                    <p>
-                      <small class="has-text-info">03 Aug 2017</small>
-                    </p>
-                    <p>New feature: list of tags</p>
-                  </div>
-                </a>
+            
+                
+
+                
+
+
               </div>
+
+
+
               <div class="column">
                 <h1 class="title is-6 is-mega-menu-title">Sub Menu Title</h1>
                 <a class="navbar-item" href="/2017/08/03/list-of-tags/">
@@ -201,33 +176,296 @@
           </div>
         </div>
       </div>
-      <div class="navbar-item has-dropdown is-hoverable">
-        <div class="navbar-link">
-          More
+
+
+
+
+
+
+
+
+      <div class="navbar-item has-dropdown is-hoverable is-mega">
+        <div class="navbar-link flex" style="color: #ec3550;">
+          Support
         </div>
-        <div id="moreDropdown" class="navbar-dropdown ">
-          <a class="navbar-item " href="http://bulma.io/extensions/">
-            <div class="level is-mobile">
-              <div class="level-left">
-                <div class="level-item">
-                  <p>
-                    <strong>Extensions</strong>
-                    <br>
-                    <small>Side projects to enhance Bulma</small>
-                  </p>
+        <div id="blogDropdown" class="navbar-dropdown " data-style="width: 18rem;">
+          <div class="container is-fluid">
+            <div class="columns">
+              <div class="column">
+
+                <br/>
+
+            
+            
+                <div class="ui comments">
+                  <div class="comment">
+                    <a class="avatar">
+                      <img style="transform: scale(1.3);" src="https://img.icons8.com/cotton/2x/create-new.png">
+                    </a>
+                    <div class="content">
+                      <a class="author">Setting up a Web App</a>
+                     
+                      <div class="text">
+                        Learn from the best on how to quickly set up a Web Application environment.
+                      </div>
+                    </div>
+                  </div>
                 </div>
+
+                
+
+                <div class="ui comments">
+                  <div class="comment">
+                    <a class="avatar">
+                      <img src="https://www.pngfind.com/pngs/m/269-2693351_add-database-to-cloud-comments-cloud-database-icon.png">
+                    </a>
+                    <div class="content">
+                      <a class="author">Deploying a Database</a>
+                     
+                      <div class="text">
+                        Learn how to deploy a database within 30 seconds. Count on It!
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="ui comments">
+                  <div class="comment">
+                    <a class="avatar">
+                      <img class="img1" style="transform: scale(1.3);" src="https://www.iconfinder.com/data/icons/basic-ui-2-line/32/chain-link-linked-complement-links-512.png">
+                    </a>
+                    <div class="content">
+                      <a class="author">Linking Projects</a>
+                      <div class="text">
+                        Link projects with nodes to prepare them for deployment.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="ui comments">
+                  <div class="comment">
+                    <a class="avatar">
+                      <img style="transform: scale(1.3);" src="https://cdn1.iconfinder.com/data/icons/software-development-filled-outline/64/launch-startup-deployment-software-development-512.png">
+                    </a>
+                    <div class="content">
+                      <a class="author">Deploying to the Web</a>
+                     
+                      <div class="text">
+                        Learn how to expose your project to the entire world!
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
               </div>
-              <div class="level-right">
-                <div class="level-item">
-                  <span class="icon has-text-info">
-                    <i class="fa fa-plug"></i>
-                  </span>
+
+
+
+              <div class="column">
+
+                <br/>
+
+            
+            
+                <div class="ui comments">
+                  <div class="comment">
+                    <a class="avatar">
+                      <img style="transform: scale(1.3);" src="https://freepikpsd.com/wp-content/uploads/2019/10/choose-icon-png-6-Transparent-Images.png">
+                    </a>
+                    <div class="content">
+                      <a class="author">Selecting the right version.</a>
+                     
+                      <div class="text">
+                        Learn from the best on how to quickly set up a Web Application environment.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                
+
+                <div class="ui comments">
+                  <div class="comment">
+                    <a class="avatar">
+                      <img src="https://www.docker.com/sites/default/files/d8/styles/role_icon/public/2019-07/Moby-logo.png?itok=sYH_JEaJ">
+                    </a>
+                    <div class="content">
+                      <a class="author">Containers</a>
+                     
+                      <div class="text">
+                        Learn how to deploy a database within 30 seconds. Count on It!
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="ui comments">
+                  <div class="comment">
+                    <a class="avatar">
+                      <img class="img1" style="transform: scale(1.3);" src="https://icon-library.com/images/4321-200_66070.png">
+                    </a>
+                    <div class="content">
+                      <a class="author">Microservices</a>
+                      <div class="text">
+                        Link projects with nodes to prepare them for deployment.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="ui comments">
+                  <div class="comment">
+                    <a class="avatar">
+                      <img style="transform: scale(1.3);" src="https://www.iconfinder.com/data/icons/space-exploration-and-next-big-things-17/512/705_Big_Cloud_Data_Storage-512.png">
+                    </a>
+                    <div class="content">
+                      <a class="author">SPICE</a>
+                     
+                      <div class="text">
+                        Learn how to expose your project to the entire world!
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+              <div class="column">
+
+                <br/>
+
+            
+            
+                <div class="ui comments">
+                  <div class="comment">
+                    <a class="avatar">
+                      <img src="https://www.svgrepo.com/show/71463/private-network.svg">
+                    </a>
+                    <div class="content">
+                      <a class="author">Firewall</a>
+                     
+                      <div class="text">
+                        Learn from the best on how to quickly set up a Web Application environment.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                
+
+                <div class="ui comments">
+                  <div class="comment">
+                    <a class="avatar">
+                      <img style="transform: scale(1.3);" class="img1" src="https://lh3.googleusercontent.com/proxy/ws_6lVMCly76fEg7CcjcGBbe8ra5Rp5L-IOnZ6JS6jG_O9W-jbOQ6yYuFWGD9vntnrW1xY54RTw0-vyqqDkANAhuV0j35l3ukpVOfS3fqrBOcUP0jNZU9Q">
+                    </a>
+                    <div class="content">
+                      <a class="author">DNS Management</a>
+                      <div class="text">
+                        Link projects with nodes to prepare them for deployment.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="ui comments">
+                  <div class="comment">
+                    <a class="avatar">
+                      <img class="img1" style="transform: scale(1.3);" src="https://freepikpsd.com/wp-content/uploads/2019/10/analyze-icon-png-4-Transparent-Images.png">
+                    </a>
+                    <div class="content">
+                      <a class="author">Monitoring</a>
+                      <div class="text">
+                        Link projects with nodes to prepare them for deployment.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="ui comments">
+                  <div class="comment">
+                    <a class="avatar">
+                      <img style="transform: scale(1.3);" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR-r4Jz0LnzKIHjDLERg1jiTQThFfZFkeXnvA&usqp=CAU">
+                    </a>
+                    <div class="content">
+                      <a class="author">Logging</a>
+                     
+                      <div class="text">
+                        Learn how to expose your project to the entire world!
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+
+              <div class="column">
+                <h1 class="title is-6 is-mega-menu-title">Sub Menu Title</h1>
+                <a class="navbar-item " href="/documentation/overview/start/">
+            Overview
+          </a>
+                <a class="navbar-item " href="http://bulma.io/documentation/modifiers/syntax/">
+            Modifiers
+          </a>
+                <a class="navbar-item " href="http://bulma.io/documentation/columns/basics/">
+            Columns
+          </a>
+                <a class="navbar-item " href="http://bulma.io/documentation/layout/container/">
+            Layout
+          </a>
+              </div>
+
+
+
+            </div>
+          </div>
+
+          <hr class="navbar-divider">
+          <div class="navbar-item">
+            <div class="navbar-content">
+              <div class="level is-mobile">
+                <div class="level-left">
+                  <div class="level-item">
+                    <strong>Stay up to date!</strong>
+                  </div>
+                </div>
+                <div class="level-right">
+                  <div class="level-item">
+                    <a class="button bd-is-rss is-small" href="http://bulma.io/atom.xml">
+                      <span class="icon is-small">
+                        <i class="fa fa-rss"></i>
+                      </span>
+                      <span>Subscribe</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </a>
+          </div>
         </div>
       </div>
+
+
+
+
+
+
+
+
+
       <a class="navbar-item " href="http://bulma.io/expo/">
         <span class="bd-emoji">🎨</span> &nbsp;Expo
       </a>
@@ -237,41 +475,35 @@
     </div>
 
     <div class="navbar-end">
-      <a class="navbar-item is-hidden-desktop-only" href="https://github.com/jgthms/bulma" target="_blank">
-        <span class="icon" style="color: #333;">
-          <i class="fa fa-github"></i>
-        </span>
-      </a>
+
       <a class="navbar-item is-hidden-desktop-only" href="https://twitter.com/jgthms" target="_blank">
         <span class="icon" style="color: #55acee;">
-          <i class="fa fa-twitter"></i>
+          <i class="al flag"></i>
         </span>
       </a>
+
       <div class="navbar-item">
         <div class="field is-grouped">
           <p class="control">
-            <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://bulma.io" target="_blank" href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&hashtags=bulmaio&url=http://bulma.io&via=jgthms">
-              <span class="icon">
-    <i class="fa fa-twitter"></i>
-  </span>
+            <a class="bd-tw-button button is-danger" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://bulma.io" target="_blank" href="/accounts/login/">
               <span>
-    Tweet
+         
+    Log in
   </span>
             </a>
 
           </p>
           <p class="control">
-            <a class="button is-primary" href="https://github.com/jgthms/bulma/archive/0.5.1.zip">
-              <span class="icon">
-                <i class="fa fa-download"></i>
-              </span>
-              <span>Download</span>
+            <a class="button is-info" href="https://github.com/jgthms/bulma/archive/0.5.1.zip">
+              <span>Sign up</span>
             </a>
           </p>
         </div>
       </div>
     </div>
   </div>
+
+
 </nav>
 
 
