@@ -326,21 +326,82 @@
 
 
               <div class="column">
-                <h1 class="title is-6 is-mega-menu-title">Sub Menu Title</h1>
-                <a class="navbar-item " href="/documentation/overview/start/">
-            Overview
-          </a>
-                <a class="navbar-item " href="http://bulma.io/documentation/modifiers/syntax/">
-            Modifiers
-          </a>
-                <a class="navbar-item " href="http://bulma.io/documentation/columns/basics/">
-            Columns
-          </a>
-                <a class="navbar-item " href="http://bulma.io/documentation/layout/container/">
-            Layout
-          </a>
-              </div>
+                <br/>
+                <h1 style="color: #198de6;">Redundancy</h1>
+                <div class="ui divider"></div>
+               
+             
+                
+                <div class="enclosing">
+                  <div class="ui comments">
+                    <div class="comment">
+                      <a class="avatar">
+                        <img style="transform: scale(1.2);" src="https://webstockreview.net/images/photograph-clipart-snapshot.png">
+                      </a>
+                      <div class="content">
+                        <div class="author">Snapshots</div>
+                       
+                        <div class="text">
+                          Learn how to expose your project to the entire world!
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
+                <div class="enclosing">
+                  <div class="ui comments">
+                    <div class="comment">
+                      <a class="avatar">
+                        <img style="transform: scale(1.3);" src="https://lh3.googleusercontent.com/proxy/6rOMPsujORkRfLdKXZjpZ0ZAnksDGw2x9JQg7rJU5yxBDJlBvnplaIxmOrUf9uXjH-KhttcaZdELt5KjDxBOOjUIBerr42_x0zVrCxwcjeXijejqzA">
+                      </a>
+                      <div class="content">
+                        <div class="author">Volumes</div>
+                       
+                        <div class="text">
+                          Learn how to expose your project to the entire world!
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="enclosing">
+                  <div class="ui comments">
+                    <div class="comment">
+                      <a class="avatar">
+                        <img style="transform: scale(1.8);" src="https://www.flaticon.com/svg/static/icons/svg/1349/1349935.svg">
+                      </a>
+                      <div class="content">
+                        <div class="author">P2P Distribution <span class="tag is-black is-rounded">BETA</span></div>
+                       
+                        <div class="text">
+                          Whether you are a developer or not, It's now easier than ever.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="enclosing">
+                  <div class="ui comments">
+                    <div class="comment">
+                      <a class="avatar">
+                        <img style="transform: scale(1.4);" src="https://www.pinclipart.com/picdir/big/124-1244440_database-backup-icon-data-backup-icon-png-clipart.png">
+                      </a>
+                      <div class="content">
+                        <div class="author">Double Storage</div>
+                       
+                        <div class="text">
+                          Grow faster with a thriving community. Get help, help others and collaborate.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                
+              </div>
             </div>
 
           </div>
@@ -523,7 +584,7 @@
                 <br/>
 
             
-               <div class="enclosing">
+               <div class="enclosing modal-button">
                 <div class="ui comments">
                   <div class="comment">
                     <a class="avatar">
@@ -620,11 +681,44 @@
         </div>
       </div>
 
+ 
+
+      <div class="ui modal test">
+        <i class="close icon"></i>
+        <div class="header">
+          Profile Picture
+        </div>
+        <div class="image content">
+          <div class="ui medium image">
+            <img src="https://semantic-ui.com/images/avatar2/large/rachel.png">
+          </div>
+          <div class="description">
+            <div class="ui header">We've auto-chosen a profile image for you.</div>
+            <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+            <p>Is it okay to use this photo?</p>
+          </div>
+        </div>
+        <div class="actions">
+          <div class="ui black deny button">
+            Nope
+          </div>
+          <div class="ui positive right labeled icon button">
+            Yep, that's me
+            <i class="checkmark icon"></i>
+          </div>
+        </div>
+      </div>
 
 
+      <script>
+        $(document).ready(function(){
+	$(".modal-button").click(function(){
+    $(".test").modal('show');
+	})
 
 
-
+})
+     </script>
 
 
 
@@ -709,3 +803,5 @@ if ($navbarBurgers.length > 0) {
 
 });
 </script>
+
+
