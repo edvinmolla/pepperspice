@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="ui container">
         	<div id="mainContainer" class="ui compact basic left aligned segment" style="min-width:400px; margin:auto;">
                 <div class="ui ">
@@ -51,7 +51,6 @@
                 </div>
             </div>
         </div>
-<!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/3.0.0/jquery.payment.js'></script>
@@ -308,4 +307,215 @@ $('#payment-form').on('submit', function(){
     console.log('Badman Cardfaker');
   }
 });
-</script>
+</script> -->
+
+
+
+
+  
+  <div class="card">
+    <div class="card__section card__section--border-bottom">
+      <h2 class="heading">Tell us about yourself</h2>   
+      <p>We want to get to know you</p>
+    </div>
+    <div class="card__section card__section--collapse">
+      <form class="form">
+        <div class="form__input-group">
+          <div class="form__input">
+            <label>First name</label>
+            <input type="text" placeholder="" />
+          </div>
+          <div class="form__input">
+            <label>Last name</label>
+            <input type="text" placeholder="" />
+          </div>
+        </div>
+        <div class="form__input-group">
+          <div class="form__input">
+            <label>Email</label>
+            <input type="text" placeholder="" />
+          </div>
+                  <div class="form__input">
+            <label>Phone (optional)</label>
+            <input type="text" placeholder="" />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="card__section card__section--border-top">
+      <button class="primary">Save</button>
+      <button class="secondary">Cancel</button>
+    </div>
+  </div>
+
+
+  <style>
+  
+
+.page-title {
+  font-weight: 600;
+  font-size: 2.8rem;
+  float: left;
+}
+
+.card {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  background: #FFF;
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
+  border-radius: 3px;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.card__section {
+  padding: 2rem 2rem 0 2rem;
+}
+.card__section:after {
+  display: table;
+  content: "";
+  clear: both;
+}
+.card__section--border-bottom {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #dedede;
+}
+.card__section--border-top {
+  padding-top: 2rem;
+  border-top: 1px solid #dedede;
+}
+.card__section--collapse {
+  padding: 1rem 2rem 1rem 2rem;
+}
+.card__section button {
+  display: inline;
+  float: left;
+  margin-right: .8rem;
+}
+
+button {
+  font-size: 1.6rem;
+  padding: 1.2rem 1.2rem;
+  background: #172B4D;
+  border: 1px solid #172B4D;
+  color: #FFF;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transition: .25s ease;
+  transition: .25s ease;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0);
+}
+button:hover, button:focus {
+  background: #FFF;
+  color: #172B4D;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+button.secondary {
+  background: #F4F6F8;
+  border-color: #B9BFC9;
+  color: #172B4D;
+}
+button.secondary:hover, button.secondary:focus {
+  border-color: #172B4D;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+button.primary {
+  background: #0052CC;
+  border-color: #0052CC;
+  color: #FFF;
+}
+button.primary:hover, button.primary:focus {
+  background-color: #0043a6;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+.heading {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+p {
+  margin-top: .8rem;
+}
+
+.form__input-group {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form__input {
+  width: 100%;
+  margin-bottom: 1.6rem;
+  -webkit-box-flex: 1;
+          flex: 1 1;
+  margin-top: 1.6rem;
+  min-width: 22rem;
+  max-width: calc(100% - 2rem);
+}
+.form__input:nth-of-type(even) {
+  margin-left: 2rem;
+}
+.form__input label {
+  font-size: 1.6rem;
+  margin-bottom: .4rem;
+  display: block;
+  font-weight: 600;
+}
+.form__input input {
+  width: 100%;
+  display: block;
+  padding: 1.2rem;
+  font-size: 1.6rem;
+  border: 1px solid #B9BFC9;
+  border-radius: 3px;
+  -webkit-transition: .15s ease;
+  transition: .15s ease;
+  background: #FFF;
+}
+.form__input input:focus {
+  outline: 0;
+  border-color: #0052CC;
+  box-shadow: 0 0 0 1px #0052CC, 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+a {
+  color: #0052CC;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 4rem 2rem;
+  }
+
+  header {
+    margin-bottom: 1.6rem;
+  }
+
+  button {
+    font-size: 1.4rem;
+  }
+
+  .page-title {
+    font-size: 2.1rem;
+  }
+
+  .form__input-group {
+    margin-bottom: 1.6rem;
+  }
+  .form__input-group .form__input {
+    width: 100%;
+  }
+  .form__input-group .form__input:first-child {
+    padding-right: 0;
+  }
+  .form__input-group .form__input:last-child {
+    padding-left: 0;
+  }
+}
+
+  </style>
