@@ -13,8 +13,8 @@
 
   <meta content="width=device-width, initial-scale=1.0" name=viewport />
 
-
-
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 </head>
 
@@ -28,14 +28,17 @@
       background-color: white !important;
    }
 
-
 </style>
 
 
  
   <body>
   
-  
+ 
+    <script>
+
+    AOS.init();
+    </script>
   
    {% include 'html/gen-comp/navbar2.html' %}
 
@@ -49,7 +52,7 @@
                   <div class=container>
                      <div class="columns is-vcentered">
                         <div class="column is-6 ">
-                            <div class=section-media>
+                            <div class=section-media data-aos="fade-down" data-aos-once="true" data-aos-duration="1000" >
                                <img  role=presentation src="https://cdn.dribbble.com/users/1068771/screenshots/10471678/media/bbc88ecd8cafffa66996e922c720eb3f.jpg" srcset=" https://cdn.dribbble.com/users/1068771/screenshots/10471678/media/bbc88ecd8cafffa66996e922c720eb3f.jpg 1x, /assets/images/hero/Hero-Karlotta@2x-cc57e26e.jpg?1588602936 2x"/> 
                             </div>
                          </div>
@@ -57,14 +60,14 @@
  
                         <div class="column is-6 is-5-fullhd is-offset-1-fullhd">
                            <div class=section-header>
-                              <h1 class="title is-spaced" style="font-size: 50px; color: black;"> 29 seconds<span class=is-hidden-touch><br></span></h1>
-                              <h2 class="subtitle is-3" style="color: 	#2ed6af;"> We connect businesses of all types, helping everyone grow together, faster.</h2>
+                              <h1 class="title is-spaced" style="font-size: 50px; color: black;" data-aos="fade-down" data-aos-once="true" > 29 seconds<span class=is-hidden-touch><br></span></h1>
+                              <h2 class="subtitle is-3" style="color: 	#2ed6af;" data-aos="fade-left" data-aos-once="true" data-aos-duration="1000">  We connect businesses of all types, helping everyone grow together, faster.</h2>
                               <!-- <h2 class="subtitle is-3"> Grow at the speed of light.</h2> -->
                               <div class="field is-grouped">
-                                 <div class=control> <a class="button is-black is-medium" href="#platform">How does it work?</a> </div>
-                                 <div class=control> <a class="button  is-medium" href="/library">Examples</a> </div>
+                                 <div class=control> <a class="button is-black is-medium" href="#platform" data-aos="fade-right" data-aos-once="true" data-aos-duration="1000">How does it work?</a> </div>
+                                 <div class=control> <a class="button  is-medium" href="/library" data-aos="fade-left" data-aos-once="true" data-aos-duration="1000">Examples</a> </div>
                               </div>
-                              <small>Try out PepperSpice for 31 days, free of charge.</small>
+                              <small data-aos="fade" data-aos-once="true" data-aos-duration="1700">Try out PepperSpice for 31 days, free of charge.</small>
                              
                            </div>
                         </div>
@@ -80,12 +83,12 @@
                   <div class="columns">
                       <div class="container">
                           <div class="columns">
-                              <div class="column">
-                                  <article class="media">
+                              <div class="column" >
+                                  <article class="media" data-aos="fade-up" data-aos-once="true" data-aos-duration="1100">
                                       <div class="media-left">
                                        <img style="transform: scale(.8);padding-left: 10px;" src="https://www.flaticon.com/svg/static/icons/svg/2972/2972554.svg" width="100">
                                       </div>
-                                      <div class="media-content">
+                                      <div class="media-content" >
                                           <div class="content">
                                               <p>
                                                   <strong>Time Flies</strong>
@@ -94,11 +97,11 @@
                                           </div>
                                       </div>
                                   </article>
-                                  <article class="media">
+                                  <article class="media" data-aos="fade-up" data-aos-once="true" data-aos-duration="1500">
                                       <div class="media-left">
                                        <img style="transform: scale(.8);padding-left: 10px;" src="https://www.flaticon.com/svg/static/icons/svg/1055/1055660.svg" width="100">
                                       </div>
-                                      <div class="media-content">
+                                      <div class="media-content" >
                                           <div class="content">
                                               <p>
                                                   <strong>Secure at all times</strong>
@@ -109,11 +112,11 @@
                                   </article>
                               </div>
                               <div class="column">
-                                  <article class="media">
+                                  <article class="media" data-aos="fade-up" data-aos-once="true" data-aos-duration="1300">
                                       <div class="media-left">
                                        <img style="transform: scale(.8);padding-left: 10px;" src="https://www.flaticon.com/svg/static/icons/svg/2405/2405970.svg" width="100">
                                       </div>
-                                      <div class="media-content">
+                                      <div class="media-content" >
                                           <div class="content">
                                               <p>
                                                   <strong>Efficient Storage</strong>
@@ -122,11 +125,11 @@
                                           </div>
                                       </div>
                                   </article>
-                                  <article class="media">
+                                  <article class="media" data-aos="fade-up" data-aos-once="true" data-aos-duration="1700">
                                       <div class="media-left">
                                        <img style="transform: scale(.8);padding-left: 10px;" src="https://www.flaticon.com/svg/static/icons/svg/2835/2835538.svg" width="100">
                                       </div>
-                                      <div class="media-content">
+                                      <div class="media-content" >
                                           <div class="content">
                                               <p>
                                                   <strong>Lowest Costs</strong>
@@ -143,20 +146,20 @@
 
 
              
-              <section class="container " style="margin-top: 10%;">
-               <div class="columns is-multiline " > 
+              <section class="container" style="margin-top: 10%;">
+               <div class="columns is-multiline "> 
                  <div class="column is-12 " >
-                   <div class="columns">
-                     <div class="column left">
+                   <div class="columns" >
+                     <div class="column left" data-aos="fade-right" data-aos-once="true" data-aos-duration="1000">
                        <h1 class="title is-2">We are here for All.</h1>
                        <h2 class="subtitle colored is-4">Supporting Startups and Businesses.</h2>
                        <p>Learn how we manage to support Startups and Businesses grow faster, by using valuable communication and excellent services.</p>
                        
-                       <div class="control mt-6"> <a class="button is-black is-medium" href="#">Learn more</a> </div>
+                       <div class="control mt-6"> <a class="button is-black is-medium" href="#" data-aos="fade-right" data-aos-once="true" data-aos-duration="1100">Learn more</a> </div>
                      </div>
                      <div class="column right">
 
-                        <div class="intro-column is-video">
+                        <div class="intro-column is-video" data-aos="fade-left" data-aos-once="true" data-aos-duration="1100">
                            <div id="introVideo" class="intro-video has-loaded">
                              <div class="intro-spinner"></div>
                              <div class="intro-iframe">
@@ -194,8 +197,8 @@
 
                                 
                                 <div class="tile">
-                                    <div class="tile is-parent is-vertical modal-button1">
-                                        <a class="tile is-child category-box is-primary">
+                                    <div class="tile is-parent is-vertical modal-button1" >
+                                        <a class="tile is-child category-box is-primary" >
                                             <img style="transform: scale(1.2);" src="https://lh3.googleusercontent.com/proxy/B5pQTEiePVNHQbgm7MODE93Ie_qPl5SISn7cDuebqLeNewV7rdd6t6uyH-xyGP5wMf305nVhjEn96R_BtL-mZxSuYcU6zGLajWB9WE_lXjG9vnBLabxzp9H5U_k4kMt3Ww" alt="">
                                             <div class="box-content">
                                                 <h3 class="title is-6">Software Development</h3>
