@@ -7,7 +7,7 @@
    
     <a class='navbar-brand page-scroll' href='/'>
 
-      <img src="{% static 'wallpapers_logos/universal/logo2.png' %}" width="200px">
+      <img style="max-height: 50px; max-width: 170px;" class="pt-2" src="{% static 'wallpapers_logos/universal/logo2.png' %}">
     </a>
 
     <div class="navbar-burger burger" data-target="navMenubd-example">
@@ -49,7 +49,7 @@
           <div class="navbar-item">
             <div>
               <p class="is-size-6-desktop">
-                <strong class="has-text-info">Comming soon</strong>
+                <strong class="has-text-info">Coming soon</strong>
               </p>
 
               <small>
@@ -560,7 +560,7 @@
 
 
 
-
+<!-- 
       <div class="navbar-item has-dropdown is-hoverable is-mega">
         <div class="navbar-link flex font-assign" style="color: black;">
           Support
@@ -821,9 +821,29 @@
          
           
         </div>
-      </div>
+      </div> -->
 
- 
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link font-assign">
+          Support
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            User Forum
+          </a>
+          <a class="navbar-item">
+            Technical Q&A
+          </a>
+          <a class="navbar-item">
+            Contant
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Emergency Hotline
+          </a>
+        </div>
+      </div>
     
 {% include 'html/gen-comp/articles/firewall.html' %}
     
@@ -834,10 +854,10 @@
 
 
 
-      <a class="navbar-item font-assign" href="http://bulma.io/expo/">
+      <a class="navbar-item font-assign" href="#">
        Pricing
       </a>
-      <a class="navbar-item font-assign" href="http://bulma.io/love/">
+      <a class="navbar-item font-assign" href="#">
        Examples
       </a>
     </div>
@@ -847,7 +867,7 @@
     <div class="navbar-end">
 
 
-      <div class="navbar-item">
+      <!-- <div class="navbar-item">
         <div class="field is-grouped">
           <p class="control">
             <a class="bd-tw-button button is-danger font-assign" target="_blank" href="/accounts/login/" style="background-color: #2ed6af;">
@@ -864,7 +884,7 @@
             </a>
           </p>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
   </div>
