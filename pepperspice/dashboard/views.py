@@ -63,21 +63,21 @@ def dashboard(request):
         for app in ready_to_deploy:
             ready_to_deploy_count += 1
 
-
-        return render(request, 'html/spec-comp/dashboard/overview.html', {'instances':Node.objects.filter(Email=request.user), 
-                                                                            'initials':str(request.user).split('@')[0],
-                                                                            'webapps':Node.objects.filter(is_webapp=True), 
-                                                                            # 'dbs': Node.objects.filter(is_db=True),
-                                                                            'uuid':uuid.uuid4().hex,
-                                                                            'dbs':DBNode.objects.filter(Email=request.user),
-                                                                            'webapplications': web_app_count, 
-                                                                            'databases':database_count,
-                                                                            'datenow':datetime.now(),
-                                                                            'ready_to_deploy_count':ready_to_deploy_count,
-                                                                            'databases_currently':DBNode.objects.filter(Email=request.user).count(),
-                                                                            'dbms_username':dbms_user_name,
-                                                                            'dbms_password':dbms_user_password,
-                                                                            'dbms_status':dbms_status})
+        return render(request, 'html/spec-comp/dashboard/entrypoint.html', {})
+        # return render(request, 'html/spec-comp/dashboard/overview.html', {'instances':Node.objects.filter(Email=request.user), 
+        #                                                                     'initials':str(request.user).split('@')[0],
+        #                                                                     'webapps':Node.objects.filter(is_webapp=True), 
+        #                                                                     # 'dbs': Node.objects.filter(is_db=True),
+        #                                                                     'uuid':uuid.uuid4().hex,
+        #                                                                     'dbs':DBNode.objects.filter(Email=request.user),
+        #                                                                     'webapplications': web_app_count, 
+        #                                                                     'databases':database_count,
+        #                                                                     'datenow':datetime.now(),
+        #                                                                     'ready_to_deploy_count':ready_to_deploy_count,
+        #                                                                     'databases_currently':DBNode.objects.filter(Email=request.user).count(),
+        #                                                                     'dbms_username':dbms_user_name,
+        #                                                                     'dbms_password':dbms_user_password,
+        #                                                                     'dbms_status':dbms_status})
     else:
         return redirect('/accounts/login/')
 
