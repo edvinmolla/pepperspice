@@ -629,10 +629,43 @@ $('#overview-content').removeClass('is-active');
                                     </div>
                                     <a class="button is-rounded is-danger mb-2" style="float: right;" href="/accounts/logout/">Log Out <i class="fas fa-sign-out-alt pl-2"></i></a>
                                     
-                                    <!-- Work block -->
-                                    <div class="flex-block">
+
+
+
+
+
+
+                                    <div class="expanding-box" style="border: 2px solid red;">
+
+                                        <style>
+                                          .list-app {
+                                            
+                                            display: none;
+                                          }
+                                        </style>
+                                        
+<script>
+
+$( document ).ready(function() {
+    $(function () {
+    $(".list-app").slice(0, 2).show().css('display', 'flex');
+    $("#loadMore").on('click', function (e) {
+        e.preventDefault();
+        $(".list-app:hidden").slice(0, 2).slideDown().css('display', 'flex');
+        
+     
+  		 
+    });    
+});
+});
+
+
+</script>
+                                    
+                                
+                                    <div class="flex-block list-app">
                                         <img data-demo-src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png" alt="" data-page-popover="4" style="border-radius: 0px !important;">
-                                        <div class="flex-block-meta">
+                                        <div class="flex-block-meta bttn">
                                             <span>Laravel app: <a>aplikacioni2</a></span>
                                             <a class="action-link">Region: Albania</a>
                                         </div>
@@ -640,8 +673,8 @@ $('#overview-content').removeClass('is-active');
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                                         </div>
                                     </div>
-                                    <!-- Education block -->
-                                    <div class="flex-block">
+                                    
+                                    <div class="flex-block list-app">
                                         <img data-demo-src="https://banner2.cleanpng.com/20180711/rtc/kisspng-django-web-development-web-framework-python-softwa-django-5b45d913f29027.4888902515313042119936.jpg" alt="" data-page-popover="6" style="border-radius: 0px !important;">
                                         <div class="flex-block-meta">
                                             <span>Django app: <a>sdfsefdz</a></span>
@@ -651,8 +684,8 @@ $('#overview-content').removeClass('is-active');
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                                         </div>
                                     </div>
-                                    <!-- Location block -->
-                                    <div class="flex-block">
+                                    
+                                    <div class="flex-block list-app">
                                         <img data-demo-src="https://www.pngitem.com/pimgs/m/93-937871_wordpress-training-course-outline-vector-wordpress-logo-png.png" alt="" data-page-popover="8" style="border-radius: 0px !important;">
                                         <div class="flex-block-meta">
                                             <span>Wordpress app: <a>regsfdgdv</a></span>
@@ -662,8 +695,8 @@ $('#overview-content').removeClass('is-active');
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                                         </div>
                                     </div>
-                                    <!-- Family block -->
-                                    <div class="flex-block">
+                                    
+                                    <div class="flex-block list-app">
                                         <img src="assets/img/avatars/dan.jpg" data-demo-src="assets/img/avatars/dan.jpg" data-user-popover="1" alt="">
                                         <div class="flex-block-meta">
                                             <span>Unknown app: <a>adasdawd</a></span>
@@ -673,9 +706,44 @@ $('#overview-content').removeClass('is-active');
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                                         </div>
                                     </div>
-                                    
 
-                                    <div class="box-heading mt-6">
+                                    <div class="flex-block list-app">
+                                        <img data-demo-src="https://www.pngitem.com/pimgs/m/93-937871_wordpress-training-course-outline-vector-wordpress-logo-png.png" alt="" data-page-popover="8" style="border-radius: 0px !important;">
+                                        <div class="flex-block-meta">
+                                            <span>Wordpress app: <a>regsfdgdv</a></span>
+                                            <a class="action-link">Region: Amsterdam</a>
+                                        </div>
+                                        <div class="go-button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex-block list-app">
+                                        <img data-demo-src="https://www.pngitem.com/pimgs/m/93-937871_wordpress-training-course-outline-vector-wordpress-logo-png.png" alt="" data-page-popover="8" style="border-radius: 0px !important;">
+                                        <div class="flex-block-meta">
+                                            <span>Wordpress app: <a>regsfdgdv</a></span>
+                                            <a class="action-link">Region: Amsterdam</a>
+                                        </div>
+                                        <div class="go-button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex-block list-app">
+                                        <img data-demo-src="https://www.pngitem.com/pimgs/m/93-937871_wordpress-training-course-outline-vector-wordpress-logo-png.png" alt="" data-page-popover="8" style="border-radius: 0px !important;">
+                                        <div class="flex-block-meta">
+                                            <span>Wordpress app: <a>regsfdgdv</a></span>
+                                            <a class="action-link">Region: Amsterdam</a>
+                                        </div>
+                                        <div class="go-button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <a href="#" id="loadMore">Load More</a>
+                                    <!-- <div class="box-heading mt-6">
                                         <h4>Videos</h4>
                                         <div class="dropdown is-neutral is-spaced is-right dropdown-trigger">
                                             <div>
@@ -734,8 +802,13 @@ $('#overview-content').removeClass('is-active');
                                             <div class="video-overlay"></div>
                                         </div>
             
-                                    </div>
+                                    </div> -->
+
+
+
+
                                 </div>
+                                
                              
                             </div>
                         </div>
@@ -1852,9 +1925,9 @@ $('#overview-content').removeClass('is-active');
                                 <img src="assets/img/avatars/nelly.png" data-demo-src="assets/img/avatars/nelly.png" alt="">
                             </div>
                             <div class="job-content">
-                                <h4>Nelly has a new job!</h4>
-                                <p>Send her message congratulating her for getting this job.</p>
-                                <button type="button" class="button light-button">Write Message</button>
+                                <h4>Perfitoni krei me 0% interes!</h4>
+                                <p>asdasdasdsdasadsda.</p>
+                                <button type="button" class="button light-button">asdsdasdas</button>
                             </div>
                         </div>
                     </div>
