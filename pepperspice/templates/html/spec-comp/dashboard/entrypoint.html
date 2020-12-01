@@ -635,23 +635,31 @@ $('#overview-content').removeClass('is-active');
 
 
 
-                                    <div class="expanding-box" style="border: 2px solid red;">
+                                    <div class="expanding-box" style="">
 
                                         <style>
                                           .list-app {
-                                            
+                                    
                                             display: none;
+                                            transition: 3s !important;
                                           }
                                         </style>
                                         
 <script>
 
 $( document ).ready(function() {
+    
     $(function () {
     $(".list-app").slice(0, 2).show().css('display', 'flex');
+    $(".list-app:hidden").fadeOut();
     $("#loadMore").on('click', function (e) {
         e.preventDefault();
-        $(".list-app:hidden").slice(0, 2).slideDown().css('display', 'flex');
+
+        $(".list-app:hidden").slice(0, 2).fadeIn(100).css({
+            'display': 'flex'
+          
+    }
+    );
         
      
   		 
