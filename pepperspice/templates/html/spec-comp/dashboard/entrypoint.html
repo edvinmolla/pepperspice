@@ -130,9 +130,12 @@ $('#overview-content').removeClass('is-active');
     
     <div class="view-wrapper" style="padding: 20px 100px;">
 
+      
        
         <div class="feed-profile-wrapper" style="max-width: 1300px !important;">
 
+
+            
   
             <div id="albums-modal" class="modal albums-modal is-xxl has-light-bg">
                 <div class="modal-background"></div>
@@ -444,6 +447,7 @@ $('#overview-content').removeClass('is-active');
        
            
            
+            
             <div class="column">
 
                 <!-- About sections -->
@@ -490,14 +494,14 @@ $('#overview-content').removeClass('is-active');
                                 <div class="left-menu-inner">
                                     <div class="menu-item is-active btn1" data-content="overview-content" >
                                         <div class="menu-icon" style="box-shadow: none !important; -webkit-box-shadow: none !important;">
-                                            <i class="fas fa-server"></i>
-                                            <span style="padding-left: 10px;">Live Nodes</span>
+                                            <i class="fas fa-server" style="padding-left: 5px;"></i>
+                                            <span style="padding-left: 10px;">Applications & API's</span>
                                         </div>
                                     </div>
                                     <div class="menu-item btn2" data-content="personal-content">
                                         <div class="menu-icon" style="box-shadow: none !important; -webkit-box-shadow: none !important;">
-                                            <i class="fas fa-database"></i>
-                                            <span style="padding-left: 10px;">Database</span>
+                                            <i class="fas fa-database" style="padding-left: 5px;"></i>
+                                            <span style="padding-left: 10px;">Databases</span>
                                         </div>
                                     </div>
                                     <div class="menu-item btn3" data-content="education-content">
@@ -575,65 +579,79 @@ $('#overview-content').removeClass('is-active');
                         
                         
                     </script>
+
+                    
                     <div class="right-content">
+
+                        <div class="column">
+                                       
+                                        
+                            <div class="dropdown is-spaced is-accent dropdown-trigger">
+                                <div>
+                                    <a class="button is-rounded mb-2">New<i class="fas fa-plus pl-2"></i></a>
+                                </div>
+                                <div class="dropdown-menu" role="menu">
+                                    <div class="dropdown-content">
+                                        <a href="#" class="dropdown-item">
+                                            <div class="media">
+                                                <i data-feather="codesandbox"></i>
+                                                <div class="media-content">
+                                                    <h3>Web Application</h3>
+                                                    <small>Add new application easily.</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item">
+                                            <div class="media">
+                                                <i data-feather="database"></i>
+                                                <div class="media-content">
+                                                    <h3>Database</h3>
+                                                    <small>Add a new database fast.</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item">
+                                            <div class="media">
+                                                <i data-feather="layout"></i>
+                                                <div class="media-content">
+                                                    <h3>REST API</h3>
+                                                    <small>Add a new database fast.</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <hr class="dropdown-divider">
+                                        <a href="#" class="dropdown-item">
+                                            <div class="media">
+                                                <i data-feather="layers"></i>
+                                                <div class="media-content">
+                                                    <h3>Project</h3>
+                                                    <small>Upload project securely.</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="button is-rounded is-danger mb-2" style="float: right;" href="/accounts/logout/">Log Out <i class="fas fa-sign-out-alt pl-2"></i></a>
+                           
+                
+                        </div>
                         <div id="overview-content" class="content-section is-active">
+                            
                             <div class="columns">
+
+                                
                                 
                                 <div class="column">
                                     
-                                    <div class="dropdown is-spaced is-accent dropdown-trigger">
-                                        <div>
-                                            <a class="button is-rounded mb-2">New<i class="fas fa-plus pl-2"></i></a>
-                                        </div>
-                                        <div class="dropdown-menu" role="menu">
-                                            <div class="dropdown-content">
-                                                <a href="#" class="dropdown-item">
-                                                    <div class="media">
-                                                        <i data-feather="codesandbox"></i>
-                                                        <div class="media-content">
-                                                            <h3>Web Application</h3>
-                                                            <small>Add new application easily.</small>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a class="dropdown-item">
-                                                    <div class="media">
-                                                        <i data-feather="database"></i>
-                                                        <div class="media-content">
-                                                            <h3>Database</h3>
-                                                            <small>Add a new database fast.</small>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a class="dropdown-item">
-                                                    <div class="media">
-                                                        <i data-feather="layout"></i>
-                                                        <div class="media-content">
-                                                            <h3>REST API</h3>
-                                                            <small>Add a new database fast.</small>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <hr class="dropdown-divider">
-                                                <a href="#" class="dropdown-item">
-                                                    <div class="media">
-                                                        <i data-feather="layers"></i>
-                                                        <div class="media-content">
-                                                            <h3>New Project</h3>
-                                                            <small>Upload project securely.</small>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a class="button is-rounded is-danger mb-2" style="float: right;" href="/accounts/logout/">Log Out <i class="fas fa-sign-out-alt pl-2"></i></a>
+                                  
                                     
 
 
+                                    
 
-
-
+                                   
+                                  
 
                                     <div class="expanding-box" style="transition: 0.2s !important; height: 240px;">
 
@@ -641,7 +659,7 @@ $('#overview-content').removeClass('is-active');
                                           .list-app {
                                             opacity: 0;
                                             display: none;
-                                            -webkit-transition: 4s  !important;
+                                            -webkit-transition: 5s  !important;
                                           }
                                         </style>
                                         
@@ -674,6 +692,9 @@ $( document ).ready(function() {
 
 </script>
                                     
+
+
+
                                 
                                     <div class="flex-block list-app">
                                         <img data-demo-src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png" alt="" data-page-popover="4" style="border-radius: 0px !important;">
