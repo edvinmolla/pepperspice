@@ -134,6 +134,313 @@ $('#overview-content').removeClass('is-active');
         <div class="feed-profile-wrapper" style="max-width: 1300px !important;">
 
   
+            <div id="albums-modal" class="modal albums-modal is-xxl has-light-bg">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+        
+                    <div class="card">
+                        <div class="card-heading">
+                            <h3>New album</h3>
+                            <div class="button is-solid accent-button fileinput-button dz-clickable">
+                                <i class="mdi mdi-plus"></i>
+                                Add pictures/videos
+                            </div>
+        
+                            <!-- Close X button -->
+                            <div class="close-wrap">
+                                <span class="close-modal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="left-section">
+                                <div class="album-form">
+                                    <div class="control">
+                                        <input type="text" class="input is-sm no-radius is-fade" placeholder="Album name">
+                                        <div class="icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-camera"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                                        </div>
+                                    </div>
+                                    <div class="control">
+                                        <textarea class="textarea is-fade no-radius is-sm" rows="3" placeholder="describe your album ..."></textarea>
+                                    </div>
+                                    <div class="control">
+                                        <input type="text" class="input is-sm no-radius is-fade" placeholder="Place">
+                                        <div class="icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div id="album-date" class="album-date">
+                                    <div class="head">
+                                        <h4>Change the date</h4>
+                                        <button type="button" class="button is-solid dark-grey-button icon-button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                        </button>
+                                    </div>
+        
+                                    <p>Set a date for your album. You can always change it later.</p>
+                                    <div class="control is-hidden">
+                                        <input id="album-datepicker" type="text" class="input is-sm is-fade" placeholder="Select a date">
+                                        <div class="icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div id="tagged-in-album" class="tagged-in-album">
+                                    <div class="head">
+                                        <h4>Tag friends in this album</h4>
+                                        <button type="button" class="button is-solid dark-grey-button icon-button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                        </button>
+                                    </div>
+        
+                                    <p>Tag friends in this album. Tagged friends can see photos they are tagged in.</p>
+                                    <div class="field is-autocomplete is-hidden">
+                                        <div class="control">
+                                            <div class="easy-autocomplete" style="width: 0px;"><input id="create-album-friends-autocpl" type="text" class="input is-sm is-fade" placeholder="Search for friends" autocomplete="off"><div class="easy-autocomplete-container" id="eac-container-create-album-friends-autocpl"><ul></ul></div></div>
+                                            <div class="icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                    <div id="album-tag-list" class="album-tag-list"></div>
+        
+                                </div>
+        
+                                <div class="shared-album">
+                                    <div class="head">
+                                        <h4>Allow friends to add photos</h4>
+                                        <div class="basic-checkbox">
+                                            <input class="styled-checkbox" id="styled-checkbox-1" type="checkbox" value="value1">
+                                            <label for="styled-checkbox-1"></label>
+                                        </div>
+                                    </div>
+        
+                                    <p>Tagged friends will be able to share content inside this album.</p>
+                                </div>
+        
+                            </div>
+                            
+                            <div class="right-section has-slimscroll">
+                                <div class="columns has-portrait-padding">
+                                    <div class="column is-4">
+                
+                                        <!-- Community widget -->
+                                        <!-- html/partials/pages/widgets/page-community-widget.html -->
+                                        <div class="box-heading">
+                                            <h4>Info</h4>
+                                            <div class="dropdown is-neutral is-spaced is-right dropdown-trigger">
+                                                <div>
+                                                    <div class="button">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown-menu" role="menu">
+                                                    <div class="dropdown-content">
+                                                        <a href="profile-about.html" class="dropdown-item">
+                                                            <div class="media">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                                                <div class="media-content">
+                                                                    <h3>View</h3>
+                                                                    <small>View user details.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a href="#" class="dropdown-item">
+                                                            <div class="media">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                                                <div class="media-content">
+                                                                    <h3>Related</h3>
+                                                                    <small>Search for related users.</small>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                        <div class="basic-infos-wrapper">
+                                            <div class="card is-community">
+                                                <h4>Community</h4>
+                                                <div class="flex-block">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                                    <p><a>Invite your friends</a> to follow this page</p>
+                                                </div>
+                                                <div class="flex-block">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+                                                    <p>150K people like this page</p>
+                                                </div>
+                                                <div class="flex-block">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cast"><path d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"></path><line x1="2" y1="20" x2="2.01" y2="20"></line></svg>
+                                                    <p>90K people are following this</p>
+                                                </div>
+                                            </div>
+                
+                                            <div class="card is-about mt-3">
+                                                <h4>About</h4>
+                                                <div class="flex-block">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                                    <p><a>Send a Message</a></p>
+                                                </div>
+                                                <div class="flex-block">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                                                    <p><a>Commercial Company</a></p>
+                                                </div>
+                                                <div class="flex-block">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                                                    <p><a>Suggest Changes</a></p>
+                                                </div>
+                                            </div>
+                
+                                           
+                                        </div>
+                                        
+                                    </div>
+                
+                                    <div class="column is-8">
+                
+                                        <div class="card page-about-card">
+                                            <div class="card-title">
+                                                <h4>About Fast Pizza</h4>
+                                                <a href="https://www.fastpizza.com/index.intl.html" target="_blank" class="button is-solid grey-button raised">Go to Website</a>
+                                            </div>
+                                            <div class="about-body">
+                                                <div class="columns">
+                                                    <div class="column is-5">
+                                                        <div class="about-block">
+                                                            <div class="block-header">
+                                                                <h4>Contact Info</h4>
+                                                            </div>
+                                                            <div class="block-content">
+                                                                <div class="flex-inner">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                                                    <span>Call <a>+555-654-545-88</a></span>
+                                                                </div>
+                                                                <div class="flex-inner">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                                                    <span>Start a <a>Conversation</a></span>
+                                                                </div>
+                                                                <div class="flex-inner">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                                                                    <span><a>https://fastpizza.com</a></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                
+                                                        <div class="about-block">
+                                                            <div class="block-header">
+                                                                <h4>More Info</h4>
+                                                            </div>
+                                                            <div class="block-content">
+                                                                <div class="flex-inner has-meta">
+                                                                    <i class="mdi mdi-office-building"></i>
+                                                                    <div class="meta">
+                                                                        <span>Company</span>
+                                                                        <span>Domino's Pizza is a global fast-food company</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="flex-inner has-meta">
+                                                                    <i class="mdi mdi-earth"></i>
+                                                                    <div class="meta">
+                                                                        <span>Around the world</span>
+                                                                        <span>Domino's Pizza has 28,489 stores around the world</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                
+                                                    <div class="column is-6">
+                                                        <div class="about-block">
+                                                            <div class="block-header">
+                                                                <h4>History</h4>
+                                                            </div>
+                                                            <div class="block-content">
+                                                                <div class="history-block">
+                                                                    <div class="date">1960's</div>
+                                                                    <div class="timeline">
+                                                                        <ul>
+                                                                            <li>Tom Willis and his brother James purchase "GoGo", a pizza restaurant in Saratoga, Michigan.</li>
+                                                                            <li>The first Fast Pizza franchise restaurant opens in Saratoga, Michigan.</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                
+                
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <!-- Dropdown menu -->
+                            <div class="dropdown is-up is-spaced is-modern is-neutral is-right dropdown-trigger">
+                                <div>
+                                    <button class="button" aria-haspopup="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-smile main-icon"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                                        <span>Friends</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down caret"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                    </button>
+                                </div>
+                                <div class="dropdown-menu" role="menu">
+                                    <div class="dropdown-content">
+                                        <a href="#" class="dropdown-item">
+                                            <div class="media">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                                                <div class="media-content">
+                                                    <h3>Public</h3>
+                                                    <small>Anyone can see this publication.</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item">
+                                            <div class="media">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                                <div class="media-content">
+                                                    <h3>Friends</h3>
+                                                    <small>only friends can see this publication.</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="dropdown-item">
+                                            <div class="media">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                                <div class="media-content">
+                                                    <h3>Specific friends</h3>
+                                                    <small>Don't show it to some friends.</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <hr class="dropdown-divider">
+                                        <a class="dropdown-item">
+                                            <div class="media">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                                <div class="media-content">
+                                                    <h3>Only me</h3>
+                                                    <small>Only me can see this publication.</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="button is-solid accent-button close-modal">Create album</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
        
            
            
@@ -170,7 +477,7 @@ $('#overview-content').removeClass('is-active');
                             </div>
                         </div>
                         <div class="button-wrap">
-                            <button class="button secondary-button is-fullwidth raised">Settings</button>
+                            <button class="button secondary-button is-fullwidth raised modal-trigger" data-modal="albums-modal">Settings</button>
                         </div>
         
                         
@@ -267,7 +574,7 @@ $('#overview-content').removeClass('is-active');
                         });
                         
                         
-                                            </script>
+                    </script>
                     <div class="right-content">
                         <div id="overview-content" class="content-section is-active">
                             <div class="columns">
@@ -298,6 +605,15 @@ $('#overview-content').removeClass('is-active');
                                                         </div>
                                                     </div>
                                                 </a>
+                                                <a class="dropdown-item">
+                                                    <div class="media">
+                                                        <i data-feather="layout"></i>
+                                                        <div class="media-content">
+                                                            <h3>REST API</h3>
+                                                            <small>Add a new database fast.</small>
+                                                        </div>
+                                                    </div>
+                                                </a>
                                                 <hr class="dropdown-divider">
                                                 <a href="#" class="dropdown-item">
                                                     <div class="media">
@@ -311,7 +627,7 @@ $('#overview-content').removeClass('is-active');
                                             </div>
                                         </div>
                                     </div>
-                                    <a class="button is-rounded mb-2" style="float: right;" href="/accounts/logout/">Log Out <i class="fas fa-sign-out-alt pl-2"></i></a>
+                                    <a class="button is-rounded is-danger mb-2" style="float: right;" href="/accounts/logout/">Log Out <i class="fas fa-sign-out-alt pl-2"></i></a>
                                     
                                     <!-- Work block -->
                                     <div class="flex-block">
