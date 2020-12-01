@@ -58,6 +58,8 @@ $(document).ready(function() {
     $('.btn2').removeClass('is-active');
     $('.btn3').removeClass('is-active');
     $('.btn4').removeClass('is-active');
+    $('.btn5').removeClass('is-active');
+
 
     $('.btn1').addClass('is-active');
 
@@ -74,6 +76,8 @@ $(document).ready(function() {
     $('.btn1').removeClass('is-active');
     $('.btn3').removeClass('is-active');
     $('.btn4').removeClass('is-active');
+    $('.btn5').removeClass('is-active');
+
 
     $('.btn2').addClass('is-active');
 
@@ -90,6 +94,8 @@ $('.btn3').click(function(e) {
 $('.btn2').removeClass('is-active');
 $('.btn1').removeClass('is-active');
 $('.btn4').removeClass('is-active');
+$('.btn5').removeClass('is-active');
+
 
 $('.btn3').addClass('is-active');
 
@@ -107,11 +113,30 @@ $('.btn4').click(function(e) {
 $('.btn1').removeClass('is-active');
 $('.btn2').removeClass('is-active');
 $('.btn3').removeClass('is-active');
+$('.btn5').removeClass('is-active');
 
 $('.btn4').addClass('is-active');
 
 $('#education-content').removeClass('is-active');
 $('#job-content').addClass('is-active');
+$('#personal-content').removeClass('is-active');
+$('#overview-content').removeClass('is-active');
+ 
+
+});
+
+$('.btn5').click(function(e) {  
+
+$('.btn1').removeClass('is-active');
+$('.btn2').removeClass('is-active');
+$('.btn3').removeClass('is-active');
+$('.btn4').removeClass('is-active');
+
+$('.btn5').addClass('is-active');
+
+$('#education-content').removeClass('is-active');
+$('#help-content').addClass('is-active');
+$('#job-content').removeClass('is-active');
 $('#personal-content').removeClass('is-active');
 $('#overview-content').removeClass('is-active');
  
@@ -514,6 +539,12 @@ $('#overview-content').removeClass('is-active');
                                         <div class="menu-icon" style="box-shadow: none !important; -webkit-box-shadow: none !important;">
                                             <i class="fas fa-network-wired"></i>
                                             <span style="padding-left: 2px;">Network</span>
+                                        </div>
+                                    </div>
+                                    <div class="menu-item btn5" data-content="help-content">
+                                        <div class="menu-icon" style="box-shadow: none !important; -webkit-box-shadow: none !important;">
+                                            <i class="fas fa-life-ring" style="padding-left: 2px;"></i>
+                                            <span style="padding-left: 5px;">Help</span>
                                         </div>
                                     </div>
                                 </div>
@@ -944,6 +975,133 @@ $( document ).ready(function() {
                                         </div>
                                     </div>
                                     <h3>Artistic Director</h3>
+                                    <p>Slicer</p>
+                                    <div class="more">
+                                        <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
+                                    </div>
+                                    <div class="date">
+                                        Aug 2019
+                                    </div>
+                                </div>
+                                <!--Timeline Item-->
+                                <div class="timeline-item">
+                                    <div class="image-container">
+                                        <img src="assets/img/demo/unsplash/popovers/pages/cssninja.png" alt="" data-demo-src="assets/img/demo/unsplash/popovers/pages/cssninja.png">
+                                        <div class="logo-container">
+                                            <img src="assets/img/avatars/hanzo.svg" alt="" data-demo-src="assets/img/avatars/hanzo.svg" data-page-popover="5">
+                                        </div>
+                                    </div>
+                                    <h3>Artistic Director</h3>
+                                    <p>Css Ninja</p>
+                                    <div class="more">
+                                        <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
+                                    </div>
+                                    <div class="date">
+                                        Jan 2019
+                                    </div>
+                                </div>
+                                <!--Timeline Item-->
+                                <div class="timeline-item">
+                                    <div class="image-container">
+                                        <img src="assets/img/demo/unsplash/popovers/pages/lipflow.jpg" alt="" data-demo-src="assets/img/demo/unsplash/popovers/pages/lipflow.jpg">
+                                        <div class="logo-container">
+                                            <img src="assets/img/icons/logos/lipflow.svg" alt="" data-demo-src="assets/img/icons/logos/lipflow.svg" data-page-popover="9">
+                                        </div>
+                                    </div>
+                                    <h3>Head of Sales</h3>
+                                    <p>Lipflow</p>
+                                    <div class="more">
+                                        <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
+                                    </div>
+                                    <div class="date">
+                                        May 2018
+                                    </div>
+                                </div>
+                                <!--Timeline Item-->
+                                <div class="timeline-item">
+                                    <div class="image-container">
+                                        <img src="assets/img/demo/unsplash/popovers/pages/drop.jpg" alt="" data-demo-src="assets/img/demo/unsplash/popovers/pages/drop.jpg">
+                                        <div class="logo-container">
+                                            <img src="assets/img/icons/logos/drop.svg" alt="" data-demo-src="assets/img/icons/logos/drop.svg" data-page-popover="10">
+                                        </div>
+                                    </div>
+                                    <h3>Manager</h3>
+                                    <p>Drop Cosmetics</p>
+                                    <div class="more">
+                                        <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
+                                    </div>
+                                    <div class="date">
+                                        Oct 2018
+                                    </div>
+                                </div>
+                                <!--Timeline Item-->
+                                <div class="timeline-item">
+                                    <div class="image-container">
+                                        <img src="assets/img/demo/unsplash/popovers/pages/imdb.jpg" alt="" data-demo-src="assets/img/demo/unsplash/popovers/pages/imdb.jpg">
+                                        <div class="logo-container">
+                                            <img src="assets/img/icons/logos/metamovies.svg" alt="" data-demo-src="assets/img/icons/logos/metamovies.svg" data-page-popover="9">
+                                        </div>
+                                    </div>
+                                    <h3>Intern</h3>
+                                    <p>Metamovies</p>
+                                    <div class="more">
+                                        <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
+                                    </div>
+                                    <div class="date">
+                                        May 2018
+                                    </div>
+                                </div>
+                                <!--Timeline Item-->
+                                <div class="timeline-item">
+                                    <div class="image-container">
+                                        <img src="assets/img/demo/unsplash/popovers/pages/quick-fashion.jpg" alt="" data-demo-src="assets/img/demo/unsplash/popovers/pages/quick-fashion.jpg">
+                                        <div class="logo-container">
+                                            <img src="assets/img/icons/logos/quick-fashion.svg" alt="" data-demo-src="assets/img/icons/logos/quick-fashion.svg" data-page-popover="9">
+                                        </div>
+                                    </div>
+                                    <h3>Intern</h3>
+                                    <p>Quick Fashion</p>
+                                    <div class="more">
+                                        <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
+                                    </div>
+                                    <div class="date">
+                                        Feb 2018
+                                    </div>
+                                </div>
+                                <!--Timeline Item-->
+                                <div class="timeline-item">
+                                    <div class="image-container">
+                                        <img src="assets/img/demo/unsplash/popovers/pages/nuclearjs.jpg" alt="" data-demo-src="assets/img/demo/unsplash/popovers/pages/nuclearjs.jpg">
+                                        <div class="logo-container">
+                                            <img src="assets/img/icons/logos/nuclearjs.svg" alt="" data-demo-src="assets/img/icons/logos/nuclearjs.svg" data-page-popover="9">
+                                        </div>
+                                    </div>
+                                    <h3>Intern</h3>
+                                    <p>Nuclearjs</p>
+                                    <div class="more">
+                                        <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
+                                    </div>
+                                    <div class="date">
+                                        Jan 2018
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="slider-dots-jobs-glider" class="dots"></div>
+                        </div>
+
+                        <div id="help-content" class="content-section">
+                            <!-- Timeline section -->
+                            <div id="jobs-glider" class="slider-timeline about-glider">
+                                <!--Timeline Item-->
+                                <div class="timeline-item">
+                                    <div class="image-container">
+                                        <img src="assets/img/demo/unsplash/popovers/pages/slicer.jpg" alt="" data-demo-src="assets/img/demo/unsplash/popovers/pages/slicer.jpg">
+                                        <div class="logo-container">
+                                            <img src="assets/img/icons/logos/slicer.svg" alt="" data-demo-src="assets/img/icons/logos/slicer.svg" data-page-popover="4">
+                                        </div>
+                                    </div>
+                                    <h3>asdsdasda Director</h3>
                                     <p>Slicer</p>
                                     <div class="more">
                                         <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
