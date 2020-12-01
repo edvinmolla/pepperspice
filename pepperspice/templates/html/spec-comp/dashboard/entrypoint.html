@@ -127,10 +127,10 @@ $('#overview-content').removeClass('is-active');
 <body >
     {% include 'html/spec-comp/dashboard/loading.html' %}
 
+    
+    <div class="view-wrapper" style="padding: 20px 100px;">
 
-    <div class="view-wrapper">
-
-     
+       
         <div class="feed-profile-wrapper" style="max-width: 1300px !important;">
 
   
@@ -178,7 +178,7 @@ $('#overview-content').removeClass('is-active');
                         
                   
         
-                        <div class="profile-about side-menu mt-6">
+                        <div class="profile-about side-menu mt-3">
                             <div class="left-menu">
                                 <div class="left-menu-inner">
                                     <div class="menu-item is-active btn1" data-content="overview-content" >
@@ -210,7 +210,8 @@ $('#overview-content').removeClass('is-active');
                         </div>
         
         
-                     <div class="is-hidden-mobile">
+                     <div class="is-hidden-mobile" style="overflow-y: scroll;position:relative;
+                     height: 200px;">
                         <div class="user-bio">
                             <h4>Emri i Biznesit tim</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Iam enim adesse poterit. Quis est tam dissimile homini. At ille pellit, qui permulcet sensum voluptate.</p>
@@ -253,6 +254,7 @@ $('#overview-content').removeClass('is-active');
        
         $(".right-content").css('margin-left', '0px');
         $(".profile-wrapper").css("position", "relative");
+       
     }
     else if(w>766)
     {
@@ -271,9 +273,46 @@ $('#overview-content').removeClass('is-active');
                             <div class="columns">
                                 
                                 <div class="column">
-                                    <a class="button is-rounded mb-2">New App <i class="fas fa-rocket pl-2"></i></a>
-                                    <a class="button is-rounded mb-2">New Database <i class="fas fa-database pl-2"></i></a>
-                                    <a class="button is-rounded mb-2">New Project <i class="fas fa-tasks pl-2"></i></a>
+                                    
+                                    <div class="dropdown is-spaced is-accent dropdown-trigger">
+                                        <div>
+                                            <a class="button is-rounded mb-2">New<i class="fas fa-plus pl-2"></i></a>
+                                        </div>
+                                        <div class="dropdown-menu" role="menu">
+                                            <div class="dropdown-content">
+                                                <a href="#" class="dropdown-item">
+                                                    <div class="media">
+                                                        <i data-feather="codesandbox"></i>
+                                                        <div class="media-content">
+                                                            <h3>Web Application</h3>
+                                                            <small>Add new application easily.</small>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a class="dropdown-item">
+                                                    <div class="media">
+                                                        <i data-feather="database"></i>
+                                                        <div class="media-content">
+                                                            <h3>Database</h3>
+                                                            <small>Add a new database fast.</small>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <hr class="dropdown-divider">
+                                                <a href="#" class="dropdown-item">
+                                                    <div class="media">
+                                                        <i data-feather="layers"></i>
+                                                        <div class="media-content">
+                                                            <h3>New Project</h3>
+                                                            <small>Upload project securely.</small>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="button is-rounded mb-2" style="float: right;" href="/accounts/logout/">Log Out <i class="fas fa-sign-out-alt pl-2"></i></a>
+                                    
                                     <!-- Work block -->
                                     <div class="flex-block">
                                         <img data-demo-src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png" alt="" data-page-popover="4" style="border-radius: 0px !important;">
@@ -1357,9 +1396,21 @@ $('#overview-content').removeClass('is-active');
                     </div>
                 </div>
             </div>
+
+            
             
             <div class="column is-3">
                
+                <div class="field">
+                
+                    <div class="control has-icon">
+                        <input type="text" class="input is-rounded" placeholder="Search...">
+                        <div class="form-icon">
+                            <i data-feather="search"></i>
+                        </div>
+                    </div>
+                </div>
+
 
                 <div class="questions-side-card">
                     <img src="assets/img/icons/questions/assistance.svg" alt="">
@@ -1429,7 +1480,10 @@ $('#overview-content').removeClass('is-active');
                             </div>
                         </div>
                     </div>
+
+                   
                 </div>
+                <img src="{% static 'wallpapers_logos/universal/lg.png' %}" width="120">
             </div>
 
             
