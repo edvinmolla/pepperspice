@@ -641,7 +641,7 @@ $('#overview-content').removeClass('is-active');
                                           .list-app {
                                             opacity: 0;
                                             display: none;
-                                            transition:3s !important;
+                                            transition:4s !important;
                                           }
                                         </style>
                                         
@@ -657,10 +657,11 @@ $( document ).ready(function() {
         e.preventDefault();
         $(".list-app:hidden").slice(0, 3).animate({ opacity: 1}, 60).css({
             'display': 'flex'
-    }
-    );
+    });
+    
+
 	 $('.expanding-box').animate({height: "+=230"}, function() {
-        $('#loadMore').animate({opacity:1 }, 500);
+        $('#loadMore').animate({opacity:1 }, 800);
   });
     });    
 });
