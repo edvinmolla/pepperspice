@@ -635,13 +635,13 @@ $('#overview-content').removeClass('is-active');
 
 
 
-                                    <div class="expanding-box" style="">
+                                    <div class="expanding-box" style="transition: 0.2s !important; height: 240px;">
 
                                         <style>
                                           .list-app {
-                                    
+                                            opacity: 0;
                                             display: none;
-                                            transition: 3s !important;
+                                            transition:3s !important;
                                           }
                                         </style>
                                         
@@ -650,21 +650,24 @@ $('#overview-content').removeClass('is-active');
 $( document ).ready(function() {
     
     $(function () {
-    $(".list-app").slice(0, 2).show().css('display', 'flex');
-    $(".list-app:hidden").fadeOut();
-    $("#loadMore").on('click', function (e) {
-        e.preventDefault();
+    $(".list-app").slice(0, 3).show().css('display', 'flex').css('opacity', 1);
 
-        $(".list-app:hidden").slice(0, 2).fadeIn(100).css({
+    $("#loadMore").on('click', function (e) {
+        $('#loadMore').animate({opacity: 0}, 30);
+        e.preventDefault();
+        $(".list-app:hidden").slice(0, 3).animate({ opacity: 1}, 60).css({
             'display': 'flex'
-          
     }
     );
-        
-     
-  		 
+	 $('.expanding-box').animate({height: "+=230"}, function() {
+        $('#loadMore').animate({opacity:1 }, 500);
+  });
     });    
 });
+
+
+
+
 });
 
 
@@ -750,7 +753,15 @@ $( document ).ready(function() {
                                     
                                 </div>
 
-                                <a href="#" id="loadMore">Load More</a>
+
+                                
+                                    <div class="column has-text-centered">
+                                        <a class="button is-rounded " id="loadMore">see more</a>
+                                    </div>
+                                   
+                                
+                               
+                              
                                     <!-- <div class="box-heading mt-6">
                                         <h4>Videos</h4>
                                         <div class="dropdown is-neutral is-spaced is-right dropdown-trigger">
