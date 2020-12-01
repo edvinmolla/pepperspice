@@ -141,7 +141,7 @@ $('#overview-content').removeClass('is-active');
 
                 <!-- About sections -->
                 <div class="profile-about side-menu">
-                    <div class="profile-wrapper is-3 is-hidden-mobile" style="position: fixed;">
+                    <div class="profile-wrapper is-3" style="position: fixed;">
 
                         <div class="profile-avatar-wrapper">
                             
@@ -210,7 +210,7 @@ $('#overview-content').removeClass('is-active');
                         </div>
         
         
-                     
+                     <div class="is-hidden-mobile">
                         <div class="user-bio">
                             <h4>Emri i Biznesit tim</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Iam enim adesse poterit. Quis est tam dissimile homini. At ille pellit, qui permulcet sensum voluptate.</p>
@@ -237,7 +237,7 @@ $('#overview-content').removeClass('is-active');
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Iam enim adesse poterit. Quis est tam dissimile homini. At ille pellit, qui permulcet sensum voluptate.</p>
                             <a>biznesiim.com</a>
                         </div>
-
+                    </div>
                    
                     </div>
 
@@ -252,11 +252,13 @@ $('#overview-content').removeClass('is-active');
     {
        
         $(".right-content").css('margin-left', '0px');
+        $(".profile-wrapper").css("position", "relative");
     }
     else if(w>766)
     {
       
         $(".right-content").css('margin-left', '300px');
+        $(".profile-wrapper").css("position", "fixed");
     }
 }, 500);
                         
@@ -269,7 +271,7 @@ $('#overview-content').removeClass('is-active');
                             <div class="columns">
                                 
                                 <div class="column">
-                                    <a class="button is-rounded mb-2" style="float: right;">New App <i class="fas fa-rocket pl-2"></i></a>
+                                    <a class="button is-rounded mb-2">New App <i class="fas fa-rocket pl-2"></i></a>
                                     <a class="button is-rounded mb-2">New Database <i class="fas fa-database pl-2"></i></a>
                                     <a class="button is-rounded mb-2">New Project <i class="fas fa-tasks pl-2"></i></a>
                                     <!-- Work block -->
