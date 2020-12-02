@@ -76,6 +76,40 @@
                   </div>
                </section>
 
+               <section class="hero is-fullheight">
+                <div class="hero-body">
+                    <div class="container has-text-centered">
+                        <div class="columns is-8 is-variable ">
+                            <div class="column is-two-thirds has-text-left">
+                                <h1 class="title is-1">Contact Us</h1>
+                                <p class="is-size-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi soluta
+                                    voluptate facere molestiae consequatur.</p>
+                                <div class="social-media">
+                                    <a href="https://facebook.com" target="_blank" class="button is-light is-large"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                                    <a href="https://instagram.com" target="_blank" class="button is-light is-large"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                    <a href="https://twitter.com" target="_blank" class="button is-light is-large"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                            <form class="mss-register-form" method="post" action="/accounts/register/">
+                                {% csrf_token %}
+                                {% load crispy_forms_tags %}
+                                {{ signup_form|crispy}}
+                                <small class="form-text text-muted">Use at least eight characters.
+                                </small><br/>
+                            
+                              <a href="/accounts/login/">
+                              <button onClick="window.location.reload()" type="submit" id="submitbtn" class="buttonload msc-btn msc-btn__block msc-btn__primary" >Sign up <i class="fa fa-spinner fa-spin" id="spnr" hidden></i></button>
+                            </a>
+                              <div class="text-center">
+                                  <small>
+                                    By cliking "Sign Up", you agree to our <br/><a href="">Terms of Service</a> and <a href="">Privacy Policy</a>
+                                  </small>
+                                  </div>
+                                  </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
                
                
