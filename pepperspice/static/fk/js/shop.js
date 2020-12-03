@@ -166,9 +166,9 @@ $(document).ready(function () {
         if (prevStep === 0) {
           window.location.href = '/ecommerce-cart.html';
         } else if (prevStep === 1) {
-          title.html('1. Confirm your order');
+          title.html('Select Framework');
         } else if (prevStep === 2) {
-          title.html('2. Choose a shipping address');
+          title.html('Select Payment Method');
           $('.shipping-logo').removeClass('is-active');
         } else if (prevStep === 3) {
           title.html('3. Choose a shipping method');
@@ -187,7 +187,7 @@ $(document).ready(function () {
     });
     $('.shipping-box input').on('change', function () {
       var shipppingLogo = $(this).closest('.shipping-box').find('img').attr('src');
-      $('.shipping-logo').attr('src', shipppingLogo).addClass('is-active');
+      $('.shipping-logo').attr('src', shipppingLogo).addClass('is-active').css('width', "50px");
       $('#shipping-amount').find('.is-text').removeClass('is-text').html('15.00');
       $('#total-amount span:nth-child(2)').html('216.92');
       $('#checkout-button').removeClass('is-disabled');
