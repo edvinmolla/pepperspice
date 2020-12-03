@@ -120,7 +120,7 @@ $(document).ready(function () {
         backButton.attr('data-step', prevStep + 1);
 
         if (nextStep === 2) {
-          title.html('2. Choose a shipping address');
+          title.html('Select Payment Method');
 
           if ($('.shipping-address input:checked').length === 0) {
             $this.addClass('is-disabled');
