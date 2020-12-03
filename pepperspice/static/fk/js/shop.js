@@ -128,7 +128,7 @@ $(document).ready(function () {
             $this.removeClass('is-disabled');
           }
         } else if (nextStep === 3) {
-          title.html('3. Choose a shipping method');
+          title.html('New Application Details');
 
           if ($('.shipping-box input:checked').length === 0) {
             $this.addClass('is-disabled');

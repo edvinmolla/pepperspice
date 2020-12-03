@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{% static 'fk/css/app.css' %}">
     <link rel="stylesheet" href="{% static 'fk/css/core.css' %}">
 
+
     <script src="{% static 'fk/js/app.js' %}"></script>
     <script src="{% static 'fk/js/tipuedrop_content.js' %}"></script>
     <script src="{% static 'fk/js/global.js' %}"></script>
@@ -404,6 +405,10 @@ $('#overview-content').removeClass('is-active');
                                                            
                                           
                                         </div> -->
+                                        <script>
+                                            $('input[name=shipping_method]').attr('checked',false);
+                                            $('input[name=shipping_address]').attr('checked',false);
+                                        </script>
                         
                                         <!--Checkout content-->
                                         <div class="cart-content">
@@ -502,15 +507,17 @@ $('#overview-content').removeClass('is-active');
                                                                 <!--Right Side-->
                                                                 <div class="column right">
                                                                     <div class="payment-form">
+
+                                                                     
                                                                        
                                                                             <div id="checkout-contact-section" class="form-section has-margin-bottom">
                                                                                 <div class="form-section-header">
-                                                                                    <h3>Contact Information</h3>
+                                                                                    <h4>*You can leave this form unfilled and It will be filled with random data.</h4>
                                                                                 </div>
                                                                                 <div class="field">
-                                                                                    <label for="card-element">Email Address</label>
+                                                                                    <label for="card-element">Application Name</label>
                                                                                     <div class="control">
-                                                                                        <input class="input" placeholder="Enter your email address" name="checkout_email" autofocus="">
+                                                                                        <input class="input" placeholder="Enter your application name" name="checkout_email" autofocus="">
                                                                                     </div>
                                                 
                                                                                 </div>
@@ -518,13 +525,13 @@ $('#overview-content').removeClass('is-active');
                                                 
                                                                             <div id="checkout-payment-section" class="form-section">
                                                                                 <div class="form-section-header">
-                                                                                    <h3>Payment Information</h3>
+                                                                                    <h3>Reachability</h3>
                                                                                 </div>
                                                 
                                                                                 <div class="field">
-                                                                                    <label for="card-element">Name on card</label>
+                                                                                    <label for="card-element">Subdomain</label>
                                                                                     <div class="control">
-                                                                                        <input class="input" placeholder="Enter the name on the credit card" name="checkout_name">
+                                                                                        <input class="input" placeholder="Enter a subdomain name" name="checkout_name">
                                                                                     </div>
                                                                                 </div>
                                                 
