@@ -512,12 +512,12 @@ $('#overview-content').removeClass('is-active');
                                                                        
                                                                             <div id="checkout-contact-section" class="form-section has-margin-bottom">
                                                                                 <div class="form-section-header">
-                                                                                    <h4>*You can leave this form unfilled and It will be filled with random data.</h4>
+                                                                                    <h4>*You can leave this form unfilled and It will be autofilled with random data.</h4>
                                                                                 </div>
                                                                                 <div class="field">
-                                                                                    <label for="card-element">Application Name</label>
+                                                                                    <label for="card-element">Application Name <i>(20 charachters maximum)</i></label>
                                                                                     <div class="control">
-                                                                                        <input class="input" placeholder="Enter your application name" name="checkout_email" autofocus="">
+                                                                                        <input class="input" placeholder="Enter your application name" maxlength="20" name="checkout_email" autofocus="">
                                                                                     </div>
                                                 
                                                                                 </div>
@@ -528,60 +528,84 @@ $('#overview-content').removeClass('is-active');
                                                                                     <h3>Reachability</h3>
                                                                                 </div>
                                                 
-                                                                                <div class="field">
-                                                                                    <label for="card-element">Subdomain</label>
-                                                                                    <div class="control">
-                                                                                        <input class="input" placeholder="Enter a subdomain name" name="checkout_name">
+                                                                                <div class="columns">
+                                                                                    <div class="column">
+
+                                                                                        <label for="card-element">Subdomain <i>(8 charachters maximum)</i></label>
+                                                                                        <div class="field has-addons">
+                                                                                            <p class="control">
+                                                                                              <input class="input" type="text" maxlength="8" placeholder="Custom Domain">
+                                                                                            </p>
+                                                                                            <p class="control">
+                                                                                              <a class="button is-static">
+                                                                                                .app.pepperspice.co
+                                                                                              </a>
+                                                                                            </p>
+                                                                                          </div>
                                                                                     </div>
-                                                                                </div>
-                                                
-                                                                                <div class="field">
-                                                                                    <label for="card-element">Credit or debit card</label>
-                                                                                    <div class="control">
-                                                                                        <div id="card-element" class="StripeElement StripeElement--empty"><div class="__PrivateStripeElement" style="margin: 0px !important; padding: 0px !important; border: medium none !important; display: block !important; background: transparent none repeat scroll 0% 0% !important; position: relative !important; opacity: 1 !important;"><iframe allowtransparency="true" scrolling="no" name="__privateStripeFrame5235" allowpaymentrequest="true" src="https://js.stripe.com/v3/elements-inner-card-1bc3c889dc7dea24f16327d0c47a90ca.html#style[base][fontSize]=14px&amp;style[base][color]=%23595d6e&amp;wait=false&amp;rtl=false&amp;componentName=card&amp;keyMode=test&amp;apiKey=pk_test_6pRNASCoBOKtIshFeQd4XMUh&amp;origin=https%3A%2F%2Ffriendkit.cssninja.io&amp;referrer=https%3A%2F%2Ffriendkit.cssninja.io%2Fecommerce-payment.html&amp;controllerId=__privateStripeController5231" title="Secure card payment input frame" style="border: medium none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; user-select: none !important; transform: translateZ(0px) !important; height: 16.8px;" frameborder="0"></iframe><input class="__PrivateStripeElement-input" aria-hidden="true" aria-label=" " autocomplete="false" maxlength="1" style="border: medium none !important; display: block !important; position: absolute !important; height: 1px !important; top: 0px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent none repeat scroll 0% 0% !important; pointer-events: none !important; font-size: 16px !important;"></div></div>
-                                                
-                                                                                        <!-- Used to display Element errors -->
-                                                                                        <div id="card-errors" role="alert"></div>
-                                                                                    </div>
-                                                                                </div>
-                                                
-                                                                                <div class="field">
-                                                                                    <label>Country</label>
-                                                                                    <div class="control has-icons-left">
-                                                                                        <div class="select">
-                                                                                            <select>
-                                                                                                <option></option>
-                                                                                                <option selected="">United States of America</option>
-                                                                                                <option>Belgium</option>
-                                                                                                <option>Brazil</option>
-                                                                                                <option>Canada</option>
-                                                                                                <option>France</option>
-                                                                                                <option>Germany</option>
-                                                                                                <option>Mexico</option>
-                                                                                                <option>Spain</option>
-                                                                                                <option>England</option>
-                                                                                                <option>Luxembourg</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                        <div class="icon is-small is-left">
-                                                                                            <i class="mdi mdi-earth"></i>
+                                                                                    <div class="column">
+                                                                                        <div class="field">
+                                                                                            <label for="card-element">Alerts Email</label>
+                                                                                            <div class="control">
+                                                                                                <input class="input" type="email" placeholder="Email">
+                                                                                                 <span class="icon is-small is-left">
+                                                                                            </div>
                                                                                         </div>
                                                                                     </div>
+
                                                                                 </div>
+                                                                               
+                                                
+                                                                                <div class="form-section-header">
+                                                                                    <h3>Network</h3>
+                                                                                </div>
+
+                                                                               <div class="columns">
+
+                                                                                <div class="column">
+                                                                                    <div class="field">
+                                                                                        <label>DNS Provider</label>
+                                                                                        <div class="control has-icons-left">
+                                                                                            <div class="select">
+                                                                                                <select>
+                                                                                                    <option selected>Cloudflare</option>
+                                                                                                    <option disabled>GoDaddy (Upcomming)</option>
+                                                                                                    <option disabled>Namecheap (Upcomming)</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                            <div class="icon is-small is-left">
+                                                                                                <i data-feather="cloud"></i>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                    <div class="column">
+                                                                                        <div class="field">
+                                                                                            <label>Deployment Region</label>
+                                                                                            <div class="control has-icons-left">
+                                                                                                <div class="select">
+                                                                                                    <select>
+                                                                                                        <option selected>Frankfurt</option>
+                                                                                                        <option>Rotterdam</option>
+                                                                                                        <option>Rome</option>
+                                                                                                        <option>Tirane</option>
+                                                                                                        <option>Quebec</option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                                <div class="icon is-small is-left">
+                                                                                                    <i data-feather="globe"></i>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>                                                                       
+                                                                               </div>
+
+                                                                               </div>
+                                                                               
+                                                                              
                                                                             </div>
                                                 
-                                                                            <div class="field is-disclaimer">
-                                                                                <p>By clicking on 'Submit Payment', you confirm that you fully agree to our <a href="#">Terms Of
-                                                                                        Service</a> and to our <a href="#">Customer's Policy</a>.</p>
-                                                                            </div>
-                                                
-                                                                            <div class="field is-button">
-                                                                                <div class="buttons has-addons">
-                                                                                    <button id="payment-button" type="button" class="button is-solid primary-button">Confirm
-                                                                                        Payment</button>
-                                                                                    <button type="button" class="button is-solid primary-button">$216.92</button>
-                                                                                </div>
-                                                                            </div>
+                                                                           
                                                 
                                                                     </div>
                                                                 </div>
