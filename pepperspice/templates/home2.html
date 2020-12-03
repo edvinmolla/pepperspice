@@ -76,6 +76,7 @@
                   </div>
                </section>
 
+        
 
                
                
@@ -143,6 +144,110 @@
                       </div>
                   </div>
               </div>
+
+
+
+
+
+
+              <section class="hero is-medium pt-6 mt-6">
+                <div class="hero-body">
+                    <div class="container has-text-centered">
+                        <div class="columns is-8 is-variable ">
+                            <div class="column is-two-thirds has-text-left">
+                                <h1 class="title is-1">Join within 10 seconds.</h1>
+                                <p class="is-size-4">We are all about simplicity over complexity, smoothness over recklesness & productivity over restlessness.</p>
+                                
+                            </div>
+
+
+                            <div class="column is-one-third has-text-left">
+
+                                <form class="mss-register-form" method="post" name="form1" action="/accounts/register/">
+                                    {% csrf_token %}
+                                    {% load crispy_forms_tags %}
+
+                                    <div class="field">                 
+                                        <label class="label">{{signup_form.email.label}}</label>                                       
+                                        <div class="control">
+                                          {{signup_form.email}}
+                                        </div>
+                                        <b style="color: rgb(233, 104, 125);">{{signup_form.email.errors}}</b>
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label"> {{signup_form.password1.label}}</label>
+                                        <div class="control">
+                                            {{signup_form.password1}}
+                                        </div>
+                                        <b style="color: rgb(233, 104, 125);">{{signup_form.password1.errors}}</b>
+                                    </div>
+                           
+                                    <script>
+                                       $(document).ready(function () {
+
+                                        $('#email_field').removeClass();
+                                        $('#id_password1').removeClass();
+                                        $('#email_field').addClass('input').addClass('is-rounded').addClass('is-medium');
+                                        $('#id_password1').addClass('input').addClass('is-rounded').addClass('is-medium');
+
+                                        $('#submitbtn').click(function() {
+    
+                                            if($('#id_password1').val().length >= 8)
+                                            {
+
+                                                $('#spnr').removeClass("hidden");
+
+                                            }
+                                            
+                                        });
+
+                                        $('#form1').submit(function(e){
+    e.preventDefault();
+    $.ajax({
+        url: '/accounts/register/',
+        type: 'post',
+        data:$('#form1').serialize(),
+        success:function(){
+           alert('asd');
+        }
+    });
+});
+
+                                       });
+                                    </script>
+                    
+    
+               
+                  
+    
+                                    <small class="form-text text-muted">Use at least eight characters.
+                                    </small><br/>
+                                <div class="column has-text-centered">
+                                  <a href="/accounts/login/">
+                                  <button onClick="window.location.reload()" type="submit" id="submitbtn" class="button is-primary is-rounded is-medium" >Sign up <i class="fa fa-spinner fa-spin ml-1 is-hidden" id="spnr"></i></button>
+                                </a>
+                            </div>
+                                  <div class="text-center">
+                                      <small>
+                                        By cliking "Sign Up", you agree to our <br/><a href="">Terms of Service</a> and <a href="">Privacy Policy</a>
+                                      </small>
+                                      </div>
+                                      </form>
+
+                               
+                        
+                            </div>
+
+
+
+                           
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
 
 
              

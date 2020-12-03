@@ -2,7 +2,6 @@ from django.views.generic import TemplateView
 from django.shortcuts import render, redirect
 from allauth.account.forms import LoginForm, SignupForm
 from authentication.forms import CustomUserCreationForm
-from allauth.account.forms import SignupForm
 
 
 class AlbanianView(TemplateView):
