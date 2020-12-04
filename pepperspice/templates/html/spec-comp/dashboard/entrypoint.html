@@ -153,6 +153,86 @@ $('#overview-content').removeClass('is-active');
 
 </script>
 
+<script>
+
+$(document).ready(function() {
+    $('.settings-1').click(function(e) {  
+
+    $('.settings-2').removeClass('is-active');
+    $('.settings-3').removeClass('is-active');
+    $('.settings-4').removeClass('is-active');
+
+
+    $('.settings-1').addClass('is-active');
+
+    $('#api-section').removeClass('is-active');
+    $('#billing-section').removeClass('is-active');
+    $('#security-section').removeClass('is-active');
+    $('#general-section').addClass('is-active');
+
+     
+
+    });
+
+    $('.settings-2').click(function(e) {  
+
+    $('.settings-1').removeClass('is-active');
+    $('.settings-3').removeClass('is-active');
+    $('.settings-4').removeClass('is-active');
+
+
+    $('.settings-2').addClass('is-active');
+
+    $('#billing-section').removeClass('is-active');
+    $('#general-section').removeClass('is-active');
+    $('#api-section').removeClass('is-active');
+    $('#security-section').addClass('is-active');
+
+ 
+
+});
+
+$('.settings-3').click(function(e) {  
+
+$('.settings-1').removeClass('is-active');
+$('.settings-2').removeClass('is-active');
+$('.settings-4').removeClass('is-active');
+
+
+$('.settings-3').addClass('is-active');
+
+$('#billing-section').addClass('is-active');
+$('#general-section').removeClass('is-active');
+$('#security-section').removeClass('is-active');
+$('#api-section').removeClass('is-active');
+
+ 
+
+});
+
+
+$('.settings-4').click(function(e) {  
+
+$('.settings-1').removeClass('is-active');
+$('.settings-2').removeClass('is-active');
+$('.settings-3').removeClass('is-active');
+
+$('.settings-4').addClass('is-active');
+
+$('#general-section').removeClass('is-active');
+$('#api-section').addClass('is-active');
+$('#security-section').removeClass('is-active');
+$('#billing-section').removeClass('is-active');
+
+ 
+
+});
+
+
+});
+
+</script>
+
 
 <body >
     {% include 'html/spec-comp/dashboard/loading.html' %}
@@ -166,176 +246,1161 @@ $('#overview-content').removeClass('is-active');
 
 
 
-            <div id="albums-modal" class="modal albums-modal is-xxl has-light-bg">
+            <div id="settings-modal" class="modal settings-modal is-xxl has-light-bg">
                 <div class="modal-background"></div>
                 <div class="modal-content">
         
                     <div class="card">
                         <div class="card-heading">
-                            <h3>Settings</h3>
-                            
-                            <div class="button close-modal">
-                                
-                                close
+                            <div class="is-primary share-dropdown">
+                                <div>
+                                  <h3>Settings</h3>
+                                </div>
+                               
                             </div>
         
-                        
+                            <!-- Close X button -->
+                            <div class="close-wrap">
+                                <span class="close-modal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </span>
+                            </div>
                         </div>
                         <div class="card-body">
-                            <div class="left-section" style="width: 20% !important; padding: 0px !important;">
-                               
-                                <div class="column">
+                          
+                            
 
-                                  
+                            <div class="column">
+
+                                <!-- About sections -->
+                                <div class="profile-about side-menu">
+                                    <div class="left-menu">
+                                        <div class="left-menu-inner">
+                                            <div class="menu-item is-active" data-content="general-settings">
+                                                <div class="menu-icon">
+                                                    <i class="mdi mdi-progress-check"></i>
+                                                    <span>Overview</span>
+                                                </div>
+                                            </div>
+                                            <div class="menu-item" data-content="profile-settings">
+                                                <div class="menu-icon">
+                                                    <i class="mdi mdi-apps"></i>
+                                                    <span>Personal Info</span>
+                                                </div>
+                                            </div>
+                                            <div class="menu-item" data-content="security-settings">
+                                                <div class="menu-icon">
+                                                    <i class="mdi mdi-school"></i>
+                                                    <span>Education</span>
+                                                </div>
+                                            </div>
+                                            <div class="menu-item" data-content="api-settings">
+                                                <div class="menu-icon">
+                                                    <i class="mdi mdi-briefcase-plus"></i>
+                                                    <span>Jobs</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right-content">
+                                        <div id="overview-content" class="content-section is-active">
+                                            <div class="columns">
+                                                <div class="column">
+                                                    <!-- Work block -->
+                                                    <div class="flex-block">
+                                                        <img src="assets/img/icons/logos/slicer.svg" data-demo-src="assets/img/icons/logos/slicer.svg" alt="" data-page-popover="4">
+                                                        <div class="flex-block-meta">
+                                                            <span>Works at <a>Slicer</a></span>
+                                                            <a class="action-link">Edit your professional info</a>
+                                                        </div>
+                                                        <div class="go-button">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Education block -->
+                                                    <div class="flex-block">
+                                                        <img src="assets/img/icons/logos/brent.svg" data-demo-src="assets/img/icons/logos/brent.svg" alt="" data-page-popover="6">
+                                                        <div class="flex-block-meta">
+                                                            <span>Studied at <a>Brent University</a></span>
+                                                            <a class="action-link">Edit your education info</a>
+                                                        </div>
+                                                        <div class="go-button">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Location block -->
+                                                    <div class="flex-block">
+                                                        <img src="assets/img/icons/logos/la.svg" data-demo-src="assets/img/icons/logos/la.svg" alt="" data-page-popover="8">
+                                                        <div class="flex-block-meta">
+                                                            <span>Lives in <a>Los Angeles, CA</a></span>
+                                                            <a class="action-link">Edit your location</a>
+                                                        </div>
+                                                        <div class="go-button">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Family block -->
+                                                    <div class="flex-block">
+                                                        <img src="assets/img/avatars/dan.jpg" data-demo-src="assets/img/avatars/dan.jpg" data-user-popover="1" alt="">
+                                                        <div class="flex-block-meta">
+                                                            <span>Married to <a>Dan Walker</a></span>
+                                                            <a class="action-link">Edit your situation</a>
+                                                        </div>
+                                                        <div class="go-button">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="column">
+                                                    <div class="about-summary">
+                                                        <div class="content">
+                                                            <h3>About Me</h3>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliter homines, aliter philosophos loqui putas oportere? Duo
+                                                                enim genera quae erant, fecit tria. Iubet igitur nos Pythius Apollo noscere nosmet ipsos. Hoc simile tandem est?
+                                                            </p>
+                                                            <p>Eam tum adesse, cum dolor omnis absit; Duo Reges: constructio interrete. </p>
             
-                                    <div class="basic-infos-wrapper is-hidden-mobile">
-                                        <div class="card is-community">
-                                            <h4>Quick Access</h4>
-                                            <div class="flex-block">
-                                             
-                                                <button class="button is-white  is-rounded"><i data-feather="server" class="mr-2"></i> Primary</button>
-                                            </div>
-                                            <div class="flex-block">
-                                              
-                                                <button class="button is-white  is-rounded"><i data-feather="lock" class="mr-2"></i> Profile Security</button>
-                                            </div>
-                                            <div class="flex-block">
-                                                
-                                                <button class="button is-white  is-rounded"><i data-feather="key" class="mr-2"></i> API Keys</button>
-                                            </div>
-                                            <hr class="dropdown-divider">
-                                            <div class="flex-block">
-                                
-                                                <button class="button is-white  is-rounded"><i data-feather="bell" class="mr-2"></i> Notifications</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
             
-                                     
+                                        <div id="education-content" class="content-section">
             
+                                            <div id="education-glider" class="slider-timeline about-glider">
+                                                <!--Timeline Item-->
+                                                <div class="timeline-item">
+                                                    <div class="image-container">
+                                                        <img src="assets/img/demo/unsplash/popovers/pages/brent.jpg" alt="" data-demo-src="assets/img/demo/unsplash/popovers/pages/brent.jpg">
+                                                        <div class="logo-container">
+                                                            <img src="assets/img/icons/logos/brent.svg" alt="" data-demo-src="assets/img/icons/logos/brent.svg" data-page-popover="6">
+                                                        </div>
+                                                    </div>
+                                                    <h3>Master Degree</h3>
+                                                    <p>Brent University</p>
+                                                    <div class="more">
+                                                        <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
+                                                    </div>
+                                                    <div class="date">
+                                                        Aug 2016
+                                                    </div>
+                                                </div>
+                                                <!--Timeline Item-->
+                                                <div class="timeline-item">
+                                                    <div class="image-container">
+                                                        <img src="assets/img/demo/unsplash/popovers/pages/drop.jpg" alt="" data-demo-src="assets/img/demo/unsplash/popovers/pages/drop.jpg">
+                                                        <div class="logo-container">
+                                                            <img src="assets/img/icons/logos/drop.svg" alt="" data-demo-src="assets/img/icons/logos/drop.svg" data-page-popover="10">
+                                                        </div>
+                                                    </div>
+                                                    <h3>Internship</h3>
+                                                    <p>Drop Cosmetics</p>
+                                                    <div class="more">
+                                                        <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
+                                                    </div>
+                                                    <div class="date">
+                                                        May 2016
+                                                    </div>
+                                                </div>
+                                                <!--Timeline Item-->
+                                                <div class="timeline-item">
+                                                    <div class="image-container">
+                                                        <img src="assets/img/demo/unsplash/popovers/pages/quick-fashion.jpg" alt="" data-demo-src="assets/img/demo/unsplash/popovers/pages/quick-fashion.jpg">
+                                                        <div class="logo-container">
+                                                            <img src="assets/img/icons/logos/quick-fashion.svg" alt="" data-demo-src="assets/img/icons/logos/quick-fashion.svg" data-page-popover="11">
+                                                        </div>
+                                                    </div>
+                                                    <h3>Internship</h3>
+                                                    <p>Quick Fashion</p>
+                                                    <div class="more">
+                                                        <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
+                                                    </div>
+                                                    <div class="date">
+                                                        Oct 2015
+                                                    </div>
+                                                </div>
+                                                <!--Timeline Item-->
+                                                <div class="timeline-item">
+                                                    <div class="image-container">
+                                                        <img src="assets/img/demo/unsplash/popovers/pages/brent.jpg" alt="" data-demo-src="assets/img/demo/unsplash/popovers/pages/brent.jpg">
+                                                        <div class="logo-container">
+                                                            <img src="assets/img/icons/logos/brent.svg" alt="" data-demo-src="assets/img/icons/logos/brent.svg" data-page-popover="6">
+                                                        </div>
+                                                    </div>
+                                                    <h3>Bachelor Degree</h3>
+                                                    <p>Brent University</p>
+                                                    <div class="more">
+                                                        <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
+                                                    </div>
+                                                    <div class="date">
+                                                        Jul 2015
+                                                    </div>
+                                                </div>
+                                            </div>
+            
+                                            <div id="slider-dots-education-glider" class="dots"></div>
+                                        </div>
+            
+                                        <div id="job-content" class="content-section">
+                                            <!-- Timeline section -->
+                                            <div id="jobs-glider" class="slider-timeline about-glider">
+                                                <!--Timeline Item-->
+                                                <div class="timeline-item">
+                                                    <div class="image-container">
+                                                        <img src="assets/img/demo/unsplash/popovers/pages/slicer.jpg" alt="" data-demo-src="assets/img/demo/unsplash/popovers/pages/slicer.jpg">
+                                                        <div class="logo-container">
+                                                            <img src="assets/img/icons/logos/slicer.svg" alt="" data-demo-src="assets/img/icons/logos/slicer.svg" data-page-popover="4">
+                                                        </div>
+                                                    </div>
+                                                    <h3>Artistic Director</h3>
+                                                    <p>Slicer</p>
+                                                    <div class="more">
+                                                        <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
+                                                    </div>
+                                                    <div class="date">
+                                                        Aug 2019
+                                                    </div>
+                                                </div>
+                                                <!--Timeline Item-->
+                                                <div class="timeline-item">
+                                                    <div class="image-container">
+                                                        <img src="assets/img/demo/unsplash/popovers/pages/cssninja.png" alt="" data-demo-src="assets/img/demo/unsplash/popovers/pages/cssninja.png">
+                                                        <div class="logo-container">
+                                                            <img src="assets/img/avatars/hanzo.svg" alt="" data-demo-src="assets/img/avatars/hanzo.svg" data-page-popover="5">
+                                                        </div>
+                                                    </div>
+                                                    <h3>Artistic Director</h3>
+                                                    <p>Css Ninja</p>
+                                                    <div class="more">
+                                                        <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
+                                                    </div>
+                                                    <div class="date">
+                                                        Jan 2019
+                                                    </div>
+                                                </div>
+                                                <!--Timeline Item-->
+                                                <div class="timeline-item">
+                                                    <div class="image-container">
+                                                        <img src="assets/img/demo/unsplash/popovers/pages/lipflow.jpg" alt="" data-demo-src="assets/img/demo/unsplash/popovers/pages/lipflow.jpg">
+                                                        <div class="logo-container">
+                                                            <img src="assets/img/icons/logos/lipflow.svg" alt="" data-demo-src="assets/img/icons/logos/lipflow.svg" data-page-popover="9">
+                                                        </div>
+                                                    </div>
+                                                    <h3>Head of Sales</h3>
+                                                    <p>Lipflow</p>
+                                                    <div class="more">
+                                                        <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
+                                                    </div>
+                                                    <div class="date">
+                                                        May 2018
+                                                    </div>
+                                                </div>
+                                                <!--Timeline Item-->
+                                                <div class="timeline-item">
+                                                    <div class="image-container">
+                                                        <img src="assets/img/demo/unsplash/popovers/pages/drop.jpg" alt="" data-demo-src="assets/img/demo/unsplash/popovers/pages/drop.jpg">
+                                                        <div class="logo-container">
+                                                            <img src="assets/img/icons/logos/drop.svg" alt="" data-demo-src="assets/img/icons/logos/drop.svg" data-page-popover="10">
+                                                        </div>
+                                                    </div>
+                                                    <h3>Manager</h3>
+                                                    <p>Drop Cosmetics</p>
+                                                    <div class="more">
+                                                        <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
+                                                    </div>
+                                                    <div class="date">
+                                                        Oct 2018
+                                                    </div>
+                                                </div>
+                                                <!--Timeline Item-->
+                                                <div class="timeline-item">
+                                                    <div class="image-container">
+                                                        <img src="assets/img/demo/unsplash/popovers/pages/imdb.jpg" alt="" data-demo-src="assets/img/demo/unsplash/popovers/pages/imdb.jpg">
+                                                        <div class="logo-container">
+                                                            <img src="assets/img/icons/logos/metamovies.svg" alt="" data-demo-src="assets/img/icons/logos/metamovies.svg" data-page-popover="9">
+                                                        </div>
+                                                    </div>
+                                                    <h3>Intern</h3>
+                                                    <p>Metamovies</p>
+                                                    <div class="more">
+                                                        <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
+                                                    </div>
+                                                    <div class="date">
+                                                        May 2018
+                                                    </div>
+                                                </div>
+                                                <!--Timeline Item-->
+                                                <div class="timeline-item">
+                                                    <div class="image-container">
+                                                        <img src="assets/img/demo/unsplash/popovers/pages/quick-fashion.jpg" alt="" data-demo-src="assets/img/demo/unsplash/popovers/pages/quick-fashion.jpg">
+                                                        <div class="logo-container">
+                                                            <img src="assets/img/icons/logos/quick-fashion.svg" alt="" data-demo-src="assets/img/icons/logos/quick-fashion.svg" data-page-popover="9">
+                                                        </div>
+                                                    </div>
+                                                    <h3>Intern</h3>
+                                                    <p>Quick Fashion</p>
+                                                    <div class="more">
+                                                        <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
+                                                    </div>
+                                                    <div class="date">
+                                                        Feb 2018
+                                                    </div>
+                                                </div>
+                                                <!--Timeline Item-->
+                                                <div class="timeline-item">
+                                                    <div class="image-container">
+                                                        <img src="assets/img/demo/unsplash/popovers/pages/nuclearjs.jpg" alt="" data-demo-src="assets/img/demo/unsplash/popovers/pages/nuclearjs.jpg">
+                                                        <div class="logo-container">
+                                                            <img src="assets/img/icons/logos/nuclearjs.svg" alt="" data-demo-src="assets/img/icons/logos/nuclearjs.svg" data-page-popover="9">
+                                                        </div>
+                                                    </div>
+                                                    <h3>Intern</h3>
+                                                    <p>Nuclearjs</p>
+                                                    <div class="more">
+                                                        <p>Lorem ipsum sit dolor amet is a dummy text used by typographers.</p>
+                                                    </div>
+                                                    <div class="date">
+                                                        Jan 2018
+                                                    </div>
+                                                </div>
+                                            </div>
+            
+                                            <div id="slider-dots-jobs-glider" class="dots"></div>
+                                        </div>
+                                        <!-- Personal tab -->
+                                        <div id="personal-content" class="content-section">
+                                            <!-- Friends about card -->
+                                            <div class="about-card">
+                                                <!-- Header -->
+                                                <div class="header">
+                                                    <div class="icon-title">
+                                                        <i class="mdi mdi-account-group"></i>
+                                                        <h3>Friends</h3>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class="button-wrapper">
+                                                            <a class="button">Invitations</a>
+                                                            <div class="indicator">
+                                                                <span>8</span>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Dropdown -->
+                                                        <div class="dropdown is-spaced is-accent is-right dropdown-trigger">
+                                                            <div>
+                                                                <div class="button">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                                </div>
+                                                            </div>
+                                                            <div class="dropdown-menu" role="menu">
+                                                                <div class="dropdown-content">
+                                                                    <a href="#" class="dropdown-item">
+                                                                        <div class="media">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-smile"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                                                                            <div class="media-content">
+                                                                                <h3>Manage</h3>
+                                                                                <small>Manage your friend list.</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <a class="dropdown-item">
+                                                                        <div class="media">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                                                            <div class="media-content">
+                                                                                <h3>Find friends</h3>
+                                                                                <small>Search for new friends.</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <hr class="dropdown-divider">
+                                                                    <a href="#" class="dropdown-item">
+                                                                        <div class="media">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                                                            <div class="media-content">
+                                                                                <h3>View all</h3>
+                                                                                <small>View all friends.</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="body">
+                                                    <div class="columns friends-columns is-multiline">
+                                                        <!-- Friend -->
+                                                        <div class="column is-6">
+                                                            <div class="friend-small-card">
+                                                                <img src="assets/img/avatars/nelly.png" data-demo-src="assets/img/avatars/nelly.png" data-user-popover="9" alt="">
+                                                                <div class="meta">
+                                                                    <span>Nelly Schwartz</span>
+                                                                    <span>182 Friends</span>
+                                                                </div>
+                                                                <!-- Dropdown -->
+                                                                <div class="dropdown is-spaced is-accent is-right dropdown-trigger">
+                                                                    <div>
+                                                                        <div class="button">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="dropdown-menu" role="menu">
+                                                                        <div class="dropdown-content">
+                                                                            <a href="#" class="dropdown-item">
+                                                                                <div class="media">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                                                                    <div class="media-content">
+                                                                                        <h3>View Profile</h3>
+                                                                                        <small>Open this user profile.</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                            <a class="dropdown-item">
+                                                                                <div class="media">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                                                                    <div class="media-content">
+                                                                                        <h3>Message</h3>
+                                                                                        <small>Send a message to this user.</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                            <hr class="dropdown-divider">
+                                                                            <a href="#" class="dropdown-item">
+                                                                                <div class="media">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-delete"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg>
+                                                                                    <div class="media-content">
+                                                                                        <h3>Unfriend</h3>
+                                                                                        <small>Remove from friend list.</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Friend -->
+                                                        <div class="column is-6">
+                                                            <div class="friend-small-card">
+                                                                <img src="assets/img/avatars/mike.jpg" data-demo-src="assets/img/avatars/mike.jpg" data-user-popover="12" alt="">
+                                                                <div class="meta">
+                                                                    <span>Mike Lasalle</span>
+                                                                    <span>91 Friends</span>
+                                                                </div>
+                                                                <!-- Dropdown -->
+                                                                <div class="dropdown is-spaced is-accent is-right dropdown-trigger">
+                                                                    <div>
+                                                                        <div class="button">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="dropdown-menu" role="menu">
+                                                                        <div class="dropdown-content">
+                                                                            <a href="#" class="dropdown-item">
+                                                                                <div class="media">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                                                                    <div class="media-content">
+                                                                                        <h3>View Profile</h3>
+                                                                                        <small>Open this user profile.</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                            <a class="dropdown-item">
+                                                                                <div class="media">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                                                                    <div class="media-content">
+                                                                                        <h3>Message</h3>
+                                                                                        <small>Send a message to this user.</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                            <hr class="dropdown-divider">
+                                                                            <a href="#" class="dropdown-item">
+                                                                                <div class="media">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-delete"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg>
+                                                                                    <div class="media-content">
+                                                                                        <h3>Unfriend</h3>
+                                                                                        <small>Remove from friend list.</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Friend -->
+                                                        <div class="column is-6">
+                                                            <div class="friend-small-card">
+                                                                <img src="assets/img/avatars/stella.jpg" data-demo-src="assets/img/avatars/stella.jpg" data-user-popover="2" alt="">
+                                                                <div class="meta">
+                                                                    <span>Stella Bergmann</span>
+                                                                    <span>547 Friends</span>
+                                                                </div>
+                                                                <!-- Dropdown -->
+                                                                <div class="dropdown is-spaced is-accent is-right dropdown-trigger">
+                                                                    <div>
+                                                                        <div class="button">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="dropdown-menu" role="menu">
+                                                                        <div class="dropdown-content">
+                                                                            <a href="#" class="dropdown-item">
+                                                                                <div class="media">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                                                                    <div class="media-content">
+                                                                                        <h3>View Profile</h3>
+                                                                                        <small>Open this user profile.</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                            <a class="dropdown-item">
+                                                                                <div class="media">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                                                                    <div class="media-content">
+                                                                                        <h3>Message</h3>
+                                                                                        <small>Send a message to this user.</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                            <hr class="dropdown-divider">
+                                                                            <a href="#" class="dropdown-item">
+                                                                                <div class="media">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-delete"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg>
+                                                                                    <div class="media-content">
+                                                                                        <h3>Unfriend</h3>
+                                                                                        <small>Remove from friend list.</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Friend -->
+                                                        <div class="column is-6">
+                                                            <div class="friend-small-card">
+                                                                <img src="assets/img/avatars/david.jpg" data-demo-src="assets/img/avatars/david.jpg" data-user-popover="4" alt="">
+                                                                <div class="meta">
+                                                                    <span>David Kim</span>
+                                                                    <span>264 Friends</span>
+                                                                </div>
+                                                                <!-- Dropdown -->
+                                                                <div class="dropdown is-spaced is-accent is-right dropdown-trigger">
+                                                                    <div>
+                                                                        <div class="button">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="dropdown-menu" role="menu">
+                                                                        <div class="dropdown-content">
+                                                                            <a href="#" class="dropdown-item">
+                                                                                <div class="media">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                                                                    <div class="media-content">
+                                                                                        <h3>View Profile</h3>
+                                                                                        <small>Open this user profile.</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                            <a class="dropdown-item">
+                                                                                <div class="media">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                                                                    <div class="media-content">
+                                                                                        <h3>Message</h3>
+                                                                                        <small>Send a message to this user.</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                            <hr class="dropdown-divider">
+                                                                            <a href="#" class="dropdown-item">
+                                                                                <div class="media">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-delete"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg>
+                                                                                    <div class="media-content">
+                                                                                        <h3>Unfriend</h3>
+                                                                                        <small>Remove from friend list.</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Friend -->
+                                                        <div class="column is-6">
+                                                            <div class="friend-small-card">
+                                                                <img src="assets/img/avatars/elise.jpg" data-demo-src="assets/img/avatars/elise.jpg" data-user-popover="6" alt="">
+                                                                <div class="meta">
+                                                                    <span>Elise Walker</span>
+                                                                    <span>321 Friends</span>
+                                                                </div>
+                                                                <!-- Dropdown -->
+                                                                <div class="dropdown is-spaced is-accent is-right dropdown-trigger">
+                                                                    <div>
+                                                                        <div class="button">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="dropdown-menu" role="menu">
+                                                                        <div class="dropdown-content">
+                                                                            <a href="#" class="dropdown-item">
+                                                                                <div class="media">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                                                                    <div class="media-content">
+                                                                                        <h3>View Profile</h3>
+                                                                                        <small>Open this user profile.</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                            <a class="dropdown-item">
+                                                                                <div class="media">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                                                                    <div class="media-content">
+                                                                                        <h3>Message</h3>
+                                                                                        <small>Send a message to this user.</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                            <hr class="dropdown-divider">
+                                                                            <a href="#" class="dropdown-item">
+                                                                                <div class="media">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-delete"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg>
+                                                                                    <div class="media-content">
+                                                                                        <h3>Unfriend</h3>
+                                                                                        <small>Remove from friend list.</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Friend -->
+                                                        <div class="column is-6">
+                                                            <div class="friend-small-card">
+                                                                <img src="assets/img/avatars/milly.jpg" data-demo-src="assets/img/avatars/milly.jpg" data-user-popover="7" alt="">
+                                                                <div class="meta">
+                                                                    <span>Milly Augustine</span>
+                                                                    <span>264 Friends</span>
+                                                                </div>
+                                                                <!-- Dropdown -->
+                                                                <div class="dropdown is-spaced is-accent is-right dropdown-trigger">
+                                                                    <div>
+                                                                        <div class="button">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="dropdown-menu" role="menu">
+                                                                        <div class="dropdown-content">
+                                                                            <a href="#" class="dropdown-item">
+                                                                                <div class="media">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                                                                    <div class="media-content">
+                                                                                        <h3>View Profile</h3>
+                                                                                        <small>Open this user profile.</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                            <a class="dropdown-item">
+                                                                                <div class="media">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                                                                    <div class="media-content">
+                                                                                        <h3>Message</h3>
+                                                                                        <small>Send a message to this user.</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                            <hr class="dropdown-divider">
+                                                                            <a href="#" class="dropdown-item">
+                                                                                <div class="media">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-delete"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg>
+                                                                                    <div class="media-content">
+                                                                                        <h3>Unfriend</h3>
+                                                                                        <small>Remove from friend list.</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+            
+                                            <!-- Photos about card -->
+                                            <div class="about-card">
+                                                <!-- Header -->
+                                                <div class="header">
+                                                    <div class="icon-title">
+                                                        <i class="mdi mdi-camera"></i>
+                                                        <h3>Photos</h3>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class="button-wrapper">
+                                                            <a class="button">Albums</a>
+                                                        </div>
+                                                        <!-- Dropdown -->
+                                                        <div class="dropdown is-spaced is-accent is-right dropdown-trigger">
+                                                            <div>
+                                                                <div class="button">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                                </div>
+                                                            </div>
+                                                            <div class="dropdown-menu" role="menu">
+                                                                <div class="dropdown-content">
+                                                                    <a href="#" class="dropdown-item">
+                                                                        <div class="media">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                                                            <div class="media-content">
+                                                                                <h3>Of Me</h3>
+                                                                                <small>View pictures of me.</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <a class="dropdown-item">
+                                                                        <div class="media">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                                                            <div class="media-content">
+                                                                                <h3>With Me</h3>
+                                                                                <small>View pictures with me.</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <hr class="dropdown-divider">
+                                                                    <a class="dropdown-item">
+                                                                        <div class="media">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload-cloud"><polyline points="16 16 12 12 8 16"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path><polyline points="16 16 12 12 8 16"></polyline></svg>
+                                                                            <div class="media-content">
+                                                                                <h3>Upload</h3>
+                                                                                <small>Upload pictures from computer.</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <a class="dropdown-item">
+                                                                        <div class="media">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                                                            <div class="media-content">
+                                                                                <h3>Create Album</h3>
+                                                                                <small>Create a new album.</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <hr class="dropdown-divider">
+                                                                    <a href="#" class="dropdown-item">
+                                                                        <div class="media">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                                                                            <div class="media-content">
+                                                                                <h3>View all</h3>
+                                                                                <small>View all photos.</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="body has-flex-list">
+                                                    <!-- Photos -->
+                                                    <div class="photo-list">
+                                                        <!-- Photo item -->
+                                                        <div class="photo-wrapper">
+                                                            <div class="photo-overlay"></div>
+                                                            <div class="small-like">
+                                                                <div class="inner">
+                                                                    <div class="like-overlay"></div>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                                                </div>
+                                                            </div>
+                                                            <img src="assets/img/demo/profile/about/photos/1.jpg" data-demo-src="assets/img/demo/profile/about/photos/1.jpg" alt="">
+                                                        </div>
+                                                        <!-- Photo item -->
+                                                        <div class="photo-wrapper">
+                                                            <div class="photo-overlay"></div>
+                                                            <div class="small-like">
+                                                                <div class="inner">
+                                                                    <div class="like-overlay"></div>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                                                </div>
+                                                            </div>
+                                                            <img src="assets/img/demo/profile/about/photos/2.jpg" data-demo-src="assets/img/demo/profile/about/photos/2.jpg" alt="">
+                                                        </div>
+                                                        <!-- Photo item -->
+                                                        <div class="photo-wrapper">
+                                                            <div class="photo-overlay"></div>
+                                                            <div class="small-like">
+                                                                <div class="inner">
+                                                                    <div class="like-overlay"></div>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                                                </div>
+                                                            </div>
+                                                            <img src="assets/img/demo/profile/about/photos/3.jpg" data-demo-src="assets/img/demo/profile/about/photos/3.jpg" alt="">
+                                                        </div>
+                                                        <!-- Photo item -->
+                                                        <div class="photo-wrapper">
+                                                            <div class="photo-overlay"></div>
+                                                            <div class="small-like">
+                                                                <div class="inner">
+                                                                    <div class="like-overlay"></div>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                                                </div>
+                                                            </div>
+                                                            <img src="assets/img/demo/profile/about/photos/4.jpg" data-demo-src="assets/img/demo/profile/about/photos/4.jpg" alt="">
+                                                        </div>
+                                                        <!-- Photo item -->
+                                                        <div class="photo-wrapper">
+                                                            <div class="photo-overlay"></div>
+                                                            <div class="small-like">
+                                                                <div class="inner">
+                                                                    <div class="like-overlay"></div>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                                                </div>
+                                                            </div>
+                                                            <img src="assets/img/demo/profile/about/photos/5.jpg" data-demo-src="assets/img/demo/profile/about/photos/5.jpg" alt="">
+                                                        </div>
+                                                        <!-- Photo item -->
+                                                        <div class="photo-wrapper">
+                                                            <div class="photo-overlay"></div>
+                                                            <div class="small-like">
+                                                                <div class="inner">
+                                                                    <div class="like-overlay"></div>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                                                </div>
+                                                            </div>
+                                                            <img src="assets/img/demo/profile/about/photos/6.jpg" data-demo-src="assets/img/demo/profile/about/photos/6.jpg" alt="">
+                                                        </div>
+                                                        <!-- Photo item -->
+                                                        <div class="photo-wrapper">
+                                                            <div class="photo-overlay"></div>
+                                                            <div class="small-like">
+                                                                <div class="inner">
+                                                                    <div class="like-overlay"></div>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                                                </div>
+                                                            </div>
+                                                            <img src="assets/img/demo/profile/about/photos/7.jpg" data-demo-src="assets/img/demo/profile/about/photos/7.jpg" alt="">
+                                                        </div>
+                                                        <!-- Photo item -->
+                                                        <div class="photo-wrapper">
+                                                            <div class="photo-overlay"></div>
+                                                            <div class="small-like">
+                                                                <div class="inner">
+                                                                    <div class="like-overlay"></div>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                                                </div>
+                                                            </div>
+                                                            <img src="assets/img/demo/profile/about/photos/8.jpg" data-demo-src="assets/img/demo/profile/about/photos/8.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+            
+                                            <!-- Videos about card -->
+                                            <div class="about-card">
+                                                <!-- Header -->
+                                                <div class="header">
+                                                    <div class="icon-title">
+                                                        <i class="mdi mdi-video"></i>
+                                                        <h3>Videos</h3>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class="button-wrapper">
+                                                            <a class="button">All Videos</a>
+                                                        </div>
+                                                        <!-- Dropdown -->
+                                                        <div class="dropdown is-spaced is-accent is-right dropdown-trigger">
+                                                            <div>
+                                                                <div class="button">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                                </div>
+                                                            </div>
+                                                            <div class="dropdown-menu" role="menu">
+                                                                <div class="dropdown-content">
+                                                                    <a href="#" class="dropdown-item">
+                                                                        <div class="media">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                                                                            <div class="media-content">
+                                                                                <h3>Manage</h3>
+                                                                                <small>Manage your videos.</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <a class="dropdown-item">
+                                                                        <div class="media">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                                                            <div class="media-content">
+                                                                                <h3>Upload</h3>
+                                                                                <small>Upload a new video.</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <hr class="dropdown-divider">
+                                                                    <a href="#" class="dropdown-item">
+                                                                        <div class="media">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                                                                            <div class="media-content">
+                                                                                <h3>Settings</h3>
+                                                                                <small>Open video settings.</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="body has-flex-list">
+                                                    <!-- Videos -->
+                                                    <div class="video-list">
+                                                        <!-- Video item -->
+                                                        <div class="video-wrapper">
+                                                            <div class="video-overlay"></div>
+                                                            <div class="video-length">02:32</div>
+                                                            <div class="small-like">
+                                                                <div class="inner">
+                                                                    <div class="like-overlay"></div>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                                                </div>
+                                                            </div>
+                                                            <img src="assets/img/demo/profile/about/videos/1.jpg" data-demo-src="assets/img/demo/profile/about/videos/1.jpg" alt="">
+                                                            <div class="video-button" data-video-id="LTrzSSf0YlA">
+                                                                <img src="assets/img/icons/video/play.svg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <!-- Video item -->
+                                                        <div class="video-wrapper">
+                                                            <div class="video-overlay"></div>
+                                                            <div class="video-length">00:49</div>
+                                                            <div class="small-like">
+                                                                <div class="inner">
+                                                                    <div class="like-overlay"></div>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                                                </div>
+                                                            </div>
+                                                            <img src="assets/img/demo/profile/about/videos/2.jpg" data-demo-src="assets/img/demo/profile/about/videos/2.jpg" alt="">
+                                                            <div class="video-button">
+                                                                <img src="assets/img/icons/video/play.svg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <!-- Video item -->
+                                                        <div class="video-wrapper">
+                                                            <div class="video-overlay"></div>
+                                                            <div class="video-length">01:27</div>
+                                                            <div class="small-like">
+                                                                <div class="inner">
+                                                                    <div class="like-overlay"></div>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                                                </div>
+                                                            </div>
+                                                            <img src="assets/img/demo/profile/about/videos/3.jpg" data-demo-src="assets/img/demo/profile/about/videos/3.jpg" alt="">
+                                                            <div class="video-button">
+                                                                <img src="assets/img/icons/video/play.svg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <!-- Video item -->
+                                                        <div class="video-wrapper">
+                                                            <div class="video-overlay"></div>
+                                                            <div class="video-length">12:32</div>
+                                                            <div class="small-like">
+                                                                <div class="inner">
+                                                                    <div class="like-overlay"></div>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                                                </div>
+                                                            </div>
+                                                            <img src="assets/img/demo/profile/about/videos/4.jpg" data-demo-src="assets/img/demo/profile/about/videos/4.jpg" alt="">
+                                                            <div class="video-button">
+                                                                <img src="assets/img/icons/video/play.svg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <!-- Video item -->
+                                                        <div class="video-wrapper">
+                                                            <div class="video-overlay"></div>
+                                                            <div class="video-length">03:41</div>
+                                                            <div class="small-like">
+                                                                <div class="inner">
+                                                                    <div class="like-overlay"></div>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                                                </div>
+                                                            </div>
+                                                            <img src="assets/img/demo/profile/about/videos/5.jpg" data-demo-src="assets/img/demo/profile/about/videos/5.jpg" alt="">
+                                                            <div class="video-button">
+                                                                <img src="assets/img/icons/video/play.svg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <!-- Video item -->
+                                                        <div class="video-wrapper">
+                                                            <div class="video-overlay"></div>
+                                                            <div class="video-length">01:13</div>
+                                                            <div class="small-like">
+                                                                <div class="inner">
+                                                                    <div class="like-overlay"></div>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                                                </div>
+                                                            </div>
+                                                            <img src="assets/img/demo/profile/about/videos/6.jpg" data-demo-src="assets/img/demo/profile/about/videos/6.jpg" alt="">
+                                                            <div class="video-button">
+                                                                <img src="assets/img/icons/video/play.svg" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+            
+                                            <!-- Places about card -->
+                                            <div class="about-card">
+                                                <!-- Header -->
+                                                <div class="header">
+                                                    <div class="icon-title">
+                                                        <i class="mdi mdi-map-outline"></i>
+                                                        <h3>Places</h3>
+                                                    </div>
+                                                    <div class="actions">
+                                                        <div class="button-wrapper">
+                                                            <a class="button">View All</a>
+                                                        </div>
+                                                        <!-- Dropdown -->
+                                                        <div class="dropdown is-spaced is-accent is-right dropdown-trigger">
+                                                            <div>
+                                                                <div class="button">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                                </div>
+                                                            </div>
+                                                            <div class="dropdown-menu" role="menu">
+                                                                <div class="dropdown-content">
+                                                                    <a href="#" class="dropdown-item">
+                                                                        <div class="media">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                                                            <div class="media-content">
+                                                                                <h3>Recent</h3>
+                                                                                <small>Show recent places.</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <a class="dropdown-item">
+                                                                        <div class="media">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                                                            <div class="media-content">
+                                                                                <h3>Visited</h3>
+                                                                                <small>Show visited places.</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <hr class="dropdown-divider">
+                                                                    <a href="#" class="dropdown-item">
+                                                                        <div class="media">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                                                            <div class="media-content">
+                                                                                <h3>Add</h3>
+                                                                                <small>Add a new place.</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="body has-flex-list">
+                                                    <!-- Places -->
+                                                    <div class="place-list">
+                                                        <!-- Place item -->
+                                                        <div class="place-wrapper">
+                                                            <img src="assets/img/demo/unsplash/places/16.jpg" data-demo-src="assets/img/demo/unsplash/places/16.jpg" alt="">
+                                                            <div class="foot">
+                                                                <a href="#" class="place-name">Melbourne</a>
+                                                                <div class="rating">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Place item -->
+                                                        <div class="place-wrapper">
+                                                            <img src="assets/img/demo/unsplash/places/17.jpg" data-demo-src="assets/img/demo/unsplash/places/17.jpg" alt="">
+                                                            <div class="foot">
+                                                                <a href="#" class="place-name">Dany's Burgers</a>
+                                                                <div class="rating">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Place item -->
+                                                        <div class="place-wrapper">
+                                                            <img src="assets/img/demo/unsplash/places/18.jpg" data-demo-src="assets/img/demo/unsplash/places/18.jpg" alt="">
+                                                            <div class="foot">
+                                                                <a href="#" class="place-name">Vethnics Fashion</a>
+                                                                <div class="rating">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Place item -->
+                                                        <div class="place-wrapper">
+                                                            <img src="assets/img/demo/unsplash/places/19.jpg" data-demo-src="assets/img/demo/unsplash/places/19.jpg" alt="">
+                                                            <div class="foot">
+                                                                <a href="#" class="place-name">The Smoothie Bar</a>
+                                                                <div class="rating">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Place item -->
+                                                        <div class="place-wrapper">
+                                                            <img src="assets/img/demo/unsplash/places/20.jpg" data-demo-src="assets/img/demo/unsplash/places/20.jpg" alt="">
+                                                            <div class="foot">
+                                                                <a href="#" class="place-name">Eiffel Tower</a>
+                                                                <div class="rating">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Place item -->
+                                                        <div class="place-wrapper">
+                                                            <img src="assets/img/demo/unsplash/places/21.jpg" data-demo-src="assets/img/demo/unsplash/places/21.jpg" alt="">
+                                                            <div class="foot">
+                                                                <a href="#" class="place-name">Lennie's Fair</a>
+                                                                <div class="rating">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star is-checked"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                
-        
                             </div>
-                            <div class="right-section has-slimscroll" style="width: 65% !important;">
-        
-                               
-                                <div id="payment-container" class="checkout-container">
-                                    <!--Left Side-->
-                                    <div class="left">
-                                        <div class="left-header">
-                                            <div class="header-inner">
-                                                <img class="avatar" src="https://martinfunck.com/pictures/portrait_men_10.jpg" alt="image">
-                                                <div class="separator"></div>
-                                                <div class="title-wrap">
-                                                    <h3 class="payment-title">Edvin Molla</h3>
-                                                    <p class="payment-subtitle has-text-success">Your credit card is verified.</p>
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="header-coupon">
-                                                <p class="payment-subtitle">Below you will find the total amount paid to date.</p>
-                    
-                                            </div>
-                                            <div class="header-foot">
-                                                <span class="label">Usage to Date</span>
-                                                <span class="amount" data-currency="USD">$216.92</span>
-                                            </div>
-                                        </div>
-                                        <div class="left-body"></div>
-                                    </div>
-                    
-                                    <!--Right Side-->
-                                    <div class="right">
-                                        <div class="payment-form">
-                                            <form action="/charge" method="post" id="stripe-payment-form" class="provider-form is-active">
-                                                <div id="checkout-contact-section" class="form-section has-margin-bottom">
-                                                    <div class="form-section-header">
-                                                        <h3>Contact Information</h3>
-                                                    </div>
-                                                    <div class="field">
-                                                        <label for="card-element">Email Address</label>
-                                                        <div class="control">
-                                                            <input class="input" placeholder="Enter your email address" name="checkout_email" autofocus="">
-                                                        </div>
-                    
-                                                    </div>
-                                                </div>
-                    
-                                                <div id="checkout-payment-section" class="form-section">
-                                                    <div class="form-section-header">
-                                                        <h3>Payment Information</h3>
-                                                    </div>
-                    
-                                                    <div class="field">
-                                                        <label for="card-element">Name on card</label>
-                                                        <div class="control">
-                                                            <input class="input" placeholder="Enter the name on the credit card" name="checkout_name">
-                                                        </div>
-                                                    </div>
-                    
-                                                    <div class="field">
-                                                        <label for="card-element">Credit or debit card</label>
-                                                        <div class="control">
-                                                            <div id="card-element" class="StripeElement StripeElement--empty"><div class="__PrivateStripeElement" style="margin: 0px !important; padding: 0px !important; border: medium none !important; display: block !important; background: transparent none repeat scroll 0% 0% !important; position: relative !important; opacity: 1 !important;"><iframe allowtransparency="true" scrolling="no" name="__privateStripeFrame6265" allowpaymentrequest="true" src="https://js.stripe.com/v3/elements-inner-card-060dea0bf366ce25d99b48708708a855.html#style[base][fontSize]=14px&amp;style[base][color]=%23595d6e&amp;wait=false&amp;rtl=false&amp;componentName=card&amp;keyMode=test&amp;apiKey=pk_test_6pRNASCoBOKtIshFeQd4XMUh&amp;origin=https%3A%2F%2Ffriendkit.cssninja.io&amp;referrer=https%3A%2F%2Ffriendkit.cssninja.io%2Fecommerce-payment.html&amp;controllerId=__privateStripeController6261" title="Secure card payment input frame" style="border: medium none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; user-select: none !important; transform: translateZ(0px) !important; height: 16.8px;" frameborder="0"></iframe><input class="__PrivateStripeElement-input" aria-hidden="true" aria-label=" " autocomplete="false" maxlength="1" style="border: medium none !important; display: block !important; position: absolute !important; height: 1px !important; top: 0px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent none repeat scroll 0% 0% !important; pointer-events: none !important; font-size: 16px !important;"></div></div>
-                    
-                                                            <!-- Used to display Element errors -->
-                                                            <div id="card-errors" role="alert"></div>
-                                                        </div>
-                                                    </div>
-                    
-                                                    <div class="field">
-                                                        <label>Country</label>
-                                                        <div class="control has-icons-left">
-                                                            <div class="select">
-                                                                <select>
-                                                                    <option></option>
-                                                                    <option selected="">United States of America</option>
-                                                                    <option>Belgium</option>
-                                                                    <option>Brazil</option>
-                                                                    <option>Canada</option>
-                                                                    <option>France</option>
-                                                                    <option>Germany</option>
-                                                                    <option>Mexico</option>
-                                                                    <option>Spain</option>
-                                                                    <option>England</option>
-                                                                    <option>Luxembourg</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="icon is-small is-left">
-                                                                <i class="mdi mdi-earth"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                    
-                                                <div class="field is-disclaimer">
-                                                    <p>By clicking on 'Submit Payment', you confirm that you fully agree to our <a href="#">Terms Of
-                                                            Service</a> and to our <a href="#">Customer's Policy</a>.</p>
-                                                </div>
-                    
-                                                <div class="field is-button">
-                                                    <div class="buttons has-addons">
-                                                        <button id="payment-button" type="button" class="button is-solid primary-button">Confirm
-                                                            Payment</button>
-                                                        <button type="button" class="button is-solid primary-button">$216.92</button>
-                                                    </div>
-                                                </div>
-                    
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
 
-
-
-
-
-
-
-
-
-                            </div>
                         </div>
                       
                     </div>
@@ -343,9 +1408,7 @@ $('#overview-content').removeClass('is-active');
                 </div>
             </div>
 
-            
-  
-        
+    
            
             <div id="application-modal" class="modal application-modal is-xlarge has-light-bg">
                 <div class="modal-background"></div>
@@ -1177,7 +2240,7 @@ $('#overview-content').removeClass('is-active');
                             </div>
                         </div>
                         <div class="button-wrap">
-                            <button class="button secondary-button is-fullwidth raised modal-trigger" data-modal="albums-modal">Settings</button>
+                            <button class="button secondary-button is-fullwidth raised modal-trigger" data-modal="settings-modal">Settings</button>
                         </div>
         
                         
@@ -1265,14 +2328,14 @@ $('#overview-content').removeClass('is-active');
     if(w<=766)
     {
        
-        $(".right-content").css('margin-left', '0px');
+        $(".right-content-1").css('margin-left', '0px');
         $(".profile-wrapper").css("position", "relative");
        
     }
     else if(w>766)
     {
       
-        $(".right-content").css('margin-left', '300px');
+        $(".right-content-1").css('margin-left', '300px');
         $(".profile-wrapper").css("position", "fixed");
     }
 }, 500);
@@ -1283,7 +2346,7 @@ $('#overview-content').removeClass('is-active');
                     </script>
 
                     
-                    <div class="right-content">
+                    <div class="right-content right-content-1">
 
                         <div class="column">
                                        
