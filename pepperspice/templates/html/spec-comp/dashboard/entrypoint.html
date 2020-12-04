@@ -398,7 +398,7 @@ $('#billing-section').removeClass('is-active');
 
                                                                             <script>
                                                                                 $( document ).ready(function() {
-
+                                                                                    
                                                                                     $(".name-save-button").hide();
                                                                                     
                                                                                     var edit = false;
@@ -418,7 +418,7 @@ $('#billing-section').removeClass('is-active');
 
 
                                                                                     $( ".name-edit-button" ).click(function() {
-                                                                                        var temporary = $(".name-field-inner").val();
+                                                                                        window.temporary = $(".name-field-inner").text();
                                                                                         edit = true;
                                                                                     $(".name-field-inner").replaceWith( " <input class='effect-1 name-edit-field' type='text' value='" + $(".name-field-inner").val() + "'>" );
                                                                                     $(".name-edit-button").hide();
@@ -430,8 +430,9 @@ $('#billing-section').removeClass('is-active');
                                                                                         
                                                                                         if($(".name-edit-field").val().length == 0)
                                                                                         {
-                                                                                        alert('sd');
-                                                                                            $(".name-edit-field").replaceWith( "<span class='name-field-inner'>" + temporary + "</span>" );
+                                                                                            
+                                                                                        
+                                                                                            $(".name-edit-field").replaceWith( "<span class='name-field-inner'>" + window.temporary + "</span>" );
                                                                                         }
                                                                                         else {
 
@@ -456,7 +457,7 @@ $('#billing-section').removeClass('is-active');
                                                                                     
                                                                             </script>
                                                                             <style>
-                                                                                .effect-1 {border: 0; padding: 7px 0; border-bottom: 1px solid #ccc;}
+                                                                                .effect-1 {border: 0; margin-left: 5px;margin-top: 5.5px; border-bottom: 1px solid #ccc; padding: 0px;}
                                                                                 .effect-1 ~ .focus-border{position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #3399FF; transition: 0.4s;}
                                                                             .effect-1:focus ~ .focus-border{width: 100%; transition: 0.4s;}
                                                                             </style>
@@ -464,11 +465,11 @@ $('#billing-section').removeClass('is-active');
                                                                             <div class="flex-inner name-field">
                                                                                 <i data-feather="user"></i>
                                                                             
-                                                                                <span class="name-field-inner" >Edvin Molla</span>
+                                                                                <span class="name-field-inner">Edvin Molla</span>
                                                                          
                                                                           
-                                                                                <a class="name-edit-button" style="display: none; font-size: 12px;text-decoration: underline;">edit</a>
-                                                                                <a class="name-save-button" style="display: none; font-size: 12px;text-decoration: underline;">save</a>
+                                                                                <a class="name-edit-button" style="display: none; font-size: 14px;text-decoration: underline;">edit</a>
+                                                                                <a class="name-save-button" style="display: none; font-size: 14px;text-decoration: underline;">save</a>
                                                                             </div>
                                                                             <div class="flex-inner">
                                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
