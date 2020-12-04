@@ -140,9 +140,11 @@ $(document).ready(function () {
           title.html('4. Choose a billing address');
 
           if ($('.billing-address input:checked').length === 0) {
-            $this.addClass('is-disabled');
+            // $this.prop('is-disabled');
+            $this.html('Create');
           } else {
-            $this.removeClass('is-disabled');
+            // $this.removeClass('is-disabled');
+            $this.html('Create');
           }
         } else if (nextStep === 5) {
           window.location.href = '/ecommerce-payment.html';
@@ -167,11 +169,14 @@ $(document).ready(function () {
           window.location.href = '/ecommerce-cart.html';
         } else if (prevStep === 1) {
           title.html('Select Framework');
+          $("#checkout-button").html('Continue');
         } else if (prevStep === 2) {
           title.html('Select Payment Method');
+          $("#checkout-button").html('Continue');
           $('.shipping-logo').removeClass('is-active');
         } else if (prevStep === 3) {
           title.html('3. Choose a shipping method');
+          $("#checkout-button").html('Continue');
           $('.shipping-logo').addClass('is-active');
         }
       }, 800);
