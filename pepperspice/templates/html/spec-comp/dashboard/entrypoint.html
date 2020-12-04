@@ -153,6 +153,86 @@ $('#overview-content').removeClass('is-active');
 
 </script>
 
+<script>
+
+$(document).ready(function() {
+    $('.settings-1').click(function(e) {  
+
+    $('.settings-2').removeClass('is-active');
+    $('.settings-3').removeClass('is-active');
+    $('.settings-4').removeClass('is-active');
+
+
+    $('.settings-1').addClass('is-active');
+
+    $('#api-section').removeClass('is-active');
+    $('#billing-section').removeClass('is-active');
+    $('#security-section').removeClass('is-active');
+    $('#general-section').addClass('is-active');
+
+     
+
+    });
+
+    $('.settings-2').click(function(e) {  
+
+    $('.settings-1').removeClass('is-active');
+    $('.settings-3').removeClass('is-active');
+    $('.settings-4').removeClass('is-active');
+
+
+    $('.settings-2').addClass('is-active');
+
+    $('#billing-section').removeClass('is-active');
+    $('#general-section').removeClass('is-active');
+    $('#api-section').removeClass('is-active');
+    $('#security-section').addClass('is-active');
+
+ 
+
+});
+
+$('.settings-3').click(function(e) {  
+
+$('.settings-1').removeClass('is-active');
+$('.settings-2').removeClass('is-active');
+$('.settings-4').removeClass('is-active');
+
+
+$('.settings-3').addClass('is-active');
+
+$('#billing-section').addClass('is-active');
+$('#general-section').removeClass('is-active');
+$('#security-section').removeClass('is-active');
+$('#api-section').removeClass('is-active');
+
+ 
+
+});
+
+
+$('.settings-4').click(function(e) {  
+
+$('.settings-1').removeClass('is-active');
+$('.settings-2').removeClass('is-active');
+$('.settings-3').removeClass('is-active');
+
+$('.settings-4').addClass('is-active');
+
+$('#general-section').removeClass('is-active');
+$('#api-section').addClass('is-active');
+$('#security-section').removeClass('is-active');
+$('#billing-section').removeClass('is-active');
+
+ 
+
+});
+
+
+});
+
+</script>
+
 
 <body >
     {% include 'html/spec-comp/dashboard/loading.html' %}
@@ -166,176 +246,288 @@ $('#overview-content').removeClass('is-active');
 
 
 
-            <div id="albums-modal" class="modal albums-modal is-xxl has-light-bg">
+            <div id="settings-modal" class="modal settings-modal is-xxl has-light-bg">
                 <div class="modal-background"></div>
                 <div class="modal-content">
         
                     <div class="card">
                         <div class="card-heading">
-                            <h3>Settings</h3>
-                            
-                            <div class="button close-modal">
-                                
-                                close
+                            <div class="is-primary share-dropdown">
+                                <div>
+                                  <h3>Settings</h3>
+                                </div>
+                               
                             </div>
         
-                        
+                          
+                            <div class="close-wrap">
+                                <span class="close-modal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </span>
+                            </div>
                         </div>
                         <div class="card-body">
-                            <div class="left-section" style="width: 20% !important; padding: 0px !important;">
-                               
-                                <div class="column">
+                          
+                            
 
-                                  
-            
-                                    <div class="basic-infos-wrapper is-hidden-mobile">
-                                        <div class="card is-community">
-                                            <h4>Quick Access</h4>
-                                            <div class="flex-block">
-                                             
-                                                <button class="button is-white  is-rounded"><i data-feather="server" class="mr-2"></i> Primary</button>
+                            <div class="column">
+
+                                <div class="profile-about side-menu">
+                                    <div class="left-menu mt-3" style="overflow-x: auto;">
+                                        <div class="left-menu-inner">
+                                            <div class="menu-item is-active settings-1" data-content="general-section">
+                                                <div class="menu-icon">
+                                                    <i class="fas fa-cog"></i>
+                                                    <span>General</span>
+                                                </div>
                                             </div>
-                                            <div class="flex-block">
-                                              
-                                                <button class="button is-white  is-rounded"><i data-feather="lock" class="mr-2"></i> Profile Security</button>
+                                            <div class="menu-item settings-2" data-content="security-section">
+                                                <div class="menu-icon">
+                                                    <i class="fas fa-user-lock"></i>
+                                                    <span>Security</span>
+                                                </div>
                                             </div>
-                                            <div class="flex-block">
-                                                
-                                                <button class="button is-white  is-rounded"><i data-feather="key" class="mr-2"></i> API Keys</button>
+                                            <div class="menu-item settings-3" data-content="billing-section">
+                                                <div class="menu-icon">
+                                                    <i class="fas fa-money-check-alt"></i>
+                                                    <span>Billing</span>
+                                                </div>
+                                            </div>
+                                            <div class="menu-item settings-4" data-content="api-content">
+                                                <div class="menu-icon">
+                                                    <i class="fas fa-key"></i>
+                                                    <span>API Management</span>
+                                                </div>
+                                            </div>
+                                            <div class="menu-item settings-4" data-content="api-content">
+                                                <div class="menu-icon">
+                                                    <i class="fas fa-user-clock"></i>
+                                                    <span>Cronjobs</span>
+                                                </div>
+                                            </div>
+                                            <div class="menu-item settings-4" data-content="api-content">
+                                                <div class="menu-icon">
+                                                    <i class="fas fa-chart-area"></i>
+                                                    <span>Monitoring</span>
+                                                </div>
+                                            </div>
+                                            <div class="menu-item settings-4" data-content="api-content">
+                                                <div class="menu-icon">
+                                                    <i class="fas fa-users"></i>
+                                                    <span>Users</span>
+                                                </div>
                                             </div>
                                             <hr class="dropdown-divider">
-                                            <div class="flex-block">
-                                
-                                                <button class="button is-white  is-rounded"><i data-feather="bell" class="mr-2"></i> Notifications</button>
+                                            <div class="menu-item settings-4" data-content="api-content">
+                                                <div class="menu-icon">
+                                                    <i class="fas fa-handshake"></i>
+                                                    <span>End User Aggrement</span>
+                                                </div>
                                             </div>
+                                            <div class="menu-item settings-4" data-content="api-content">
+                                                <div class="menu-icon">
+                                                    <i class="fas fa-bell"></i>
+                                                    <span>Notifications</span>
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="right-content">
+
+
+                                        <div id="general-section" class="content-section is-active">
+                                          
+                                           
+                                            
+                                                <div class="column ">
+
+                                                    <div class="card page-about-card">
+                                                       
+                                                        <div class="about-body">
+                                                            <div class="columns">
+                                                                <div class="column is-5">
+                                                                    <div class="about-block">
+                                                                        <div class="block-header">
+                                                                            <h4>Contact Info</h4>
+                                                                        </div>
+                                                                        <div class="block-content">
+                                                                            <div class="flex-inner">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                                                                <span>Call <a>+555-654-545-88</a></span>
+                                                                            </div>
+                                                                            <div class="flex-inner">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                                                                <span>Start a <a>Conversation</a></span>
+                                                                            </div>
+                                                                            <div class="flex-inner">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                                                                                <span><a>https://fastpizza.com</a></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                            
+                                                                    <div class="about-block">
+                                                                        <div class="block-header">
+                                                                            <h4>More Info</h4>
+                                                                        </div>
+                                                                        <div class="block-content">
+                                                                            <div class="flex-inner has-meta">
+                                                                                <i class="mdi mdi-office-building"></i>
+                                                                                <div class="meta">
+                                                                                    <span>Company</span>
+                                                                                    <span>Domino's Pizza is a global fast-food company</span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="flex-inner has-meta">
+                                                                                <i class="mdi mdi-earth"></i>
+                                                                                <div class="meta">
+                                                                                    <span>Around the world</span>
+                                                                                    <span>Domino's Pizza has 28,489 stores around the world</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column is-5">
+                                                                    <div class="about-block">
+                                                                        <div class="block-header">
+                                                                            <h4>Owner Information</h4>
+                                                                        </div>
+                                                                        <div class="block-content">
+
+                                                                            <script>
+                                                                                $( document ).ready(function() {
+                                                                                    
+                                                                                    $(".name-save-button").hide();
+                                                                                    
+                                                                                    var edit = false;
+
+                                                                                $(".name-field").on('mouseenter', function () {
+                                                                                    
+                                                                                    if(edit==false){
+
+                                                                                        $(".name-edit-button").css('display', "inline-flex");
+
+                                                                                    }
+
+                                                                                    
+                                                                                    }).on('mouseleave', function () {
+                                                                                        $(".name-edit-button").css('display', "none");
+                                                                                    });
+
+
+                                                                                    $( ".name-edit-button" ).click(function() {
+                                                                                        window.temporary = $(".name-field-inner").text();
+                                                                                        edit = true;
+                                                                                    $(".name-field-inner").replaceWith( " <input class='effect-1 name-edit-field' maxlength='20' type='text' value='" + $(".name-field-inner").val() + "'>" );
+                                                                                    $(".name-edit-button").hide();
+                                                                                    $(".name-save-button").show();
+                                                                                });
+                                                                                    
+
+                                                                                    $( ".name-save-button" ).click(function() {
+                                                                                        
+                                                                                        if($(".name-edit-field").val().length == 0)
+                                                                                        {
+                                                                                            
+                                                                                        
+                                                                                            $(".name-edit-field").replaceWith( "<span class='name-field-inner'>" + window.temporary + "</span>" );
+                                                                                        }
+                                                                                        else {
+
+                                                                                            $(".name-edit-field").replaceWith( "<span class='name-field-inner'>" + $(".name-edit-field").val() + "</span>" );
+                                                                                        }
+                                                                                    
+                                                                                    edit = false;
+                                                                                    $(".name-save-button").hide();
+                                                                                    $(".name-edit-button").show();
+                                                                                
+                                                                                });
+                                                                                    
+                                                                             
+                                                                                });
+
+                                                                                
+
+                                                                                    
+                                                                            </script>
+                                                                            <style>
+                                                                                .effect-1 {border: 0; margin-left: 10px;margin-top: 5.5px; border-bottom: 1px solid #ccc; padding: 0px;}
+                                                                                .effect-1 ~ .focus-border{ bottom: 0; left: 0; width: 0; height: 10px; background-color: #3399FF; transition: 0.4s;}
+                                                                            .effect-1:focus ~ .focus-border{width: 100%; transition: 0.4s;}
+                                                                            </style>
+
+                                                                            <div class="flex-inner name-field">
+                                                                                <i data-feather="user"></i>
+                                                                            
+                                                                                <span class="name-field-inner">Edvin Molla</span>
+                                                                         
+                                                                          
+                                                                                <a class="name-edit-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;">edit</a>
+                                                                                <a class="name-save-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;">save</a>
+                                                                            </div>
+                                                                            <div class="flex-inner">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                                                                <span>Start a <a>Conversation</a></span>
+                                                                            </div>
+                                                                            <div class="flex-inner">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                                                                                <span></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                            
+                                                                    <div class="about-block">
+                                                                        <div class="block-header">
+                                                                            <h4>More Info</h4>
+                                                                        </div>
+                                                                        <div class="block-content">
+                                                                            <div class="flex-inner has-meta">
+                                                                                <i class="mdi mdi-office-building"></i>
+                                                                                <div class="meta">
+                                                                                    <span>Company</span>
+                                                                                    <span>Domino's Pizza is a global fast-food company</span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="flex-inner has-meta">
+                                                                                <i class="mdi mdi-earth"></i>
+                                                                                <div class="meta">
+                                                                                    <span>Around the world</span>
+                                                                                    <span>Domino's Pizza has 28,489 stores around the world</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                              
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                         
+                                         
+                                       
                                         </div>
             
-                                     
+                                        <div id="security-section" class="content-section">
             
-                                    </div>
-                                </div>
-                                
-        
-                            </div>
-                            <div class="right-section has-slimscroll" style="width: 65% !important;">
-        
+                                           
+                                           
+                                        </div>
+            
+                                        <div id="billing-section" class="content-section">
+                                          
+                                        
+                                        </div>
                                
-                                <div id="payment-container" class="checkout-container">
-                                    <!--Left Side-->
-                                    <div class="left">
-                                        <div class="left-header">
-                                            <div class="header-inner">
-                                                <img class="avatar" src="https://martinfunck.com/pictures/portrait_men_10.jpg" alt="image">
-                                                <div class="separator"></div>
-                                                <div class="title-wrap">
-                                                    <h3 class="payment-title">Edvin Molla</h3>
-                                                    <p class="payment-subtitle has-text-success">Your credit card is verified.</p>
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="header-coupon">
-                                                <p class="payment-subtitle">Below you will find the total amount paid to date.</p>
-                    
-                                            </div>
-                                            <div class="header-foot">
-                                                <span class="label">Usage to Date</span>
-                                                <span class="amount" data-currency="USD">$216.92</span>
-                                            </div>
-                                        </div>
-                                        <div class="left-body"></div>
-                                    </div>
-                    
-                                    <!--Right Side-->
-                                    <div class="right">
-                                        <div class="payment-form">
-                                            <form action="/charge" method="post" id="stripe-payment-form" class="provider-form is-active">
-                                                <div id="checkout-contact-section" class="form-section has-margin-bottom">
-                                                    <div class="form-section-header">
-                                                        <h3>Contact Information</h3>
-                                                    </div>
-                                                    <div class="field">
-                                                        <label for="card-element">Email Address</label>
-                                                        <div class="control">
-                                                            <input class="input" placeholder="Enter your email address" name="checkout_email" autofocus="">
-                                                        </div>
-                    
-                                                    </div>
-                                                </div>
-                    
-                                                <div id="checkout-payment-section" class="form-section">
-                                                    <div class="form-section-header">
-                                                        <h3>Payment Information</h3>
-                                                    </div>
-                    
-                                                    <div class="field">
-                                                        <label for="card-element">Name on card</label>
-                                                        <div class="control">
-                                                            <input class="input" placeholder="Enter the name on the credit card" name="checkout_name">
-                                                        </div>
-                                                    </div>
-                    
-                                                    <div class="field">
-                                                        <label for="card-element">Credit or debit card</label>
-                                                        <div class="control">
-                                                            <div id="card-element" class="StripeElement StripeElement--empty"><div class="__PrivateStripeElement" style="margin: 0px !important; padding: 0px !important; border: medium none !important; display: block !important; background: transparent none repeat scroll 0% 0% !important; position: relative !important; opacity: 1 !important;"><iframe allowtransparency="true" scrolling="no" name="__privateStripeFrame6265" allowpaymentrequest="true" src="https://js.stripe.com/v3/elements-inner-card-060dea0bf366ce25d99b48708708a855.html#style[base][fontSize]=14px&amp;style[base][color]=%23595d6e&amp;wait=false&amp;rtl=false&amp;componentName=card&amp;keyMode=test&amp;apiKey=pk_test_6pRNASCoBOKtIshFeQd4XMUh&amp;origin=https%3A%2F%2Ffriendkit.cssninja.io&amp;referrer=https%3A%2F%2Ffriendkit.cssninja.io%2Fecommerce-payment.html&amp;controllerId=__privateStripeController6261" title="Secure card payment input frame" style="border: medium none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; user-select: none !important; transform: translateZ(0px) !important; height: 16.8px;" frameborder="0"></iframe><input class="__PrivateStripeElement-input" aria-hidden="true" aria-label=" " autocomplete="false" maxlength="1" style="border: medium none !important; display: block !important; position: absolute !important; height: 1px !important; top: 0px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent none repeat scroll 0% 0% !important; pointer-events: none !important; font-size: 16px !important;"></div></div>
-                    
-                                                            <!-- Used to display Element errors -->
-                                                            <div id="card-errors" role="alert"></div>
-                                                        </div>
-                                                    </div>
-                    
-                                                    <div class="field">
-                                                        <label>Country</label>
-                                                        <div class="control has-icons-left">
-                                                            <div class="select">
-                                                                <select>
-                                                                    <option></option>
-                                                                    <option selected="">United States of America</option>
-                                                                    <option>Belgium</option>
-                                                                    <option>Brazil</option>
-                                                                    <option>Canada</option>
-                                                                    <option>France</option>
-                                                                    <option>Germany</option>
-                                                                    <option>Mexico</option>
-                                                                    <option>Spain</option>
-                                                                    <option>England</option>
-                                                                    <option>Luxembourg</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="icon is-small is-left">
-                                                                <i class="mdi mdi-earth"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                    
-                                                <div class="field is-disclaimer">
-                                                    <p>By clicking on 'Submit Payment', you confirm that you fully agree to our <a href="#">Terms Of
-                                                            Service</a> and to our <a href="#">Customer's Policy</a>.</p>
-                                                </div>
-                    
-                                                <div class="field is-button">
-                                                    <div class="buttons has-addons">
-                                                        <button id="payment-button" type="button" class="button is-solid primary-button">Confirm
-                                                            Payment</button>
-                                                        <button type="button" class="button is-solid primary-button">$216.92</button>
-                                                    </div>
-                                                </div>
-                    
-                                            </form>
+                                        <div id="api-content" class="content-section">
+                                          
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
-
-
-
-
-
                             </div>
+
                         </div>
                       
                     </div>
@@ -343,17 +535,15 @@ $('#overview-content').removeClass('is-active');
                 </div>
             </div>
 
-            
-  
-        
+    
            
-            <div id="share-modal" class="modal share-modal is-xlarge has-light-bg">
+            <div id="application-modal" class="modal application-modal is-xlarge has-light-bg">
                 <div class="modal-background"></div>
                 <div class="modal-content">
         
                     <div class="card">
                         <div class="card-heading">
-                            <div class="dropdown is-primary share-dropdown">
+                            <div class="is-primary share-dropdown">
                                 <div>
                                   <h3>Create New Application</h3>
                                 </div>
@@ -710,6 +900,395 @@ $('#overview-content').removeClass('is-active');
                                                         <!--card-->
                                                         <div id="shipping-placeholder-box" class="summary-card has-text-centered">
                                                             <img src="assets/img/icons/questions/cart.svg" alt="">
+                                                            <h4 class="mb-2">Details</h4>
+                                                            <p>The New Application details will apear here.</p>
+
+                                                        </div>
+                        
+                                                        <!--card-->
+                                                        <div id="shipping-address-box" class="summary-card is-hidden">
+                                                            <img class="shipping-logo" src="assets/img/icons/checkout/world.svg" alt="">
+                                                            <h3>Payment Method</h3>
+
+                                                         
+
+
+                                                        </div>
+                        
+                                                        <!--card-->
+                                                       
+                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                       
+                    </div>
+        
+                </div>
+            </div>
+
+
+            <div id="database-modal" class="modal database-modal is-xlarge has-light-bg">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+        
+                    <div class="card">
+                        <div class="card-heading">
+                            <div class="is-primary share-dropdown">
+                                <div>
+                                  <h3>Create New Database</h3>
+                                </div>
+                               
+                            </div>
+        
+                            <!-- Close X button -->
+                            <div class="close-wrap">
+                                <span class="close-modal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </span>
+                            </div>
+                        </div>
+                       
+                        <div class="card-body">
+                     
+                           
+                        
+
+
+
+
+
+
+                            <div class="view-wrapper">
+
+                                <!--Payment Wrapper-->
+                                <div class="shop-wrapper">
+                                    <div class="cart-container">
+                                        <div class="cart-header">
+                                            <div class="header-inner">
+                                                <h2 id="checkout-step-title">Select Framework</h2>
+                                                
+                                                <div class="header-actions">
+                                                    
+                                                    <div class="buttons">
+                                                        <a id="checkout-back" class="button is-rounded is-phantom accent-button" data-step="0"><i class="fas fa-arrow-left mr-1"></i>Back
+                                                          
+                                                        </a>
+                                                        <div class="button-wrap">
+                                                            <button id="checkout-button" class="button is-rounded primary-button raised is-phantom accent-button" data-step="2">Continue</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="summary-card mt-2">
+                                                           
+                                          
+                                        </div> -->
+                                        <script>
+                                            $('input[name=shipping_method]').attr('checked',false);
+                                            $('input[name=shipping_address]').attr('checked',false);
+                                        </script>
+                        
+                                        <!--Checkout content-->
+                                        <div class="cart-content">
+                                            <div class="columns">
+                                                <div class="column is-8">
+
+                                                    <!--Checkout section 1-->
+                                                    <div id="checkout-section-1" class="checkout-section is-active">
+                                                        <div class="columns is-multiline">
+                                                            <div class="column is-4">
+                                                                <div class="shipping-box">
+                                                                    <input type="radio" name="shipping_method" checked>
+                                                                    <div class="shipping-box-inner">
+                                                                        <img src="https://i.pinimg.com/originals/3a/51/12/3a51129274fc2cf77ec774ed11845928.jpg" alt="" style="max-width: 150px;">
+                                                                       
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="column is-4">
+                                                                <div class="shipping-box">
+                                                                    <input type="radio" name="shipping_method">
+                                                                    <div class="shipping-box-inner">
+                                                                        <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F2773EB4B55C301AE15" alt="" style="max-width: 150px; transform: scale(1.1);">
+                                                                      
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="column is-4">
+                                                                <div class="shipping-box">
+                                                                    <input type="radio" name="shipping_method">
+                                                                    <div class="shipping-box-inner">
+                                                                        <img src="https://miro.medium.com/max/474/1*-t4Q2knrP7QLyFXTD7tvsA.jpeg" alt="" style="max-width: 150px; transform: scale(1.1);">
+                                                                       
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="column is-4">
+                                                                <div class="shipping-box">
+                                                                    <input type="radio" name="shipping_method">
+                                                                    <div class="shipping-box-inner">
+                                                                        <img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/4bea1cb8-894b-4125-8cd3-d0f7a8c28b16/sqlite-logo-preview-opt.png" alt="" style="max-width: 150px; transform: scale(1.1);">
+                                                                       
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                           
+                                                        </div>
+                                                    </div>
+                        
+                                                    <!--Checkout section-->
+                                                    <div id="checkout-section-2" class="checkout-section">
+                                                        <div class="columns is-multiline">
+                                                            <div class="column is-6">
+                                                                <div class="address-box shipping-address">
+                                                                    <input type="radio" name="shipping_address">
+                                                                    <div class="address-box-inner">
+                                                                        <p>Edvin Molla</p>
+                                                                        <p>Komuna e Parisit</p>
+                                                                        <p>8756 **** **** 5481</p>
+                                                                        <p>Tirane, Albania</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="column is-6">
+                                                                <div class="address-box shipping-address">
+                                                                    <input type="radio" name="shipping_address">
+                                                                    <div class="address-box-inner">
+                                                                        <p>Edvin Molla</p>
+                                                                        <p>Komuna e Parisit</p>
+                                                                        <p>8756 **** **** 5721</p>
+                                                                        <p>Tirane, Albania</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                        
+                                                       
+                                                    </div>
+                        
+                                                    <!--Checkout section-->
+                                                    <div id="checkout-section-3" class="checkout-section">
+                                                      
+                                                        
+                                                        <div class="shop-wrapper">
+                                                          
+                                                            <div id="payment-container" class="checkout-container">
+                                                               
+                                                                <!--Right Side-->
+                                                                <div class="column right">
+                                                                    <div class="payment-form">
+
+                                                                     
+                                                                       
+                                                                            <div id="checkout-contact-section" class="form-section has-margin-bottom">
+                                                                                <div class="form-section-header">
+                                                                                    <h4>*You can leave this form unfilled and It will be autofilled with random data.</h4>
+                                                                                </div>
+                                                                                <div class="field">
+                                                                                    <label for="card-element">Application Name <i>(20 charachters maximum)</i></label>
+                                                                                    <div class="control">
+                                                                                        <input class="input" placeholder="Enter your application name" maxlength="20" name="checkout_email" autofocus="">
+                                                                                    </div>
+                                                
+                                                                                </div>
+                                                                            </div>
+                                                
+                                                                            <div id="checkout-payment-section" class="form-section">
+                                                                                <div class="form-section-header">
+                                                                                    <h3>Reachability</h3>
+                                                                                </div>
+                                                
+                                                                                <div class="columns">
+                                                                                    <div class="column">
+
+                                                                                        <label for="card-element">Subdomain <i>(8 charachters maximum)</i></label>
+                                                                                       
+
+                                                                                        <div class="field has-addons has-addons-right">
+                                                                                            
+                                                                                        
+                                                                                            <p class="control">
+                                                                                                <input class="input" type="text" placeholder="Your email" style="height: 38px !important;">
+                                                                                            </p>
+                                                                                            <p class="control">
+                                                                                                <a class="button is-static">
+                                                                                                   .app.pepperspice.co
+                                                                                                </a>
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="column" >
+                                                                                        
+                                                                                        <div class="field" >
+                                                                                            <label for="card-element">Alerts Email</label>
+                                                                                            <div class="control">
+                                                                                                <input class="input" type="email" placeholder="Email" style="height: 38px !important;">
+                                                                                                 <span class="icon is-small is-left">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                               
+                                                
+                                                                                <div class="form-section-header">
+                                                                                    <h3>Network</h3>
+                                                                                </div>
+
+                                                                               <div class="columns">
+
+                                                                                <div class="column">
+                                                                                    <div class="field">
+                                                                                        <label>DNS Provider</label>
+                                                                                        <div class="control has-icons-left">
+                                                                                            <div class="select">
+                                                                                                <select>
+                                                                                                    <option selected>Cloudflare</option>
+                                                                                                    <option disabled>GoDaddy (Upcomming)</option>
+                                                                                                    <option disabled>Namecheap (Upcomming)</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                            <div class="icon is-small is-left">
+                                                                                                <i data-feather="cloud"></i>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                    <div class="column">
+                                                                                        <div class="field">
+                                                                                            <label>Deployment Region</label>
+                                                                                            <div class="control has-icons-left">
+                                                                                                <div class="select">
+                                                                                                    <select>
+                                                                                                        <option selected>Frankfurt</option>
+                                                                                                        <option>Rotterdam</option>
+                                                                                                        <option>Rome</option>
+                                                                                                        <option>Tirane</option>
+                                                                                                        <option>Quebec</option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                                <div class="icon is-small is-left">
+                                                                                                    <i data-feather="globe"></i>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>                                                                       
+                                                                               </div>
+
+
+
+                                                                               </div>
+                                                                               
+
+                                                                               
+                                                                                <div class="field">
+                                                                                    <label>Monitoring</label>
+                                                                                    <div class="control has-icons-left">
+                                                                                        <div class="select">
+                                                                                            <select>
+                                                                                                <option >Full Monitoring & Alerts</option>
+                                                                                                <option >On/Off Alerts</option>
+                                                                                                <option >Network Monitoring</option>
+                                                                                                <option >Resource Monitoring</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <div class="icon is-small is-left">
+                                                                                            <i data-feather="activity"></i>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                         
+                                                                            </div>
+                                                
+                                                                           
+                                                
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                
+                                                            <div id="confirmation-container" class="checkout-container is-hidden">
+                                                
+                                                                <div class="confirmation-box">
+                                                                    <svg id="successAnimation" class="animated" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+                                                                        <path id="successAnimationResult" fill="#D8D8D8" d="M35,60 C21.1928813,60 10,48.8071187 10,35 C10,21.1928813 21.1928813,10 35,10 C48.8071187,10 60,21.1928813 60,35 C60,48.8071187 48.8071187,60 35,60 Z M23.6332378,33.2260427 L22.3667622,34.7739573 L34.1433655,44.40936 L47.776114,27.6305926 L46.223886,26.3694074 L33.8566345,41.59064 L23.6332378,33.2260427 Z"></path>
+                                                                        <circle id="successAnimationCircle" cx="35" cy="35" r="24" stroke="#979797" stroke-width="2" stroke-linecap="round" fill="transparent"></circle>
+                                                                        <polyline id="successAnimationCheck" stroke="#979797" stroke-width="2" points="23 34 34 43 47 27" fill="transparent"></polyline>
+                                                                    </svg>
+                                                                    <h3>Your payment was successful.</h3>
+                                                                    <p>Thank you for your purchase. We will immediatly start preparing your order and ship it to you.</p>
+                                                
+                                                                    <div class="order-summary">
+                                                                        <h4>Order Summary</h4>
+                                                
+                                                                        <div class="order-line">
+                                                                            <div class="item">
+                                                                                <span>Transaction ID</span>
+                                                                            </div>
+                                                                            <div class="amount">
+                                                                                <span>#45894</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="order-line">
+                                                                            <div class="item">
+                                                                                <span>Subtotal</span>
+                                                                            </div>
+                                                                            <div class="amount">
+                                                                                <span data-currency="USD">$201.92</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="order-line">
+                                                                            <div class="item">
+                                                                                <span>Shipping</span>
+                                                                            </div>
+                                                                            <div class="amount">
+                                                                                <span data-currency="USD">$15.00</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="order-line">
+                                                                            <div class="item">
+                                                                                <span>Taxes</span>
+                                                                            </div>
+                                                                            <div class="amount">
+                                                                                <span data-currency="USD">$8.92</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="order-line">
+                                                                            <div class="item is-total">
+                                                                                <span>Total</span>
+                                                                            </div>
+                                                                            <div class="amount is-total">
+                                                                                <span data-currency="USD">$216.92</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                
+                                                            </div>
+                                                        </div>
+
+                                                        
+                                                    </div>
+                        
+                                                  
+                        
+                                                </div>
+                        
+                                                <!--Right Side-->
+                                                <div class="column is-4">
+                                                    <div class="cart-summary">
+                                                        
+                                                        <!--card-->
+                                                        <div id="shipping-placeholder-box" class="summary-card has-text-centered">
+                                                            <img src="assets/img/icons/questions/cart.svg" alt="">
                                                             <h4>Details</h4>
                                                             <p>Your details will apear here.</p>
                                                         </div>
@@ -759,7 +1338,7 @@ $('#overview-content').removeClass('is-active');
                         <div class="profile-avatar-wrapper">
                         
                             <div class="avatar-wrap">
-                                <img src="assets/img/avatars/jenna.png" data-demo-src="assets/img/avatars/jenna.png" data-user-popover="0" alt="">
+                                <img data-demo-src="https://www.flaticon.com/svg/static/icons/svg/3048/3048163.svg" data-user-popover="0" alt="">
                                 <div class="badge">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
                                 </div>
@@ -788,7 +1367,7 @@ $('#overview-content').removeClass('is-active');
                             </div>
                         </div>
                         <div class="button-wrap">
-                            <button class="button secondary-button is-fullwidth raised modal-trigger" data-modal="albums-modal">Settings</button>
+                            <button class="button secondary-button is-fullwidth raised modal-trigger" data-modal="settings-modal"> Settings <i class="fas fa-cog pl-1"></i></button>
                         </div>
         
                         
@@ -876,14 +1455,14 @@ $('#overview-content').removeClass('is-active');
     if(w<=766)
     {
        
-        $(".right-content").css('margin-left', '0px');
+        $(".right-content-1").css('margin-left', '0px');
         $(".profile-wrapper").css("position", "relative");
        
     }
     else if(w>766)
     {
       
-        $(".right-content").css('margin-left', '300px');
+        $(".right-content-1").css('margin-left', '300px');
         $(".profile-wrapper").css("position", "fixed");
     }
 }, 500);
@@ -894,7 +1473,7 @@ $('#overview-content').removeClass('is-active');
                     </script>
 
                     
-                    <div class="right-content">
+                    <div class="right-content right-content-1">
 
                         <div class="column">
                                        
@@ -919,7 +1498,7 @@ $('#overview-content').removeClass('is-active');
                                             </div>
                                         </a>
                                         <hr class="dropdown-divider">
-                                        <a href="#" class="dropdown-item modal-trigger" data-modal="share-modal">
+                                        <a href="#" class="dropdown-item modal-trigger" data-modal="application-modal">
                                             <div class="media">
                                                 <i data-feather="loader"></i>
                                                 <div class="media-content">
@@ -928,7 +1507,7 @@ $('#overview-content').removeClass('is-active');
                                                 </div>
                                             </div>
                                         </a>
-                                        <a class="dropdown-item">
+                                        <a class="dropdown-item modal-trigger" data-modal="database-modal">
                                             <div class="media">
                                                 <i data-feather="database"></i>
                                                 <div class="media-content">
@@ -1646,8 +2225,6 @@ $( document ).ready(function() {
             
             
             <div class="column is-3">
-               
-              
 
                 <div class="questions-side-card has-text-centered">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/512px-Amazon_Web_Services_Logo.svg.png" alt="">
@@ -1662,64 +2239,7 @@ $( document ).ready(function() {
                     </p>
                 </div>
 
-                <div class="card is-new-job-card has-background-image" data-background="assets/img/illustrations/cards/job-bg.svg" style="background-image: url(&quot;assets/img/illustrations/cards/job-bg.svg&quot;);">
-                    <div class="card-heading">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-                        <div class="dropdown is-spaced is-right dropdown-trigger is-light">
-                            <div>
-                                <div class="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                </div>
-                            </div>
-                            <div class="dropdown-menu" role="menu">
-                                <div class="dropdown-content">
-                                    <a href="#" class="dropdown-item">
-                                        <div class="media">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                            <div class="media-content">
-                                                <h3>Remind me</h3>
-                                                <small>Remind me of this later today.</small>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item">
-                                        <div class="media">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                            <div class="media-content">
-                                                <h3>Message</h3>
-                                                <small>Send an automatic congratz message.</small>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <hr class="dropdown-divider">
-                                    <a href="#" class="dropdown-item">
-                                        <div class="media">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
-                                            <div class="media-content">
-                                                <h3>Remove</h3>
-                                                <small>Removes this widget from your feed.</small>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            <div class="job-avatar">
-                                <img src="assets/img/avatars/nelly.png" data-demo-src="assets/img/avatars/nelly.png" alt="">
-                            </div>
-                            <div class="network">
-                                <h4>Perfitoni krei me 0% interes!</h4>
-                                <p>asdasdasdsdasadsda.</p>
-                                <button type="button" class="button light-button">asdsdasdas</button>
-                            </div>
-                        </div>
-                    </div>
-
-                   
-                </div>
+              
                 <img src="{% static 'wallpapers_logos/universal/lg.png' %}" width="120">
                 <i data-feather="twitter"  style="color:red;"></i>
                 <i data-feather="linkedin"  style="color:red;"></i>
