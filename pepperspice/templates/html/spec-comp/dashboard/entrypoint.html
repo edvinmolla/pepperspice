@@ -343,10 +343,7 @@ $('#billing-section').removeClass('is-active');
                                                 <div class="column ">
 
                                                     <div class="card page-about-card">
-                                                        <div class="card-title">
-                                                            <h4>About Fast Pizza</h4>
-                                                            <a href="https://www.fastpizza.com/index.intl.html" target="_blank" class="button is-solid grey-button raised">Go to Website</a>
-                                                        </div>
+                                                       
                                                         <div class="about-body">
                                                             <div class="columns">
                                                                 <div class="column is-5">
@@ -395,12 +392,83 @@ $('#billing-section').removeClass('is-active');
                                                                 <div class="column is-5">
                                                                     <div class="about-block">
                                                                         <div class="block-header">
-                                                                            <h4>Contact Info</h4>
+                                                                            <h4>Owner Information</h4>
                                                                         </div>
                                                                         <div class="block-content">
-                                                                            <div class="flex-inner">
-                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                                                                                <span>Call <a>+555-654-545-88</a></span>
+
+                                                                            <script>
+                                                                                $( document ).ready(function() {
+
+                                                                                    $(".name-save-button").hide();
+                                                                                    
+                                                                                    var edit = false;
+
+                                                                                $(".name-field").on('mouseenter', function () {
+                                                                                    
+                                                                                    if(edit==false){
+
+                                                                                        $(".name-edit-button").css('display', "inline-flex");
+
+                                                                                    }
+
+                                                                                    
+                                                                                    }).on('mouseleave', function () {
+                                                                                        $(".name-edit-button").css('display', "none");
+                                                                                    });
+
+
+                                                                                    $( ".name-edit-button" ).click(function() {
+                                                                                        var temporary = $(".name-field-inner").val();
+                                                                                        edit = true;
+                                                                                    $(".name-field-inner").replaceWith( " <input class='effect-1 name-edit-field' type='text' value='" + $(".name-field-inner").val() + "'>" );
+                                                                                    $(".name-edit-button").hide();
+                                                                                    $(".name-save-button").show();
+                                                                                });
+                                                                                    
+
+                                                                                    $( ".name-save-button" ).click(function() {
+                                                                                        
+                                                                                        if($(".name-edit-field").val().length == 0)
+                                                                                        {
+                                                                                        alert('sd');
+                                                                                            $(".name-edit-field").replaceWith( "<span class='name-field-inner'>" + temporary + "</span>" );
+                                                                                        }
+                                                                                        else {
+
+                                                                                            $(".name-edit-field").replaceWith( "<span class='name-field-inner'>" + $(".name-edit-field").val() + "</span>" );
+                                                                                        }
+                                                                                    
+                                                                                    edit = false;
+                                                                                    $(".name-save-button").hide();
+                                                                                    $(".name-edit-button").show();
+                                                                                
+                                                                                });
+                                                                                    
+                                                                             
+                                                                                });
+
+                                                                                
+
+                                                                                function editField() { 
+                                                                                        $('#replace').html('<input class="name-field-inner" type="text" value="'+$('#replace').text()+'"><i class="fa fa-check" onclick="saveField()"></i>')
+                                                                                    }
+
+                                                                                    
+                                                                            </script>
+                                                                            <style>
+                                                                                .effect-1 {border: 0; padding: 7px 0; border-bottom: 1px solid #ccc;}
+                                                                                .effect-1 ~ .focus-border{position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #3399FF; transition: 0.4s;}
+                                                                            .effect-1:focus ~ .focus-border{width: 100%; transition: 0.4s;}
+                                                                            </style>
+
+                                                                            <div class="flex-inner name-field">
+                                                                                <i data-feather="user"></i>
+                                                                            
+                                                                                <span class="name-field-inner" >Edvin Molla</span>
+                                                                         
+                                                                          
+                                                                                <a class="name-edit-button" style="display: none; font-size: 12px;text-decoration: underline;">edit</a>
+                                                                                <a class="name-save-button" style="display: none; font-size: 12px;text-decoration: underline;">save</a>
                                                                             </div>
                                                                             <div class="flex-inner">
                                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -408,7 +476,7 @@ $('#billing-section').removeClass('is-active');
                                                                             </div>
                                                                             <div class="flex-inner">
                                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                                                                <span><a>https://fastpizza.com</a></span>
+                                                                                <span></span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
