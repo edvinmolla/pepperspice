@@ -156,78 +156,111 @@ $('#overview-content').removeClass('is-active');
 <script>
 
 $(document).ready(function() {
-    $('.settings-1').click(function(e) {  
+   
+   
+$('.settings-1').click(function(e) {  
 
-    $('.settings-2').removeClass('is-active');
-    $('.settings-3').removeClass('is-active');
-    $('.settings-4').removeClass('is-active');
+$(".main-settings > *").not(".main-settings > #general-section").removeClass('is-active');
+$($( ".main-settings" ).find( "#general-section" )).addClass('is-active');
 
+$(".settings-menu > *").not(".settings-menu > .settings-1").removeClass('is-active');
+$('.settings-1').addClass('is-active');
 
-    $('.settings-1').addClass('is-active');
-
-    $('#api-section').removeClass('is-active');
-    $('#billing-section').removeClass('is-active');
-    $('#security-section').removeClass('is-active');
-    $('#general-section').addClass('is-active');
-
-     
-
-    });
-
-    $('.settings-2').click(function(e) {  
-
-    $('.settings-1').removeClass('is-active');
-    $('.settings-3').removeClass('is-active');
-    $('.settings-4').removeClass('is-active');
+}); 
 
 
-    $('.settings-2').addClass('is-active');
+$('.settings-2').click(function(e) {  
 
-    $('#billing-section').removeClass('is-active');
-    $('#general-section').removeClass('is-active');
-    $('#api-section').removeClass('is-active');
-    $('#security-section').addClass('is-active');
+$(".main-settings > *").not(".main-settings > #security-section").removeClass('is-active');
+$($( ".main-settings" ).find( "#security-section" )).addClass('is-active');
 
- 
+$(".settings-menu > *").not(".settings-menu > .settings-2").removeClass('is-active');
+$('.settings-2').addClass('is-active');
 
 });
+
+
 
 $('.settings-3').click(function(e) {  
 
-$('.settings-1').removeClass('is-active');
-$('.settings-2').removeClass('is-active');
-$('.settings-4').removeClass('is-active');
+    $(".main-settings > *").not(".main-settings > #billing-section").removeClass('is-active');
+$($( ".main-settings" ).find( "#billing-section" )).addClass('is-active');
 
-
+$(".settings-menu > *").not(".settings-menu > .settings-3").removeClass('is-active');
 $('.settings-3').addClass('is-active');
 
-$('#billing-section').addClass('is-active');
-$('#general-section').removeClass('is-active');
-$('#security-section').removeClass('is-active');
-$('#api-section').removeClass('is-active');
-
- 
-
 });
+
+
 
 
 $('.settings-4').click(function(e) {  
 
-$('.settings-1').removeClass('is-active');
-$('.settings-2').removeClass('is-active');
-$('.settings-3').removeClass('is-active');
+     	
 
+$(".main-settings > *").not(".main-settings > #api-section").removeClass('is-active');
+$($( ".main-settings" ).find( "#api-section" )).addClass('is-active');
+
+$(".settings-menu > *").not(".settings-menu > .settings-4").removeClass('is-active');
 $('.settings-4').addClass('is-active');
-
-$('#general-section').removeClass('is-active');
-$('#api-section').addClass('is-active');
-$('#security-section').removeClass('is-active');
-$('#billing-section').removeClass('is-active');
-
- 
 
 });
 
+
+$('.settings-5').click(function(e) {  
+
+     	
+
+$(".main-settings > *").not(".main-settings > #automation-section").removeClass('is-active');
+$($( ".main-settings" ).find( "#automation-section" )).addClass('is-active');
+
+$(".settings-menu > *").not(".settings-menu > .settings-5").removeClass('is-active');
+$('.settings-5').addClass('is-active');
+
+});
+
+$('.settings-6').click(function(e) {  
+
+     	
+
+$(".main-settings > *").not(".main-settings > #monitoring-section").removeClass('is-active');
+$($( ".main-settings" ).find( "#monitoring-section" )).addClass('is-active');
+
+$(".settings-menu > *").not(".settings-menu > .settings-6").removeClass('is-active');
+$('.settings-6').addClass('is-active');
+
+});
+
+
+$('.settings-7').click(function(e) {  
+
+$(".main-settings > *").not(".main-settings > #users-section").removeClass('is-active');
+$($( ".main-settings" ).find( "#users-section" )).addClass('is-active');
+
+$(".settings-menu > *").not(".settings-menu > .settings-7").removeClass('is-active');
+$('.settings-7').addClass('is-active');
+
+});
+
+$('.settings-8').click(function(e) {  
+
+$(".main-settings > *").not(".main-settings > #notifications-section").removeClass('is-active');
+$($( ".main-settings" ).find( "#notifications-section" )).addClass('is-active');
+
+$(".settings-menu > *").not(".settings-menu > .settings-8").removeClass('is-active');
+$('.settings-8').addClass('is-active');
+
+});
+
+$('.settings-9').click(function(e) {  
+
+$(".main-settings > *").not(".main-settings > #history-section").removeClass('is-active');
+$($( ".main-settings" ).find( "#history-section" )).addClass('is-active');
+
+$(".settings-menu > *").not(".settings-menu > .settings-9").removeClass('is-active');
+$('.settings-9').addClass('is-active');
+
+});
 
 });
 
@@ -274,66 +307,67 @@ $('#billing-section').removeClass('is-active');
 
                                 <div class="profile-about side-menu">
                                     <div class="left-menu mt-3" style="overflow-x: auto;">
-                                        <div class="left-menu-inner">
+                                        <div class="left-menu-inner settings-menu">
                                             <div class="menu-item is-active settings-1" data-content="general-section">
-                                                <div class="menu-icon">
+                                                <div class="menu-icon" style="box-shadow: none !important; -webkit-box-shadow: none !important;">
                                                     <i class="fas fa-cog"></i>
                                                     <span>General</span>
                                                 </div>
                                             </div>
                                             <div class="menu-item settings-2" data-content="security-section">
-                                                <div class="menu-icon">
+                                                <div class="menu-icon" style="box-shadow: none !important; -webkit-box-shadow: none !important;">
                                                     <i class="fas fa-user-lock"></i>
                                                     <span>Security</span>
                                                 </div>
                                             </div>
                                             <div class="menu-item settings-3" data-content="billing-section">
-                                                <div class="menu-icon">
+                                                <div class="menu-icon" style="box-shadow: none !important; -webkit-box-shadow: none !important;">
                                                     <i class="fas fa-money-check-alt"></i>
                                                     <span>Billing</span>
                                                 </div>
                                             </div>
                                             <div class="menu-item settings-4" data-content="api-content">
-                                                <div class="menu-icon">
+                                                <div class="menu-icon" style="box-shadow: none !important; -webkit-box-shadow: none !important;">
                                                     <i class="fas fa-key"></i>
                                                     <span>API Management</span>
                                                 </div>
                                             </div>
-                                            <div class="menu-item settings-4" data-content="api-content">
-                                                <div class="menu-icon">
+                                            <div class="menu-item settings-5" data-content="automation-content">
+                                                <div class="menu-icon" style="box-shadow: none !important; -webkit-box-shadow: none !important;">
                                                     <i class="fas fa-user-clock"></i>
-                                                    <span>Cronjobs</span>
+                                                    <span>Automation</span>
                                                 </div>
                                             </div>
-                                            <div class="menu-item settings-4" data-content="api-content">
-                                                <div class="menu-icon">
+                                            <div class="menu-item settings-6" data-content="monitoring-content">
+                                                <div class="menu-icon" style="box-shadow: none !important; -webkit-box-shadow: none !important;">
                                                     <i class="fas fa-chart-area"></i>
                                                     <span>Monitoring</span>
                                                 </div>
                                             </div>
-                                            <div class="menu-item settings-4" data-content="api-content">
-                                                <div class="menu-icon">
+                                            <div class="menu-item settings-7" data-content="users-content">
+                                                <div class="menu-icon" style="box-shadow: none !important; -webkit-box-shadow: none !important;">
                                                     <i class="fas fa-users"></i>
                                                     <span>Users</span>
                                                 </div>
                                             </div>
                                             <hr class="dropdown-divider">
-                                            <div class="menu-item settings-4" data-content="api-content">
-                                                <div class="menu-icon">
-                                                    <i class="fas fa-handshake"></i>
-                                                    <span>End User Aggrement</span>
-                                                </div>
-                                            </div>
-                                            <div class="menu-item settings-4" data-content="api-content">
-                                                <div class="menu-icon">
+                                            <div class="menu-item settings-8" data-content="notifications-content">
+                                                <div class="menu-icon" style="box-shadow: none !important; -webkit-box-shadow: none !important;">
                                                     <i class="fas fa-bell"></i>
                                                     <span>Notifications</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="menu-item settings-9" data-content="history-content">
+                                                <div class="menu-icon" style="box-shadow: none !important; -webkit-box-shadow: none !important;">
+                                                    <i class="fas fa-history"></i>
+                                                    <span>History</span>
                                                 </div>
                                             </div>
                                            
                                         </div>
                                     </div>
-                                    <div class="right-content">
+                                    <div class="right-content main-settings">
 
 
                                         <div id="general-section" class="content-section is-active">
@@ -349,108 +383,125 @@ $('#billing-section').removeClass('is-active');
                                                                 <div class="column is-5">
                                                                     <div class="about-block">
                                                                         <div class="block-header">
-                                                                            <h4>Contact Info</h4>
+                                                                            <h4>Profile Details</h4>
                                                                         </div>
                                                                         <div class="block-content">
-                                                                            <div class="flex-inner">
-                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                                                                                <span>Call <a>+555-654-545-88</a></span>
+                                                                            <div class="flex-inner field-5" onmouseover="one('.field-5')" onmouseout="two('.field-5')">
+                                                                                
+                                                                                <i class="fas fa-id-badge"></i>
+
+                                                                         
+                                                                                <span class="field-inner"><a class="nostyle">Biznesi Im</a></span>
+                                                                         
+                                                                              
+                                                                                    
+                                                                                <a class="edit-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="three('.field-inner')">edit</a>
+                                                                                <a class="save-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="four('.field-inner')">save</a>
+                                                                               
                                                                             </div>
-                                                                            <div class="flex-inner">
-                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                                                                <span>Start a <a>Conversation</a></span>
+                                                                            <div class="flex-inner field-9" onmouseover="one('.field-9')" onmouseout="two('.field-9')">
+                                                                                
+                                                                                <i class="fas fa-envelope-square"></i>
+
+                                                                         
+                                                                                <span class="field-inner"><a class="nostyle">biznesi@biznesi.com</a></span>
+                                                                         
+                                                                              
+                                                                                    
+                                                                                <a class="edit-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="three('.field-inner')">edit</a>
+                                                                                <a class="save-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="four('.field-inner')">save</a>
+                                                                               
                                                                             </div>
-                                                                            <div class="flex-inner">
-                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                                                                <span><a>https://fastpizza.com</a></span>
+                                                                            <div class="flex-inner field-6" onmouseover="one('.field-6')" onmouseout="two('.field-6')">
+                                                                                
+                                                                                <i class="fas fa-globe-americas"></i>
+
+                                                                         
+                                                                                <span class="field-inner"><a class="nostyle">websajtiim.com</a></span>
+                                                                         
+                                                                              
+                                                                                    
+                                                                                <a class="edit-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="three('.field-inner')">edit</a>
+                                                                                <a class="save-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="four('.field-inner')">save</a>
+                                                                               
+                                                                            </div>
+                                                                            <div class="flex-inner field-7" onmouseover="one('.field-7')" onmouseout="two('.field-7')">
+                                                                                
+                                                                                <i class="fab fa-aws"></i>
+
+                                                                         
+                                                                                <span class="field-inner"><a class="nostyle">429180540956</a></span>
+                                                                         
+                                                                              
+                                                                                    
+                                                                                <a class="edit-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="three('.field-inner')">edit</a>
+                                                                                <a class="save-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="four('.field-inner')">save</a>
+                                                                               
                                                                             </div>
                                                                         </div>
                                                                     </div>
                             
-                                                                    <div class="about-block">
-                                                                        <div class="block-header">
-                                                                            <h4>More Info</h4>
-                                                                        </div>
-                                                                        <div class="block-content">
-                                                                            <div class="flex-inner has-meta">
-                                                                                <i class="mdi mdi-office-building"></i>
-                                                                                <div class="meta">
-                                                                                    <span>Company</span>
-                                                                                    <span>Domino's Pizza is a global fast-food company</span>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="flex-inner has-meta">
-                                                                                <i class="mdi mdi-earth"></i>
-                                                                                <div class="meta">
-                                                                                    <span>Around the world</span>
-                                                                                    <span>Domino's Pizza has 28,489 stores around the world</span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                                   
                                                                 </div>
                                                                 <div class="column is-5">
                                                                     <div class="about-block">
                                                                         <div class="block-header">
+                                                                          
                                                                             <h4>Owner Information</h4>
+                                                                        
                                                                         </div>
                                                                         <div class="block-content">
 
                                                                             <script>
-                                                                                $( document ).ready(function() {
-                                                                                    
-                                                                                    $(".name-save-button").hide();
-                                                                                    
-                                                                                    var edit = false;
 
-                                                                                $(".name-field").on('mouseenter', function () {
-                                                                                    
+                                                                               
+
+                                                                                var edit = false;
+                                                                                var current_div = "";
+                                                                                
+
+                                                                                function one(field){
                                                                                     if(edit==false){
-
-                                                                                        $(".name-edit-button").css('display', "inline-flex");
+                                                                                     current_div = field;
+                                                                                    $($(current_div).find( ".edit-button" ).css('display', "inline-flex"));
 
                                                                                     }
+                                                                                }
+
+                                                                                function two(field){
+                                                                                    $($(current_div).find( ".edit-button" ).css('display', "none"));
+                                                                                }
+
+                                                                                function three(field){
+                                                                                
+                                                                                    window.temporary = $($(current_div).find(field)).text();
+                                                                                    edit = true;
+                                                                                    $($(current_div).find(field)).replaceWith( " <input class='effect-1 temp-edit-field' maxlength='20' type='text' value='" + $(field).val() + "'>" );
+                                                                                    $($(current_div).find(".edit-button").hide());
+                                                                                    $($(current_div).find(".save-button").show());
+                                                                           
+
+                                                                                }
+
+
+                                                                                function four(field){
 
                                                                                     
-                                                                                    }).on('mouseleave', function () {
-                                                                                        $(".name-edit-button").css('display', "none");
-                                                                                    });
 
-
-                                                                                    $( ".name-edit-button" ).click(function() {
-                                                                                        window.temporary = $(".name-field-inner").text();
-                                                                                        edit = true;
-                                                                                    $(".name-field-inner").replaceWith( " <input class='effect-1 name-edit-field' maxlength='20' type='text' value='" + $(".name-field-inner").val() + "'>" );
-                                                                                    $(".name-edit-button").hide();
-                                                                                    $(".name-save-button").show();
-                                                                                });
-                                                                                    
-
-                                                                                    $( ".name-save-button" ).click(function() {
-                                                                                        
-                                                                                        if($(".name-edit-field").val().length == 0)
+                                                                                  if ($(current_div).find(".temp-edit-field").val().length == 0)
                                                                                         {
-                                                                                            
-                                                                                        
-                                                                                            $(".name-edit-field").replaceWith( "<span class='name-field-inner'>" + window.temporary + "</span>" );
+
+                                                                                            $($(current_div).find(".temp-edit-field")).replaceWith( "<span class='field-inner'><a class='nostyle'>" + window.temporary + "</a></span>" );
                                                                                         }
                                                                                         else {
 
-                                                                                            $(".name-edit-field").replaceWith( "<span class='name-field-inner'>" + $(".name-edit-field").val() + "</span>" );
+                                                                                            $($(current_div).find(".temp-edit-field")).replaceWith( "<span class='field-inner'><a class='nostyle'>" + $(".temp-edit-field").val() + "</a></span>" );
                                                                                         }
                                                                                     
                                                                                     edit = false;
-                                                                                    $(".name-save-button").hide();
-                                                                                    $(".name-edit-button").show();
-                                                                                
-                                                                                });
-                                                                                    
-                                                                             
-                                                                                });
-
-                                                                                
-
-                                                                                    
+                                                                                    $($(current_div).find(".save-button").hide());
+                                                                                    $($(current_div).find(".edit-button").show());
+                                                                                }
                                                                             </script>
                                                                             <style>
                                                                                 .effect-1 {border: 0; margin-left: 10px;margin-top: 5.5px; border-bottom: 1px solid #ccc; padding: 0px;}
@@ -458,47 +509,61 @@ $('#billing-section').removeClass('is-active');
                                                                             .effect-1:focus ~ .focus-border{width: 100%; transition: 0.4s;}
                                                                             </style>
 
-                                                                            <div class="flex-inner name-field">
-                                                                                <i data-feather="user"></i>
+                                                                            <style>
+                                                                                .nostyle {
+                                                                                    color: grey !important;
+                                                                                    cursor:default;
+                                                                                }
+                                                                            </style>
+
+                                                                            <div class="flex-inner field-1" onmouseover="one('.field-1')" onmouseout="two('.field-1')">
+                                                                                
+                                                                                <i class="fas fa-user"></i>
+
+                                                                         
+                                                                                <span class="field-inner"><a class="nostyle">Edvin Molla</a></span>
+                                                                         
+                                                                              
+                                                                                    
+                                                                                <a class="edit-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="three('.field-inner')">edit</a>
+                                                                                <a class="save-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="four('.field-inner')">save</a>
+                                                                               
+                                                                                <!-- <a class="edit-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="three('.field-inner')">edit</a>
+                                                                                <a class="save-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="four('.field-inner')">save</a> -->
+                                                                            </div>
+                                                                            <div class="flex-inner">
+                                                                                <i class="fas fa-fingerprint"></i>
                                                                             
-                                                                                <span class="name-field-inner">Edvin Molla</span>
+                                                                             <span class="field-inner"><a class="nostyle">hrf8d6v212a3xc21</a></span>
+                                                                                
+                                                                
+                                                                            </div>
+
+
+                                                                            <div class="flex-inner field-3" onmouseover="one('.field-3')" onmouseout="two('.field-3')">
+                                                                                <i class="fab fa-linkedin"></i>
+                                                                            
+                                                                             <span class="field-inner"><a class="nostyle">edvinmolla</a></span>
+                                                                                
                                                                          
                                                                           
-                                                                                <a class="name-edit-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;">edit</a>
-                                                                                <a class="name-save-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;">save</a>
+                                                                                <a class="edit-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="three('.field-inner')">edit</a>
+                                                                                <a class="save-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="four('.field-inner')">save</a>
                                                                             </div>
-                                                                            <div class="flex-inner">
-                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                                                                                <span>Start a <a>Conversation</a></span>
-                                                                            </div>
-                                                                            <div class="flex-inner">
-                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                                                                <span></span>
+                                                                            <div class="flex-inner field-4" onmouseover="one('.field-4')" onmouseout="two('.field-4')">
+                                                                                <i class="fab fa-twitter-square"></i>
+                                                                            
+                                                                             <span class="field-inner"><a class="nostyle">@edvinmolla</a></span>
+                                                                                
+                                                                         
+                                                                          
+                                                                                <a class="edit-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="three('.field-inner')">edit</a>
+                                                                                <a class="save-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="four('.field-inner')">save</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                             
-                                                                    <div class="about-block">
-                                                                        <div class="block-header">
-                                                                            <h4>More Info</h4>
-                                                                        </div>
-                                                                        <div class="block-content">
-                                                                            <div class="flex-inner has-meta">
-                                                                                <i class="mdi mdi-office-building"></i>
-                                                                                <div class="meta">
-                                                                                    <span>Company</span>
-                                                                                    <span>Domino's Pizza is a global fast-food company</span>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="flex-inner has-meta">
-                                                                                <i class="mdi mdi-earth"></i>
-                                                                                <div class="meta">
-                                                                                    <span>Around the world</span>
-                                                                                    <span>Domino's Pizza has 28,489 stores around the world</span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                                   
                                                                 </div>
                                                               
                                                             </div>
@@ -521,9 +586,30 @@ $('#billing-section').removeClass('is-active');
                                         
                                         </div>
                                
-                                        <div id="api-content" class="content-section">
+                                        <div id="api-section" class="content-section">
                                           
                                         </div>
+
+                                        <div id="automation-section" class="content-section">
+                                          
+                                        </div>
+
+                                        <div id="monitoring-section" class="content-section">
+                                          
+                                        </div>
+
+                                        <div id="users-section" class="content-section">
+                                          
+                                        </div>
+
+                                        <div id="notifications-section" class="content-section">
+                                          
+                                        </div>
+
+                                        <div id="history-section" class="content-section">
+                                          
+                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -1324,8 +1410,6 @@ $('#billing-section').removeClass('is-active');
         
                 </div>
             </div>
-
-
 
 
             
