@@ -207,6 +207,60 @@ $('.settings-4').addClass('is-active');
 });
 
 
+$('.settings-5').click(function(e) {  
+
+     	
+
+$(".main-settings > *").not(".main-settings > #automation-section").removeClass('is-active');
+$($( ".main-settings" ).find( "#automation-section" )).addClass('is-active');
+
+$(".settings-menu > *").not(".settings-menu > .settings-5").removeClass('is-active');
+$('.settings-5').addClass('is-active');
+
+});
+
+$('.settings-6').click(function(e) {  
+
+     	
+
+$(".main-settings > *").not(".main-settings > #monitoring-section").removeClass('is-active');
+$($( ".main-settings" ).find( "#monitoring-section" )).addClass('is-active');
+
+$(".settings-menu > *").not(".settings-menu > .settings-6").removeClass('is-active');
+$('.settings-6').addClass('is-active');
+
+});
+
+
+$('.settings-7').click(function(e) {  
+
+$(".main-settings > *").not(".main-settings > #users-section").removeClass('is-active');
+$($( ".main-settings" ).find( "#users-section" )).addClass('is-active');
+
+$(".settings-menu > *").not(".settings-menu > .settings-7").removeClass('is-active');
+$('.settings-7').addClass('is-active');
+
+});
+
+$('.settings-8').click(function(e) {  
+
+$(".main-settings > *").not(".main-settings > #notifications-section").removeClass('is-active');
+$($( ".main-settings" ).find( "#notifications-section" )).addClass('is-active');
+
+$(".settings-menu > *").not(".settings-menu > .settings-8").removeClass('is-active');
+$('.settings-8').addClass('is-active');
+
+});
+
+$('.settings-9').click(function(e) {  
+
+$(".main-settings > *").not(".main-settings > #history-section").removeClass('is-active');
+$($( ".main-settings" ).find( "#history-section" )).addClass('is-active');
+
+$(".settings-menu > *").not(".settings-menu > .settings-9").removeClass('is-active');
+$('.settings-9').addClass('is-active');
+
+});
 
 });
 
@@ -278,35 +332,35 @@ $('.settings-4').addClass('is-active');
                                                     <span>API Management</span>
                                                 </div>
                                             </div>
-                                            <div class="menu-item settings-5" data-content="api-content">
+                                            <div class="menu-item settings-5" data-content="automation-content">
                                                 <div class="menu-icon">
                                                     <i class="fas fa-user-clock"></i>
                                                     <span>Cronjobs</span>
                                                 </div>
                                             </div>
-                                            <div class="menu-item settings-6" data-content="api-content">
+                                            <div class="menu-item settings-6" data-content="monitoring-content">
                                                 <div class="menu-icon">
                                                     <i class="fas fa-chart-area"></i>
                                                     <span>Monitoring</span>
                                                 </div>
                                             </div>
-                                            <div class="menu-item settings-7" data-content="api-content">
+                                            <div class="menu-item settings-7" data-content="users-content">
                                                 <div class="menu-icon">
                                                     <i class="fas fa-users"></i>
                                                     <span>Users</span>
                                                 </div>
                                             </div>
                                             <hr class="dropdown-divider">
-                                            <div class="menu-item settings-8" data-content="api-content">
-                                                <div class="menu-icon">
-                                                    <i class="fas fa-handshake"></i>
-                                                    <span>End User Aggrement</span>
-                                                </div>
-                                            </div>
-                                            <div class="menu-item settings-9" data-content="api-content">
+                                            <div class="menu-item settings-8" data-content="notifications-content">
                                                 <div class="menu-icon">
                                                     <i class="fas fa-bell"></i>
                                                     <span>Notifications</span>
+                                                </div>
+                                            </div>
+                                            <div class="menu-item settings-9" data-content="history-content">
+                                                <div class="menu-icon">
+                                                    <i class="fas fa-clock"></i>
+                                                    <span>History</span>
                                                 </div>
                                             </div>
                                            
@@ -500,27 +554,27 @@ $('.settings-4').addClass('is-active');
                                         
                                         </div>
                                
-                                        <div id="api-content" class="content-section">
+                                        <div id="api-section" class="content-section">
                                           
                                         </div>
 
-                                        <div id="automation-content" class="content-section">
+                                        <div id="automation-section" class="content-section">
                                           
                                         </div>
 
-                                        <div id="monitor-content" class="content-section">
+                                        <div id="monitoring-section" class="content-section">
                                           
                                         </div>
 
-                                        <div id="users-content" class="content-section">
+                                        <div id="users-section" class="content-section">
                                           
                                         </div>
 
-                                        <div id="notifications-content" class="content-section">
+                                        <div id="notifications-section" class="content-section">
                                           
                                         </div>
 
-                                        <div id="history-content" class="content-section">
+                                        <div id="history-section" class="content-section">
                                           
                                         </div>
                                         
