@@ -335,7 +335,7 @@ $('.settings-9').addClass('is-active');
                                             <div class="menu-item settings-5" data-content="automation-content">
                                                 <div class="menu-icon" style="box-shadow: none !important; -webkit-box-shadow: none !important;">
                                                     <i class="fas fa-user-clock"></i>
-                                                    <span>Cronjobs</span>
+                                                    <span>Automation</span>
                                                 </div>
                                             </div>
                                             <div class="menu-item settings-6" data-content="monitoring-content">
@@ -431,60 +431,53 @@ $('.settings-9').addClass('is-active');
                                                                         <div class="block-content">
 
                                                                             <script>
-                                                                                $( document ).ready(function() {
-                                                                                    
-                                                                                    $(".name-save-button").hide();
-                                                                                    
-                                                                                    var edit = false;
+                                                                  
 
-                                                                                $(".name-field").on('mouseenter', function () {
-                                                                                    
+                                                                                var edit = false;
+                                                                                var current_div = "";
+                                                                                
+
+                                                                                function one(field){
                                                                                     if(edit==false){
-
-                                                                                        $(".name-edit-button").css('display', "inline-flex");
+                                                                                     current_div = field;
+                                                                                    $($(current_div).find( ".edit-button" ).css('display', "inline-flex"));
 
                                                                                     }
+                                                                                }
 
+                                                                                function two(field){
+                                                                                    $($(current_div).find( ".edit-button" ).css('display', "none"));
+                                                                                }
+
+                                                                                function three(field){
                                                                                     
-                                                                                    }).on('mouseleave', function () {
-                                                                                        $(".name-edit-button").css('display', "none");
-                                                                                    });
+                                                                                    window.temporary = $($(current_div).find(field)).text();
+                                                                                    edit = true;
+                                                                                    $($(current_div).find(field)).replaceWith( " <input class='effect-1 temp-edit-field' maxlength='20' type='text' value='" + $(field).val() + "'>" );
+                                                                                    $($(current_div).find(".edit-button").hide());
+                                                                                    $($(current_div).find(".save-button").show());
+                                                                           
 
+                                                                                }
 
-                                                                                    $( ".name-edit-button" ).click(function() {
-                                                                                        window.temporary = $(".name-field-inner").text();
-                                                                                        edit = true;
-                                                                                    $(".name-field-inner").replaceWith( " <input class='effect-1 name-edit-field' maxlength='20' type='text' value='" + $(".name-field-inner").val() + "'>" );
-                                                                                    $(".name-edit-button").hide();
-                                                                                    $(".name-save-button").show();
-                                                                                });
-                                                                                    
+                                                                                function four(field){
 
-                                                                                    $( ".name-save-button" ).click(function() {
-                                                                                        
-                                                                                        if($(".name-edit-field").val().length == 0)
+                                                                                 
+
+                                                                                  if ($(current_div).find(".temp-edit-field").val().length == 0)
                                                                                         {
-                                                                                            
-                                                                                        
-                                                                                            $(".name-edit-field").replaceWith( "<span class='name-field-inner'>" + window.temporary + "</span>" );
+
+                                                                                            $($(current_div).find(".temp-edit-field")).replaceWith( "<span class='field-inner'>" + window.temporary + "</span>" );
                                                                                         }
                                                                                         else {
 
-                                                                                            $(".name-edit-field").replaceWith( "<span class='name-field-inner'>" + $(".name-edit-field").val() + "</span>" );
+                                                                                            $($(current_div).find(".temp-edit-field")).replaceWith( "<span class='field-inner'>" + $(".temp-edit-field").val() + "</span>" );
                                                                                         }
                                                                                     
                                                                                     edit = false;
-                                                                                    $(".name-save-button").hide();
-                                                                                    $(".name-edit-button").show();
-                                                                                
-                                                                                });
-                                                                                    
-                                                                             
-                                                                                });
-
-                                                                                
-
-                                                                                    
+                                                                                    $($(current_div).find(".save-button").hide());
+                                                                                    $($(current_div).find(".edit-button").show());
+                                                                                }
                                                                             </script>
                                                                             <style>
                                                                                 .effect-1 {border: 0; margin-left: 10px;margin-top: 5.5px; border-bottom: 1px solid #ccc; padding: 0px;}
@@ -492,15 +485,26 @@ $('.settings-9').addClass('is-active');
                                                                             .effect-1:focus ~ .focus-border{width: 100%; transition: 0.4s;}
                                                                             </style>
 
-                                                                            <div class="flex-inner name-field">
+                                                                            <div class="flex-inner field-1" onmouseover="one('.field-1')" onmouseout="two('.field-1')">
                                                                                 <i data-feather="user"></i>
                                                                             
-                                                                                <span class="name-field-inner">Edvin Molla</span>
+                                                                                <span class="field-inner">Edvin Molla</span>
                                                                          
                                                                           
-                                                                                <a class="name-edit-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;">edit</a>
-                                                                                <a class="name-save-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;">save</a>
+                                                                                <a class="edit-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="three('.field-inner')">edit</a>
+                                                                                <a class="save-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="four('.field-inner')">save</a>
                                                                             </div>
+                                                                            <div class="flex-inner field-2" onmouseover="one('.field-2')" onmouseout="two('.field-2')">
+                                                                                <i data-feather="user"></i>
+                                                                            
+                                                                                <span class="field-inner">John SPencer</span>
+                                                                         
+                                                                          
+                                                                                <a class="edit-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="three('.field-inner')">edit</a>
+                                                                                <a class="save-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="four('.field-inner')">save</a>
+                                                                            </div>
+
+
                                                                             <div class="flex-inner">
                                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                                                                                 <span>Start a <a>Conversation</a></span>
