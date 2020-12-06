@@ -34,6 +34,7 @@ class UserTrait(models.Model):
     credit_card_expire_year = models.CharField(max_length=12, default='')
     credit_card_security_code = models.CharField(max_length=64, default='')
     low_nodes_count = models.IntegerField(default=0)
+    aws_uid = models.IntegerField(default=0)
     medium_nodes_count = models.IntegerField(default=0)
     high_nodes_count = models.IntegerField(default=0)
     web_app_nodes_active = models.IntegerField(default=0)

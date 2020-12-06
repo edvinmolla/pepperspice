@@ -543,7 +543,7 @@ $('.settings-9').addClass('is-active');
                                                                             <div class="flex-inner field-3" onmouseover="one('.field-3')" onmouseout="two('.field-3')">
                                                                                 <i class="fab fa-linkedin"></i>
                                                                             
-                                                                             <span class="field-inner"><a class="nostyle">edvinmolla</a></span>
+                                                                             <span class="field-inner"><a class="nostyle" style="float: right;">edvinmolla</a></span>
                                                                                 
                                                                          
                                                                           
@@ -565,8 +565,10 @@ $('.settings-9').addClass('is-active');
                             
                                                                    
                                                                 </div>
+                                                                
                                                               
                                                             </div>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -577,7 +579,23 @@ $('.settings-9').addClass('is-active');
             
                                         <div id="security-section" class="content-section">
             
-                                           
+                                            <div class="friends-grid">
+                                                <div class="columns is-multiline">
+                                                    <!--Friend item-->
+                                                    <div class="column is-3">
+                                                        <a class="friend-item has-text-centered">
+                                                            <div class="avatar-wrap">
+                                                                 
+                                                                <img data-demo-src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1024px-Amazon_Web_Services_Logo.svg.png" alt="" style="height: auto !important; width: auto !important; border-radius: 0px; ">
+                                                            </div>
+                                                            <h3>Amazon Web Services</h3>
+                                                            <p>Manage API</p>
+                                                        </a>
+                                                    </div>
+                                                  
+                                                  
+                                                </div>
+                                            </div>
                                            
                                         </div>
             
@@ -1462,7 +1480,7 @@ $('.settings-9').addClass('is-active');
                         <div class="profile-about side-menu mt-3">
                             <div class="left-menu">
                                 <div class="left-menu-inner">
-                                    <div class="menu-item is-active btn1" data-content="overview-content" >
+                                    <div class="menu-item is-active btn1" data-content="overview-content">
                                         <div class="menu-icon" style="box-shadow: none !important; -webkit-box-shadow: none !important;">
                                             <i class="fas fa-server" style="padding-left: 5px;"></i>
                                             <span style="padding-left: 10px;">Applications & API's</span>
@@ -1622,7 +1640,7 @@ $('.settings-9').addClass('is-active');
                                     </div>
                                 </div>
                             </div>
-                            <a class="button is-rounded is-danger mb-2 logout" style="float: right;" href="/accounts/logout/" onclick="function hi(){$('.logout').addClass('is-loading')};hi()">Log Out <i class="fas fa-sign-out-alt pl-2"></i></a>
+                            <a class="button is-rounded mb-2 logout" style="float: right; background: #434343; color: white;" href="/accounts/logout/" onclick="function hi(){$('.logout').addClass('is-loading')};hi()">Log Out <i class="fas fa-sign-out-alt pl-2"></i></a>
                            
                 
                         </div>
