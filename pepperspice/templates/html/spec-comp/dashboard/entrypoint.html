@@ -607,6 +607,16 @@ $('.settings-9').addClass('is-active');
                                                         </a>
                                                     </div>
                                                   
+                                                    <div class="column is-3">
+                                                        <a class="friend-item has-text-centered modal-trigger" data-modal="albums-help-modal" style="border: none;">
+                                                            <div class="avatar-wrap">
+                                                                 
+                                                                <img data-demo-src="https://www.flaticon.com/svg/static/icons/svg/660/660522.svg" alt="" style="height: auto !important; width: auto !important; border-radius: 0px; transform: scale(.6);">
+                                                            </div>
+                                                            <h3>Add API Service</h3>
+                                                            <p>Select your cloud provider</p>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -642,6 +652,157 @@ $('.settings-9').addClass('is-active');
                 </div>
             </div>
 
+
+  
+
+            <div id="albums-help-modal" class="modal api-modal albums-help-modal is-xsmall has-light-bg aws-modal">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+        
+                    <div class="card">
+                        <div class="card-heading">
+
+                           <div class="is-primary share-dropdown">
+                                <div>
+                                  <h3>Create API Service</h3>
+                                </div>
+                               
+                            </div>
+                            <!-- Close X button -->
+                            <div class="close-wrap">
+                                <span class="close-new-api" style="cursor: pointer;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </span>
+                            </div>
+                        </div>
+                   
+                        <div class="card-body">
+                           
+                            <div class="column">
+
+        <script>
+            $(document).ready(function(){
+                $('.is-btn2').hide();
+                $('.c-2').fadeOut();
+$('.is-btn').click(function(){
+
+    $('.c-1').hide();
+    $('.c-2').fadeIn();
+    $('.is-btn2').show();
+    $('.is-btn').removeClass('is-info');
+    $('.is-btn').addClass('is-success');
+    $('.is-btn').text('Create');
+});
+
+$('.is-btn2').click(function(){
+
+$('.c-1').fadeIn();
+$('.c-2').hide();
+$('.is-btn2').hide();
+$('.is-btn').removeClass('is-success');
+    $('.is-btn').addClass('is-info');
+    $('.is-btn').text('Next');
+});
+
+            });
+        </script>
+                             
+                          
+                                <div class="c-1">
+                                    <div class="payment-form">
+                                        <form action="/charge" method="post" id="stripe-payment-form" class="provider-form is-active">
+                                            <div id="checkout-contact-section" class="form-section has-margin-bottom">
+                                                
+                                                <div class="field">
+                                                    <label class="label">E-mail</label>
+                                                    <div class="control">
+                                                      <input class="input" type="email" placeholder="Notification e-mail">
+                                                    </div>
+                                                    <p class="help">Related security notifications will go to the above e-mail.</p>
+                                                  </div>
+                                                <div class="field">
+                                                    <label class="label">Identification</label>
+                                                    <div class="control">
+                                                      <input class="input" type="text" placeholder="Service ID">
+                                                    </div>
+                                                    <p class="help">Insert an ID which which you can recognise from others.</p>
+                                                  </div>
+                                                  
+                                                  <div class="field">
+                                                    <label>Cloud Provider</label>
+                                                    <div class="control has-icons-left is-expanded">
+                                                        <div class="select is-fullwidth" >
+                                                            <select>
+                                                                <option></option>
+                                                                <option selected="">Amazon Web Services</option>
+                                                                <option>DigitalOcean</option>
+                                                                <option>Linode</option>
+                                                                <option>Microsoft Azure</option>
+                                                                <option>Google Cloud</option>
+                                                                
+                                                            </select>
+                                                        </div>
+                                                        <div class="icon is-small is-left">
+                                                            <i class="fas fa-cloud"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                                          
+                
+                                         
+                
+                
+                                        </form>
+                                    </div>
+                                </div>
+    
+                                <div class="c-2">
+                                   
+    
+                                    <div class="field">
+                                                   <label class="label">Amazon Web Services Account Identification No. (12 charachters)</label>
+                                                   <div class="control">
+                                                     <input class="input" type="text" maxlength="12" placeholder="AWS ID">
+                                                   </div>
+                                                   <p class="help">Insert your unique AWS User ID.</p>
+                                                 </div>
+                                                 <div class="field">
+                                                   <label class="label">Amazon Web Services Access Key ID (20 charachters)</label>
+                                                   <div class="control">
+                                                     <input class="input" type="text" maxlength="20" placeholder="AWS ID">
+                                                   </div>
+                                                   <p class="help">Insert the ID of your access key.</p>
+                                                 </div>
+                                                 <div class="field">
+                                                   <label class="label">Amazon Web Services Secret Key (40 charachters)</label>
+                                                   <div class="control">
+                                                     <input class="input" type="text" maxlength="40" placeholder="AWS ID">
+                                                   </div>
+                                                   <p class="help">Insert the secret key to match your access key.</p>
+                                                 </div>
+    
+                             
+                               </div>
+                              
+                            </div>
+
+                         
+                        </div>
+                      
+                        <div class="card-footer">
+                            <div class="column has-text-centered">
+                                <button type="button" class="button is-rounded is-btn2 is-info is-light next-modal raised" data-modal="albums-modal">Back</button>
+                            <button type="button" class="button is-rounded is-btn is-info is-light next-modal raised" data-modal="albums-modal">Next</button>
+                        </div>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+            
+
             <div id="share-modal" class="modal share-modal is-xsmall has-light-bg aws-modal">
                 <div class="modal-background"></div>
                 <div class="modal-content">
@@ -670,7 +831,7 @@ $('.settings-9').addClass('is-active');
         
                                 <div class="basic-infos-wrapper">
                                     <div class="card is-community">
-                                       
+                                        <h6 class="subtitle is-6">Details</h6>
                                         <div class="flex-block">
                                           <i class="fas fa-fingerprint"></i>
                                             <p><a class="nostyle">AKIAJZLN64BBQIHISKKA</a></p>
@@ -719,6 +880,9 @@ $('.settings-9').addClass('is-active');
                 </div>
             </div>
            
+          
+
+
             <div id="application-modal" class="modal application-modal is-xlarge has-light-bg">
                 <div class="modal-background"></div>
                 <div class="modal-content">
