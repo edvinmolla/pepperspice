@@ -689,7 +689,7 @@ $(".content-block-2").addClass('is-active');
                                                 <div class="control">
                                                   <input class="input" type="email" placeholder="Notification e-mail">
                                                 </div>
-                                                <p class="help">All security notifications for this API will go to the above e-mail.</p>
+                                                <p class="help">Related security notifications will go to the above e-mail.</p>
                                               </div>
                                             <div class="field">
                                                 <label class="label">Identification</label>
@@ -698,7 +698,26 @@ $(".content-block-2").addClass('is-active');
                                                 </div>
                                                 <p class="help">Insert an ID which which you can recognise from others.</p>
                                               </div>
-
+                                              
+                                              <div class="field">
+                                                <label>Cloud Provider</label>
+                                                <div class="control has-icons-left is-expanded">
+                                                    <div class="select is-fullwidth" >
+                                                        <select>
+                                                            <option></option>
+                                                            <option selected="">Amazon Web Services</option>
+                                                            <option>DigitalOcean</option>
+                                                            <option>Linode</option>
+                                                            <option>Microsoft Azure</option>
+                                                            <option>Google Cloud</option>
+                                                            
+                                                        </select>
+                                                    </div>
+                                                    <div class="icon is-small is-left">
+                                                        <i class="fas fa-cloud"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
             
                                       
@@ -711,16 +730,34 @@ $(".content-block-2").addClass('is-active');
                             </div>
         
                             <div class="content-block-2 content-block">
-                                <img src="assets/img/illustrations/cards/upload.svg" alt="">
-                                <div class="help-text">
-                                    <h3>Upload your photos</h3>
-                                    <p>Lorem ipsum sit dolor amet is a dummy text used by the typography industry and the web industry.</p>
-                                </div>
+                               
+
+                                 <div class="field">
+                                                <label class="label">Amazon Web Services Account Identification No. (12 charachters)</label>
+                                                <div class="control">
+                                                  <input class="input" type="text" maxlength="12" placeholder="AWS ID">
+                                                </div>
+                                                <p class="help">Insert your unique AWS User ID.</p>
+                                              </div>
+                                              <div class="field">
+                                                <label class="label">Amazon Web Services Access Key ID (20 charachters)</label>
+                                                <div class="control">
+                                                  <input class="input" type="text" maxlength="20" placeholder="AWS ID">
+                                                </div>
+                                                <p class="help">Insert the ID of your access key.</p>
+                                              </div>
+                                              <div class="field">
+                                                <label class="label">Amazon Web Services Secret Key (40 charachters)</label>
+                                                <div class="control">
+                                                  <input class="input" type="text" maxlength="40" placeholder="AWS ID">
+                                                </div>
+                                                <p class="help">Insert the secret key to match your access key.</p>
+                                              </div>
+
                             </div>
         
                             <div class="slide-dots">
-                                <div class="dot is-active"></div>
-                                <div class="dot"></div>
+                  
                             </div>
                             <div class="action">
                                 <button type="button" id="next-button" class="button is-solid accent-button next-modal raised" data-modal="albums-modal">Next</button>
