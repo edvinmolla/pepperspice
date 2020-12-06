@@ -295,6 +295,9 @@ function initModals() {
     $('.modal-close, .close-modal').on('click', function () {
       $('.modal.is-active').removeClass('is-active');
     });
+    $('.modal-close, .close-modal-1').on('click', function () {
+      $('.share-modal').removeClass('is-active');
+    });
   }
 }
 
