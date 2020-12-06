@@ -298,6 +298,9 @@ function initModals() {
     $('.close-aws').on('click', function () {
       $('.aws-modal').removeClass('is-active');
     });
+    $('.close-new-api').on('click', function () {
+      $('.api-modal').removeClass('is-active');
+    });
   }
 }
 
