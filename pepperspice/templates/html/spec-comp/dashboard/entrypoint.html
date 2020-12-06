@@ -278,6 +278,8 @@ $('.settings-9').addClass('is-active');
         <div class="feed-profile-wrapper" style="max-width: 1300px !important;">
 
 
+            
+
 
             <div id="settings-modal" class="modal settings-modal is-xxl has-light-bg">
                 <div class="modal-background"></div>
@@ -543,7 +545,7 @@ $('.settings-9').addClass('is-active');
                                                                             <div class="flex-inner field-3" onmouseover="one('.field-3')" onmouseout="two('.field-3')">
                                                                                 <i class="fab fa-linkedin"></i>
                                                                             
-                                                                             <span class="field-inner"><a class="nostyle">edvinmolla</a></span>
+                                                                             <span class="field-inner"><a class="nostyle" style="float: right;">edvinmolla</a></span>
                                                                                 
                                                                          
                                                                           
@@ -565,8 +567,10 @@ $('.settings-9').addClass('is-active');
                             
                                                                    
                                                                 </div>
+                                                                
                                                               
                                                             </div>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -577,7 +581,10 @@ $('.settings-9').addClass('is-active');
             
                                         <div id="security-section" class="content-section">
             
-                                           
+                                          
+
+
+                                            
                                            
                                         </div>
             
@@ -587,7 +594,21 @@ $('.settings-9').addClass('is-active');
                                         </div>
                                
                                         <div id="api-section" class="content-section">
-                                          
+                                            <div class="friends-grid">
+                                                <div class="columns">
+                                                    <div class="column is-3">
+                                                        <a class="friend-item has-text-centered modal-trigger" data-modal="share-modal">
+                                                            <div class="avatar-wrap">
+                                                                 
+                                                                <img data-demo-src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1024px-Amazon_Web_Services_Logo.svg.png" alt="" style="height: auto !important; width: auto !important; border-radius: 0px; ">
+                                                            </div>
+                                                            <h3>Amazon Web Services</h3>
+                                                            <p>Manage API Details</p>
+                                                        </a>
+                                                    </div>
+                                                  
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div id="automation-section" class="content-section">
@@ -621,7 +642,82 @@ $('.settings-9').addClass('is-active');
                 </div>
             </div>
 
-    
+            <div id="share-modal" class="modal share-modal is-xsmall has-light-bg aws-modal">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+        
+                    <div class="card">
+                        <div class="card-heading">
+
+                           <div class="is-primary share-dropdown">
+                                <div>
+                                  <h3>Amazon Web Services API Management</h3>
+                                </div>
+                               
+                            </div>
+                            <!-- Close X button -->
+                            <div class="close-wrap">
+                                <span class="close-aws" style="cursor: pointer;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </span>
+                            </div>
+                        </div>
+                   
+                        <div class="card-body">
+                           
+                            <div class="column">
+
+        
+                                <div class="basic-infos-wrapper">
+                                    <div class="card is-community">
+                                       
+                                        <div class="flex-block">
+                                          <i class="fas fa-fingerprint"></i>
+                                            <p><a class="nostyle">AKIAJZLN64BBQIHISKKA</a></p>
+                                        </div>
+                                        <div class="flex-block">
+                                            <i class="fas fa-key"></i>
+                                            <p><a class="nostyle">aruV1*****bq2IcWn</a></p>
+                                        </div>
+                                        <div class="flex-block">
+                                            <i class="fas fa-clock"></i>
+                                            <p><a class="nostyle">Dec 6th 2020</a></p>
+                                        </div>
+                                        <div class="flex-block">
+                                            <i class="fas fa-globe-americas"></i>
+                                            <p><a class="nostyle">eu-west-1</a></p>
+                                        </div>
+                                        <div class="flex-block">
+                                            <i class="fas fa-toggle-on"></i>
+                                            <p><a class="nostyle">Active</a></p>
+                                        </div>
+
+                                        <div class="flex-block">
+                                            <i class="fas fa-history"></i>
+                                            <p><a class="nostyle">15 minutes ago</a></p>
+                                        </div>
+
+                                        
+                                    </div>
+        
+                                 
+
+
+        
+                                </div>
+                             
+                            </div>
+
+                         
+                        </div>
+                      
+                        <div class="card-footer">
+                            
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
            
             <div id="application-modal" class="modal application-modal is-xlarge has-light-bg">
                 <div class="modal-background"></div>
@@ -1462,7 +1558,7 @@ $('.settings-9').addClass('is-active');
                         <div class="profile-about side-menu mt-3">
                             <div class="left-menu">
                                 <div class="left-menu-inner">
-                                    <div class="menu-item is-active btn1" data-content="overview-content" >
+                                    <div class="menu-item is-active btn1" data-content="overview-content">
                                         <div class="menu-icon" style="box-shadow: none !important; -webkit-box-shadow: none !important;">
                                             <i class="fas fa-server" style="padding-left: 5px;"></i>
                                             <span style="padding-left: 10px;">Applications & API's</span>
@@ -1622,7 +1718,7 @@ $('.settings-9').addClass('is-active');
                                     </div>
                                 </div>
                             </div>
-                            <a class="button is-rounded is-danger mb-2 logout" style="float: right;" href="/accounts/logout/" onclick="function hi(){$('.logout').addClass('is-loading')};hi()">Log Out <i class="fas fa-sign-out-alt pl-2"></i></a>
+                            <a class="button is-rounded mb-2 logout" style="float: right; background: #434343; color: white;" href="/accounts/logout/" onclick="function hi(){$('.logout').addClass('is-loading')};hi()">Log Out <i class="fas fa-sign-out-alt pl-2"></i></a>
                            
                 
                         </div>

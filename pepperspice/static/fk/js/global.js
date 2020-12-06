@@ -295,6 +295,9 @@ function initModals() {
     $('.modal-close, .close-modal').on('click', function () {
       $('.modal.is-active').removeClass('is-active');
     });
+    $('.close-aws').on('click', function () {
+      $('.aws-modal').removeClass('is-active');
+    });
   }
 }
 
