@@ -18,6 +18,14 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import UploadedProject
 
 
+def check_email(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            print(request.user)
+
+            return HttpResponse('false')
+
+
 @csrf_exempt
 def supply_container_count(request):
     if request.user.is_authenticated:
@@ -36,6 +44,12 @@ def dashboard(request):
         node = CustomUser.objects.filter(email=request.user).first()
         node.last_login = datetime.now()
         node.save()
+
+        if not UserTrait.objects.filter(email=request.user).exists():
+            r = UserTrait(unique_id=uuid.uuid4().hex, user_ID=request.user, email=request.user)
+
+            r.save()
+   
  
         web_app_count = 0
         a = Node.objects.filter(Email=request.user)
@@ -63,7 +77,9 @@ def dashboard(request):
         for app in ready_to_deploy:
             ready_to_deploy_count += 1
 
-        return render(request, 'html/spec-comp/dashboard/entrypoint.html', {})
+        uid = UserTrait.objects.filter(email=request.user).first().unique_id
+   
+        return render(request, 'html/spec-comp/dashboard/entrypoint.html', {'uid':uid[:4]+ "******" + uid[-4:]})
         # return render(request, 'html/spec-comp/dashboard/overview.html', {'instances':Node.objects.filter(Email=request.user), 
         #                                                                     'initials':str(request.user).split('@')[0],
         #                                                                     'webapps':Node.objects.filter(is_webapp=True), 

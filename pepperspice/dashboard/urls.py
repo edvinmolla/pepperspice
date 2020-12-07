@@ -39,4 +39,5 @@ urlpatterns = [
     path('unlink/file_to_app/', unlink_file, name='unlink_file'),
     path('check_duplicate/', check_duplicate, name='check_duplicate'),
     path('delete/file/', delete_file, name="delete_file"),
+    path('check_email/', check_email, name="check_email")
 ]
