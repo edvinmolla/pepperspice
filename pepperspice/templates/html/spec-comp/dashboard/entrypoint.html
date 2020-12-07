@@ -659,7 +659,14 @@ $('.settings-9').addClass('is-active');
             <div id="albums-help-modal" class="modal api-modal albums-help-modal is-xsmall has-light-bg aws-modal">
                 <div class="modal-background"></div>
                 <div class="modal-content">
-        
+                    <div class="box-heading mb-3 email-not-valid" style="background-color: #82e8d0; color: white; border-color: #82e8d0;">
+                        <h4>E-mail address not valid.</h4>
+                        <div class="close-wrap">
+                            <span class="close-email-alert" style="cursor: pointer;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                        </div>
+                    </div>
                     <div class="card">
                         <div class="card-heading">
 
@@ -694,6 +701,12 @@ $('.is-btn').click(function(){
     $('.is-btn2').show();
     $('.is-btn').hide();
     $(".finish").show();
+});
+
+$(".close-email-alert").click(function(){
+
+$(".email-not-valid").fadeOut();
+
 });
 
 $('.is-btn2').click(function(){
@@ -737,12 +750,10 @@ $.ajax({
                              
                              <form method="post" id="post-data-form" action="">
                                  {% csrf_token %}
+                                 
                                 <div class="c-1">
                                     <div class="payment-form">
-                                        <div class="box-heading mb-3 email-not-valid" style="background-color: #82e8d0; color: white;">
-                                            <h4>E-mail address not valid.</h4>
-                                         
-                                        </div>
+                                      
                                         <form action="/charge" method="post" id="stripe-payment-form" class="provider-form is-active">
                                             <div id="checkout-contact-section" class="form-section has-margin-bottom">
                                                
@@ -792,11 +803,7 @@ $.ajax({
                                 </div>
     
                                 <div class="c-2">
-                                    <div class="box-heading mb-3 email-not-valid" style="background-color: #82e8d0; color: white;">
-                                        <h4>E-mail address not valid.</h4>
-                                     
-                                    </div>
-    
+                                    
                                     <div class="field">
                                                    <label class="label">Amazon Web Services Account Identification No. (12 charachters)</label>
                                                    <div class="control">
