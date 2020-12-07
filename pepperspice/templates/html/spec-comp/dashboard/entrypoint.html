@@ -683,6 +683,7 @@ $('.settings-9').addClass('is-active');
 
         <script>
             $(document).ready(function(){
+                $(".email-not-valid").fadeOut();
                 $('.is-btn2').hide();
                 $('.c-2').fadeOut();
                 $(".finish").hide();
@@ -706,6 +707,12 @@ $('.is-btn').show();
 
 $('.finish').click(function(e) {
 
+
+    var re = /^\w+([-+.'][^\s]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+
+var emailFormat = re.test($("#email-field").val());// this return result in boolean type
+
+if (!emailFormat) {$(".email-not-valid").fadeIn();return false;}
 
 e.preventDefault(); // avoid to execute the actual submit of the form.
 
@@ -732,6 +739,10 @@ $.ajax({
                                  {% csrf_token %}
                                 <div class="c-1">
                                     <div class="payment-form">
+                                        <div class="box-heading mb-3 email-not-valid" style="background-color: #82e8d0; color: white;">
+                                            <h4>E-mail address not valid.</h4>
+                                         
+                                        </div>
                                         <form action="/charge" method="post" id="stripe-payment-form" class="provider-form is-active">
                                             <div id="checkout-contact-section" class="form-section has-margin-bottom">
                                                
@@ -781,7 +792,10 @@ $.ajax({
                                 </div>
     
                                 <div class="c-2">
-                                   
+                                    <div class="box-heading mb-3 email-not-valid" style="background-color: #82e8d0; color: white;">
+                                        <h4>E-mail address not valid.</h4>
+                                     
+                                    </div>
     
                                     <div class="field">
                                                    <label class="label">Amazon Web Services Account Identification No. (12 charachters)</label>
