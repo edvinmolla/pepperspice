@@ -684,14 +684,14 @@ $('.settings-9').addClass('is-active');
             $(document).ready(function(){
                 $('.is-btn2').hide();
                 $('.c-2').fadeOut();
+                $(".finish").hide();
 $('.is-btn').click(function(){
 
     $('.c-1').hide();
     $('.c-2').fadeIn();
     $('.is-btn2').show();
-    $('.is-btn').removeClass('is-info');
-    $('.is-btn').addClass('is-success');
-    $('.is-btn').text('Create');
+    $('.is-btn').hide();
+    $(".finish").show();
 });
 
 $('.is-btn2').click(function(){
@@ -699,31 +699,36 @@ $('.is-btn2').click(function(){
 $('.c-1').fadeIn();
 $('.c-2').hide();
 $('.is-btn2').hide();
-$('.is-btn').removeClass('is-success');
-    $('.is-btn').addClass('is-info');
-    $('.is-btn').text('Next');
+$('.is-btn').show();
+    $(".finish").hide();
 });
 
+$('.finish').click(function() {
+
+
+alert($("#aws-acc-id-field").val());
+
+});
             });
         </script>
                              
-                          
+                             <form>
                                 <div class="c-1">
                                     <div class="payment-form">
                                         <form action="/charge" method="post" id="stripe-payment-form" class="provider-form is-active">
                                             <div id="checkout-contact-section" class="form-section has-margin-bottom">
-                                                
-                                                <div class="field">
+                                               
+                                                <div class="field email-class">
                                                     <label class="label">E-mail</label>
                                                     <div class="control">
-                                                      <input class="input" type="email" placeholder="Notification e-mail">
+                                                      <input class="input" type="email" id="email-field" name="fname" placeholder="Notification e-mail">
                                                     </div>
                                                     <p class="help">Related security notifications will go to the above e-mail.</p>
                                                   </div>
                                                 <div class="field">
                                                     <label class="label">Identification</label>
                                                     <div class="control">
-                                                      <input class="input" type="text" placeholder="Service ID">
+                                                      <input class="input" type="text" id="id-field" placeholder="Service ID">
                                                     </div>
                                                     <p class="help">Insert an ID which which you can recognise from others.</p>
                                                   </div>
@@ -732,7 +737,7 @@ $('.is-btn').removeClass('is-success');
                                                     <label>Cloud Provider</label>
                                                     <div class="control has-icons-left is-expanded">
                                                         <div class="select is-fullwidth" >
-                                                            <select>
+                                                            <select id="cp-field">
                                                                 <option></option>
                                                                 <option selected="">Amazon Web Services</option>
                                                                 <option>DigitalOcean</option>
@@ -754,7 +759,7 @@ $('.is-btn').removeClass('is-success');
                                          
                 
                 
-                                        </form>
+                                        
                                     </div>
                                 </div>
     
@@ -764,28 +769,28 @@ $('.is-btn').removeClass('is-success');
                                     <div class="field">
                                                    <label class="label">Amazon Web Services Account Identification No. (12 charachters)</label>
                                                    <div class="control">
-                                                     <input class="input" type="text" maxlength="12" placeholder="AWS ID">
+                                                     <input class="input" id="aws-acc-id-field" type="text" maxlength="12" placeholder="AWS ID">
                                                    </div>
                                                    <p class="help">Insert your unique AWS User ID.</p>
                                                  </div>
                                                  <div class="field">
                                                    <label class="label">Amazon Web Services Access Key ID (20 charachters)</label>
                                                    <div class="control">
-                                                     <input class="input" type="text" maxlength="20" placeholder="AWS ID">
+                                                     <input class="input" id="aws-acc-key-field" type="text" maxlength="20" placeholder="AWS ID">
                                                    </div>
                                                    <p class="help">Insert the ID of your access key.</p>
                                                  </div>
                                                  <div class="field">
                                                    <label class="label">Amazon Web Services Secret Key (40 charachters)</label>
                                                    <div class="control">
-                                                     <input class="input" type="text" maxlength="40" placeholder="AWS ID">
+                                                     <input class="input" id="aws-sec-key-field" type="text" maxlength="40" placeholder="AWS ID">
                                                    </div>
                                                    <p class="help">Insert the secret key to match your access key.</p>
                                                  </div>
     
                              
                                </div>
-                              
+                            </form>
                             </div>
 
                          
@@ -795,6 +800,7 @@ $('.is-btn').removeClass('is-success');
                             <div class="column has-text-centered">
                                 <button type="button" class="button is-rounded is-btn2 is-info is-light next-modal raised" data-modal="albums-modal">Back</button>
                             <button type="button" class="button is-rounded is-btn is-info is-light next-modal raised" data-modal="albums-modal">Next</button>
+                            <button type="button" class="button is-rounded is-light is-success next-modal raised finish" data-modal="albums-modal">Create</button>
                         </div>
                         </div>
                     </div>

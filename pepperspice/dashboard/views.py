@@ -17,6 +17,12 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from .models import UploadedProject
 
+@csrf_exempt
+def check_email(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            print(request.method)
+
 
 @csrf_exempt
 def supply_container_count(request):
