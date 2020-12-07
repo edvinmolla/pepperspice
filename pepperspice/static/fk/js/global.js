@@ -301,6 +301,9 @@ function initModals() {
     $('.close-new-api').on('click', function () {
       $('.api-modal').removeClass('is-active');
     });
+    $('.close-edit-payment').on('click', function () {
+      $('.edit-payment').removeClass('is-active');
+    });
   }
 }
 
