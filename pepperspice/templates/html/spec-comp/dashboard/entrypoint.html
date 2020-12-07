@@ -523,7 +523,7 @@ $('.settings-9').addClass('is-active');
                                                                                 <i class="fas fa-user"></i>
 
                                                                          
-                                                                                <span class="field-inner"><a class="nostyle">Edvin Molla</a></span>
+                                                                                <span class="field-inner"><a class="nostyle">{{ request.user.username }}</a></span>
                                                                          
                                                                               
                                                                                     
@@ -533,10 +533,11 @@ $('.settings-9').addClass('is-active');
                                                                                 <!-- <a class="edit-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="three('.field-inner')">edit</a>
                                                                                 <a class="save-button" style="display: none; font-size: 14px;text-decoration: underline; margin-left: 10px;" onclick="four('.field-inner')">save</a> -->
                                                                             </div>
+                                                                            
                                                                             <div class="flex-inner">
                                                                                 <i class="fas fa-fingerprint"></i>
                                                                             
-                                                                             <span class="field-inner"><a class="nostyle">hrf8d6v212a3xc21</a></span>
+                                                                             <span class="field-inner"><a class="nostyle">{{ uid }}</a></span>
                                                                                 
                                                                 
                                                                             </div>
@@ -703,16 +704,32 @@ $('.is-btn').show();
     $(".finish").hide();
 });
 
-$('.finish').click(function() {
+$('.finish').click(function(e) {
 
 
-alert($("#aws-acc-id-field").val());
+e.preventDefault(); // avoid to execute the actual submit of the form.
+
+var form = $("#post-data-form");
+
+$.ajax({
+       type: "POST",
+       url: "/dashboard/check_email/",
+       data: form.serialize(), // serializes the form's elements.
+       success: function(data)
+       {
+           alert("success"); // show response from the php script.
+       }
+     });
+
 
 });
+
+
             });
         </script>
                              
-                             <form>
+                             <form method="post" id="post-data-form" action="">
+                                 {% csrf_token %}
                                 <div class="c-1">
                                     <div class="payment-form">
                                         <form action="/charge" method="post" id="stripe-payment-form" class="provider-form is-active">

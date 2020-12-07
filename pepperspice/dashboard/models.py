@@ -3,6 +3,7 @@ from authentication.models import CustomUser
 import datetime
 from django.utils import timezone
 from datetime import datetime
+import uuid
 
 class UploadedProject(models.Model):
     user_ID = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
@@ -28,6 +29,7 @@ class Purchases(models.Model):
 class UserTrait(models.Model):
     user_ID = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     email = models.EmailField(default='', unique=True)
+    unique_id = models.CharField(max_length=64, default='')
     credit_card_number = models.CharField(max_length=64, default='')
     credit_card_holder_name = models.CharField(max_length=64, default='')
     credit_card_expire_month = models.CharField(max_length=12, default='')
