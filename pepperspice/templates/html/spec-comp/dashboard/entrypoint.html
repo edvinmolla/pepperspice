@@ -372,13 +372,13 @@ $('.settings-9').addClass('is-active');
                                     <div class="right-content main-settings">
 
 
-                                        <div id="general-section" class="content-section is-active">
+                                        <div id="general-section" class="content-section is-active" style="animation: fadeInRight .5s !important;">
                                           
                                            
                                             
                                                 <div class="column ">
 
-                                                    <div class="card page-about-card">
+                                                    <div class="card page-about-card" style="transform: scale(1) !important;-webkit-transform: scale(1); !important">
                                                        
                                                         <div class="about-body">
                                                             <div class="columns">
@@ -580,7 +580,7 @@ $('.settings-9').addClass('is-active');
                                        
                                         </div>
             
-                                        <div id="security-section" class="content-section">
+                                        <div id="security-section" class="content-section" style="animation: fadeInRight .5s !important;">
             
                                           
 
@@ -589,7 +589,7 @@ $('.settings-9').addClass('is-active');
                                            
                                         </div>
             
-                                        <div id="billing-section" class="content-section">
+                                        <div id="billing-section" class="content-section" style="animation: fadeInRight .5s !important;">
                                           
 
                                             <div class="friends-grid">
@@ -650,7 +650,7 @@ $('.settings-9').addClass('is-active');
                                             
                                         </div>
                                
-                                        <div id="api-section" class="content-section">
+                                        <div id="api-section" class="content-section" style="animation: fadeInRight .5s !important;">
                                             <div class="friends-grid">
                                                 <div class="columns">
                                                     <div class="column is-3">
@@ -678,23 +678,23 @@ $('.settings-9').addClass('is-active');
                                             </div>
                                         </div>
 
-                                        <div id="automation-section" class="content-section">
+                                        <div id="automation-section" class="content-section" style="animation: fadeInRight .5s !important;">
                                           
                                         </div>
 
-                                        <div id="monitoring-section" class="content-section">
+                                        <div id="monitoring-section" class="content-section" style="animation: fadeInRight .5s !important;">
                                           
                                         </div>
 
-                                        <div id="users-section" class="content-section">
+                                        <div id="users-section" class="content-section" style="animation: fadeInRight .5s !important;">
                                           
                                         </div>
 
-                                        <div id="notifications-section" class="content-section">
+                                        <div id="notifications-section" class="content-section" style="animation: fadeInRight .5s !important;">
                                           
                                         </div>
 
-                                        <div id="history-section" class="content-section">
+                                        <div id="history-section" class="content-section"style="animation: fadeInRight .5s !important;">
                                           
                                         </div>
                                         
@@ -715,8 +715,8 @@ $('.settings-9').addClass('is-active');
             <div id="albums-help-modal" class="modal api-modal albums-help-modal is-xsmall has-light-bg aws-modal">
                 <div class="modal-background"></div>
                 <div class="modal-content">
-                    <div class="box-heading mb-3 email-not-valid" style="background-color: #82e8d0; color: white; border-color: #82e8d0;">
-                        <h4>E-mail address not valid.</h4>
+                    <div class="box-heading mb-3 email-not-valid" style="background-color: #82e8d0; color: white; border-color: #82e8d0; animation: fadeInUp 0.4s;">
+                        <h4></h4>
                         <div class="close-wrap">
                             <span class="close-email-alert" style="cursor: pointer;">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -724,7 +724,7 @@ $('.settings-9').addClass('is-active');
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-heading">
+                        <div class="card-heading card-head-1">
 
                            <div class="is-primary share-dropdown">
                                 <div>
@@ -746,17 +746,73 @@ $('.settings-9').addClass('is-active');
 
         <script>
             $(document).ready(function(){
+
+
+
+                $('.dd-select').change(function(){
+                    $("#edit-logo").removeClass();
+	$('#edit-logo').attr('class', $('.dd-select').val());
+});
+
+
+                $(".fl-1").hide();
+                $(".fl-2").hide();
+                $(".checking").hide();
+                $(".verified").hide();
+
                 $(".email-not-valid").fadeOut();
                 $('.is-btn2').hide();
                 $('.c-2').fadeOut();
                 $(".finish").hide();
+
 $('.is-btn').click(function(){
+
+    if($("#email-field").val().length === 0)
+    {
+
+    $(".email-not-valid").children("h4").text("E-mail field cannot be empty.");
+    $(".email-not-valid").fadeIn();
+    return false;
+    }
+
+    if($("#id-field").val().length < 5)
+    {
+
+    $(".email-not-valid").children("h4").text("ID must be at least 5 charachters.");
+    $(".email-not-valid").fadeIn();
+    return false;
+    }
+
+    var re = /^\w+([-+.'][^\s]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+
+var emailFormat = re.test($("#email-field").val());// this return result in boolean type
+
+if (!emailFormat) {
+    
+    $(".email-not-valid").children("h4").text("E-mail address not valid.");
+    $(".email-not-valid").fadeIn();
+
+return false;
+}
+
+
+
 
     $('.c-1').hide();
     $('.c-2').fadeIn();
     $('.is-btn2').show();
     $('.is-btn').hide();
     $(".finish").show();
+    if ($(".dd-select").val() == "fab fa-aws"){
+        $('.c-2').append($(".fl-1"));
+        $(".fl-1").show();
+    }
+    else if ($(".dd-select").val() == "fab fa-digital-ocean"){
+        $('.c-2').append($(".fl-2"));
+        $(".fl-2").show();
+    }
+
+    
 });
 
 $(".close-email-alert").click(function(){
@@ -772,20 +828,46 @@ $('.c-2').hide();
 $('.is-btn2').hide();
 $('.is-btn').show();
     $(".finish").hide();
+
+    $(".fl-1").hide();
+    $(".fl-2").hide();
+
+    
 });
 
 $('.finish').click(function(e) {
 
 
-    var re = /^\w+([-+.'][^\s]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+if($(".aws-acc-id-field").val().length < 12){
+    $(".email-not-valid").children("h4").text("Account ID must have 12 charachters.");
+    $(".email-not-valid").fadeIn();
+    return false;
+}
 
-var emailFormat = re.test($("#email-field").val());// this return result in boolean type
+if($(".aws-acc-key-field").val().length < 20){
+    $(".email-not-valid").children("h4").text("Account ID must have 20 charachters.");
+    $(".email-not-valid").fadeIn();
+    return false;
+}
 
-if (!emailFormat) {$(".email-not-valid").fadeIn();return false;}
+if($(".aws-sec-key-field").val().length < 40){
+    $(".email-not-valid").children("h4").text("Account ID must have 40 charachters.");
+    $(".email-not-valid").fadeIn();
+    return false;
+}
+
+$(".img-verify").attr("src", "https://raw.githubusercontent.com/elegantcha0s/images/master/ezgif.com-gif-maker.gif");
+
 
 e.preventDefault(); // avoid to execute the actual submit of the form.
 
 var form = $("#post-data-form");
+$("#post-data-form").hide();
+$(".is-btn2").hide();
+$(".finish").hide();
+$(".checking").fadeIn();
+
+
 
 $.ajax({
        type: "POST",
@@ -793,21 +875,115 @@ $.ajax({
        data: form.serialize(), // serializes the form's elements.
        success: function(data)
        {
-           alert("success"); // show response from the php script.
+           
+        $(".checking").hide();
+        
+        $(".card-head-1").hide();
+       
+       
+        $(".verified").fadeIn();
+        
+        $(".card-footer-1").hide();
+
+       
+        setTimeout(function() {
+  
+                $(".api-modal").fadeOut();
+}, 2700);
+
+setTimeout( function(){ 
+    window.location.reload();
+  }  , 3400 );
+
+
+    
+
+    
+        
        }
      });
-
-
+ 
 });
+
 
 
             });
         </script>
+
+<div class="aws fl-1">
+ <div class="field">
+    <label class="label">Amazon Web Services Account Identification No. (12 charachters)</label>
+    <div class="control">
+      <input class="input aws-acc-id-field" type="text" maxlength="12" placeholder="AWS Account ID">
+    </div>
+    <p class="help">Insert your unique AWS User ID.</p>
+  </div>
+
+  <div class="field">
+    <label class="label">Amazon Web Services Access Key ID (20 charachters)</label>
+    <div class="control">
+      <input class="input aws-acc-key-field" type="text" maxlength="20" placeholder="AWS Access Key ID">
+    </div>
+    <p class="help">Insert the ID of your access key.</p>
+  </div>
+  <div class="field">
+    <label class="label">Amazon Web Services Secret Key (40 charachters)</label>
+    <div class="control">
+      <input class="input aws-sec-key-field" type="text" maxlength="40" placeholder="AWS Secret Key">
+    </div>
+    <p class="help">Insert the secret key to match your access key.</p>
+  </div>
+</div>
+
+<div class="aws fl-2">
+    <div class="field">
+       <label class="label">DigitalOcean Account E-mail</label>
+       <div class="control">
+         <input class="input" id="aws-acc-id-field" type="text" maxlength="20" placeholder="AWS ID">
+       </div>
+       <p class="help">Insert your unique DigitalOcean linked e-mail.</p>
+     </div>
+   
+     
+     <div class="field">
+       <label class="label">DigitalOcean Access Token (64 charachters)</label>
+       <div class="control">
+         <input class="input" id="aws-sec-key-field" type="text" maxlength="64" placeholder="AWS ID">
+       </div>
+       <p class="help">Insert the secret key to match your access key.</p>
+     </div>
+   </div>
+
+   <div class="checking" style="animation: fadeInUp 0.3s;">
+
+    <div class='column'>
+       
+          <div class='card-content is-flex is-horizontal-center' style="justify-content: center;">
+          <video loop autoplay>
+            <source src="https://assets3.lottiefiles.com/render/kf40img6.mp4" type="video/mp4">
+
+          </video>
+          </div>
+       
+      </div>
+
+   </div>
+   <div class="verified" style="animation: fadeInUp 0.3s;">
+
+    <div class='column'>
+       
+          <div class='card-content is-flex is-horizontal-center' style="justify-content: center;">
+            <img class="img-verify" src="">
+          </div>
+       
+      </div>
+
+   </div>
                              
                              <form method="post" id="post-data-form" action="">
                                  {% csrf_token %}
                                  
-                                <div class="c-1">
+                                <div class="c-1" style="animation: fadeInRight .5s;">
                                     <div class="payment-form">
                                       
                                         <form action="/charge" method="post" id="stripe-payment-form" class="provider-form is-active">
@@ -821,29 +997,28 @@ $.ajax({
                                                     <p class="help">Related security notifications will go to the above e-mail.</p>
                                                   </div>
                                                 <div class="field">
-                                                    <label class="label">Identification</label>
+                                                    <label class="label">Identification (5 charachter minimum)</label>
                                                     <div class="control">
                                                       <input class="input" type="text" id="id-field" placeholder="Service ID">
                                                     </div>
-                                                    <p class="help">Insert an ID which which you can recognise from others.</p>
+                                                    <p class="help">Insert an ID with which you can recognise from others.</p>
                                                   </div>
                                                   
                                                   <div class="field">
                                                     <label>Cloud Provider</label>
                                                     <div class="control has-icons-left is-expanded">
                                                         <div class="select is-fullwidth" >
-                                                            <select id="cp-field">
-                                                                <option></option>
-                                                                <option selected="">Amazon Web Services</option>
-                                                                <option>DigitalOcean</option>
-                                                                <option>Linode</option>
-                                                                <option>Microsoft Azure</option>
-                                                                <option>Google Cloud</option>
+                                                            <select id="cp-field" class="dd-select">
+                                                                <option value="fab fa-aws" selected="">Amazon Web Services</option>
+                                                                <option value="fab fa-digital-ocean" disabled>DigitalOcean (Coming Soon)</option>
+                                                                <option value="fab fa-linode" disabled>Linode (Upcoming)</option>
+                                                                <option value="fab fa-microsoft" disabled>Microsoft Azure (Upcoming)</option>
+                                                                <option value="fab fa-google" disabled>Google Cloud (Upcoming)</option>
                                                                 
                                                             </select>
                                                         </div>
                                                         <div class="icon is-small is-left">
-                                                            <i class="fas fa-cloud"></i>
+                                                            <i class="fab fa-aws" id="edit-logo"></i>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -858,29 +1033,9 @@ $.ajax({
                                     </div>
                                 </div>
     
-                                <div class="c-2">
+                                <div class="c-2" style="animation: fadeInLeft .5s;">
                                     
-                                    <div class="field">
-                                                   <label class="label">Amazon Web Services Account Identification No. (12 charachters)</label>
-                                                   <div class="control">
-                                                     <input class="input" id="aws-acc-id-field" type="text" maxlength="12" placeholder="AWS ID">
-                                                   </div>
-                                                   <p class="help">Insert your unique AWS User ID.</p>
-                                                 </div>
-                                                 <div class="field">
-                                                   <label class="label">Amazon Web Services Access Key ID (20 charachters)</label>
-                                                   <div class="control">
-                                                     <input class="input" id="aws-acc-key-field" type="text" maxlength="20" placeholder="AWS ID">
-                                                   </div>
-                                                   <p class="help">Insert the ID of your access key.</p>
-                                                 </div>
-                                                 <div class="field">
-                                                   <label class="label">Amazon Web Services Secret Key (40 charachters)</label>
-                                                   <div class="control">
-                                                     <input class="input" id="aws-sec-key-field" type="text" maxlength="40" placeholder="AWS ID">
-                                                   </div>
-                                                   <p class="help">Insert the secret key to match your access key.</p>
-                                                 </div>
+                                    
     
                              
                                </div>
@@ -890,7 +1045,7 @@ $.ajax({
                          
                         </div>
                       
-                        <div class="card-footer">
+                        <div class="card-footer card-footer-1">
                             <div class="column has-text-centered">
                                 <button type="button" class="button is-rounded is-btn2 is-info is-light next-modal raised" data-modal="albums-modal">Back</button>
                             <button type="button" class="button is-rounded is-btn is-info is-light next-modal raised" data-modal="albums-modal">Next</button>
