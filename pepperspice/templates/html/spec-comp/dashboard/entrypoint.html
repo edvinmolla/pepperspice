@@ -836,6 +836,28 @@ $('.is-btn').show();
 
 $('.finish').click(function(e) {
 
+
+if($("#aws-acc-id-field").val().length < 12){
+    $(".email-not-valid").children("h4").text("Account ID must have 12 charachters.");
+    $(".email-not-valid").fadeIn();
+    return false;
+}
+
+if($("#aws-acc-key-field").val().length < 20){
+    $(".email-not-valid").children("h4").text("Account ID must have 20 charachters.");
+    $(".email-not-valid").fadeIn();
+    return false;
+}
+
+if($("#aws-sec-key-field").val().length < 40){
+    $(".email-not-valid").children("h4").text("Account ID must have 40 charachters.");
+    $(".email-not-valid").fadeIn();
+    return false;
+}
+
+
+
+
     e.preventDefault(); // avoid to execute the actual submit of the form.
 
 var form = $("#post-data-form");
