@@ -757,7 +757,7 @@ $('.settings-9').addClass('is-active');
 
                 $(".fl-1").hide();
                 $(".fl-2").hide();
-
+                $(".checking").hide();
 
                 $(".email-not-valid").fadeOut();
                 $('.is-btn2').hide();
@@ -837,19 +837,19 @@ $('.is-btn').show();
 $('.finish').click(function(e) {
 
 
-if($("#aws-acc-id-field").val().length < 12){
+if($(".aws-acc-id-field").val().length < 12){
     $(".email-not-valid").children("h4").text("Account ID must have 12 charachters.");
     $(".email-not-valid").fadeIn();
     return false;
 }
 
-if($("#aws-acc-key-field").val().length < 20){
+if($(".aws-acc-key-field").val().length < 20){
     $(".email-not-valid").children("h4").text("Account ID must have 20 charachters.");
     $(".email-not-valid").fadeIn();
     return false;
 }
 
-if($("#aws-sec-key-field").val().length < 40){
+if($(".aws-sec-key-field").val().length < 40){
     $(".email-not-valid").children("h4").text("Account ID must have 40 charachters.");
     $(".email-not-valid").fadeIn();
     return false;
@@ -858,9 +858,13 @@ if($("#aws-sec-key-field").val().length < 40){
 
 
 
-    e.preventDefault(); // avoid to execute the actual submit of the form.
+e.preventDefault(); // avoid to execute the actual submit of the form.
 
 var form = $("#post-data-form");
+$("#post-data-form").hide();
+$(".is-btn2").hide();
+$(".finish").hide();
+$(".checking").fadeIn();
 
 $.ajax({
        type: "POST",
@@ -868,7 +872,11 @@ $.ajax({
        data: form.serialize(), // serializes the form's elements.
        success: function(data)
        {
-           alert("success"); // show response from the php script.
+           
+        
+      // do sth
+
+
        }
      });
  
@@ -883,7 +891,7 @@ $.ajax({
  <div class="field">
     <label class="label">Amazon Web Services Account Identification No. (12 charachters)</label>
     <div class="control">
-      <input class="input" id="aws-acc-id-field" type="text" maxlength="12" placeholder="AWS ID">
+      <input class="input aws-acc-id-field" type="text" maxlength="12" placeholder="AWS Account ID">
     </div>
     <p class="help">Insert your unique AWS User ID.</p>
   </div>
@@ -891,14 +899,14 @@ $.ajax({
   <div class="field">
     <label class="label">Amazon Web Services Access Key ID (20 charachters)</label>
     <div class="control">
-      <input class="input" id="aws-acc-key-field" type="text" maxlength="20" placeholder="AWS ID">
+      <input class="input aws-acc-key-field" type="text" maxlength="20" placeholder="AWS Access Key ID">
     </div>
     <p class="help">Insert the ID of your access key.</p>
   </div>
   <div class="field">
     <label class="label">Amazon Web Services Secret Key (40 charachters)</label>
     <div class="control">
-      <input class="input" id="aws-sec-key-field" type="text" maxlength="40" placeholder="AWS ID">
+      <input class="input aws-sec-key-field" type="text" maxlength="40" placeholder="AWS Secret Key">
     </div>
     <p class="help">Insert the secret key to match your access key.</p>
   </div>
@@ -921,6 +929,18 @@ $.ajax({
        </div>
        <p class="help">Insert the secret key to match your access key.</p>
      </div>
+   </div>
+
+   <div class="checking" style="animation: fadeInUp 0.3s;">
+
+    <div class='column'>
+       
+          <div class='card-content is-flex is-horizontal-center'>
+            <figure class='image is-128x128'><img src='https://unsplash.it/64'></figure>
+          </div>
+       
+      </div>
+
    </div>
                              
                              <form method="post" id="post-data-form" action="">
