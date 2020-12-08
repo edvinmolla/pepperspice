@@ -746,6 +746,10 @@ $('.settings-9').addClass('is-active');
 
         <script>
             $(document).ready(function(){
+                $(".fl-1").hide();
+
+
+
                 $(".email-not-valid").fadeOut();
                 $('.is-btn2').hide();
                 $('.c-2').fadeOut();
@@ -757,6 +761,9 @@ $('.is-btn').click(function(){
     $('.is-btn2').show();
     $('.is-btn').hide();
     $(".finish").show();
+
+    $('.c-2').append($(".fl-1"));
+    $(".fl-1").show();
 });
 
 $(".close-email-alert").click(function(){
@@ -772,6 +779,8 @@ $('.c-2').hide();
 $('.is-btn2').hide();
 $('.is-btn').show();
     $(".finish").hide();
+
+    
 });
 
 $('.finish').click(function(e) {
@@ -803,11 +812,36 @@ $.ajax({
 
             });
         </script>
+
+<div class="aws fl-1">
+ <div class="field">
+    <label class="label">Amazon Web Services Account Identification No. (12 charachters)</label>
+    <div class="control">
+      <input class="input" id="aws-acc-id-field" type="text" maxlength="12" placeholder="AWS ID">
+    </div>
+    <p class="help">Insert your unique AWS User ID.</p>
+  </div>
+
+  <div class="field">
+    <label class="label">Amazon Web Services Access Key ID (20 charachters)</label>
+    <div class="control">
+      <input class="input" id="aws-acc-key-field" type="text" maxlength="20" placeholder="AWS ID">
+    </div>
+    <p class="help">Insert the ID of your access key.</p>
+  </div>
+  <div class="field">
+    <label class="label">Amazon Web Services Secret Key (40 charachters)</label>
+    <div class="control">
+      <input class="input" id="aws-sec-key-field" type="text" maxlength="40" placeholder="AWS ID">
+    </div>
+    <p class="help">Insert the secret key to match your access key.</p>
+  </div>
+</div>
                              
                              <form method="post" id="post-data-form" action="">
                                  {% csrf_token %}
                                  
-                                <div class="c-1">
+                                <div class="c-1" style="animation: fadeInRight .5s;">
                                     <div class="payment-form">
                                       
                                         <form action="/charge" method="post" id="stripe-payment-form" class="provider-form is-active">
@@ -825,7 +859,7 @@ $.ajax({
                                                     <div class="control">
                                                       <input class="input" type="text" id="id-field" placeholder="Service ID">
                                                     </div>
-                                                    <p class="help">Insert an ID which which you can recognise from others.</p>
+                                                    <p class="help">Insert an ID with which you can recognise from others.</p>
                                                   </div>
                                                   
                                                   <div class="field">
@@ -858,29 +892,9 @@ $.ajax({
                                     </div>
                                 </div>
     
-                                <div class="c-2">
+                                <div class="c-2" style="animation: fadeInLeft .5s;">
                                     
-                                    <div class="field">
-                                                   <label class="label">Amazon Web Services Account Identification No. (12 charachters)</label>
-                                                   <div class="control">
-                                                     <input class="input" id="aws-acc-id-field" type="text" maxlength="12" placeholder="AWS ID">
-                                                   </div>
-                                                   <p class="help">Insert your unique AWS User ID.</p>
-                                                 </div>
-                                                 <div class="field">
-                                                   <label class="label">Amazon Web Services Access Key ID (20 charachters)</label>
-                                                   <div class="control">
-                                                     <input class="input" id="aws-acc-key-field" type="text" maxlength="20" placeholder="AWS ID">
-                                                   </div>
-                                                   <p class="help">Insert the ID of your access key.</p>
-                                                 </div>
-                                                 <div class="field">
-                                                   <label class="label">Amazon Web Services Secret Key (40 charachters)</label>
-                                                   <div class="control">
-                                                     <input class="input" id="aws-sec-key-field" type="text" maxlength="40" placeholder="AWS ID">
-                                                   </div>
-                                                   <p class="help">Insert the secret key to match your access key.</p>
-                                                 </div>
+                                    
     
                              
                                </div>
