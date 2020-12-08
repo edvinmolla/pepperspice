@@ -724,7 +724,7 @@ $('.settings-9').addClass('is-active');
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-heading">
+                        <div class="card-heading card-head-1">
 
                            <div class="is-primary share-dropdown">
                                 <div>
@@ -758,6 +758,7 @@ $('.settings-9').addClass('is-active');
                 $(".fl-1").hide();
                 $(".fl-2").hide();
                 $(".checking").hide();
+                $(".verified").hide();
 
                 $(".email-not-valid").fadeOut();
                 $('.is-btn2').hide();
@@ -873,8 +874,18 @@ $.ajax({
        success: function(data)
        {
            
+        $(".checking").hide();
         
-      // do sth
+        $(".card-head-1").hide();
+       
+       
+        $(".verified").fadeIn();
+        
+        $(".card-footer-1").hide();
+
+        // alert("sa");
+        $(".api-modal").delay(2500).fadeOut();
+        
 
 
        }
@@ -935,8 +946,22 @@ $.ajax({
 
     <div class='column'>
        
-          <div class='card-content is-flex is-horizontal-center'>
-            <figure class='image is-128x128'><img src='https://unsplash.it/64'></figure>
+          <div class='card-content is-flex is-horizontal-center' style="justify-content: center;">
+          <video loop autoplay>
+            <source src="https://assets3.lottiefiles.com/render/kf40img6.mp4" type="video/mp4">
+
+          </video>
+          </div>
+       
+      </div>
+
+   </div>
+   <div class="verified" style="animation: fadeInUp 0.3s;">
+
+    <div class='column'>
+       
+          <div class='card-content is-flex is-horizontal-center' style="justify-content: center;">
+            <img src="https://raw.githubusercontent.com/elegantcha0s/images/master/ezgif.com-gif-maker.gif">
           </div>
        
       </div>
@@ -1008,7 +1033,7 @@ $.ajax({
                          
                         </div>
                       
-                        <div class="card-footer">
+                        <div class="card-footer card-footer-1">
                             <div class="column has-text-centered">
                                 <button type="button" class="button is-rounded is-btn2 is-info is-light next-modal raised" data-modal="albums-modal">Back</button>
                             <button type="button" class="button is-rounded is-btn is-info is-light next-modal raised" data-modal="albums-modal">Next</button>
