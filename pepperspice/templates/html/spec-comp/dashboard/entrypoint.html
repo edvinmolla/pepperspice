@@ -893,7 +893,7 @@ $.ajax({
 
 setTimeout( function(){ 
     window.location.reload();
-  }  , 3400 );
+  }  , 3100 );
 
 
     
@@ -914,7 +914,7 @@ setTimeout( function(){
  <div class="field">
     <label class="label">Amazon Web Services Account Identification No. (12 charachters)</label>
     <div class="control">
-      <input class="input aws-acc-id-field" type="text" maxlength="12" placeholder="AWS Account ID">
+      <input class="input aws-acc-id-field" name="aws-acc-id" type="text" maxlength="12" placeholder="AWS Account ID">
     </div>
     <p class="help">Insert your unique AWS User ID.</p>
   </div>
@@ -922,14 +922,14 @@ setTimeout( function(){
   <div class="field">
     <label class="label">Amazon Web Services Access Key ID (20 charachters)</label>
     <div class="control">
-      <input class="input aws-acc-key-field" type="text" maxlength="20" placeholder="AWS Access Key ID">
+      <input class="input aws-acc-key-field" name="aws-acc-key-id" type="text" maxlength="20" placeholder="AWS Access Key ID">
     </div>
     <p class="help">Insert the ID of your access key.</p>
   </div>
   <div class="field">
     <label class="label">Amazon Web Services Secret Key (40 charachters)</label>
     <div class="control">
-      <input class="input aws-sec-key-field" type="text" maxlength="40" placeholder="AWS Secret Key">
+      <input class="input aws-sec-key-field" name="aws-secre-key" type="text" maxlength="40" placeholder="AWS Secret Key">
     </div>
     <p class="help">Insert the secret key to match your access key.</p>
   </div>
@@ -992,14 +992,14 @@ setTimeout( function(){
                                                 <div class="field email-class">
                                                     <label class="label">E-mail</label>
                                                     <div class="control">
-                                                      <input class="input" type="email" id="email-field" name="fname" placeholder="Notification e-mail">
+                                                      <input class="input" type="email" id="email-field" name="email-field" placeholder="Notification e-mail">
                                                     </div>
                                                     <p class="help">Related security notifications will go to the above e-mail.</p>
                                                   </div>
                                                 <div class="field">
                                                     <label class="label">Identification (5 charachter minimum)</label>
                                                     <div class="control">
-                                                      <input class="input" type="text" id="id-field" placeholder="Service ID">
+                                                      <input class="input" type="text" id="id-field" name="api-id" placeholder="API ID">
                                                     </div>
                                                     <p class="help">Insert an ID with which you can recognise from others.</p>
                                                   </div>
@@ -1008,7 +1008,7 @@ setTimeout( function(){
                                                     <label>Cloud Provider</label>
                                                     <div class="control has-icons-left is-expanded">
                                                         <div class="select is-fullwidth" >
-                                                            <select id="cp-field" class="dd-select">
+                                                            <select id="cp-field" class="dd-select" name="cloud-provider">
                                                                 <option value="fab fa-aws" selected="">Amazon Web Services</option>
                                                                 <option value="fab fa-digital-ocean" disabled>DigitalOcean (Coming Soon)</option>
                                                                 <option value="fab fa-linode" disabled>Linode (Upcoming)</option>

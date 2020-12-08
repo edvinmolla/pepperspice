@@ -21,8 +21,9 @@ import time
 def check_email(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
-            print(request.user)
-            time.sleep(1)
+            print(request.POST['cloud-provider'])
+            
+            time.sleep(4)
             return HttpResponse('false')
 
 
