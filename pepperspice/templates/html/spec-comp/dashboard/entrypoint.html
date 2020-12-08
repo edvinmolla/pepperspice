@@ -746,8 +746,15 @@ $('.settings-9').addClass('is-active');
 
         <script>
             $(document).ready(function(){
-                $(".fl-1").hide();
 
+                $('.dd-select').change(function(){
+                    $(".edit-logo").removeClass();
+	$('#edit-logo').attr('class', $('.dd-select').val());
+});
+
+
+                $(".fl-1").hide();
+                $(".fl-2").hide();
 
 
                 $(".email-not-valid").fadeOut();
@@ -762,8 +769,16 @@ $('.is-btn').click(function(){
     $('.is-btn').hide();
     $(".finish").show();
 
-    $('.c-2').append($(".fl-1"));
-    $(".fl-1").show();
+    if ($(".dd-select").val() == "Amazon Web Services"){
+        $('.c-2').append($(".fl-1"));
+        $(".fl-1").show();
+    }
+    else if ($(".dd-select").val() == "DigitalOcean"){
+        $('.c-2').append($(".fl-2"));
+        $(".fl-2").show();
+    }
+
+    
 });
 
 $(".close-email-alert").click(function(){
@@ -779,6 +794,9 @@ $('.c-2').hide();
 $('.is-btn2').hide();
 $('.is-btn').show();
     $(".finish").hide();
+
+    $(".fl-1").hide();
+    $(".fl-2").hide();
 
     
 });
@@ -837,6 +855,25 @@ $.ajax({
     <p class="help">Insert the secret key to match your access key.</p>
   </div>
 </div>
+
+<div class="aws fl-2">
+    <div class="field">
+       <label class="label">DigitalOcean Account E-mail</label>
+       <div class="control">
+         <input class="input" id="aws-acc-id-field" type="text" maxlength="20" placeholder="AWS ID">
+       </div>
+       <p class="help">Insert your unique DigitalOcean linked e-mail.</p>
+     </div>
+   
+     
+     <div class="field">
+       <label class="label">DigitalOcean Access Token (64 charachters)</label>
+       <div class="control">
+         <input class="input" id="aws-sec-key-field" type="text" maxlength="64" placeholder="AWS ID">
+       </div>
+       <p class="help">Insert the secret key to match your access key.</p>
+     </div>
+   </div>
                              
                              <form method="post" id="post-data-form" action="">
                                  {% csrf_token %}
@@ -866,10 +903,9 @@ $.ajax({
                                                     <label>Cloud Provider</label>
                                                     <div class="control has-icons-left is-expanded">
                                                         <div class="select is-fullwidth" >
-                                                            <select id="cp-field">
-                                                                <option></option>
-                                                                <option selected="">Amazon Web Services</option>
-                                                                <option>DigitalOcean</option>
+                                                            <select id="cp-field" class="dd-select">
+                                                                <option value="fab fa-aws" selected="">Amazon Web Services</option>
+                                                                <option value="fab fa-digital-ocean">DigitalOcean</option>
                                                                 <option>Linode</option>
                                                                 <option>Microsoft Azure</option>
                                                                 <option>Google Cloud</option>
@@ -877,7 +913,7 @@ $.ajax({
                                                             </select>
                                                         </div>
                                                         <div class="icon is-small is-left">
-                                                            <i class="fas fa-cloud"></i>
+                                                            <i class="" id="edit-logo"></i>
                                                         </div>
                                                     </div>
                                                 </div>
