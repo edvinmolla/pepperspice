@@ -748,7 +748,7 @@ $('.settings-9').addClass('is-active');
             $(document).ready(function(){
 
                 $('.dd-select').change(function(){
-                    $(".edit-logo").removeClass();
+                    $("#edit-logo").removeClass();
 	$('#edit-logo').attr('class', $('.dd-select').val());
 });
 
@@ -768,12 +768,11 @@ $('.is-btn').click(function(){
     $('.is-btn2').show();
     $('.is-btn').hide();
     $(".finish").show();
-
-    if ($(".dd-select").val() == "Amazon Web Services"){
+    if ($(".dd-select").val() == "fab fa-aws"){
         $('.c-2').append($(".fl-1"));
         $(".fl-1").show();
     }
-    else if ($(".dd-select").val() == "DigitalOcean"){
+    else if ($(".dd-select").val() == "fab fa-digital-ocean"){
         $('.c-2').append($(".fl-2"));
         $(".fl-2").show();
     }
@@ -905,15 +904,15 @@ $.ajax({
                                                         <div class="select is-fullwidth" >
                                                             <select id="cp-field" class="dd-select">
                                                                 <option value="fab fa-aws" selected="">Amazon Web Services</option>
-                                                                <option value="fab fa-digital-ocean">DigitalOcean</option>
-                                                                <option>Linode</option>
-                                                                <option>Microsoft Azure</option>
-                                                                <option>Google Cloud</option>
+                                                                <option value="fab fa-digital-ocean" disabled>DigitalOcean (Coming Soon)</option>
+                                                                <option value="fab fa-linode" disabled>Linode (Upcoming)</option>
+                                                                <option value="fab fa-microsoft" disabled>Microsoft Azure (Upcoming)</option>
+                                                                <option value="fab fa-google" disabled>Google Cloud (Upcoming)</option>
                                                                 
                                                             </select>
                                                         </div>
                                                         <div class="icon is-small is-left">
-                                                            <i class="" id="edit-logo"></i>
+                                                            <i class="fab fa-aws" id="edit-logo"></i>
                                                         </div>
                                                     </div>
                                                 </div>
