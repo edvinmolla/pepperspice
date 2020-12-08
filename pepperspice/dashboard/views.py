@@ -16,13 +16,13 @@ import docker
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from .models import UploadedProject
-
+import time
 
 def check_email(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
             print(request.user)
-
+            time.sleep(2)
             return HttpResponse('false')
 
 

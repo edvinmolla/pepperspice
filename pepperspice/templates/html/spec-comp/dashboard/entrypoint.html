@@ -887,9 +887,14 @@ $.ajax({
 
        
         setTimeout(function() {
-            $(".api-modal").fadeOut();
-            $(".api-modal").delay(1000).removeClass("is-active");
-}, 5000);
+  
+                $(".api-modal").fadeOut();
+}, 2700);
+
+setTimeout( function(){ 
+    window.location.reload();
+  }  , 3200 );
+
 
     
 
