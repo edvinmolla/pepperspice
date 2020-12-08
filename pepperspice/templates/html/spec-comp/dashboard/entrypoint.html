@@ -856,7 +856,7 @@ if($(".aws-sec-key-field").val().length < 40){
     return false;
 }
 
-
+$(".img-verify").attr("src", "https://raw.githubusercontent.com/elegantcha0s/images/master/ezgif.com-gif-maker.gif");
 
 
 e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -866,6 +866,8 @@ $("#post-data-form").hide();
 $(".is-btn2").hide();
 $(".finish").hide();
 $(".checking").fadeIn();
+
+
 
 $.ajax({
        type: "POST",
@@ -883,11 +885,16 @@ $.ajax({
         
         $(".card-footer-1").hide();
 
-        // alert("sa");
-        $(".api-modal").delay(2500).fadeOut();
+       
+        setTimeout(function() {
+            $(".api-modal").fadeOut();
+            $(".api-modal").delay(1000).removeClass("is-active");
+}, 5000);
+
+    
+
+    
         
-
-
        }
      });
  
@@ -961,7 +968,7 @@ $.ajax({
     <div class='column'>
        
           <div class='card-content is-flex is-horizontal-center' style="justify-content: center;">
-            <img src="https://raw.githubusercontent.com/elegantcha0s/images/master/ezgif.com-gif-maker.gif">
+            <img class="img-verify" src="">
           </div>
        
       </div>
