@@ -704,7 +704,7 @@ $('.settings-9').addClass('is-active');
                                                             
                                                             <h3>Amazon Web Services</h3>
                                                             {% endif %}
-                                                            <p>Manage API Details</p>
+                                                            <p>ID: {{ api.api_id }}</p>
                                                         </a>
                                                     </div>
                                                   {% endfor %}
@@ -813,7 +813,7 @@ $('.settings-9').addClass('is-active');
                 $('.c-2').fadeOut();
                 $(".finish").hide();
 
-$('.is-btn').click(function(){
+$('.is-btn').click(function(e){
 
     if($("#email-field").val().length === 0)
     {
@@ -842,6 +842,25 @@ if (!emailFormat) {
 
 return false;
 }
+
+
+e.preventDefault(); // avoid to execute the actual submit of the form.
+
+$.ajax({
+       type: "POST",
+       url: "/dashboard/check_id/",
+       data: { 
+     'api_id': $('#id-field').val(),
+},
+       success: function(data)
+       {
+       if (data == "true"){
+            $(".email-not-valid").children("h4").text("The same ID cannot be used twice.");
+            $(".email-not-valid").fadeIn();
+            return false;
+       }
+       }
+     });
 
 
 
@@ -1206,7 +1225,7 @@ setTimeout( function(){
                              </div>
                          </div>
                         
-                        <div class="view-wrapper" style="padding: 20px 50px;">
+                        <div class="view-wrapper" style="padding: 20px;">
 
                             <!--Wrapper-->
                             <div class="shop-wrapper">

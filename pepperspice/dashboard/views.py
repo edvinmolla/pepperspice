@@ -21,6 +21,15 @@ import time
 from validate_email import validate_email
 import boto3
 
+@csrf_exempt
+def check_id(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            apis = api_service.objects.filter(owner_email=request.user)
+            for i in apis:
+                if i.api_id == request.POST['api_id']:
+                    return HttpResponse('true')
+            return HttpResponse('false')
 
 def api_create(request):
     if request.user.is_authenticated:
@@ -36,9 +45,9 @@ def api_create(request):
                     new_record = api_service(user_ID=request.user,owner_email=request.user, 
                                     email_to_report=request.POST['email-field'],
                                     aws_account_id = account_id,
+                                    api_id = request.POST['api-id'],
                                     aws_access_key=request.POST['aws-acc-key-id'],
                                     aws_secret_key=request.POST['aws-sec-key'],
-                                    api_id=request.POST['api-id'],
                                     cloud_provider=request.POST['cloud-provider'])
                     new_record.save()
                     
