@@ -43,13 +43,16 @@ def api_create(request):
         
             if(validate_email(request.POST['email-field'],verify=True)):
                 try:
-                    # client = boto3.client("sts", aws_access_key_id=request.POST['aws-acc-key-id'], aws_secret_access_key=request.POST['aws-sec-key'])
-                    # account_id = client.get_caller_identity()["Account"]
-             
+                    
+                    client = boto3.client("sts", aws_access_key_id=request.POST['aws-acc-key-id'].strip(), aws_secret_access_key=request.POST['aws-sec-key'].strip())
+                    account_id = client.get_caller_identity()["Account"]
+
+                    if not account_id == request.POST['aws-acc-id']:
+                        return HttpResponse('id-no-match')
 
                     new_record = api_service(user_ID=request.user,owner_email=request.user, 
                                     email_to_report=request.POST['email-field'],
-                                    # aws_account_id = account_id,
+                                    aws_account_id = account_id,
                                     api_id = request.POST['api-id'],
                                     aws_access_key=request.POST['aws-acc-key-id'],
                                     aws_secret_key=request.POST['aws-sec-key'],
@@ -58,6 +61,7 @@ def api_create(request):
                     
                     return HttpResponse('success')
                 except Exception as e: 
+                    print(e)
                     return HttpResponse('error')
             else:
                 return HttpResponse('email-not-valid')  

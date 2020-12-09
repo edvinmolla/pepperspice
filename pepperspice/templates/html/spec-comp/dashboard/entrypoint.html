@@ -939,7 +939,7 @@ if($(".aws-acc-id-field").val().length < 12){
 
 
 if($(".aws-acc-key-field").val().length < 20){
-    $(".pop-up").children("h4").text("Account ID must have 20 charachters.");
+    $(".pop-up").children("h4").text("Account ID must have 20 or more charachters.");
     $(".pop-up").fadeIn();
     return false;
 }
@@ -997,6 +997,17 @@ $.ajax({
             return false;
            }
 
+           else if (data == "id-no-match"){
+            $(".pop-up").children("h4").text("Account ID from Access Key does not match your AWS Account ID.");
+            $(".pop-up").fadeIn();
+
+            $("#post-data-form").fadeIn();
+            $(".is-btn2").fadeIn();
+            $(".finish").fadeIn();
+            $(".checking").hide();
+            return false;
+           }
+
            else if (data == "error"){
             $(".pop-up").children("h4").text("Something wrong happened.");
             $(".pop-up").fadeIn();
@@ -1045,7 +1056,7 @@ $.ajax({
 
 <div class="aws fl-1">
  <div class="field">
-    <label class="label">Amazon Web Services Account Identification No. (12 charachters)</label>
+    <label class="label">Amazon Web Services Account Identification No.</label>
     <div class="control">
       <input class="input aws-acc-id-field" name="aws-acc-id" type="text" maxlength="12" placeholder="AWS Account ID">
     </div>
@@ -1053,14 +1064,14 @@ $.ajax({
   </div>
 
   <div class="field">
-    <label class="label">Amazon Web Services Access Key ID (20 charachters)</label>
+    <label class="label">Amazon Web Services Access Key ID.</label>
     <div class="control">
-      <input class="input aws-acc-key-field" name="aws-acc-key-id" type="text" maxlength="20" placeholder="AWS Access Key ID">
+      <input class="input aws-acc-key-field" name="aws-acc-key-id" type="text" maxlength="25" placeholder="AWS Access Key ID">
     </div>
     <p class="help">Insert the ID of your access key.</p>
   </div>
   <div class="field">
-    <label class="label">Amazon Web Services Secret Key (40 charachters)</label>
+    <label class="label">Amazon Web Services Secret Key</label>
     <div class="control">
       <input class="input aws-sec-key-field" name="aws-sec-key" type="text" maxlength="40" placeholder="AWS Secret Key">
     </div>

@@ -32,7 +32,7 @@ class api_service(models.Model):
     email_to_report = models.EmailField(default='')
     date_created = models.DateTimeField(default=datetime.now())
     aws_account_id = models.CharField(max_length=12, default='')
-    aws_access_key = models.CharField(max_length=20, default='')
+    aws_access_key = models.CharField(max_length=22, default='')
     aws_secret_key = models.CharField(max_length=40, default='')
     api_id = models.CharField(max_length=20, default='')
     cloud_provider = models.CharField(max_length=30, default='')
