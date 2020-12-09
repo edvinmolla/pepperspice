@@ -26,7 +26,7 @@ def api_create(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
             
-
+        
             if(validate_email(request.POST['email-field'],verify=True)):
                 try:
                     client = boto3.client("sts", aws_access_key_id=request.POST['aws-acc-key-id'], aws_secret_access_key=request.POST['aws-sec-key'])
