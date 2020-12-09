@@ -653,27 +653,39 @@ $('.settings-9').addClass('is-active');
                                         <div id="api-section" class="content-section" style="animation: fadeInRight .5s !important;">
                                             <div class="friends-grid">
                                                 <div class="columns">
+                                                    {% if api_count == 0 %}
+
+                                                        no api
+                                                    {% else %}
+                                                    {% for api in apis %}
                                                     <div class="column is-3">
                                                         <a class="friend-item has-text-centered modal-trigger" data-modal="share-modal">
+                                                            {% if api.cloud_provider == 'fab fa-aws' %}
                                                             <div class="avatar-wrap">
                                                                  
                                                                 <img data-demo-src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1024px-Amazon_Web_Services_Logo.svg.png" alt="" style="height: auto !important; width: auto !important; border-radius: 0px; ">
                                                             </div>
+                                                            
                                                             <h3>Amazon Web Services</h3>
+                                                            {% endif %}
                                                             <p>Manage API Details</p>
                                                         </a>
                                                     </div>
-                                                  
-                                                    <div class="column is-3">
-                                                        <a class="friend-item has-text-centered modal-trigger" data-modal="albums-help-modal" style="border: none;">
-                                                            <div class="avatar-wrap">
-                                                                 
-                                                                <img data-demo-src="https://www.flaticon.com/svg/static/icons/svg/660/660522.svg" alt="" style="height: auto !important; width: auto !important; border-radius: 0px; transform: scale(.6);">
-                                                            </div>
-                                                            <h3>Add API Service</h3>
-                                                           <p>Select your Cloud Provider</p>
-                                                        </a>
-                                                    </div>
+                                                  {% endfor %}
+
+                                                  <div class="column is-3">
+                                                    <a class="friend-item has-text-centered modal-trigger" data-modal="albums-help-modal" style="border: none;">
+                                                        <div class="avatar-wrap">
+                                                             
+                                                            <img data-demo-src="https://www.flaticon.com/svg/static/icons/svg/660/660522.svg" alt="" style="height: auto !important; width: auto !important; border-radius: 0px; transform: scale(.6);">
+                                                        </div>
+                                                        <h3>Add API Service</h3>
+                                                       <p>Select your Cloud Provider</p>
+                                                    </a>
+                                                </div>
+                                                
+                                                  {% endif %}
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -871,7 +883,7 @@ $(".checking").fadeIn();
 
 $.ajax({
        type: "POST",
-       url: "/dashboard/check_email/",
+       url: "/dashboard/api_create/",
        data: form.serialize(), // serializes the form's elements.
        success: function(data)
        {
@@ -929,7 +941,7 @@ setTimeout( function(){
   <div class="field">
     <label class="label">Amazon Web Services Secret Key (40 charachters)</label>
     <div class="control">
-      <input class="input aws-sec-key-field" name="aws-secre-key" type="text" maxlength="40" placeholder="AWS Secret Key">
+      <input class="input aws-sec-key-field" name="aws-sec-key" type="text" maxlength="40" placeholder="AWS Secret Key">
     </div>
     <p class="help">Insert the secret key to match your access key.</p>
   </div>

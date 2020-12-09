@@ -7,6 +7,7 @@ from authentication.models import CustomUser
 from django.http import HttpResponse
 from .models import UserTrait      
 from .models import DBNode   
+from .models import api_service
 import subprocess      
 from datetime import datetime
 import uuid
@@ -17,13 +18,38 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from .models import UploadedProject
 import time
+from validate_email import validate_email
+import boto3
 
-def check_email(request):
+
+def api_create(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
-            print(request.POST['cloud-provider'])
             
-            time.sleep(4)
+
+            if(validate_email(request.POST['email-field'],verify=True)):
+                try:
+                    client = boto3.client("sts", aws_access_key_id=request.POST['aws-acc-key-id'], aws_secret_access_key=request.POST['aws-sec-key'])
+                    account_id = client.get_caller_identity()["Account"]
+             
+
+                    new_record = api_service(user_ID=request.user,owner_email=request.user, 
+                                    email_to_report=request.POST['email-field'],
+                                    aws_account_id = account_id,
+                                    aws_access_key=request.POST['aws-acc-key-id'],
+                                    aws_secret_key=request.POST['aws-sec-key'],
+                                    api_id=request.POST['api-id'],
+                                    cloud_provider=request.POST['cloud-provider'])
+                    new_record.save()
+                    
+                    print("success")
+                    return HttpResponse('true')
+                except:
+                    print("not")
+                    return HttpResponse('false')
+                
+
+            
             return HttpResponse('false')
 
 
@@ -51,7 +77,16 @@ def dashboard(request):
 
             r.save()
    
- 
+
+        
+
+        apis = api_service.objects.filter(owner_email=request.user)
+
+        api_count = 0
+        for i in apis:
+            api_count += 1
+
+
         web_app_count = 0
         a = Node.objects.filter(Email=request.user)
         for node in a:
@@ -80,7 +115,7 @@ def dashboard(request):
 
         uid = UserTrait.objects.filter(email=request.user).first().unique_id
    
-        return render(request, 'html/spec-comp/dashboard/entrypoint.html', {'uid':uid[:4]+ "******" + uid[-4:]})
+        return render(request, 'html/spec-comp/dashboard/entrypoint.html', {'uid':uid[:4]+ "******" + uid[-4:], 'apis':apis, 'api_count':api_count})
         # return render(request, 'html/spec-comp/dashboard/overview.html', {'instances':Node.objects.filter(Email=request.user), 
         #                                                                     'initials':str(request.user).split('@')[0],
         #                                                                     'webapps':Node.objects.filter(is_webapp=True), 

@@ -7,7 +7,8 @@ import uuid
 
 class UploadedProject(models.Model):
     user_ID = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    email = models.EmailField(default='')
+    owner_email = models.EmailField(default='')
+    email_to_report = models.EmailField(default='')
     Date_Uploaded = models.DateTimeField(default=datetime.now())
     file_uuid = models.CharField(max_length=128, default='')
     file_name = models.CharField(max_length=128, default='')
@@ -17,7 +18,7 @@ class UploadedProject(models.Model):
     linked_to_node_uuid = models.CharField(max_length=256, default='')
 
     def __str__(self):
-        return self.email
+        return self.owner_email
         
 
 class Purchases(models.Model):
@@ -25,6 +26,19 @@ class Purchases(models.Model):
     email = models.EmailField(default='')
     purchase_id = models.CharField(max_length=256, default='')
     
+class api_service(models.Model):
+    user_ID = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    owner_email = models.EmailField(default='')
+    email_to_report = models.EmailField(default='')
+    date_created = models.DateTimeField(default=datetime.now())
+    aws_account_id = models.CharField(max_length=12, default='')
+    aws_access_key = models.CharField(max_length=20, default='')
+    aws_secret_key = models.CharField(max_length=40, default='')
+    api_id = models.CharField(max_length=10, default='')
+    cloud_provider = models.CharField(max_length=30, default='')
+
+    def __str__(self):
+        return self.owner_email
 
 class UserTrait(models.Model):
     user_ID = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
