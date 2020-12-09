@@ -763,7 +763,7 @@ $('.settings-9').addClass('is-active');
             <div id="albums-help-modal" class="modal api-modal albums-help-modal is-xsmall has-light-bg aws-modal">
                 <div class="modal-background"></div>
                 <div class="modal-content">
-                    <div class="box-heading mb-3 email-not-valid" style="background-color: #82e8d0; color: white; border-color: #82e8d0; animation: fadeInUp 0.4s;">
+                    <div class="box-heading mb-3 pop-up" style="background-color: #82e8d0; color: white; border-color: #82e8d0; animation: fadeInUp 0.4s;">
                         <h4></h4>
                         <div class="close-wrap">
                             <span class="close-email-alert" style="cursor: pointer;">
@@ -808,7 +808,7 @@ $('.settings-9').addClass('is-active');
                 $(".checking").hide();
                 $(".verified").hide();
 
-                $(".email-not-valid").fadeOut();
+                $(".pop-up").fadeOut();
                 $('.is-btn2').hide();
                 $('.c-2').fadeOut();
                 $(".finish").hide();
@@ -818,16 +818,16 @@ $('.is-btn').click(function(e){
     if($("#email-field").val().length === 0)
     {
 
-    $(".email-not-valid").children("h4").text("E-mail field cannot be empty.");
-    $(".email-not-valid").fadeIn();
+    $(".pop-up").children("h4").text("E-mail field cannot be empty.");
+    $(".pop-up").fadeIn();
     return false;
     }
 
     if($("#id-field").val().length < 5)
     {
 
-    $(".email-not-valid").children("h4").text("ID must be at least 5 charachters.");
-    $(".email-not-valid").fadeIn();
+    $(".pop-up").children("h4").text("ID must be at least 5 charachters.");
+    $(".pop-up").fadeIn();
     return false;
     }
 
@@ -837,8 +837,8 @@ var emailFormat = re.test($("#email-field").val());// this return result in bool
 
 if (!emailFormat) {
     
-    $(".email-not-valid").children("h4").text("E-mail address not valid.");
-    $(".email-not-valid").fadeIn();
+    $(".pop-up").children("h4").text("E-mail address not valid.");
+    $(".pop-up").fadeIn();
 
 return false;
 }
@@ -855,40 +855,51 @@ $.ajax({
        success: function(data)
        {
        if (data == "true"){
-            $(".email-not-valid").children("h4").text("The same ID cannot be used twice.");
-            $(".email-not-valid").fadeIn();
+            $(".pop-up").children("h4").text("The same ID cannot be used twice.");
+            $(".pop-up").fadeIn();
             return false;
+
+       }
+       else{
+
+
+        $(".pop-up").fadeOut();
+
+
+$('.c-1').hide();
+$('.c-2').fadeIn();
+$('.is-btn2').show();
+$('.is-btn').hide();
+$(".finish").show();
+if ($(".dd-select").val() == "fab fa-aws"){
+    $('.c-2').append($(".fl-1"));
+    $(".fl-1").show();
+}
+else if ($(".dd-select").val() == "fab fa-digital-ocean"){
+    $('.c-2').append($(".fl-2"));
+    $(".fl-2").show();
+}
+
+
+
        }
        }
      });
 
-
-
-
-    $('.c-1').hide();
-    $('.c-2').fadeIn();
-    $('.is-btn2').show();
-    $('.is-btn').hide();
-    $(".finish").show();
-    if ($(".dd-select").val() == "fab fa-aws"){
-        $('.c-2').append($(".fl-1"));
-        $(".fl-1").show();
-    }
-    else if ($(".dd-select").val() == "fab fa-digital-ocean"){
-        $('.c-2').append($(".fl-2"));
-        $(".fl-2").show();
-    }
+     
 
     
 });
 
 $(".close-email-alert").click(function(){
 
-$(".email-not-valid").fadeOut();
+$(".pop-up").fadeOut();
 
 });
 
 $('.is-btn2').click(function(){
+
+    $(".pop-up").fadeOut();
 
 $('.c-1').fadeIn();
 $('.c-2').hide();
@@ -906,20 +917,20 @@ $('.finish').click(function(e) {
 
 
 if($(".aws-acc-id-field").val().length < 12){
-    $(".email-not-valid").children("h4").text("Account ID must have 12 charachters.");
-    $(".email-not-valid").fadeIn();
+    $(".pop-up").children("h4").text("Account ID must have 12 charachters.");
+    $(".pop-up").fadeIn();
     return false;
 }
 
 if($(".aws-acc-key-field").val().length < 20){
-    $(".email-not-valid").children("h4").text("Account ID must have 20 charachters.");
-    $(".email-not-valid").fadeIn();
+    $(".pop-up").children("h4").text("Account ID must have 20 charachters.");
+    $(".pop-up").fadeIn();
     return false;
 }
 
 if($(".aws-sec-key-field").val().length < 40){
-    $(".email-not-valid").children("h4").text("Account ID must have 40 charachters.");
-    $(".email-not-valid").fadeIn();
+    $(".pop-up").children("h4").text("Account ID must have 40 charachters.");
+    $(".pop-up").fadeIn();
     return false;
 }
 
