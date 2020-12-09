@@ -34,7 +34,7 @@ class api_service(models.Model):
     aws_account_id = models.CharField(max_length=12, default='')
     aws_access_key = models.CharField(max_length=20, default='')
     aws_secret_key = models.CharField(max_length=40, default='')
-    api_id = models.CharField(max_length=10, default='')
+    api_id = models.CharField(max_length=20, default='')
     cloud_provider = models.CharField(max_length=30, default='')
 
     def __str__(self):

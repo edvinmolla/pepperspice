@@ -823,10 +823,25 @@ $('.is-btn').click(function(e){
     return false;
     }
 
+    if($("#email-field").val().length > 40)
+    {
+
+    $(".pop-up").children("h4").text("E-mail cannot be longer than 40 charachters.");
+    $(".pop-up").fadeIn();
+    return false;
+    }
+
     if($("#id-field").val().length < 5)
     {
 
     $(".pop-up").children("h4").text("ID must be at least 5 charachters.");
+    $(".pop-up").fadeIn();
+    return false;
+    }
+    if($("#id-field").val().length > 20)
+    {
+
+    $(".pop-up").children("h4").text("ID cannot be more than 20 charachters.");
     $(".pop-up").fadeIn();
     return false;
     }
@@ -922,6 +937,7 @@ if($(".aws-acc-id-field").val().length < 12){
     return false;
 }
 
+
 if($(".aws-acc-key-field").val().length < 20){
     $(".pop-up").children("h4").text("Account ID must have 20 charachters.");
     $(".pop-up").fadeIn();
@@ -954,24 +970,52 @@ $.ajax({
        success: function(data)
        {
            
-        $(".checking").hide();
-        
-        $(".card-head-1").hide();
-       
-       
-        $(".verified").fadeIn();
-        
-        $(".card-footer-1").hide();
 
-       
+           if (data == "true"){
+
+            $(".pop-up").children("h4").text("API Service with this Access Key ID already exists.");
+            $(".pop-up").fadeIn();
+
+            $("#post-data-form").fadeIn();
+            $(".is-btn2").fadeIn();
+            $(".finish").fadeIn();
+            $(".checking").hide();
+
+            return false;
+
+           }
+
+           else if (data == "email-not-valid"){
+
+            $(".pop-up").children("h4").text("E-mail address could not be verified.");
+            $(".pop-up").fadeIn();
+
+            $("#post-data-form").fadeIn();
+            $(".is-btn2").fadeIn();
+            $(".finish").fadeIn();
+            $(".checking").hide();
+            return false;
+           }
+
+           else {
+
+            $(".pop-up").fadeOut();
+            $(".checking").hide();      
+        $(".card-head-1").hide();
+        $(".verified").fadeIn();      
+        $(".card-footer-1").hide();
         setTimeout(function() {
   
                 $(".api-modal").fadeOut();
-}, 2700);
+        }, 2700);
 
-setTimeout( function(){ 
-    window.location.reload();
-  }  , 3100 );
+        setTimeout( function(){ 
+        window.location.reload();
+        }  , 3100 );
+
+
+        }
+       
 
 
     
@@ -1070,14 +1114,14 @@ setTimeout( function(){
                                                 <div class="field email-class">
                                                     <label class="label">E-mail</label>
                                                     <div class="control">
-                                                      <input class="input" type="email" id="email-field" name="email-field" placeholder="Notification e-mail">
+                                                      <input class="input" type="email" id="email-field" name="email-field" maxlength="40" placeholder="Notification e-mail">
                                                     </div>
                                                     <p class="help">Related security notifications will go to the above e-mail.</p>
                                                   </div>
                                                 <div class="field">
                                                     <label class="label">Identification (5 charachter minimum)</label>
                                                     <div class="control">
-                                                      <input class="input" type="text" id="id-field" name="api-id" placeholder="API ID">
+                                                      <input class="input" type="text" id="id-field" name="api-id" maxlength="20" placeholder="API ID">
                                                     </div>
                                                     <p class="help">Insert an ID with which you can recognise from others.</p>
                                                   </div>
