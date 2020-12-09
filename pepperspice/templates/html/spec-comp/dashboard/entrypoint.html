@@ -997,6 +997,17 @@ $.ajax({
             return false;
            }
 
+           else if (data == "error"){
+            $(".pop-up").children("h4").text("Something wrong happened.");
+            $(".pop-up").fadeIn();
+
+            $("#post-data-form").fadeIn();
+            $(".is-btn2").fadeIn();
+            $(".finish").fadeIn();
+            $(".checking").hide();
+            return false;
+           }
+
            else {
 
             $(".pop-up").fadeOut();

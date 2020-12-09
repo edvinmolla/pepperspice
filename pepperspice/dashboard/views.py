@@ -56,11 +56,8 @@ def api_create(request):
                                     cloud_provider=request.POST['cloud-provider'])
                     new_record.save()
                     
-                    print("success")
                     return HttpResponse('success')
                 except Exception as e: 
-                    print(e)
-                    # print("not")
                     return HttpResponse('error')
             else:
                 return HttpResponse('email-not-valid')  
