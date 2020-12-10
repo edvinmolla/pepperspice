@@ -57,7 +57,7 @@ def api_create(request):
                                     aws_access_key=request.POST['aws-acc-key-id'],
                                     aws_secret_key=request.POST['aws-sec-key'],
                                     cloud_provider=request.POST['cloud-provider'])
-                    new_record.save()
+                    # new_record.save()
                     
                     return HttpResponse('success')
                 except Exception as e: 
