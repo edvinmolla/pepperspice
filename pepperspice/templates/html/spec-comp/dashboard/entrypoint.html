@@ -763,7 +763,7 @@ $('.settings-9').addClass('is-active');
             <div id="albums-help-modal" class="modal api-modal albums-help-modal is-xsmall has-light-bg aws-modal">
                 <div class="modal-background"></div>
                 <div class="modal-content">
-                    <div class="box-heading mb-3 pop-up" style="background-color: #82e8d0; color: white; border-color: #82e8d0; animation: fadeInUp 0.4s;">
+                    <div class="box-heading mb-3 pop-up" style="background-color: #82e8d0; color: black; border-color: #82e8d0; animation: fadeInUp 0.4s;">
                         <h4></h4>
                         <div class="close-wrap">
                             <span class="close-email-alert" style="cursor: pointer;">
@@ -977,6 +977,7 @@ var form = $("#post-data-form");
 $("#post-data-form").hide();
 $(".is-btn2").hide();
 $(".finish").hide();
+$(".pop-up").fadeOut();
 $(".checking").fadeIn();
 
 
@@ -1016,7 +1017,7 @@ $.ajax({
            }
 
            else if (data == "id-no-match"){
-            $(".pop-up").children("h4").text("Account ID from Access Key does not match your AWS Account ID.");
+            $(".pop-up").children("h4").text("Account ID and Access Key don't seem to be from the same account.");
             $(".pop-up").fadeIn();
 
             $("#post-data-form").fadeIn();
@@ -1121,8 +1122,8 @@ $.ajax({
     <div class='column'>
        
           <div class='card-content is-flex is-horizontal-center' style="justify-content: center;">
-          <video loop autoplay>
-            <source src="https://assets3.lottiefiles.com/render/kf40img6.mp4" type="video/mp4" width="300">
+          <video loop autoplay style="height: 252px !important;">
+            <source src="https://assets3.lottiefiles.com/render/kf40img6.mp4" type="video/mp4">
 
           </video>
           </div>
