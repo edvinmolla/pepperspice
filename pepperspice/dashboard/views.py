@@ -7,6 +7,7 @@ from authentication.models import CustomUser
 from django.http import HttpResponse
 from .models import UserTrait      
 from .models import DBNode   
+from .models import api_service
 import subprocess      
 from datetime import datetime
 import uuid
@@ -17,12 +18,55 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from .models import UploadedProject
 import time
+from validate_email import validate_email
+import boto3
 
-def check_email(request):
+@csrf_exempt
+def check_id(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
-            print(request.user)
-            time.sleep(1)
+            apis = api_service.objects.filter(owner_email=request.user)
+            for i in apis:
+                if i.api_id == request.POST['api_id']:
+                    return HttpResponse('true')
+            return HttpResponse('false')
+
+def api_create(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            
+            apis = api_service.objects.filter(owner_email=request.user)
+            for api in apis:
+                if api.aws_access_key == request.POST['aws-acc-key-id']:
+                    return HttpResponse('true')
+                   
+        
+            if(validate_email(request.POST['email-field'],verify=True)):
+                try:
+                    
+                    client = boto3.client("sts", aws_access_key_id=request.POST['aws-acc-key-id'].strip(), aws_secret_access_key=request.POST['aws-sec-key'].strip())
+                    account_id = client.get_caller_identity()["Account"]
+
+                    if not account_id == request.POST['aws-acc-id']:
+                        return HttpResponse('id-no-match')
+
+                    new_record = api_service(user_ID=request.user,owner_email=request.user, 
+                                    email_to_report=request.POST['email-field'],
+                                    aws_account_id = account_id,
+                                    api_id = request.POST['api-id'],
+                                    aws_access_key=request.POST['aws-acc-key-id'],
+                                    aws_secret_key=request.POST['aws-sec-key'],
+                                    cloud_provider=request.POST['cloud-provider'])
+                    new_record.save()
+                    
+                    return HttpResponse('success')
+                except Exception as e: 
+                    print(e)
+                    return HttpResponse('error')
+            else:
+                return HttpResponse('email-not-valid')  
+
+            
             return HttpResponse('false')
 
 
@@ -50,7 +94,16 @@ def dashboard(request):
 
             r.save()
    
- 
+
+        
+
+        apis = api_service.objects.filter(owner_email=request.user)
+
+        api_count = 0
+        for i in apis:
+            api_count += 1
+
+
         web_app_count = 0
         a = Node.objects.filter(Email=request.user)
         for node in a:
@@ -79,7 +132,7 @@ def dashboard(request):
 
         uid = UserTrait.objects.filter(email=request.user).first().unique_id
    
-        return render(request, 'html/spec-comp/dashboard/entrypoint.html', {'uid':uid[:4]+ "******" + uid[-4:]})
+        return render(request, 'html/spec-comp/dashboard/entrypoint.html', {'uid':uid[:4]+ "******" + uid[-4:], 'apis':apis, 'api_count':api_count})
         # return render(request, 'html/spec-comp/dashboard/overview.html', {'instances':Node.objects.filter(Email=request.user), 
         #                                                                     'initials':str(request.user).split('@')[0],
         #                                                                     'webapps':Node.objects.filter(is_webapp=True), 
