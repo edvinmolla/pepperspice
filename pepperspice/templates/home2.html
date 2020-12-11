@@ -6,15 +6,15 @@
   {% load static %}
   {% include 'html/gen-comp/headers.html' %}
   
-  <link href="https://friendkit.cssninja.io/assets/css/core.css" rel="stylesheet">
+ 
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-  <link rel="stylesheet" href="https://friendkit.cssninja.io/assets/css/app.css" />
-
+  <link rel="stylesheet" href="{% static 'fk/css/app.css' %}">
+  <link rel="stylesheet" href="{% static 'fk/css/core.css' %}">
 
 </head>
 
@@ -41,7 +41,7 @@
     </script>
   
  
-   {% include 'html/gen-comp/navbar2.html' %}
+   
 
 
        
@@ -61,7 +61,7 @@
                         <div class="column is-6 is-5-fullhd is-offset-1-fullhd">
                            <div class=section-header>
                               <h1 class="title is-spaced" style="font-size: 50px; color: black;" data-aos="fade-down" data-aos-once="true" > 29 seconds<span class=is-hidden-touch><br></span></h1>
-                              <h2 class="subtitle is-3" style="color: 	#2ed6af;" data-aos="fade-left" data-aos-once="true" data-aos-duration="1000">  We connect businesses of all types, helping everyone grow together, faster.</h2>
+                              <h2 class="subtitle is-3" style="color: 	#2ed6af;" data-aos="fade-left" data-aos-once="true" data-aos-duration="1000">That's all It takes for Ideas to flourish.</h2>
                               <!-- <h2 class="subtitle is-3"> Grow at the speed of light.</h2> -->
                               <div class="field is-grouped">
                                  <div class=control> <a class="button is-black is-medium" href="#platform" data-aos="fade-right" data-aos-once="true" data-aos-duration="1000">How does it work?</a> </div>
@@ -78,35 +78,55 @@
 
         
 
+ 
+            
+                    <section class="section" style="margin-bottom: 100px; margin-top: 30px;">
+                      <div class="columns" data-aos="fade-left" data-aos-once="true" data-aos-duration="1000">
+                        <div class="column is-8 is-offset-2">
+                          <div class="content is-medium">
+                            <h1 class="title">We simplify business life.</h1>
+                            <p>Whether you are a software developer or a book publisher, whether you have technical knowledge or not, 
+                                we sit at the forefront of the next generation of 'simple tech'.
+                                <br/>
+                                We simplify your business while at the same time empowering the ability of your chosen Cloud Provider.
+                               <br/> We make simple happen.<br/>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+            
+           
+
                
                
-               <div class="tab-pane" id="pane-3" style="display: block;">
+               <div class="tab-pane" id="pane-3" style="display: block; padding-left: 20px; padding-right: 20px;">
                   <div class="columns">
                       <div class="container">
                           <div class="columns">
                               <div class="column" >
                                   <article class="media" data-aos="fade-up" data-aos-once="true" data-aos-duration="1100">
                                       <div class="media-left">
-                                       <img style="transform: scale(.8);padding-left: 10px;" src="https://www.flaticon.com/svg/static/icons/svg/2972/2972554.svg" width="100">
+                                        <i class="fas fa-grip-horizontal fa-6x" aria-hidden="true"></i>
                                       </div>
                                       <div class="media-content" >
                                           <div class="content">
                                               <p>
-                                                  <strong>Time Flies</strong>
-                                                  <br>We made a promise, less than 29 seconds to deploy anything. Time Is valuable at all times.
+                                                  <strong>Reinvented U/I</strong>
+                                                  <br>Everything was built with you in mind. Try out the simplest Cloud Management platform, ever. 
                                               </p>
                                           </div>
                                       </div>
                                   </article>
                                   <article class="media" data-aos="fade-up" data-aos-once="true" data-aos-duration="1500">
                                       <div class="media-left">
-                                       <img style="transform: scale(.8);padding-left: 10px;" src="https://www.flaticon.com/svg/static/icons/svg/1055/1055660.svg" width="100">
+                                        <i class="fab fa-aws fa-4x" aria-hidden="true"></i>
                                       </div>
                                       <div class="media-content" >
                                           <div class="content">
                                               <p>
-                                                  <strong>Secure at all times</strong>
-                                                  <br> Experience the next level of network and application level security. Watch AI do It's magic while protecting your most valuable assets. 
+                                                  <strong>AWS Relay</strong>
+                                                  <br>Build what you need on Infrastructure you trust in the least time possible. 
                                               </p>
                                           </div>
                                       </div>
@@ -115,26 +135,26 @@
                               <div class="column">
                                   <article class="media" data-aos="fade-up" data-aos-once="true" data-aos-duration="1300">
                                       <div class="media-left">
-                                       <img style="transform: scale(.8);padding-left: 10px;" src="https://www.flaticon.com/svg/static/icons/svg/2405/2405970.svg" width="100">
+                                        <i class="fas fa-user-graduate fa-6x" aria-hidden="true"></i>
                                       </div>
                                       <div class="media-content" >
                                           <div class="content">
                                               <p>
-                                                  <strong>Efficient Storage</strong>
-                                                  <br> Capable of handling real-time interactions. Do whatever you want, on the fly, anytime.
+                                                  <strong>Special services for "student" startups.</strong>
+                                                  <br>We know It can be hard to do the thing you love. Learn more on what we do to empower students.
                                               </p>
                                           </div>
                                       </div>
                                   </article>
                                   <article class="media" data-aos="fade-up" data-aos-once="true" data-aos-duration="1700">
                                       <div class="media-left">
-                                       <img style="transform: scale(.8);padding-left: 10px;" src="https://www.flaticon.com/svg/static/icons/svg/2835/2835538.svg" width="100">
-                                      </div>
+                                        <i class="fas fa-dollar-sign fa-6x" aria-hidden="true"></i>
+                                    </div>
                                       <div class="media-content" >
                                           <div class="content">
                                               <p>
-                                                  <strong>Lowest Costs</strong>
-                                                  <br> Try out PepperSpice with the lowest costs you will find. We support minimalistic projects with free resources.
+                                                  <strong>Lowest costs/time benefit.</strong>
+                                                  <br>The raport between cost & time will be unlike anything. Spend more time growing your business.
                                               </p>
                                           </div>
                                       </div>
@@ -151,7 +171,7 @@
 
 
               <section class="hero is-medium pt-6 mt-6">
-                <div class="hero-body">
+                <div class="hero-body" data-aos="fade-down" data-aos-once="true" data-aos-duration="1000">
                     <div class="container has-text-centered">
                         <div class="columns is-8 is-variable ">
                             <div class="column is-two-thirds has-text-left">
@@ -186,9 +206,9 @@
                                     <script>
                                        $(document).ready(function () {
 
-                                        $('#id_email').removeClass();
+                                        $('#email_field').removeClass();
                                         $('#id_password1').removeClass();
-                                        $('#id_email').addClass('input').addClass('is-rounded').addClass('is-medium');
+                                        $('#email_field').addClass('input').addClass('is-rounded').addClass('is-medium');
                                         $('#id_password1').addClass('input').addClass('is-rounded').addClass('is-medium');
 
                                         $('#submitbtn').click(function() {
@@ -196,7 +216,7 @@
                                             if($('#id_password1').val().length >= 8)
                                             {
 
-                                                $('#spnr').removeClass("hidden");
+                                                $('#spnr').removeClass("is-hidden");
 
                                             }
                                             
@@ -228,11 +248,13 @@
                                   <button onClick="window.location.reload()" type="submit" id="submitbtn" class="button is-primary is-rounded is-medium" >Sign up <i class="fa fa-spinner fa-spin ml-1 is-hidden" id="spnr"></i></button>
                                 </a>
                             </div>
+                            <div class="column has-text-centered">
                                   <div class="text-center">
                                       <small>
                                         By cliking "Sign Up", you agree to our <br/><a href="">Terms of Service</a> and <a href="">Privacy Policy</a>
                                       </small>
                                       </div>
+                                    </div>
                                       </form>
 
                                
@@ -251,7 +273,7 @@
 
 
              
-              <section class="container" style="margin-top: 10%;">
+              <section class="container" >
                <div class="columns is-multiline "> 
                  <div class="column is-12 " >
                    <div class="columns" >
@@ -493,10 +515,6 @@
                             </div>
                         </div>
 
-                        <!-- Load more Categories -->
-                        <div class=" load-more-wrap has-text-centered" data-aos="fade-up" data-aos-once="true" data-aos-duration="1300">
-                            <a href="#" class="load-more-button">See More</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -517,306 +535,9 @@
           {% include 'html/gen-comp/articles/softwaredevelopment.html' %}
 
 
-          <div id="news-layout" class="news-header mt-6">
-            <!--Hero 1-->
-            <div id="top-1" class="news-hero-wrapper fadeIn" style="background-color: black;">
-                <div class="overlay-layer">
-                    <div class="text-layer">
-                        <div class="hero-text">
-                            <span class="tag">Business Management</span>
-                            <span class="tag">Lifestyle</span>
-                            <h2 style="color: #2ed6af;">Benefits of 'less'</h2>
-                            <p>Managers are always looking for ways to keep employees engaged, happy, and—most importantly—productive. But they might not realize that one path to achieving all of those results is to encourage people to work less.
-
-                                Yes, that said work less. As in, put in 33 hours a week instead of 40. Or work a compressed schedule that allows for three-day weekends. Or work six-hour days instead of eight-hour days.</p>
-                            <div class="cta-wrap">
-                                <a class="button">Read More</a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Hero 2-->
-            <div id="top-2" class="news-hero-wrapper fadeIn is-hidden" style="background-color: black;">
-                <div class="overlay-layer">
-                    <div class="text-layer">
-                        <div class="hero-text">
-                            <span class="tag">Tech</span>
-                            <span class="tag">Finance</span>
-                            <h2 style="color: #2ed6af;">Data means smarter decisions</h2>
-                            <p>According to a study conducted at the University of Minnesota, “making choices leads to reduced self-control (i.e. less physical stamina, reduced persistence in the face of failure, more procrastination, and lower quality and quantity of arithmetic calculations)”.
-
-                                It doesn’t matter if we are trying to figure out what to eat for dinner or deciding where to spend our marketing dollars. We need to use our limited energy making the choices that matter.</p>
-                            <div class="cta-wrap">
-                                <a class="button">Read More</a>
-                               
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Hero 3-->
-            <div id="top-3" class="news-hero-wrapper fadeIn is-hidden" style="background-color: black;">
-                <div class="overlay-layer">
-                    <div class="text-layer">
-                        <div class="hero-text">
-                            <span class="tag">Blockchain</span>
-                            <span class="tag">Tech</span>
-                            <span class="tag">Finance</span>
-                            <span class="tag">Banking</span>
-                            <h2 style="color: #2ed6af;">Why we need digital currencies</h2>
-                            <p>Digital currencies are intangible and can only be owned and transacted in by using computers or electronic wallets connected to the Internet or the designated networks. In contrast, physical currencies, like banknotes and minted coins, are tangible and transactions are possible only by their holders who have their physical ownership.</p>
-                            <div class="cta-wrap">
-                                <a class="button">Read More</a>
-                              
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Hero 4-->
-            <div id="top-4" class="news-hero-wrapper fadeIn is-hidden" style="background-color: black;">
-                <div class="overlay-layer">
-                    <div class="text-layer">
-                        <div class="hero-text">
-                            <span class="tag">Cuisine</span>
-                            <span class="tag">Health</span>
-                            <span class="tag">Food</span>
-                            <h2 style="color: #2ed6af;">The Italian cuisine Is comming again</h2>
-                            <p>Up until about 150 years ago, Italy was divided into twenty-seven separate regions. Each region developed its own traditions, dialect and dishes. When we talk about Italian cuisine, we are actually talking about twenty-seven separate cuisines! For example, there are Sicilian dishes, which were popular during the Roman Empire and the culinary traditions of the Bay of Naples, where seafarers brought new ingredients and the use of tomatoes and pizza was pioneered. In Lombardy, people ate hardly any pasta, but rather polenta, while in rolling Tuscany they became masters of making delicious bread.</p>
-                            <div class="cta-wrap">
-                                <a class="button">Read More</a>
-                              
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Hero 5-->
-            <div id="top-5" class="news-hero-wrapper fadeIn is-hidden" style="background-color: black;">
-                <div class="overlay-layer">
-                    <div class="text-layer">
-                        <div class="hero-text">
-                            <span class="tag">Movies</span>
-                            <h2 style="color: #2ed6af;">Why are Zombies so popular?</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Laboro autem non sine causa; Si longus,
-                                levis.</p>
-                            <div class="cta-wrap">
-                                <a class="button">Read More</a>
-                               
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Hero 6-->
-            <div id="top-6" class="news-hero-wrapper fadeIn is-hidden" style="background-color: black;">
-                <div class="overlay-layer">
-                    <div class="text-layer">
-                        <div class="hero-text">
-                            <span class="tag">Politics</span>
-                            <span class="tag">International</span>
-                            <h2 style="color: #2ed6af;">Pdt. Obama enters in History</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Laboro autem non sine causa; Si longus,
-                                levis. Ad eos igitur
-                                converte te, quaeso.</p>
-                            <div class="cta-wrap">
-                                <a class="button">Read More</a>
-                            
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
-
-            <!--Menu-->
-            <div class="news-hero-menu">
-                <div class="stories">
-                    <a data-story="top-1" class="story  is-active">
-                        <div class="avatar-wrap">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcq0azidq79U0ZVp8mOuzzPTEfsTXC7Q120w&usqp=CAU"  alt="" data-user-popover="14">
-                        </div>
-                        <div class="meta">
-                            <span>Business Management</span>
-                            <span>Benefits of working less</span>
-                            <span>By Brian @ Stackworld, Apr 19, 2019</span>
-                        </div>
-                    </a>
-                    <a data-story="top-2" class="story ">
-                        <div class="avatar-wrap">
-                            <img src="https://www.mercia-group.co.uk/media/1903/david-southern.jpg?anchor=center&mode=crop&width=448&height=448&rnd=131783680780000000" data-demo-src="assets/img/avatars/leana.jpg" data-user-popover="15" alt="">
-                        </div>
-                        <div class="meta">
-                            <span>Business Intelligence</span>
-                            <span>Data means smart decisions</span>
-                            <span>By Adrian @ MarkIO, Apr 22, 2019</span>
-                        </div>
-                    </a>
-                    <a data-story="top-3" class="story is-primary">
-                        <div class="avatar-wrap">
-                            <img src="https://i.insider.com/5899ffcf6e09a897008b5c04?width=600&format=jpeg&auto=webp" data-demo-src="assets/img/avatars/aline.jpg" data-user-popover="16" alt="">
-                        </div>
-                        <div class="meta">
-                            <span>Blockchain</span>
-                            <span>Why we need digital currencies</span>
-                            <span>By Ben @ CashFlow, Apr 22, 2019</span>
-                        </div>
-                    </a>
-                    <a data-story="top-4" class="story ">
-                        <div class="avatar-wrap">
-                            <img src="https://www.firstpacific.com/wp-content/uploads/2018/07/17-Joseph-HP-Ng-crop-2.jpg" data-demo-src="assets/img/avatars/michael.jpg" data-user-popover="17" alt="">
-                        </div>
-                        <div class="meta">
-                            <span>Cuisine</span>
-                            <span>The Italian cuisine Is comming again</span>
-                            <span>By Robert @ EatOutside, Apr 21, 2019</span>
-                        </div>
-                    </a>
-                    <a data-story="top-5" class="story">
-                        <div class="avatar-wrap">
-                            <img src="https://profile-images.xing.com/images/3e04578b47ee7ff89e6e6dc793d5f98f-4/martin-drummer.1024x1024.jpg" data-demo-src="assets/img/avatars/george.jpg" data-user-popover="18" alt="">
-                        </div>
-                        <div class="meta">
-                            <span>Entertainment</span>
-                            <span>Why we need better thrillers</span>
-                            <span>By Anderssen @ CinePlexx, Apr 20, 2019</span>
-                        </div>
-                    </a>
-                    <a data-story="top-6" class="story ">
-                        <div class="avatar-wrap">
-                            <img src="https://cdn.iz.de/media/images/image-0015951_s930xauto_c604x84_1272x1012.jpg" data-demo-src="assets/img/avatars/ken.jpg" alt="" data-user-popover="14">
-                        </div>
-                        <div class="meta">
-                            <span>Construction</span>
-                            <span>The new era of green houses</span>
-                            <span>By Ardit @ BuildME, Apr 23, 2019</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
+     
 
             </main>
-
-   
-
-         <script>
-            $(document).ready(function () {
-  "use strict";
-
-  if ($('#news-layout').length) {
-    //Top Stories
-    $('.stories .story').on('click', function () {
-      var targetStory = $(this).attr('data-story');
-      $(this).siblings('.story').removeClass('is-active');
-      $(this).addClass('is-active');
-      $('.news-hero-wrapper').addClass('is-hidden');
-      $('#' + targetStory).removeClass('is-hidden');
-    }); //Card actions
-
-    $('.news-card .action.is-like').on('click', function () {
-      if ($(this).hasClass('is-active')) {
-        $(this).removeClass('is-active');
-        $(this).find('svg').removeClass('gelatine');
-      } else {
-        $(this).addClass('is-active');
-        $(this).find('svg').addClass('gelatine');
-      }
-    });
-  }
-});
-
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-M5XHPR8');
-         </script> 
-
-
-<style>
-    :root {
-      --brandColor: hsl(166, 67%, 51%);
-      --background: rgb(247, 247, 247);
-      --textDark: hsla(0, 0%, 0%, 0.66);
-      --textLight: hsla(0, 0%, 0%, 0.33);
-    }
-
-
-    .field:not(:last-child) {
-      margin-bottom: 1rem;
-    }
-
-    .register {
-      margin-top: 10rem;
-      background: white;
-      border-radius: 10px;
-    }
-
-    .left,
-    .right {
-      padding: 4.5rem;
-    }
-
-    .left {
-      border-right: 5px solid var(--background);
-    }
-
-    .left .title {
-      font-weight: 800;
-      letter-spacing: -2px;
-    }
-
-    .left .colored {
-      color: var(--brandColor);
-      font-weight: 500;
-      margin-top: 1rem !important;
-      letter-spacing: -1px;
-    }
-
-    .left p {
-      color: var(--textLight);
-      font-size: 1.15rem;
-    }
-
-    .right .title {
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
-
-    .right .description {
-      margin-top: 1rem;
-      margin-bottom: 1rem !important;
-      color: var(--textLight);
-      font-size: 1.15rem;
-    }
-
-    .right small {
-      color: var(--textLight);
-    }
-
-    input {
-      font-size: 1rem;
-    }
-
-    input:focus {
-      border-color: var(--brandColor) !important;
-      box-shadow: 0 0 0 1px var(--brandColor) !important;
-    }
-
-    .fab,
-    .fas {
-      color: var(--textLight);
-      margin-right: 1rem;
-    }
-
-  </style>
 
 
 
