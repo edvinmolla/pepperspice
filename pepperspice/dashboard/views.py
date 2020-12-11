@@ -41,7 +41,7 @@ def api_create(request):
                     return HttpResponse('true')
                    
         
-            if(validate_email(request.POST['email-field'],verify=True)):
+            if(validate_email(email_address=request.POST['email-field'], check_mx=True, from_address='accntofficial@gmail.com', helo_host='PepperSpice', smtp_timeout=6, dns_timeout=6, use_blacklist=True, debug=False)):
                 try:
                     
                     client = boto3.client("sts", aws_access_key_id=request.POST['aws-acc-key-id'].strip(), aws_secret_access_key=request.POST['aws-sec-key'].strip())
