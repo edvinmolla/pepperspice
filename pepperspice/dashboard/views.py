@@ -61,8 +61,10 @@ def api_create(request):
                     
                     return HttpResponse('success')
                 except Exception as e: 
-                    print(e)
-                    return HttpResponse('error')
+                    
+                    if "InvalidClientTokenId" in str(e):
+                        return HttpResponse('invalid-token-id')
+                    
             else:
                 return HttpResponse('email-not-valid')  
 

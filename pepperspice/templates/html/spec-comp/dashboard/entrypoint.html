@@ -1027,8 +1027,8 @@ $.ajax({
             return false;
            }
 
-           else if (data == "error"){
-            $(".pop-up").children("h4").text("Something wrong happened.");
+           else if (data == "invalid-token-id"){
+            $(".pop-up").children("h4").text("The Secret key doesn't match with Access Key ID.");
             $(".pop-up").fadeIn();
 
             $("#post-data-form").fadeIn();
