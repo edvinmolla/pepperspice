@@ -156,9 +156,9 @@ $('#overview-content').removeClass('is-active');
 <script>
 
 $(document).ready(function() {
-    window.addEventListener('contextmenu', function (e) { 
-  e.preventDefault(); 
-}, false);
+//     window.addEventListener('contextmenu', function (e) { 
+//   e.preventDefault(); 
+// }, false);
    
 $('.settings-1').click(function(e) {  
 
@@ -597,7 +597,7 @@ $('.settings-9').addClass('is-active');
                                             <div class="friends-grid">
                                                 <div class="columns">
                                                     <div class="column is-3">
-                                                        <a class="friend-item has-text-centered modal-trigger" data-modal="edit-payment">
+                                                        <a class="friend-item has-text-centered modal-trigger" data-modal="edit-payment-modal">
                                                             <div class="avatar-wrap">
                                                                  
                                                                 <img data-demo-src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/Banka_Komb%C3%ABtare_Tregtare.svg/1200px-Banka_Komb%C3%ABtare_Tregtare.svg.png" style="border-radius: 0px; height: 50%; transform: scale(1.5);">
@@ -608,7 +608,7 @@ $('.settings-9').addClass('is-active');
                                                     </div>
                                                   
                                                     <div class="column is-3">
-                                                        <a class="friend-item has-text-centered modal-trigger" data-modal="albums-help-modal" style="border: none;">
+                                                        <a class="friend-item has-text-centered modal-trigger" data-modal="payment-create-modal" style="border: none;">
                                                             <div class="avatar-wrap">
                                                                  
                                                                 <img data-demo-src="https://www.flaticon.com/svg/static/icons/svg/660/660522.svg" alt="" style="height: auto !important; width: auto !important; border-radius: 0px; transform: scale(.6);" src="https://www.flaticon.com/svg/static/icons/svg/660/660522.svg">
@@ -678,7 +678,7 @@ $('.settings-9').addClass('is-active');
                                                                                 
                                                                               </div>
 
-                                                                              <a class="button is-rounded modal-trigger" data-modal="albums-help-modal">Add New API Service</a>
+                                                                              <a class="button is-rounded modal-trigger" data-modal="api-create-modal">Add New API Service</a>
                                                                            
                                                                         </div>
                                                                         <!-- <div class="column is-5">
@@ -697,7 +697,7 @@ $('.settings-9').addClass('is-active');
                                                     {% else %}
                                                     {% for api in apis %}
                                                     <div class="column is-3">
-                                                        <a class="friend-item has-text-centered modal-trigger" data-modal="share-modal">
+                                                        <a class="friend-item has-text-centered modal-trigger" data-modal="api-manage-modal">
                                                             {% if api.cloud_provider == 'fab fa-aws' %}
                                                             <div class="avatar-wrap">
                                                                  
@@ -712,7 +712,7 @@ $('.settings-9').addClass('is-active');
                                                   {% endfor %}
 
                                                   <div class="column is-3">
-                                                    <a class="friend-item has-text-centered modal-trigger" data-modal="albums-help-modal" style="border: none;">
+                                                    <a class="friend-item has-text-centered modal-trigger" data-modal="api-create-modal" style="border: none;">
                                                         <div class="avatar-wrap">
                                                              
                                                             <img data-demo-src="https://www.flaticon.com/svg/static/icons/svg/660/660522.svg" alt="" style="height: auto !important; width: auto !important; border-radius: 0px; transform: scale(.6);">
@@ -762,7 +762,7 @@ $('.settings-9').addClass('is-active');
 
   
 
-            <div id="albums-help-modal" class="modal api-modal albums-help-modal is-xsmall has-light-bg aws-modal">
+            <div id="api-create-modal" class="modal api-modal api-create-modal is-xsmall has-light-bg aws-modal">
                 <div class="modal-background"></div>
                 <div class="modal-content">
                     <div class="box-heading mb-3 pop-up" style="background-color: #82e8d0; color: black; border-color: #82e8d0; animation: fadeInUp 0.4s;">
@@ -784,7 +784,7 @@ $('.settings-9').addClass('is-active');
                             </div>
                             <!-- Close X button -->
                             <div class="close-wrap">
-                                <span class="close-new-api" style="cursor: pointer;">
+                                <span class="close-create-api" style="cursor: pointer;">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                                 </span>
                             </div>
@@ -1239,7 +1239,7 @@ $.ajax({
             </div>
             
 
-            <div id="share-modal" class="modal share-modal is-xsmall has-light-bg aws-modal">
+            <div id="api-manage-modal" class="modal api-manage-modal is-xsmall has-light-bg aws-modal">
                 <div class="modal-background"></div>
                 <div class="modal-content">
         
@@ -1254,7 +1254,7 @@ $.ajax({
                             </div>
                             <!-- Close X button -->
                             <div class="close-wrap">
-                                <span class="close-aws" style="cursor: pointer;">
+                                <span class="close-manage-api" style="cursor: pointer;">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                                 </span>
                             </div>
@@ -1316,8 +1316,483 @@ $.ajax({
                 </div>
             </div>
            
+            <div id="payment-create-modal" class="modal payment-create-modal is-xsmall has-light-bg aws-modal">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                    <div class="box-heading mb-3 pop-up" style="background-color: #82e8d0; color: black; border-color: #82e8d0; animation: fadeInUp 0.4s;">
+                        <h4></h4>
+                        <div class="close-wrap">
+                            <span class="close-email-alert" style="cursor: pointer;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-heading card-head-1">
 
-            <div id="edit-payment" class="modal edit-payment is-l has-light-bg">
+                           <div class="is-primary share-dropdown">
+                                <div>
+                                  <h3>Add Payment Method</h3>
+                                </div>
+                               
+                            </div>
+                            <!-- Close X button -->
+                            <div class="close-wrap">
+                                <span class="close-add-payment" style="cursor: pointer;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </span>
+                            </div>
+                        </div>
+                   
+                        <div class="card-body">
+                           
+                            <div class="column">
+
+        <script>
+            $(document).ready(function(){
+
+
+
+                $('.dd-select').change(function(){
+                    $("#edit-logo").removeClass();
+	$('#edit-logo').attr('class', $('.dd-select').val());
+});
+
+
+                $(".fl-1").hide();
+                $(".fl-2").hide();
+                $(".checking").hide();
+                $(".verified").hide();
+
+                $(".pop-up").fadeOut();
+                $('.is-btn2').hide();
+                $('.c-2').fadeOut();
+                $(".finish").hide();
+
+$('.is-btn').click(function(e){
+
+    if($("#email-field").val().length === 0)
+    {
+
+    $(".pop-up").children("h4").text("E-mail field cannot be empty.");
+    $(".pop-up").fadeIn();
+    return false;
+    }
+
+    if($("#email-field").val().length > 40)
+    {
+
+    $(".pop-up").children("h4").text("E-mail cannot be longer than 40 charachters.");
+    $(".pop-up").fadeIn();
+    return false;
+    }
+
+    if($("#id-field").val().length < 5)
+    {
+
+    $(".pop-up").children("h4").text("ID must be at least 5 charachters.");
+    $(".pop-up").fadeIn();
+    return false;
+    }
+    if($("#id-field").val().length > 20)
+    {
+
+    $(".pop-up").children("h4").text("ID cannot be more than 20 charachters.");
+    $(".pop-up").fadeIn();
+    return false;
+    }
+
+    var re = /^\w+([-+.'][^\s]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+
+var emailFormat = re.test($("#email-field").val());// this return result in boolean type
+
+if (!emailFormat) {
+    
+    $(".pop-up").children("h4").text("E-mail address not valid.");
+    $(".pop-up").fadeIn();
+
+return false;
+}
+
+
+e.preventDefault(); // avoid to execute the actual submit of the form.
+
+$.ajax({
+       type: "POST",
+       url: "/dashboard/check_id/",
+       data: { 
+     'api_id': $('#id-field').val(),
+},
+       success: function(data)
+       {
+       if (data == "true"){
+            $(".pop-up").children("h4").text("The same ID cannot be used twice.");
+            $(".pop-up").fadeIn();
+            return false;
+
+       }
+       else{
+
+
+        $(".pop-up").fadeOut();
+
+
+$('.c-1').hide();
+$('.c-2').fadeIn();
+$('.is-btn2').show();
+$('.is-btn').hide();
+$(".finish").show();
+if ($(".dd-select").val() == "fab fa-aws"){
+    $('.c-2').append($(".fl-1"));
+    $(".fl-1").show();
+}
+else if ($(".dd-select").val() == "fab fa-digital-ocean"){
+    $('.c-2').append($(".fl-2"));
+    $(".fl-2").show();
+}
+
+
+
+       }
+       }
+     });
+
+     
+
+    
+});
+
+$(".close-email-alert").click(function(){
+
+$(".pop-up").fadeOut();
+
+});
+
+$('.is-btn2').click(function(){
+
+    $(".pop-up").fadeOut();
+
+$('.c-1').fadeIn();
+$('.c-2').hide();
+$('.is-btn2').hide();
+$('.is-btn').show();
+    $(".finish").hide();
+
+    $(".fl-1").hide();
+    $(".fl-2").hide();
+
+    
+});
+
+$('.finish').click(function(e) {
+
+
+if($(".aws-acc-id-field").val().length < 12){
+    $(".pop-up").children("h4").text("Account ID must have 12 charachters.");
+    $(".pop-up").fadeIn();
+    return false;
+}
+
+if($(".aws-acc-id-field").val().length > 12){
+    $(".pop-up").children("h4").text("Account ID must have 12 charachters.");
+    $(".pop-up").fadeIn();
+    return false;
+}
+
+
+if($(".aws-acc-key-field").val().length < 20){
+    $(".pop-up").children("h4").text("Account ID must have 20 charachters.");
+    $(".pop-up").fadeIn();
+    return false;
+}
+
+if($(".aws-acc-key-field").val().length > 20){
+    $(".pop-up").children("h4").text("Account ID must have 20 charachters.");
+    $(".pop-up").fadeIn();
+    return false;
+}
+
+if($(".aws-sec-key-field").val().length < 40){
+    $(".pop-up").children("h4").text("Account ID must have 40 charachters.");
+    $(".pop-up").fadeIn();
+    return false;
+}
+
+if($(".aws-sec-key-field").val().length > 40){
+    $(".pop-up").children("h4").text("Account ID must have 40 charachters.");
+    $(".pop-up").fadeIn();
+    return false;
+}
+
+$(".img-verify").attr("src", "https://raw.githubusercontent.com/elegantcha0s/images/master/ezgif.com-gif-maker.gif");
+
+
+e.preventDefault(); // avoid to execute the actual submit of the form.
+
+var form = $("#post-data-form");
+$("#post-data-form").hide();
+$(".is-btn2").hide();
+$(".finish").hide();
+$(".pop-up").fadeOut();
+$(".checking").fadeIn();
+
+var access_key = 'YOUR_ACCESS_KEY';
+var email_address = 'support@apilayer.com';
+
+// verify email address via AJAX call
+$.ajax({
+    url: 'http://apilayer.net/api/check?access_key=' + access_key + '&email=' + email_address,   
+    dataType: 'jsonp',
+    success: function(json) {
+
+    // Access and use your preferred validation result objects
+    console.log(json.format_valid);
+    console.log(json.smtp_check);
+    console.log(json.score);
+                
+    }
+});
+
+
+$.ajax({
+       type: "POST",
+       url: "/dashboard/api_create/",
+       data: form.serialize(), // serializes the form's elements.
+       success: function(data)
+       {
+           
+
+           if (data == "true"){
+
+            $(".pop-up").children("h4").text("API Service with this Access Key ID already exists.");
+            $(".pop-up").fadeIn();
+
+            $("#post-data-form").fadeIn();
+            $(".is-btn2").fadeIn();
+            $(".finish").fadeIn();
+            $(".checking").hide();
+
+            return false;
+
+           }
+
+           else if (data == "email-not-valid"){
+
+            $(".pop-up").children("h4").text("E-mail address could not be verified.");
+            $(".pop-up").fadeIn();
+
+            $("#post-data-form").fadeIn();
+            $(".is-btn2").fadeIn();
+            $(".finish").fadeIn();
+            $(".checking").hide();
+            return false;
+           }
+
+           else if (data == "id-no-match"){
+            $(".pop-up").children("h4").text("Account ID and Access Key don't seem to be from the same account.");
+            $(".pop-up").fadeIn();
+
+            $("#post-data-form").fadeIn();
+            $(".is-btn2").fadeIn();
+            $(".finish").fadeIn();
+            $(".checking").hide();
+            return false;
+           }
+
+           else if (data == "invalid-token-id"){
+            $(".pop-up").children("h4").text("The Secret key doesn't match with Access Key ID.");
+            $(".pop-up").fadeIn();
+
+            $("#post-data-form").fadeIn();
+            $(".is-btn2").fadeIn();
+            $(".finish").fadeIn();
+            $(".checking").hide();
+            return false;
+           }
+
+           else {
+
+            $(".pop-up").fadeOut();
+            $(".checking").hide();      
+        $(".card-head-1").hide();
+        $(".verified").fadeIn();      
+        $(".card-footer-1").hide();
+        setTimeout(function() {
+  
+                $(".api-modal").fadeOut();
+        }, 2700);
+
+        setTimeout( function(){ 
+        window.location.reload();
+        }  , 3100 );
+
+
+        }
+       
+
+
+    
+
+    
+        
+       }
+     });
+ 
+});
+
+
+
+            });
+        </script>
+
+<div class="aws fl-1">
+ <div class="field">
+    <label class="label">Amazon Web Services Account Identification No. (12 charachters)</label>
+    <div class="control">
+      <input class="input aws-acc-id-field" name="aws-acc-id" type="text" maxlength="12" placeholder="AWS Account ID">
+    </div>
+    <p class="help">Insert your unique AWS User ID.</p>
+  </div>
+
+  <div class="field">
+    <label class="label">Amazon Web Services Access Key ID (20 charachters)</label>
+    <div class="control">
+      <input class="input aws-acc-key-field" name="aws-acc-key-id" type="text" maxlength="20" placeholder="AWS Access Key ID">
+    </div>
+    <p class="help">Insert the ID of your access key.</p>
+  </div>
+  <div class="field">
+    <label class="label">Amazon Web Services Secret Key (40 charachters)</label>
+    <div class="control">
+      <input class="input aws-sec-key-field" name="aws-sec-key" type="text" maxlength="40" placeholder="AWS Secret Key">
+    </div>
+    <p class="help">Insert the secret key to match your access key.</p>
+  </div>
+</div>
+
+<div class="aws fl-2">
+    <div class="field">
+       <label class="label">DigitalOcean Account E-mail</label>
+       <div class="control">
+         <input class="input" id="aws-acc-id-field" type="text" maxlength="20" placeholder="AWS ID">
+       </div>
+       <p class="help">Insert your unique DigitalOcean linked e-mail.</p>
+     </div>
+   
+     
+     <div class="field">
+       <label class="label">DigitalOcean Access Token (64 charachters)</label>
+       <div class="control">
+         <input class="input" id="aws-sec-key-field" type="text" maxlength="64" placeholder="AWS ID">
+       </div>
+       <p class="help">Insert the secret key to match your access key.</p>
+     </div>
+   </div>
+
+   <div class="checking" style="animation: fadeInUp 0.3s;">
+
+    <div class='column'>
+       
+          <div class='card-content is-flex is-horizontal-center' style="justify-content: center;">
+          <video muted loop autoplay style="height: 252px !important;">
+            <source src="https://assets6.lottiefiles.com/render/kf40jwxc.mp4" type="video/mp4">
+
+          </video>
+          </div>
+       
+      </div>
+
+   </div>
+   <div class="verified" style="animation: fadeInUp 0.3s;">
+
+    <div class='column'>
+       
+          <div class='card-content is-flex is-horizontal-center' style="justify-content: center;">
+            <img class="img-verify" src="" width="110">
+          </div>
+       
+      </div>
+
+   </div>
+                             
+                             <form method="post" id="post-data-form" action="">
+                                 {% csrf_token %}
+                                 
+                                <div class="c-1" style="animation: fadeInRight .5s;">
+                                    <div class="payment-form">
+                                      
+                                        <form action="/charge" method="post" id="stripe-payment-form" class="provider-form is-active">
+                                            <div id="checkout-contact-section" class="form-section has-margin-bottom">
+                                               
+                                                <div class="field email-class">
+                                                    <label class="label">E-mail</label>
+                                                    <div class="control">
+                                                      <input class="input" type="email" id="email-field" name="email-field" maxlength="40" placeholder="Notification e-mail">
+                                                    </div>
+                                                    <p class="help">Related security notifications will go to the above e-mail.</p>
+                                                  </div>
+                                                <div class="field">
+                                                    <label class="label">Identification (5 charachter minimum)</label>
+                                                    <div class="control">
+                                                      <input class="input" type="text" id="id-field" name="api-id" maxlength="20" placeholder="API ID">
+                                                    </div>
+                                                    <p class="help">Insert an ID with which you can recognise from others.</p>
+                                                  </div>
+                                                  
+                                                  <div class="field">
+                                                    <label>Cloud Provider</label>
+                                                    <div class="control has-icons-left is-expanded">
+                                                        <div class="select is-fullwidth" >
+                                                            <select id="cp-field" class="dd-select" name="cloud-provider">
+                                                                <option value="fab fa-aws" selected="">Amazon Web Services</option>
+                                                                <option value="fab fa-digital-ocean" disabled>DigitalOcean (Coming Soon)</option>
+                                                                <option value="fab fa-linode" disabled>Linode (Upcoming)</option>
+                                                                <option value="fab fa-microsoft" disabled>Microsoft Azure (Upcoming)</option>
+                                                                <option value="fab fa-google" disabled>Google Cloud (Upcoming)</option>
+                                                                
+                                                            </select>
+                                                        </div>
+                                                        <div class="icon is-small is-left">
+                                                            <i class="fab fa-aws" id="edit-logo"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                                          
+                
+                                         
+                
+                
+                                        
+                                    </div>
+                                </div>
+    
+                                <div class="c-2" style="animation: fadeInLeft .5s;">
+                                    
+                                    
+    
+                             
+                               </div>
+                            </form>
+                            </div>
+
+                         
+                        </div>
+                      
+                        <div class="card-footer card-footer-1">
+                            <div class="column has-text-centered">
+                                <button type="button" class="button is-rounded is-btn2 is-info is-light next-modal raised" data-modal="albums-modal">Back</button>
+                            <button type="button" class="button is-rounded is-btn is-info is-light next-modal raised" data-modal="albums-modal">Next</button>
+                            <button type="button" class="button is-rounded is-light is-success next-modal raised finish" data-modal="albums-modal">Create</button>
+                        </div>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+
+            <div id="edit-payment-modal" class="modal edit-payment-modal is-l has-light-bg">
                 <div class="modal-background"></div>
                 <div class="modal-content">
         
@@ -1333,7 +1808,7 @@ $.ajax({
                              </div>
                              <!-- Close X button -->
                              <div class="close-wrap">
-                                 <span class="close-edit-payment" style="cursor: pointer;">
+                                 <span class="close-edit-payment-modal" style="cursor: pointer;">
                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                                  </span>
                              </div>
@@ -1729,8 +2204,7 @@ $.ajax({
             </div>
           
 
-
-            <div id="application-modal" class="modal application-modal is-xlarge has-light-bg">
+            <div id="create-application-modal" class="modal create-application-modal is-xlarge has-light-bg">
                 <div class="modal-background"></div>
                 <div class="modal-content">
         
@@ -2127,7 +2601,7 @@ $.ajax({
             </div>
 
 
-            <div id="database-modal" class="modal database-modal is-xlarge has-light-bg">
+            <div id="create-database-modal" class="modal create-database-modal is-xlarge has-light-bg">
                 <div class="modal-background"></div>
                 <div class="modal-content">
         
@@ -2689,7 +3163,7 @@ $.ajax({
                                             </div>
                                         </a>
                                         <hr class="dropdown-divider">
-                                        <a href="#" class="dropdown-item modal-trigger" data-modal="application-modal">
+                                        <a href="#" class="dropdown-item modal-trigger" data-modal="create-application-modal">
                                             <div class="media">
                                                 <i data-feather="loader"></i>
                                                 <div class="media-content">
@@ -2698,7 +3172,7 @@ $.ajax({
                                                 </div>
                                             </div>
                                         </a>
-                                        <a class="dropdown-item modal-trigger" data-modal="database-modal">
+                                        <a class="dropdown-item modal-trigger" data-modal="create-database-modal">
                                             <div class="media">
                                                 <i data-feather="database"></i>
                                                 <div class="media-content">

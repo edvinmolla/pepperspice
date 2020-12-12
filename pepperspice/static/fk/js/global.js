@@ -295,17 +295,22 @@ function initModals() {
     $('.modal-close, .close-modal').on('click', function () {
       $('.modal.is-active').removeClass('is-active');
     });
-    $('.close-aws').on('click', function () {
-      $('.aws-modal').removeClass('is-active');
+    $('.close-manage-api').on('click', function () {
+      $('.api-manage-modal').removeClass('is-active');
     });
-    $('.close-new-api').on('click', function () {
-      $('.api-modal').removeClass('is-active');
+    $('.close-create-api').on('click', function () {
+      $('.api-create-modal').removeClass('is-active');
     });
-    $('.close-edit-payment').on('click', function () {
-      $('.edit-payment').removeClass('is-active');
+    $('.close-edit-payment-modal').on('click', function () {
+      $('.edit-payment-modal').removeClass('is-active');
+    });
+    $('.close-add-payment').on('click', function () {
+      $('.payment-create-modal').removeClass('is-active');
     });
   }
 }
+
+
 
 ; //Init attribute background images
 
