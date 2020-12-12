@@ -1337,6 +1337,10 @@ $.ajax({
                                  </span>
                              </div>
                          </div>
+
+
+                        
+                
                         
                         <div class="view-wrapper" style="padding: 20px;">
 
@@ -1346,12 +1350,13 @@ $.ajax({
                     
                                 <!--Container-->
                                 <div id="payment-container" class="checkout-container">
-                                  
-                    
+                                    
+                                    
                                     
                                     <div class="right" style="width: 100%;">
                                         <div class="payment-form" style="box-shadow: none !important; -webkit-box-shadow: none !important; border: none !important;">
-                                            <form action="/charge" method="post" id="stripe-payment-form" class="provider-form is-active">
+                                            <form action="" method="post" id="payment-form" class="provider-form is-active">
+                                                {% csrf_token %}
                                                 <div id="checkout-contact-section" class="form-section has-margin-bottom">
                                                     <div class="form-section-header">
                                                         <h3>Contact Information</h3>
@@ -1359,20 +1364,20 @@ $.ajax({
                                                     <div class="field">
                                                         <label for="card-element">Name on card</label>
                                                         <div class="control">
-                                                            <input class="input" placeholder="Enter full name on the credit card" name="checkout_name">
+                                                            <input class="input name-on-card" placeholder="Enter full name on the credit card" name="name-on-card">
                                                         </div>
                                                     </div>
                                                     <div class="field">
                                                         <label for="card-element">Address</label>
                                                         <div class="control">
-                                                            <input class="input" placeholder="Enter billing address here" maxlength="30" type="text" autofocus="">
+                                                            <input class="input address-on-card" placeholder="Enter billing address here" maxlength="30" type="text" autofocus="" name="address-on-card">
                                                         </div>
                     
                                                     </div>
                                                     <div class="field">
                                                         <label for="card-element">ZIP Code</label>
                                                         <div class="control">
-                                                            <input class="input" placeholder="Enter ZIP Code here" maxlength="8" type="text" autofocus="">
+                                                            <input class="input zipcode-on-card" placeholder="Enter ZIP Code here" maxlength="8" type="text" autofocus="" name="zipcode-on-card">
                                                         </div>
                     
                                                     </div>
@@ -1386,20 +1391,71 @@ $.ajax({
                                                    
                     
                                                     <div class="field">
-                                                        <label for="card-element">Credit or debit card</label>
+                                                        <div class="columns">
+                                                            <div class="column">
+                                                        <label for="card-element">Credit Card Number</label>
                                                         <div class="control">
-                                                            <div id="card-element" class="StripeElement StripeElement--empty"><div class="__PrivateStripeElement" style="margin: 0px !important; padding: 0px !important; border: medium none !important; display: block !important; background: transparent none repeat scroll 0% 0% !important; position: relative !important; opacity: 1 !important;"><iframe allowtransparency="true" scrolling="no" name="__privateStripeFrame6325" allowpaymentrequest="true" src="https://js.stripe.com/v3/elements-inner-card-2a91b26f7eeab8d06f8cf56bebec08b1.html#style[base][fontSize]=14px&amp;style[base][color]=%23595d6e&amp;wait=false&amp;rtl=false&amp;componentName=card&amp;keyMode=test&amp;apiKey=pk_test_6pRNASCoBOKtIshFeQd4XMUh&amp;origin=https%3A%2F%2Ffriendkit.cssninja.io&amp;referrer=https%3A%2F%2Ffriendkit.cssninja.io%2Fecommerce-payment.html&amp;controllerId=__privateStripeController6321" title="Secure card payment input frame" style="border: medium none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; user-select: none !important; transform: translateZ(0px) !important; height: 16.8px;" frameborder="0"></iframe><input class="__PrivateStripeElement-input" aria-hidden="true" aria-label=" " autocomplete="false" maxlength="1" style="border: medium none !important; display: block !important; position: absolute !important; height: 1px !important; top: 0px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent none repeat scroll 0% 0% !important; pointer-events: none !important; font-size: 16px !important;"></div></div>
-                    
-                                                            <!-- Used to display Element errors -->
-                                                            <div id="card-errors" role="alert"></div>
+                                                           
+
+                                                         
+                                                            <input class="input card-number" placeholder="Card number here" maxlength="16" type="tel" autofocus="" name="card-number">
                                                         </div>
+                                                   
+                                                       
+                                                            
+                                                        </div>
+                    
+                                                        <div class="column is-3">
+                                                            <label for="card-element">ZIP Code</label>
+                                                            <div class="control">
+                                                               
+    
+                                                             
+                                                                <input class="input card-number" placeholder="ZIP Code" maxlength="10" type="tel" autofocus="" name="zipcode-on-card">
+                                                            </div>
+                                                       
+                                                           
+                                                                
+                                                            </div>
+
+                                                            <div class="column is-2">
+                                                                <label for="card-element">CVC</label>
+                                                                <div class="control">
+                                                                   
+        
+                                                                 
+                                                                    <input class="input card-number" placeholder="CVC" maxlength="3" type="tel" autofocus="" name="cvc-number">
+                                                                </div>
+                                                           
+                                                               
+                                                                    
+                                                                </div>
+                                                      
                                                     </div>
+                                                    </div>
+                                              
+                                                    <script>
+                                                        $( document ).ready(function() {
+                                                            $('.card-number').on('keyup', function(e){
+                                                            var val = $(this).val();
+                                                            var newval = '';
+                                                            val = val.replace(/\s/g, '');
+                                                            for(var i=0; i < val.length; i++) {
+                                                                if(i%4 == 0 && i > 0) newval = newval.concat(' ');
+                                                                newval = newval.concat(val[i]);
+                                                            }
+                                                            $(this).val(newval);
+                                                        });
+});
+                                                       
+                                                    </script>
+                                                    
                     
                                                     <div class="field">
                                                         <label>Country</label>
                                                         <div class="control has-icons-left">
-                                                            <div class="select">
-                                                                <select id="country" name="country">
+                                                            <div class="select countr-selected">
+                                                                <select id="country" name="country-selected">
                                                                     <option value="Afganistan">Afghanistan</option>
                                                                     <option value="Albania">Albania</option>
                                                                     <option value="Algeria">Algeria</option>
@@ -1655,11 +1711,85 @@ $.ajax({
                                                     </div>
                                                 </div>
                     
-                                                <div class="column has-text-centered mt-3">
-                                                    <a class="button is-rounded is-solid accent-button">Add Payment Method <i class="ml-3" data-feather="check-circle"></i></a>
+                                                <div class="column has-text-centered mt-5">
+                                                    <a class="button is-rounded is-solid accent-button create-payment-method">Add Payment Method <i class="ml-3" data-feather="check-circle"></i></a>
                                                 </div>
                     
                                             </form>
+
+                                           
+                                            <script>
+                                                $(document).ready(function(){
+
+                                    $('.create-payment-method').click(function(e) {
+
+                                    if($(".name-on-card").val().length > 25){
+                                        $(".pop-up").children("h4").text("Name Is too long.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    if($(".name-on-card").val().length === 0){
+                                        $(".pop-up").children("h4").text("Name cannot be empty.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    
+                                    if($(".address-on-card").val().length > 30){
+                                        $(".pop-up").children("h4").text("Address Is too long.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    if($(".address-on-card").val().length === 0){
+                                        $(".pop-up").children("h4").text("Address cannot be empty.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    if($(".zipcode-on-card").val().length === 0){
+                                        $(".pop-up").children("h4").text("Zipcode cannot be empty.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    if($(".zipcode-on-card").val().length > 10){
+                                        $(".pop-up").children("h4").text("Zipcode Is too long.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    
+                                    e.preventDefault(); 
+                                    
+                                    
+                                    $.ajax({
+                                           type: "POST",
+                                           url: "/dashboard/payment_create/",
+                                           data: $("#payment-form").serialize(),
+                                           success: function(data)
+                                           {
+                                               
+                                    alert("ok");
+                                               if (data == "true"){
+                                    
+                                            
+                                    
+                                                return false;
+                                    
+                                               }
+                                    
+                                               
+                                    
+                                               else {
+                                    
+                                    
+                                            }
+                                                      
+                                           }
+                                         });
+                                     
+                                    });
+                                    
+                                    
+                                    
+                                                });
+                                            </script>
                                         </div>
                                     </div>
                                 </div>

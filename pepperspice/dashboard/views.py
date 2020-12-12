@@ -22,7 +22,15 @@ import boto3
 import requests
 from validate_email import validate_email
 
-@csrf_exempt
+
+
+def create_payment(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            print(request.POST)
+            return HttpResponse('success')
+
+
 def check_id(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
