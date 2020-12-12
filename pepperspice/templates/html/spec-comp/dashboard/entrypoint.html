@@ -1319,7 +1319,14 @@ $.ajax({
             <div id="payment-create-modal" class="modal payment-create-modal is-l has-light-bg">
                 <div class="modal-background"></div>
                 <div class="modal-content">
-        
+                    <div class="box-heading mb-3 pop-up" style="background-color: #82e8d0; color: black; border-color: #82e8d0; animation: fadeInUp 0.4s;">
+                        <h4></h4>
+                        <div class="close-wrap">
+                            <span class="close-email-alert" style="cursor: pointer;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                        </div>
+                    </div>
                     <div class="card">
 
                         <div class="card-heading">
@@ -1374,13 +1381,7 @@ $.ajax({
                                                         </div>
                     
                                                     </div>
-                                                    <div class="field">
-                                                        <label for="card-element">ZIP Code</label>
-                                                        <div class="control">
-                                                            <input class="input zipcode-on-card" placeholder="Enter ZIP Code here" maxlength="8" type="text" autofocus="" name="zipcode-on-card">
-                                                        </div>
-                    
-                                                    </div>
+                                                   
                                                 </div>
                     
                                                 <div id="checkout-payment-section" class="form-section">
@@ -1398,7 +1399,7 @@ $.ajax({
                                                            
 
                                                          
-                                                            <input class="input card-number" placeholder="Card number here" maxlength="16" type="tel" autofocus="" name="card-number">
+                                                            <input class="input card-number" placeholder="Card number here" maxlength="19" type="tel" autofocus="" name="card-number">
                                                         </div>
                                                    
                                                        
@@ -1411,7 +1412,7 @@ $.ajax({
                                                                
     
                                                              
-                                                                <input class="input card-number" placeholder="ZIP Code" maxlength="10" type="tel" autofocus="" name="zipcode-on-card">
+                                                                <input class="input zipcode-on-card" placeholder="ZIP Code" maxlength="10" type="tel" autofocus="" name="zipcode-on-card">
                                                             </div>
                                                        
                                                            
@@ -1424,7 +1425,7 @@ $.ajax({
                                                                    
         
                                                                  
-                                                                    <input class="input card-number" placeholder="CVC" maxlength="3" type="tel" autofocus="" name="cvc-number">
+                                                                    <input class="input" placeholder="CVC" maxlength="3" type="tel" autofocus="" name="cvc-number">
                                                                 </div>
                                                            
                                                                
@@ -1446,7 +1447,7 @@ $.ajax({
                                                             }
                                                             $(this).val(newval);
                                                         });
-});
+                                                        });
                                                        
                                                     </script>
                                                     
@@ -1749,12 +1750,19 @@ $.ajax({
                                         $(".pop-up").fadeIn();
                                         return false;
                                     }
-                                    if($(".zipcode-on-card").val().length > 10){
-                                        $(".pop-up").children("h4").text("Zipcode Is too long.");
+                                    if($(".cvc").val().length === 0){
+                                        $(".pop-up").children("h4").text("CVC can't be empty.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    if($(".cvc").val().length > 3){
+                                        $(".pop-up").children("h4").text("CVC can't be longer than 3 numbers.");
                                         $(".pop-up").fadeIn();
                                         return false;
                                     }
                                     
+                                    
+                                    alert('sdf');
                                     e.preventDefault(); 
                                     
                                     
