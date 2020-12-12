@@ -1425,7 +1425,7 @@ $.ajax({
                                                                    
         
                                                                  
-                                                                    <input class="input" placeholder="CVC" maxlength="3" type="tel" autofocus="" name="cvc-number">
+                                                                    <input class="input cvc" placeholder="CVC" maxlength="3" type="tel" autofocus="" name="cvc-number">
                                                                 </div>
                                                            
                                                                
@@ -1736,10 +1736,12 @@ $.ajax({
                                     }
                                     
                                     if($(".address-on-card").val().length > 30){
+
                                         $(".pop-up").children("h4").text("Address Is too long.");
                                         $(".pop-up").fadeIn();
                                         return false;
                                     }
+                                    
                                     if($(".address-on-card").val().length === 0){
                                         $(".pop-up").children("h4").text("Address cannot be empty.");
                                         $(".pop-up").fadeIn();
@@ -1750,11 +1752,13 @@ $.ajax({
                                         $(".pop-up").fadeIn();
                                         return false;
                                     }
+                                   
                                     if($(".cvc").val().length === 0){
                                         $(".pop-up").children("h4").text("CVC can't be empty.");
                                         $(".pop-up").fadeIn();
                                         return false;
                                     }
+                                    
                                     if($(".cvc").val().length > 3){
                                         $(".pop-up").children("h4").text("CVC can't be longer than 3 numbers.");
                                         $(".pop-up").fadeIn();
@@ -1762,7 +1766,7 @@ $.ajax({
                                     }
                                     
                                     
-                                    alert('sdf');
+                                    
                                     e.preventDefault(); 
                                     
                                     
@@ -1773,7 +1777,7 @@ $.ajax({
                                            success: function(data)
                                            {
                                                
-                                    alert("ok");
+                                 
                                                if (data == "true"){
                                     
                                             
