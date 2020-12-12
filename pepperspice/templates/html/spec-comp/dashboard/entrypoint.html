@@ -156,9 +156,9 @@ $('#overview-content').removeClass('is-active');
 <script>
 
 $(document).ready(function() {
-    window.addEventListener('contextmenu', function (e) { 
-  e.preventDefault(); 
-}, false);
+//     window.addEventListener('contextmenu', function (e) { 
+//   e.preventDefault(); 
+// }, false);
    
 $('.settings-1').click(function(e) {  
 
@@ -597,7 +597,7 @@ $('.settings-9').addClass('is-active');
                                             <div class="friends-grid">
                                                 <div class="columns">
                                                     <div class="column is-3">
-                                                        <a class="friend-item has-text-centered modal-trigger" data-modal="edit-payment">
+                                                        <a class="friend-item has-text-centered modal-trigger" data-modal="edit-payment-modal">
                                                             <div class="avatar-wrap">
                                                                  
                                                                 <img data-demo-src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/Banka_Komb%C3%ABtare_Tregtare.svg/1200px-Banka_Komb%C3%ABtare_Tregtare.svg.png" style="border-radius: 0px; height: 50%; transform: scale(1.5);">
@@ -608,7 +608,7 @@ $('.settings-9').addClass('is-active');
                                                     </div>
                                                   
                                                     <div class="column is-3">
-                                                        <a class="friend-item has-text-centered modal-trigger" data-modal="albums-help-modal" style="border: none;">
+                                                        <a class="friend-item has-text-centered modal-trigger" data-modal="payment-create-modal" style="border: none;">
                                                             <div class="avatar-wrap">
                                                                  
                                                                 <img data-demo-src="https://www.flaticon.com/svg/static/icons/svg/660/660522.svg" alt="" style="height: auto !important; width: auto !important; border-radius: 0px; transform: scale(.6);" src="https://www.flaticon.com/svg/static/icons/svg/660/660522.svg">
@@ -678,7 +678,7 @@ $('.settings-9').addClass('is-active');
                                                                                 
                                                                               </div>
 
-                                                                              <a class="button is-rounded modal-trigger" data-modal="albums-help-modal">Add New API Service</a>
+                                                                              <a class="button is-rounded modal-trigger" data-modal="api-create-modal">Add New API Service</a>
                                                                            
                                                                         </div>
                                                                         <!-- <div class="column is-5">
@@ -697,7 +697,7 @@ $('.settings-9').addClass('is-active');
                                                     {% else %}
                                                     {% for api in apis %}
                                                     <div class="column is-3">
-                                                        <a class="friend-item has-text-centered modal-trigger" data-modal="share-modal">
+                                                        <a class="friend-item has-text-centered modal-trigger" data-modal="api-manage-modal">
                                                             {% if api.cloud_provider == 'fab fa-aws' %}
                                                             <div class="avatar-wrap">
                                                                  
@@ -712,7 +712,7 @@ $('.settings-9').addClass('is-active');
                                                   {% endfor %}
 
                                                   <div class="column is-3">
-                                                    <a class="friend-item has-text-centered modal-trigger" data-modal="albums-help-modal" style="border: none;">
+                                                    <a class="friend-item has-text-centered modal-trigger" data-modal="api-create-modal" style="border: none;">
                                                         <div class="avatar-wrap">
                                                              
                                                             <img data-demo-src="https://www.flaticon.com/svg/static/icons/svg/660/660522.svg" alt="" style="height: auto !important; width: auto !important; border-radius: 0px; transform: scale(.6);">
@@ -762,7 +762,7 @@ $('.settings-9').addClass('is-active');
 
   
 
-            <div id="albums-help-modal" class="modal api-modal albums-help-modal is-xsmall has-light-bg aws-modal">
+            <div id="api-create-modal" class="modal api-modal api-create-modal is-xsmall has-light-bg aws-modal">
                 <div class="modal-background"></div>
                 <div class="modal-content">
                     <div class="box-heading mb-3 pop-up" style="background-color: #82e8d0; color: black; border-color: #82e8d0; animation: fadeInUp 0.4s;">
@@ -784,7 +784,7 @@ $('.settings-9').addClass('is-active');
                             </div>
                             <!-- Close X button -->
                             <div class="close-wrap">
-                                <span class="close-new-api" style="cursor: pointer;">
+                                <span class="close-create-api" style="cursor: pointer;">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                                 </span>
                             </div>
@@ -1239,7 +1239,7 @@ $.ajax({
             </div>
             
 
-            <div id="share-modal" class="modal share-modal is-xsmall has-light-bg aws-modal">
+            <div id="api-manage-modal" class="modal api-manage-modal is-xsmall has-light-bg aws-modal">
                 <div class="modal-background"></div>
                 <div class="modal-content">
         
@@ -1254,7 +1254,7 @@ $.ajax({
                             </div>
                             <!-- Close X button -->
                             <div class="close-wrap">
-                                <span class="close-aws" style="cursor: pointer;">
+                                <span class="close-manage-api" style="cursor: pointer;">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                                 </span>
                             </div>
@@ -1316,8 +1316,562 @@ $.ajax({
                 </div>
             </div>
            
+            <div id="payment-create-modal" class="modal payment-create-modal is-l has-light-bg">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                    <div class="box-heading mb-3 pop-up" style="background-color: #82e8d0; color: black; border-color: #82e8d0; animation: fadeInUp 0.4s;">
+                        <h4></h4>
+                        <div class="close-wrap">
+                            <span class="close-email-alert" style="cursor: pointer;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card">
 
-            <div id="edit-payment" class="modal edit-payment is-l has-light-bg">
+                        <div class="card-heading">
+
+                            <div class="is-primary share-dropdown">
+                                 <div>
+                                   <h3>Add Payment Method</h3>
+                                 </div>
+                                
+                             </div>
+                             <!-- Close X button -->
+                             <div class="close-wrap">
+                                 <span class="close-create-payment" style="cursor: pointer;">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                 </span>
+                             </div>
+                         </div>
+
+
+                        
+                
+                        
+                        <div class="view-wrapper" style="padding: 20px;">
+
+                            <!--Wrapper-->
+                            <div class="shop-wrapper">
+                                
+                    
+                                <!--Container-->
+                                <div id="payment-container" class="checkout-container">
+                                    
+                                    
+                                    
+                                    <div class="right" style="width: 100%;">
+                                        <div class="payment-form" style="box-shadow: none !important; -webkit-box-shadow: none !important; border: none !important;">
+                                            <form action="" method="post" id="payment-form" class="provider-form is-active">
+                                                {% csrf_token %}
+                                                <div id="checkout-contact-section" class="form-section has-margin-bottom">
+                                                    <div class="form-section-header">
+                                                        <h3>Contact Information</h3>
+                                                    </div>
+                                                    <div class="field">
+                                                        <label for="card-element">Name on card</label>
+                                                        <div class="control">
+                                                            <input class="input name-on-card" placeholder="Enter full name on the credit card" name="name-on-card">
+                                                        </div>
+                                                    </div>
+                                                    <div class="field">
+                                                        <label for="card-element">Address</label>
+                                                        <div class="control">
+                                                            <input class="input address-on-card" placeholder="Enter billing address here" maxlength="30" type="text" autofocus="" name="address-on-card">
+                                                        </div>
+                    
+                                                    </div>
+                                                   
+                                                </div>
+                    
+                                                <div id="checkout-payment-section" class="form-section">
+                                                    <div class="form-section-header">
+                                                        <h3>Payment Information</h3>
+                                                    </div>
+                    
+                                                   
+                    
+                                                    <div class="field">
+                                                        <div class="columns">
+                                                            <div class="column">
+                                                        <label for="card-element">Credit Card Number</label>
+                                                        <div class="control">
+                                                           
+
+                                                         
+                                                            <input class="input card-number" placeholder="Card number here" maxlength="19" type="tel" autofocus="" name="card-number">
+                                                        </div>
+                                                   
+                                                       
+                                                            
+                                                        </div>
+                    
+                                                        <div class="column is-3">
+                                                            <label for="card-element">ZIP Code</label>
+                                                            <div class="control">
+                                                               
+    
+                                                             
+                                                                <input class="input zipcode-on-card" placeholder="ZIP Code" maxlength="10" type="tel" autofocus="" name="zipcode-on-card">
+                                                            </div>
+                                                       
+                                                           
+                                                                
+                                                            </div>
+
+                                                            <div class="column is-2">
+                                                                <label for="card-element">CVC</label>
+                                                                <div class="control">
+                                                                   
+        
+                                                                 
+                                                                    <input class="input cvc" placeholder="CVC" maxlength="3" type="tel" autofocus="" name="cvc-number">
+                                                                </div>
+                                                           
+                                                               
+                                                                    
+                                                                </div>
+                                                      
+                                                    </div>
+                                                    </div>
+                                              
+                                                    <script>
+                                                        $( document ).ready(function() {
+                                                            $('.card-number').on('keyup', function(e){
+                                                            var val = $(this).val();
+                                                            var newval = '';
+                                                            val = val.replace(/\s/g, '');
+                                                            for(var i=0; i < val.length; i++) {
+                                                                if(i%4 == 0 && i > 0) newval = newval.concat(' ');
+                                                                newval = newval.concat(val[i]);
+                                                            }
+                                                            $(this).val(newval);
+                                                        });
+                                                        });
+                                                       
+                                                    </script>
+                                                    
+                    
+                                                    <div class="field">
+                                                        <label>Country</label>
+                                                        <div class="control has-icons-left">
+                                                            <div class="select countr-selected">
+                                                                <select id="country" name="country-selected">
+                                                                    <option value="Afganistan">Afghanistan</option>
+                                                                    <option value="Albania">Albania</option>
+                                                                    <option value="Algeria">Algeria</option>
+                                                                    <option value="American Samoa">American Samoa</option>
+                                                                    <option value="Andorra">Andorra</option>
+                                                                    <option value="Angola">Angola</option>
+                                                                    <option value="Anguilla">Anguilla</option>
+                                                                    <option value="Antigua & Barbuda">Antigua & Barbuda</option>
+                                                                    <option value="Argentina">Argentina</option>
+                                                                    <option value="Armenia">Armenia</option>
+                                                                    <option value="Aruba">Aruba</option>
+                                                                    <option value="Australia">Australia</option>
+                                                                    <option value="Austria">Austria</option>
+                                                                    <option value="Azerbaijan">Azerbaijan</option>
+                                                                    <option value="Bahamas">Bahamas</option>
+                                                                    <option value="Bahrain">Bahrain</option>
+                                                                    <option value="Bangladesh">Bangladesh</option>
+                                                                    <option value="Barbados">Barbados</option>
+                                                                    <option value="Belarus">Belarus</option>
+                                                                    <option value="Belgium">Belgium</option>
+                                                                    <option value="Belize">Belize</option>
+                                                                    <option value="Benin">Benin</option>
+                                                                    <option value="Bermuda">Bermuda</option>
+                                                                    <option value="Bhutan">Bhutan</option>
+                                                                    <option value="Bolivia">Bolivia</option>
+                                                                    <option value="Bonaire">Bonaire</option>
+                                                                    <option value="Bosnia & Herzegovina">Bosnia & Herzegovina</option>
+                                                                    <option value="Botswana">Botswana</option>
+                                                                    <option value="Brazil">Brazil</option>
+                                                                    <option value="British Indian Ocean Ter">British Indian Ocean Ter</option>
+                                                                    <option value="Brunei">Brunei</option>
+                                                                    <option value="Bulgaria">Bulgaria</option>
+                                                                    <option value="Burkina Faso">Burkina Faso</option>
+                                                                    <option value="Burundi">Burundi</option>
+                                                                    <option value="Cambodia">Cambodia</option>
+                                                                    <option value="Cameroon">Cameroon</option>
+                                                                    <option value="Canada">Canada</option>
+                                                                    <option value="Canary Islands">Canary Islands</option>
+                                                                    <option value="Cape Verde">Cape Verde</option>
+                                                                    <option value="Cayman Islands">Cayman Islands</option>
+                                                                    <option value="Central African Republic">Central African Republic</option>
+                                                                    <option value="Chad">Chad</option>
+                                                                    <option value="Channel Islands">Channel Islands</option>
+                                                                    <option value="Chile">Chile</option>
+                                                                    <option value="China">China</option>
+                                                                    <option value="Christmas Island">Christmas Island</option>
+                                                                    <option value="Cocos Island">Cocos Island</option>
+                                                                    <option value="Colombia">Colombia</option>
+                                                                    <option value="Comoros">Comoros</option>
+                                                                    <option value="Congo">Congo</option>
+                                                                    <option value="Cook Islands">Cook Islands</option>
+                                                                    <option value="Costa Rica">Costa Rica</option>
+                                                                    <option value="Cote DIvoire">Cote DIvoire</option>
+                                                                    <option value="Croatia">Croatia</option>
+                                                                    <option value="Cuba">Cuba</option>
+                                                                    <option value="Curaco">Curacao</option>
+                                                                    <option value="Cyprus">Cyprus</option>
+                                                                    <option value="Czech Republic">Czech Republic</option>
+                                                                    <option value="Denmark">Denmark</option>
+                                                                    <option value="Djibouti">Djibouti</option>
+                                                                    <option value="Dominica">Dominica</option>
+                                                                    <option value="Dominican Republic">Dominican Republic</option>
+                                                                    <option value="East Timor">East Timor</option>
+                                                                    <option value="Ecuador">Ecuador</option>
+                                                                    <option value="Egypt">Egypt</option>
+                                                                    <option value="El Salvador">El Salvador</option>
+                                                                    <option value="Equatorial Guinea">Equatorial Guinea</option>
+                                                                    <option value="Eritrea">Eritrea</option>
+                                                                    <option value="Estonia">Estonia</option>
+                                                                    <option value="Ethiopia">Ethiopia</option>
+                                                                    <option value="Falkland Islands">Falkland Islands</option>
+                                                                    <option value="Faroe Islands">Faroe Islands</option>
+                                                                    <option value="Fiji">Fiji</option>
+                                                                    <option value="Finland">Finland</option>
+                                                                    <option value="France">France</option>
+                                                                    <option value="French Guiana">French Guiana</option>
+                                                                    <option value="French Polynesia">French Polynesia</option>
+                                                                    <option value="French Southern Ter">French Southern Ter</option>
+                                                                    <option value="Gabon">Gabon</option>
+                                                                    <option value="Gambia">Gambia</option>
+                                                                    <option value="Georgia">Georgia</option>
+                                                                    <option value="Germany">Germany</option>
+                                                                    <option value="Ghana">Ghana</option>
+                                                                    <option value="Gibraltar">Gibraltar</option>
+                                                                    <option value="Great Britain">Great Britain</option>
+                                                                    <option value="Greece">Greece</option>
+                                                                    <option value="Greenland">Greenland</option>
+                                                                    <option value="Grenada">Grenada</option>
+                                                                    <option value="Guadeloupe">Guadeloupe</option>
+                                                                    <option value="Guam">Guam</option>
+                                                                    <option value="Guatemala">Guatemala</option>
+                                                                    <option value="Guinea">Guinea</option>
+                                                                    <option value="Guyana">Guyana</option>
+                                                                    <option value="Haiti">Haiti</option>
+                                                                    <option value="Hawaii">Hawaii</option>
+                                                                    <option value="Honduras">Honduras</option>
+                                                                    <option value="Hong Kong">Hong Kong</option>
+                                                                    <option value="Hungary">Hungary</option>
+                                                                    <option value="Iceland">Iceland</option>
+                                                                    <option value="Indonesia">Indonesia</option>
+                                                                    <option value="India">India</option>
+                                                                    <option value="Iran">Iran</option>
+                                                                    <option value="Iraq">Iraq</option>
+                                                                    <option value="Ireland">Ireland</option>
+                                                                    <option value="Isle of Man">Isle of Man</option>
+                                                                    <option value="Israel">Israel</option>
+                                                                    <option value="Italy">Italy</option>
+                                                                    <option value="Jamaica">Jamaica</option>
+                                                                    <option value="Japan">Japan</option>
+                                                                    <option value="Jordan">Jordan</option>
+                                                                    <option value="Kazakhstan">Kazakhstan</option>
+                                                                    <option value="Kenya">Kenya</option>
+                                                                    <option value="Kiribati">Kiribati</option>
+                                                                    <option value="Korea North">Korea North</option>
+                                                                    <option value="Korea Sout">Korea South</option>
+                                                                    <option value="Kuwait">Kuwait</option>
+                                                                    <option value="Kyrgyzstan">Kyrgyzstan</option>
+                                                                    <option value="Laos">Laos</option>
+                                                                    <option value="Latvia">Latvia</option>
+                                                                    <option value="Lebanon">Lebanon</option>
+                                                                    <option value="Lesotho">Lesotho</option>
+                                                                    <option value="Liberia">Liberia</option>
+                                                                    <option value="Libya">Libya</option>
+                                                                    <option value="Liechtenstein">Liechtenstein</option>
+                                                                    <option value="Lithuania">Lithuania</option>
+                                                                    <option value="Luxembourg">Luxembourg</option>
+                                                                    <option value="Macau">Macau</option>
+                                                                    <option value="Macedonia">Macedonia</option>
+                                                                    <option value="Madagascar">Madagascar</option>
+                                                                    <option value="Malaysia">Malaysia</option>
+                                                                    <option value="Malawi">Malawi</option>
+                                                                    <option value="Maldives">Maldives</option>
+                                                                    <option value="Mali">Mali</option>
+                                                                    <option value="Malta">Malta</option>
+                                                                    <option value="Marshall Islands">Marshall Islands</option>
+                                                                    <option value="Martinique">Martinique</option>
+                                                                    <option value="Mauritania">Mauritania</option>
+                                                                    <option value="Mauritius">Mauritius</option>
+                                                                    <option value="Mayotte">Mayotte</option>
+                                                                    <option value="Mexico">Mexico</option>
+                                                                    <option value="Midway Islands">Midway Islands</option>
+                                                                    <option value="Moldova">Moldova</option>
+                                                                    <option value="Monaco">Monaco</option>
+                                                                    <option value="Mongolia">Mongolia</option>
+                                                                    <option value="Montserrat">Montserrat</option>
+                                                                    <option value="Morocco">Morocco</option>
+                                                                    <option value="Mozambique">Mozambique</option>
+                                                                    <option value="Myanmar">Myanmar</option>
+                                                                    <option value="Nambia">Nambia</option>
+                                                                    <option value="Nauru">Nauru</option>
+                                                                    <option value="Nepal">Nepal</option>
+                                                                    <option value="Netherland Antilles">Netherland Antilles</option>
+                                                                    <option value="Netherlands">Netherlands (Holland, Europe)</option>
+                                                                    <option value="Nevis">Nevis</option>
+                                                                    <option value="New Caledonia">New Caledonia</option>
+                                                                    <option value="New Zealand">New Zealand</option>
+                                                                    <option value="Nicaragua">Nicaragua</option>
+                                                                    <option value="Niger">Niger</option>
+                                                                    <option value="Nigeria">Nigeria</option>
+                                                                    <option value="Niue">Niue</option>
+                                                                    <option value="Norfolk Island">Norfolk Island</option>
+                                                                    <option value="Norway">Norway</option>
+                                                                    <option value="Oman">Oman</option>
+                                                                    <option value="Pakistan">Pakistan</option>
+                                                                    <option value="Palau Island">Palau Island</option>
+                                                                    <option value="Palestine">Palestine</option>
+                                                                    <option value="Panama">Panama</option>
+                                                                    <option value="Papua New Guinea">Papua New Guinea</option>
+                                                                    <option value="Paraguay">Paraguay</option>
+                                                                    <option value="Peru">Peru</option>
+                                                                    <option value="Phillipines">Philippines</option>
+                                                                    <option value="Pitcairn Island">Pitcairn Island</option>
+                                                                    <option value="Poland">Poland</option>
+                                                                    <option value="Portugal">Portugal</option>
+                                                                    <option value="Puerto Rico">Puerto Rico</option>
+                                                                    <option value="Qatar">Qatar</option>
+                                                                    <option value="Republic of Montenegro">Republic of Montenegro</option>
+                                                                    <option value="Republic of Serbia">Republic of Serbia</option>
+                                                                    <option value="Reunion">Reunion</option>
+                                                                    <option value="Romania">Romania</option>
+                                                                    <option value="Russia">Russia</option>
+                                                                    <option value="Rwanda">Rwanda</option>
+                                                                    <option value="St Barthelemy">St Barthelemy</option>
+                                                                    <option value="St Eustatius">St Eustatius</option>
+                                                                    <option value="St Helena">St Helena</option>
+                                                                    <option value="St Kitts-Nevis">St Kitts-Nevis</option>
+                                                                    <option value="St Lucia">St Lucia</option>
+                                                                    <option value="St Maarten">St Maarten</option>
+                                                                    <option value="St Pierre & Miquelon">St Pierre & Miquelon</option>
+                                                                    <option value="St Vincent & Grenadines">St Vincent & Grenadines</option>
+                                                                    <option value="Saipan">Saipan</option>
+                                                                    <option value="Samoa">Samoa</option>
+                                                                    <option value="Samoa American">Samoa American</option>
+                                                                    <option value="San Marino">San Marino</option>
+                                                                    <option value="Sao Tome & Principe">Sao Tome & Principe</option>
+                                                                    <option value="Saudi Arabia">Saudi Arabia</option>
+                                                                    <option value="Senegal">Senegal</option>
+                                                                    <option value="Seychelles">Seychelles</option>
+                                                                    <option value="Sierra Leone">Sierra Leone</option>
+                                                                    <option value="Singapore">Singapore</option>
+                                                                    <option value="Slovakia">Slovakia</option>
+                                                                    <option value="Slovenia">Slovenia</option>
+                                                                    <option value="Solomon Islands">Solomon Islands</option>
+                                                                    <option value="Somalia">Somalia</option>
+                                                                    <option value="South Africa">South Africa</option>
+                                                                    <option value="Spain">Spain</option>
+                                                                    <option value="Sri Lanka">Sri Lanka</option>
+                                                                    <option value="Sudan">Sudan</option>
+                                                                    <option value="Suriname">Suriname</option>
+                                                                    <option value="Swaziland">Swaziland</option>
+                                                                    <option value="Sweden">Sweden</option>
+                                                                    <option value="Switzerland">Switzerland</option>
+                                                                    <option value="Syria">Syria</option>
+                                                                    <option value="Tahiti">Tahiti</option>
+                                                                    <option value="Taiwan">Taiwan</option>
+                                                                    <option value="Tajikistan">Tajikistan</option>
+                                                                    <option value="Tanzania">Tanzania</option>
+                                                                    <option value="Thailand">Thailand</option>
+                                                                    <option value="Togo">Togo</option>
+                                                                    <option value="Tokelau">Tokelau</option>
+                                                                    <option value="Tonga">Tonga</option>
+                                                                    <option value="Trinidad & Tobago">Trinidad & Tobago</option>
+                                                                    <option value="Tunisia">Tunisia</option>
+                                                                    <option value="Turkey">Turkey</option>
+                                                                    <option value="Turkmenistan">Turkmenistan</option>
+                                                                    <option value="Turks & Caicos Is">Turks & Caicos Is</option>
+                                                                    <option value="Tuvalu">Tuvalu</option>
+                                                                    <option value="Uganda">Uganda</option>
+                                                                    <option value="United Kingdom" selected>United Kingdom</option>
+                                                                    <option value="Ukraine">Ukraine</option>
+                                                                    <option value="United Arab Erimates">United Arab Emirates</option>
+                                                                    <option value="United States of America">United States of America</option>
+                                                                    <option value="Uraguay">Uruguay</option>
+                                                                    <option value="Uzbekistan">Uzbekistan</option>
+                                                                    <option value="Vanuatu">Vanuatu</option>
+                                                                    <option value="Vatican City State">Vatican City State</option>
+                                                                    <option value="Venezuela">Venezuela</option>
+                                                                    <option value="Vietnam">Vietnam</option>
+                                                                    <option value="Virgin Islands (Brit)">Virgin Islands (Brit)</option>
+                                                                    <option value="Virgin Islands (USA)">Virgin Islands (USA)</option>
+                                                                    <option value="Wake Island">Wake Island</option>
+                                                                    <option value="Wallis & Futana Is">Wallis & Futana Is</option>
+                                                                    <option value="Yemen">Yemen</option>
+                                                                    <option value="Zaire">Zaire</option>
+                                                                    <option value="Zambia">Zambia</option>
+                                                                    <option value="Zimbabwe">Zimbabwe</option>
+                                                                 </select>
+                                                            </div>
+                                                            <div class="icon is-small is-left">
+                                                                <i class="fas fa-globe-americas"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                    
+                                                <div class="column has-text-centered mt-5">
+                                                    <a class="button is-rounded is-solid accent-button create-payment-method">Add Payment Method <i class="ml-3" data-feather="check-circle"></i></a>
+                                                </div>
+                    
+                                            </form>
+
+                                           
+                                            <script>
+                                                $(document).ready(function(){
+
+                                    $('.create-payment-method').click(function(e) {
+
+                                    if($(".name-on-card").val().length > 25){
+                                        $(".pop-up").children("h4").text("Name Is too long.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    if($(".name-on-card").val().length === 0){
+                                        $(".pop-up").children("h4").text("Name cannot be empty.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    
+                                    if($(".address-on-card").val().length > 30){
+
+                                        $(".pop-up").children("h4").text("Address Is too long.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    
+                                    if($(".address-on-card").val().length === 0){
+                                        $(".pop-up").children("h4").text("Address cannot be empty.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    if($(".zipcode-on-card").val().length === 0){
+                                        $(".pop-up").children("h4").text("Zipcode cannot be empty.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                   
+                                    if($(".cvc").val().length === 0){
+                                        $(".pop-up").children("h4").text("CVC can't be empty.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    
+                                    if($(".cvc").val().length > 3){
+                                        $(".pop-up").children("h4").text("CVC can't be longer than 3 numbers.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    
+                                    
+                                    
+                                    e.preventDefault(); 
+                                    
+                                    
+                                    $.ajax({
+                                           type: "POST",
+                                           url: "/dashboard/payment_create/",
+                                           data: $("#payment-form").serialize(),
+                                           success: function(data)
+                                           {
+                                               
+                                 
+                                               if (data == "true"){
+                                    
+                                            
+                                    
+                                                return false;
+                                    
+                                               }
+                                    
+                                               
+                                    
+                                               else {
+                                    
+                                    
+                                            }
+                                                      
+                                           }
+                                         });
+                                     
+                                    });
+                                    
+                                    
+                                    
+                                                });
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                <div id="confirmation-container" class="checkout-container is-hidden">
+                    
+                                    <div class="confirmation-box">
+                                        <svg id="successAnimation" class="animated" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+                                            <path id="successAnimationResult" fill="#D8D8D8" d="M35,60 C21.1928813,60 10,48.8071187 10,35 C10,21.1928813 21.1928813,10 35,10 C48.8071187,10 60,21.1928813 60,35 C60,48.8071187 48.8071187,60 35,60 Z M23.6332378,33.2260427 L22.3667622,34.7739573 L34.1433655,44.40936 L47.776114,27.6305926 L46.223886,26.3694074 L33.8566345,41.59064 L23.6332378,33.2260427 Z"></path>
+                                            <circle id="successAnimationCircle" cx="35" cy="35" r="24" stroke="#979797" stroke-width="2" stroke-linecap="round" fill="transparent"></circle>
+                                            <polyline id="successAnimationCheck" stroke="#979797" stroke-width="2" points="23 34 34 43 47 27" fill="transparent"></polyline>
+                                        </svg>
+                                        <h3>Your payment was successful.</h3>
+                                        <p>Thank you for your purchase. We will immediatly start preparing your order and ship it to you.</p>
+                    
+                                        <div class="order-summary">
+                                            <h4>Order Summary</h4>
+                    
+                                            <div class="order-line">
+                                                <div class="item">
+                                                    <span>Transaction ID</span>
+                                                </div>
+                                                <div class="amount">
+                                                    <span>#45894</span>
+                                                </div>
+                                            </div>
+                                            <div class="order-line">
+                                                <div class="item">
+                                                    <span>Subtotal</span>
+                                                </div>
+                                                <div class="amount">
+                                                    <span data-currency="USD">$201.92</span>
+                                                </div>
+                                            </div>
+                                            <div class="order-line">
+                                                <div class="item">
+                                                    <span>Shipping</span>
+                                                </div>
+                                                <div class="amount">
+                                                    <span data-currency="USD">$15.00</span>
+                                                </div>
+                                            </div>
+                                            <div class="order-line">
+                                                <div class="item">
+                                                    <span>Taxes</span>
+                                                </div>
+                                                <div class="amount">
+                                                    <span data-currency="USD">$8.92</span>
+                                                </div>
+                                            </div>
+                                            <div class="order-line">
+                                                <div class="item is-total">
+                                                    <span>Total</span>
+                                                </div>
+                                                <div class="amount is-total">
+                                                    <span data-currency="USD">$216.92</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+
+            <div id="edit-payment-modal" class="modal edit-payment-modal is-l has-light-bg">
                 <div class="modal-background"></div>
                 <div class="modal-content">
         
@@ -1333,7 +1887,7 @@ $.ajax({
                              </div>
                              <!-- Close X button -->
                              <div class="close-wrap">
-                                 <span class="close-edit-payment" style="cursor: pointer;">
+                                 <span class="close-edit-payment-modal" style="cursor: pointer;">
                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                                  </span>
                              </div>
@@ -1360,20 +1914,20 @@ $.ajax({
                                                     <div class="field">
                                                         <label for="card-element">Name on card</label>
                                                         <div class="control">
-                                                            <input class="input" placeholder="Enter full name on the credit card" name="checkout_name">
+                                                            <input class="input" placeholder="Enter full name on the credit card" value="Edvin Molla" name="checkout_name">
                                                         </div>
                                                     </div>
                                                     <div class="field">
                                                         <label for="card-element">Address</label>
                                                         <div class="control">
-                                                            <input class="input" placeholder="Enter billing address here" maxlength="30" type="text" autofocus="">
+                                                            <input class="input" placeholder="Enter billing address here" value="Komuna e Parisit" maxlength="30" type="text" autofocus="">
                                                         </div>
                     
                                                     </div>
                                                     <div class="field">
                                                         <label for="card-element">ZIP Code</label>
                                                         <div class="control">
-                                                            <input class="input" placeholder="Enter ZIP Code here" maxlength="8" type="text" autofocus="">
+                                                            <input class="input" placeholder="Enter ZIP Code here" value="1051" maxlength="8" type="text" autofocus="">
                                                         </div>
                     
                                                     </div>
@@ -1389,7 +1943,10 @@ $.ajax({
                                                     <div class="field">
                                                         <label for="card-element">Credit or debit card</label>
                                                         <div class="control">
-                                                            <div id="card-element" class="StripeElement StripeElement--empty"><div class="__PrivateStripeElement" style="margin: 0px !important; padding: 0px !important; border: medium none !important; display: block !important; background: transparent none repeat scroll 0% 0% !important; position: relative !important; opacity: 1 !important;"><iframe allowtransparency="true" scrolling="no" name="__privateStripeFrame6325" allowpaymentrequest="true" src="https://js.stripe.com/v3/elements-inner-card-2a91b26f7eeab8d06f8cf56bebec08b1.html#style[base][fontSize]=14px&amp;style[base][color]=%23595d6e&amp;wait=false&amp;rtl=false&amp;componentName=card&amp;keyMode=test&amp;apiKey=pk_test_6pRNASCoBOKtIshFeQd4XMUh&amp;origin=https%3A%2F%2Ffriendkit.cssninja.io&amp;referrer=https%3A%2F%2Ffriendkit.cssninja.io%2Fecommerce-payment.html&amp;controllerId=__privateStripeController6321" title="Secure card payment input frame" style="border: medium none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; user-select: none !important; transform: translateZ(0px) !important; height: 16.8px;" frameborder="0"></iframe><input class="__PrivateStripeElement-input" aria-hidden="true" aria-label=" " autocomplete="false" maxlength="1" style="border: medium none !important; display: block !important; position: absolute !important; height: 1px !important; top: 0px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent none repeat scroll 0% 0% !important; pointer-events: none !important; font-size: 16px !important;"></div></div>
+                                                            <div id="card-element" class="StripeElement StripeElement--empty">
+                                                                <div class="__PrivateStripeElement" style="margin: 0px !important; padding: 0px !important; border: medium none !important; display: block !important; background: transparent none repeat scroll 0% 0% !important; position: relative !important; opacity: 1 !important;">
+                                                                    <iframe allowtransparency="true" scrolling="no" name="__privateStripeFrame6325" allowpaymentrequest="true" src="https://js.stripe.com/v3/elements-inner-card-2a91b26f7eeab8d06f8cf56bebec08b1.html#style[base][fontSize]=14px&amp;style[base][color]=%23595d6e&amp;wait=false&amp;rtl=false&amp;componentName=card&amp;keyMode=test&amp;apiKey=pk_test_6pRNASCoBOKtIshFeQd4XMUh&amp;origin=https%3A%2F%2Ffriendkit.cssninja.io&amp;referrer=https%3A%2F%2Ffriendkit.cssninja.io%2Fecommerce-payment.html&amp;controllerId=__privateStripeController6321" title="Secure card payment input frame" style="border: medium none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; user-select: none !important; transform: translateZ(0px) !important; height: 16.8px;" frameborder="0"></iframe>
+                                                                    <input class="__PrivateStripeElement-input" aria-hidden="true" aria-label=" " autocomplete="false" maxlength="1" style="border: medium none !important; display: block !important; position: absolute !important; height: 1px !important; top: 0px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent none repeat scroll 0% 0% !important; pointer-events: none !important; font-size: 16px !important;"></div></div>
                     
                                                             <!-- Used to display Element errors -->
                                                             <div id="card-errors" role="alert"></div>
@@ -1629,7 +2186,7 @@ $.ajax({
                                                                     <option value="Turks & Caicos Is">Turks & Caicos Is</option>
                                                                     <option value="Tuvalu">Tuvalu</option>
                                                                     <option value="Uganda">Uganda</option>
-                                                                    <option value="United Kingdom">United Kingdom</option>
+                                                                    <option value="United Kingdom" selected>United Kingdom</option>
                                                                     <option value="Ukraine">Ukraine</option>
                                                                     <option value="United Arab Erimates">United Arab Emirates</option>
                                                                     <option value="United States of America">United States of America</option>
@@ -1729,8 +2286,7 @@ $.ajax({
             </div>
           
 
-
-            <div id="application-modal" class="modal application-modal is-xlarge has-light-bg">
+            <div id="create-application-modal" class="modal create-application-modal is-xlarge has-light-bg">
                 <div class="modal-background"></div>
                 <div class="modal-content">
         
@@ -2127,7 +2683,7 @@ $.ajax({
             </div>
 
 
-            <div id="database-modal" class="modal database-modal is-xlarge has-light-bg">
+            <div id="create-database-modal" class="modal create-database-modal is-xlarge has-light-bg">
                 <div class="modal-background"></div>
                 <div class="modal-content">
         
@@ -2689,7 +3245,7 @@ $.ajax({
                                             </div>
                                         </a>
                                         <hr class="dropdown-divider">
-                                        <a href="#" class="dropdown-item modal-trigger" data-modal="application-modal">
+                                        <a href="#" class="dropdown-item modal-trigger" data-modal="create-application-modal">
                                             <div class="media">
                                                 <i data-feather="loader"></i>
                                                 <div class="media-content">
@@ -2698,7 +3254,7 @@ $.ajax({
                                                 </div>
                                             </div>
                                         </a>
-                                        <a class="dropdown-item modal-trigger" data-modal="database-modal">
+                                        <a class="dropdown-item modal-trigger" data-modal="create-database-modal">
                                             <div class="media">
                                                 <i data-feather="database"></i>
                                                 <div class="media-content">
