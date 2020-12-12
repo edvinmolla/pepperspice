@@ -20,6 +20,7 @@ from .models import UploadedProject
 import time
 import boto3
 import requests
+from validate_email import validate_email
 
 @csrf_exempt
 def check_id(request):
@@ -40,11 +41,11 @@ def api_create(request):
                 if api.aws_access_key == request.POST['aws-acc-key-id']:
                     return HttpResponse('true')
                    
-            data = requests.get(url="http://apilayer.net/api/check?access_key=3c8bd6264ba7a7dc6801b22ee7970a55&email="+request.POST['email-field']).json()
+            # data = requests.get(url="http://apilayer.net/api/check?access_key=3c8bd6264ba7a7dc6801b22ee7970a55&email="+request.POST['email-field']).json()
 
+            # data['smtp_check']
 
-
-            if(data['smtp_check']):
+            if(validate_email(email_address=request.POST['email-field'], check_regex=True, check_mx=True, from_address='accntofficial@gmail.com', helo_host='peperspice', smtp_timeout=6, dns_timeout=6, use_blacklist=True, debug=False)):
                 try:
                     
                     client = boto3.client("sts", aws_access_key_id=request.POST['aws-acc-key-id'].strip(), aws_secret_access_key=request.POST['aws-sec-key'].strip())
