@@ -304,7 +304,7 @@ function initModals() {
     $('.close-edit-payment-modal').on('click', function () {
       $('.edit-payment-modal').removeClass('is-active');
     });
-    $('.close-add-payment').on('click', function () {
+    $('.close-create-payment').on('click', function () {
       $('.payment-create-modal').removeClass('is-active');
     });
   }
