@@ -594,20 +594,64 @@ $('.settings-9').addClass('is-active');
             
                                         <div id="billing-section" class="content-section" style="animation: fadeInRight .5s !important;">
                                           
+                                            {% if card_count == 0 %}
+                                           
+                                           <script>
+                                                $( document ).ready(function() {
+                                                        $(".empty-gif").attr("src", "https://raw.githubusercontent.com/elegantcha0s/images/master/ezgif.com-gif-maker(1).gif");
+                                                    });
+                                            </script>
+                                            <div class="column">
 
+                                                <div class="card page-about-card" style="transform: scale(1) !important;-webkit-transform: scale(1) !important; animation: fadeInRight .2s;">
+                                                   
+                                                    <div class="about-body">
+                                                        <div class="columns"></div>
+                                                            <div class="column has-text-centered">
+
+                                                                <h1 class="subtitle is-1">You have no active payment methods.</h1>
+                                                                <h6 class="subtitle is-6">Add payment method to increase service cap.</h6>
+
+                                                                <div class='card-content is-flex is-horizontal-center' style="justify-content: center;">
+                                                                    <img class="empty-gif" src="" style="display: block;" width="150">
+                                                                    
+                                                                  </div>
+
+                                                                  <a class="button is-rounded modal-trigger" data-modal="payment-create-modal">Add New Payment Method</a>
+                                                               
+                                                            </div>
+                                                            <!-- <div class="column is-5">
+                                                              
+                        
+                                                               
+                                                            </div> -->
+                                                            
+                                                     
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            {% else %}
+
+                                           
                                             <div class="friends-grid">
                                                 <div class="columns">
+
+                                                    {% for api in apis %}
                                                     <div class="column is-3">
                                                         <a class="friend-item has-text-centered modal-trigger" data-modal="edit-payment-modal">
                                                             <div class="avatar-wrap">
                                                                  
                                                                 <img data-demo-src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/Banka_Komb%C3%ABtare_Tregtare.svg/1200px-Banka_Komb%C3%ABtare_Tregtare.svg.png" style="border-radius: 0px; height: 50%; transform: scale(1.5);">
                                                             </div>
+                                                            {% if api.issuer == %}
                                                             <h3>BKT Albania</h3>
                                                             <p>Manage Payment Method</p>
                                                         </a>
                                                     </div>
-                                                  
+                                                    {% endfor%}
                                                     <div class="column is-3">
                                                         <a class="friend-item has-text-centered modal-trigger" data-modal="payment-create-modal" style="border: none;">
                                                             <div class="avatar-wrap">
@@ -650,6 +694,9 @@ $('.settings-9').addClass('is-active');
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            {% endif %}
+                                        
                                             
                                         </div>
                                

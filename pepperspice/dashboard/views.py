@@ -123,14 +123,18 @@ def dashboard(request):
 
             r.save()
    
-
-        
-
+        # Api supply
         apis = api_service.objects.filter(owner_email=request.user)
 
         api_count = 0
         for i in apis:
             api_count += 1
+
+        # Payment supply
+        card_count = 0
+        cards = credit_card.objects.filter(owner_email=request.user)
+        for card in cards:
+            card_count += 1
 
 
         web_app_count = 0
@@ -161,7 +165,12 @@ def dashboard(request):
 
         uid = UserTrait.objects.filter(email=request.user).first().unique_id
    
-        return render(request, 'html/spec-comp/dashboard/entrypoint.html', {'uid':uid[:4]+ "******" + uid[-4:], 'apis':apis, 'api_count':api_count})
+        return render(request, 'html/spec-comp/dashboard/entrypoint.html', {'uid':uid[:4]+ "******" + uid[-4:], 
+                                                                            'apis':apis, 
+                                                                            'api_count':api_count,
+                                                                            'cards':cards,
+                                                                            'card_count':card_count
+                                                                            })
         # return render(request, 'html/spec-comp/dashboard/overview.html', {'instances':Node.objects.filter(Email=request.user), 
         #                                                                     'initials':str(request.user).split('@')[0],
         #                                                                     'webapps':Node.objects.filter(is_webapp=True), 
