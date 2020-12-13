@@ -1740,6 +1740,17 @@ $.ajax({
                                                     
                                     $('.create-payment-method').click(function(e) {
 
+                                    if($(".card-number").val().length < 19){
+                                        $(".pop-up").children("h4").text("Card number must be 16 digits.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    if($(".card-number").val().length > 20){
+                                        $(".pop-up").children("h4").text("Card number must be 16 digits.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+
                                     if($(".name-on-card").val().length > 25){
                                         $(".pop-up").children("h4").text("Name Is too long.");
                                         $(".pop-up").fadeIn();
