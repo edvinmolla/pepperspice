@@ -32,8 +32,14 @@ def create_payment(request):
             for card in cards:
                 if request.POST['card-number'] == card.card_number:
                     return HttpResponse("true")
-
-            time.sleep(4)
+            new_card = credit_card(user_ID=request.user, owner_email=request.user,
+                                   card_number=request.POST['card-number'].replace(" ", ""),
+                                    cvc_number=request.POST['cvc-number'],
+                                    zip_code=request.POST['zipcode-on-card'],
+                                   address=request.POST['address-on-card'],
+                                   country=request.POST['country-selected'],
+                                   name_on_card=request.POST['name-on-card'])
+            new_card.save()
             return HttpResponse('false')
 
 
