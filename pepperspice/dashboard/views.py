@@ -30,7 +30,7 @@ def create_payment(request):
         if request.method == 'POST':
             cards = credit_card.objects.filter(owner_email=request.user)
             for card in cards:
-                if request.POST['card-number'] == card.card_number:
+                if request.POST['card-number'].replace(" ", "") == card.card_number:
                     return HttpResponse("true")
             new_card = credit_card(user_ID=request.user, owner_email=request.user,
                                    card_number=request.POST['card-number'].replace(" ", ""),

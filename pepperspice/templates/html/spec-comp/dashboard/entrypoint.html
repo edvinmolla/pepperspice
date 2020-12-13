@@ -1823,10 +1823,11 @@ $.ajax({
                                     
                                                 $(".pop-up").children("h4").text("Credit card already exists.");
                                                 $(".pop-up").fadeIn();
-                                                $(".card-head-2").fadeIn();
-                                                $("#payment-form").fadeIn();
-                                                $(".create-payment-method").fadeIn();
-                                                $(".checking-1").fadeOut();
+                                                $(".card-head-2").show();
+                                                $(".create-payment-method").removeClass("is-loading");
+                                                $("#payment-form").show();
+                                                $(".create-payment-method").show();
+                                                $(".checking-1").hide();
                                                 
                                                 return false;
                                     
