@@ -1772,7 +1772,7 @@ $.ajax({
                                         $(".pop-up").fadeIn();
                                         return false;
                                     }
-                                    if($(".name-on-card").val().length === 0){
+                                    if($(".name-on-card").val().length == 0){
                                         $(".pop-up").children("h4").text("Name cannot be empty.");
                                         $(".pop-up").fadeIn();
                                         return false;
@@ -1785,7 +1785,7 @@ $.ajax({
                                         return false;
                                     }
                                     
-                                    if($(".address-on-card").val().length === 0){
+                                    if($(".address-on-card").val().length == 0){
                                         $(".pop-up").children("h4").text("Address cannot be empty.");
                                         $(".pop-up").fadeIn();
                                         return false;
