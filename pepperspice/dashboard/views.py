@@ -28,6 +28,7 @@ from .models import credit_card
 def create_payment(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
+        
             cards = credit_card.objects.filter(owner_email=request.user)
             for card in cards:
                 if request.POST['card-number'].replace(" ", "") == card.card_number:
@@ -38,6 +39,7 @@ def create_payment(request):
                                     zip_code=request.POST['zipcode-on-card'],
                                    address=request.POST['address-on-card'],
                                    country=request.POST['country-selected'],
+                                   issuer=request.POST['issuer'].replace(",", ""),
                                    name_on_card=request.POST['name-on-card'])
             new_card.save()
             return HttpResponse('false')
@@ -46,6 +48,7 @@ def create_payment(request):
 def check_id(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
+            
             apis = api_service.objects.filter(owner_email=request.user)
             for i in apis:
                 if i.api_id == request.POST['api_id']:

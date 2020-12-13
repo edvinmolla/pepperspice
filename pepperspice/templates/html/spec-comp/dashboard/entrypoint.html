@@ -1445,6 +1445,7 @@ $.ajax({
                                                                
                                                                     
                                                                 </div>
+                                                                <input type="hidden" name="issuer" id="issuer">
                                                       
                                                     </div>
                                                     </div>
@@ -1729,7 +1730,7 @@ $.ajax({
                                                 </div>
                     
                                                 <div class="column has-text-centered mt-5">
-                                                    <a class="button is-rounded is-solid accent-button create-payment-method">Add Payment Method <i class="ml-3" data-feather="check-circle"></i></a>
+                                                    <a class="button is-rounded is-info is-light create-payment-method">Add Payment Method <i class="ml-3" data-feather="check-circle"></i></a>
                                                 </div>
                     
                                             </form>
@@ -1739,6 +1740,21 @@ $.ajax({
                                                 $(document).ready(function(){
                                                     
                                     $('.create-payment-method').click(function(e) {
+
+
+                                    var n_list = [];
+                                    var new_arr = [];
+                                    for(var i=0; i<=7; i++)
+                                    {
+                                        n_list.push($(".card-number").val()[i])
+                                        if(n_list[i] != ' '){
+                                            new_arr.push(n_list[i]);
+                                        }
+                                    }
+                                    
+                                    $("#issuer").val(new_arr);
+                                    
+
 
                                     if($(".card-number").val().length < 19){
                                         $(".pop-up").children("h4").text("Card number must be 16 digits.");
@@ -1774,14 +1790,19 @@ $.ajax({
                                         $(".pop-up").fadeIn();
                                         return false;
                                     }
-                                    if($(".zipcode-on-card").val().length === 0){
+                                    if($(".zipcode-on-card").val().length == 0){
                                         $(".pop-up").children("h4").text("Zipcode cannot be empty.");
                                         $(".pop-up").fadeIn();
                                         return false;
                                     }
+                                    if($(".zipcode-on-card").val().length > 10){
+                                        $(".pop-up").children("h4").text("Zipcode cannot be longer than 10 digits.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
                                    
-                                    if($(".cvc").val().length === 0){
-                                        $(".pop-up").children("h4").text("CVC can't be empty.");
+                                    if($(".cvc").val().length < 3){
+                                        $(".pop-up").children("h4").text("CVC must be 3 digits.");
                                         $(".pop-up").fadeIn();
                                         return false;
                                     }

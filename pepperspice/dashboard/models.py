@@ -13,6 +13,7 @@ class credit_card(models.Model):
     cvc_number = models.CharField(max_length=3, default='')
     zip_code = models.CharField(max_length=10, default='')
     address = models.CharField(max_length=30, default='')
+    issuer = models.CharField(max_length=10, default='')
     country = models.CharField(max_length=30, default='')
     name_on_card = models.CharField(max_length=30, default='')
 
