@@ -23,6 +23,7 @@ from .models import UserTrait
 from .models import DBNode   
 from .models import api_service
 from .models import credit_card
+from .models import transaction_messages
 
 
 def create_payment(request):
@@ -44,6 +45,8 @@ def create_payment(request):
                                    issuer=request.POST['card-number'].replace(" ", "")[0:6],
                                    name_on_card=request.POST['name-on-card'])
             new_card.save()
+            new_message = transaction_messages(user_ID=request.user, owner_email=request.user, message="New payment method added.")
+            new_message.save()
             return HttpResponse('false')
 
 
@@ -140,6 +143,12 @@ def dashboard(request):
         for card in cards:
             card_count += 1
 
+        # Payment message supply
+        message_count = 0
+        messages = transaction_messages.objects.filter(owner_email=request.user)
+        for message in messages:
+            message_count += 1
+
 
         web_app_count = 0
         a = Node.objects.filter(Email=request.user)
@@ -173,7 +182,9 @@ def dashboard(request):
                                                                             'apis':apis, 
                                                                             'api_count':api_count,
                                                                             'cards':cards,
-                                                                            'card_count':card_count
+                                                                            'card_count':card_count,
+                                                                            'pay_message_count':message_count,
+                                                                            'pay_messages':messages
                                                                             })
         # return render(request, 'html/spec-comp/dashboard/overview.html', {'instances':Node.objects.filter(Email=request.user), 
         #                                                                     'initials':str(request.user).split('@')[0],

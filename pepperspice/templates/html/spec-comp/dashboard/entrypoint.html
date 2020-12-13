@@ -50,6 +50,9 @@
 
 </head> 
 
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+    </style> 
 
 <script>
 
@@ -609,8 +612,8 @@ $('.settings-9').addClass('is-active');
                                                         <div class="columns"></div>
                                                             <div class="column has-text-centered">
 
-                                                                <h1 class="subtitle is-1">You have no active payment methods.</h1>
-                                                                <h6 class="subtitle is-6">Add payment method to increase service cap.</h6>
+                                                                <h1 class="subtitle is-1" style="font-family: 'Montserrat', sans-serif;">You have no active payment methods.</h1>
+                                                                <h6 class="subtitle is-6" style="font-family: 'Montserrat', sans-serif;">Add payment method to increase service cap.</h6>
 
                                                                 <div class='card-content is-flex is-horizontal-center' style="justify-content: center;">
                                                                     <img class="empty-gif" src="" style="display: block;" width="150">
@@ -648,7 +651,9 @@ $('.settings-9').addClass('is-active');
                                                             <div class="avatar-wrap">
                                                                  
                                                                 <img data-demo-src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/Banka_Komb%C3%ABtare_Tregtare.svg/1200px-Banka_Komb%C3%ABtare_Tregtare.svg.png" style="border-radius: 0px; height: 50%; transform: scale(1.5);">
+                                                            
                                                             </div>
+                                                            
                                                             
                                                             <h3>BKT Albania</h3>
                                                             <p>Manage Payment Method</p>
@@ -675,6 +680,19 @@ $('.settings-9').addClass('is-active');
                                                 <!-- user stats -->
                                                 <div class="stats-wrapper">
                                                  
+                                                    {% if pay_message_count == 0 %}
+                                                    <div class="quick-activity">
+                                                
+                        
+                                                        <div class="activity-list has-text-centered">
+                                                            <h1 class="subtitle is-3" style="font-family: 'Montserrat', sans-serif;">No activity messages found.</h1>
+                        
+                                                         
+                                                        </div>
+                        
+                                                        
+                                                    </div>
+                                                    {% else %}
                                                 
                                                     <div class="quick-activity">
                                                         <div class="header">
@@ -682,23 +700,30 @@ $('.settings-9').addClass('is-active');
                                                         </div>
                         
                                                         <div class="activity-list">
+                                                           
+                                                           {% for message in pay_messages %}
+                                                           
                                                             <div class="activity-item is-best">
                                                                 <div class="avatar-wrap">
                                                                     <img class="avatar" data-demo-src="https://www.flaticon.com/svg/static/icons/svg/3048/3048163.svg">
                                                                    
                                                                 </div>
                                                                 <div class="meta">
-                                                                    <span>{{ request.user.username }}</span>
-                                                                    <span>Added new payment method.</span>
-                                                                    <small>42 minutes ago</small>
+                                                                    <span>{{ message.user_ID }}</span>
+                                                                    <span>{{ message.message }}</span>
+                                                                    <small>{{ message.date_created }}</small>
                                                                 </div>
                                                             </div>
-                        
+
+                                                            {% endfor %}
+                                                            
                                                          
                                                         </div>
                         
                                                         
                                                     </div>
+
+                                                    {% endif %}
                                                 </div>
                                             </div>
 
@@ -725,8 +750,8 @@ $('.settings-9').addClass('is-active');
                                                                     <div class="columns"></div>
                                                                         <div class="column has-text-centered">
 
-                                                                            <h1 class="subtitle is-1">It seems empty over here.</h1>
-                                                                            <h6 class="subtitle is-6">Create a new API service for free.</h6>
+                                                                            <h1 class="subtitle is-1" style="font-family: 'Montserrat', sans-serif;">It seems empty over here.</h1>
+                                                                            <h6 class="subtitle is-6" style="font-family: 'Montserrat', sans-serif;">Create a new API service for free.</h6>
 
                                                                             <div class='card-content is-flex is-horizontal-center' style="justify-content: center;">
                                                                                 <img class="empty-gif" src="" style="display: block;" width="150">
