@@ -2,12 +2,8 @@ from django.shortcuts import render, redirect
 from authentication.models import CustomUser
 from django.conf import settings
 from django.utils import timezone
-from .models import Node
 from authentication.models import CustomUser
 from django.http import HttpResponse
-from .models import UserTrait      
-from .models import DBNode   
-from .models import api_service
 import subprocess      
 from datetime import datetime
 import uuid
@@ -22,13 +18,23 @@ import boto3
 import requests
 from validate_email import validate_email
 
+from .models import Node
+from .models import UserTrait      
+from .models import DBNode   
+from .models import api_service
+from .models import credit_card
 
 
 def create_payment(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
-            print(request.POST)
-            return HttpResponse('success')
+            cards = credit_card.objects.filter(owner_email=request.user)
+            for card in cards:
+                if request.POST['card-number'] == card.card_number:
+                    return HttpResponse("true")
+
+            time.sleep(4)
+            return HttpResponse('false')
 
 
 def check_id(request):

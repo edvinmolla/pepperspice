@@ -982,23 +982,6 @@ $(".finish").hide();
 $(".pop-up").fadeOut();
 $(".checking").fadeIn();
 
-var access_key = 'YOUR_ACCESS_KEY';
-var email_address = 'support@apilayer.com';
-
-// verify email address via AJAX call
-$.ajax({
-    url: 'http://apilayer.net/api/check?access_key=' + access_key + '&email=' + email_address,   
-    dataType: 'jsonp',
-    success: function(json) {
-
-    // Access and use your preferred validation result objects
-    console.log(json.format_valid);
-    console.log(json.smtp_check);
-    console.log(json.score);
-                
-    }
-});
-
 
 $.ajax({
        type: "POST",
@@ -1770,6 +1753,8 @@ $.ajax({
                                     e.preventDefault(); 
                                     
                                     
+                                    $(".create-payment-method").addClass("is-loading");
+                                    
                                     $.ajax({
                                            type: "POST",
                                            url: "/dashboard/payment_create/",
@@ -1780,7 +1765,8 @@ $.ajax({
                                  
                                                if (data == "true"){
                                     
-                                            
+                                                $(".pop-up").children("h4").text("Credit card already exists.");
+                                                $(".pop-up").fadeIn();
                                     
                                                 return false;
                                     
@@ -1790,7 +1776,9 @@ $.ajax({
                                     
                                                else {
                                     
-                                    
+                                                
+
+
                                             }
                                                       
                                            }

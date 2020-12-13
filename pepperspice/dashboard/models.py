@@ -5,6 +5,19 @@ from django.utils import timezone
 from datetime import datetime
 import uuid
 
+class credit_card(models.Model):
+    user_ID = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    owner_email = models.EmailField(default='')
+    date_created = models.DateTimeField(default=datetime.now())
+    card_number = models.IntegerField(max_length=16, default=0)
+    cvc_number = models.IntegerField(max_length=3, default=0)
+    zip_code = models.IntegerField(max_length=10, default=0)
+    address = models.CharField(max_length=30, default='')
+    country = models.CharField(max_length=30, default='')
+    name_on_card = models.CharField(max_length=30, default='')
+
+    
+
 class UploadedProject(models.Model):
     user_ID = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     owner_email = models.EmailField(default='')
