@@ -642,7 +642,7 @@ $('.settings-9').addClass('is-active');
                                                     {% for card in cards %}
                                                     <div class="column is-3">
                                                         {% if card.issuer == "432477" %}
-                                                        <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.id='{{ card.card_uid }}'};send()">
+                                                        <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}};'};send()">
                                                            
                                                            
                                                             <div class="avatar-wrap">
@@ -1499,7 +1499,7 @@ $.ajax({
                                                                
                                                                     
                                                                 </div>
-                                                                <input type="hidden" name="issuer" id="issuer">
+                                                              
                                                       
                                                     </div>
                                                     </div>
@@ -1991,8 +1991,11 @@ $.ajax({
                                                 
                                                 
                                                 $(".card-edit-trigger").on("click", function(){
-
-                                                        $(".edit-name").val(window.id);
+                                            
+                                                        $("#edit-name").val(window.name);
+                                                        $("#edit-address").val(window.address);
+                                                        $("#edit-zip").val(window.zip);
+                                                        $("#country-edit").val(window.country);
 
 
                                                 });
@@ -2005,7 +2008,8 @@ $.ajax({
                                     
                                     <div class="right" style="width: 100%;">
                                         <div class="payment-form" style="box-shadow: none !important; -webkit-box-shadow: none !important; border: none !important;">
-                                            <form action="/charge" method="post" id="stripe-payment-form" class="provider-form is-active">
+                                            <form action="" method="post" id="payment-form" class="provider-form is-active">
+                                                {% csrf_token %}
                                                 <div id="checkout-contact-section" class="form-section has-margin-bottom">
                                                     <div class="form-section-header">
                                                         <h3>Contact Information</h3>
@@ -2013,23 +2017,17 @@ $.ajax({
                                                     <div class="field">
                                                         <label for="card-element">Name on card</label>
                                                         <div class="control">
-                                                            <input class="input" id="edit-name" placeholder="Enter full name on the credit card" name="checkout_name">
+                                                            <input class="input name-on-card-edit" placeholder="Enter full name on the credit card" name="name-on-card">
                                                         </div>
                                                     </div>
                                                     <div class="field">
                                                         <label for="card-element">Address</label>
                                                         <div class="control">
-                                                            <input class="input" id="edit-address" placeholder="Enter billing address here" maxlength="30" type="text" autofocus="">
+                                                            <input class="input address-on-card-edit" placeholder="Enter billing address here" maxlength="30" type="text" autofocus="" name="address-on-card">
                                                         </div>
                     
                                                     </div>
-                                                    <div class="field">
-                                                        <label for="card-element">ZIP Code</label>
-                                                        <div class="control">
-                                                            <input class="input" id="edit-zip" placeholder="Enter ZIP Code here" maxlength="8" type="text" autofocus="">
-                                                        </div>
-                    
-                                                    </div>
+                                                   
                                                 </div>
                     
                                                 <div id="checkout-payment-section" class="form-section">
@@ -2040,23 +2038,74 @@ $.ajax({
                                                    
                     
                                                     <div class="field">
-                                                        <label for="card-element">Credit or debit card</label>
+                                                        <div class="columns">
+                                                            <div class="column">
+                                                        <label for="card-element">Credit Card Number</label>
                                                         <div class="control">
-                                                            <div id="card-element" class="StripeElement StripeElement--empty">
-                                                                <div class="__PrivateStripeElement" style="margin: 0px !important; padding: 0px !important; border: medium none !important; display: block !important; background: transparent none repeat scroll 0% 0% !important; position: relative !important; opacity: 1 !important;">
-                                                                    <iframe allowtransparency="true" scrolling="no" name="__privateStripeFrame6325" allowpaymentrequest="true" src="https://js.stripe.com/v3/elements-inner-card-2a91b26f7eeab8d06f8cf56bebec08b1.html#style[base][fontSize]=14px&amp;style[base][color]=%23595d6e&amp;wait=false&amp;rtl=false&amp;componentName=card&amp;keyMode=test&amp;apiKey=pk_test_6pRNASCoBOKtIshFeQd4XMUh&amp;origin=https%3A%2F%2Ffriendkit.cssninja.io&amp;referrer=https%3A%2F%2Ffriendkit.cssninja.io%2Fecommerce-payment.html&amp;controllerId=__privateStripeController6321" title="Secure card payment input frame" style="border: medium none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; user-select: none !important; transform: translateZ(0px) !important; height: 16.8px;" frameborder="0"></iframe>
-                                                                    <input class="__PrivateStripeElement-input" aria-hidden="true" aria-label=" " autocomplete="false" maxlength="1" style="border: medium none !important; display: block !important; position: absolute !important; height: 1px !important; top: 0px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent none repeat scroll 0% 0% !important; pointer-events: none !important; font-size: 16px !important;"></div></div>
-                    
-                                                            <!-- Used to display Element errors -->
-                                                            <div id="card-errors" role="alert"></div>
+                                                           
+
+                                                         
+                                                            <input class="input card-number-edit" placeholder="Card number here" maxlength="19" type="tel" autofocus="" name="card-number">
                                                         </div>
+                                                   
+                                                       
+                                                            
+                                                        </div>
+                    
+                                                        <div class="column is-3">
+                                                            <label for="card-element">ZIP Code</label>
+                                                            <div class="control">
+                                                               
+    
+                                                             
+                                                                <input class="input zipcode-on-card-edit" placeholder="ZIP Code" maxlength="10" type="tel" autofocus="" name="zipcode-on-card">
+                                                            </div>
+                                                       
+                                                           
+                                                                
+                                                            </div>
+
+                                                            <div class="column is-2">
+                                                                <label for="card-element">CVC</label>
+                                                                <div class="control">
+                                                                   
+        
+                                                                 
+                                                                    <input class="input cvc-edit" placeholder="CVC" maxlength="3" type="tel" autofocus="" name="cvc-number">
+                                                                </div>
+                                                           
+                                                               
+                                                                    
+                                                                </div>
+                                                              
+                                                      
                                                     </div>
+                                                    </div>
+                                              
+                                                    <script>
+                                                        $( document ).ready(function() {
+                                                            $(".checking-1").hide();
+                                                            $(".verified-2").hide();  
+                                                            $('.card-number').on('keyup', function(e){
+                                                            var val = $(this).val();
+                                                            var newval = '';
+                                                            val = val.replace(/\s/g, '');
+                                                            for(var i=0; i < val.length; i++) {
+                                                                if(i%4 == 0 && i > 0) newval = newval.concat(' ');
+                                                                newval = newval.concat(val[i]);
+                                                            }
+                                                            $(this).val(newval);
+                                                        });
+                                                        });
+                                                       
+                                                    </script>
+                                                    
                     
                                                     <div class="field">
                                                         <label>Country</label>
                                                         <div class="control has-icons-left">
-                                                            <div class="select">
-                                                                <select id="country" name="country">
+                                                            <div class="select countr-selected">
+                                                                <select id="country" name="country-selected">
                                                                     <option value="Afganistan">Afghanistan</option>
                                                                     <option value="Albania">Albania</option>
                                                                     <option value="Algeria">Algeria</option>
@@ -2312,7 +2361,9 @@ $.ajax({
                                                     </div>
                                                 </div>
                     
-                                              
+                                                <div class="column has-text-centered mt-5">
+                                                    <a class="button is-rounded is-info is-light create-payment-method">Add Payment Method <i class="ml-3" data-feather="check-circle"></i></a>
+                                                </div>
                     
                                             </form>
                                         </div>
