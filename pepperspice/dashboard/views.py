@@ -29,7 +29,6 @@ from .models import transaction_messages
 def create_payment(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
-            time.sleep(2)
             cards = credit_card.objects.filter(owner_email=request.user)
             for card in cards:
                 if request.POST['card-number'].replace(" ", "") == card.card_number:
