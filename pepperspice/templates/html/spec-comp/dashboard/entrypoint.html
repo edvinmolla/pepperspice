@@ -50,6 +50,9 @@
 
 </head> 
 
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+    </style> 
 
 <script>
 
@@ -594,20 +597,73 @@ $('.settings-9').addClass('is-active');
             
                                         <div id="billing-section" class="content-section" style="animation: fadeInRight .5s !important;">
                                           
+                                            {% if card_count == 0 %}
+                                           
+                                           <script>
+                                                $( document ).ready(function() {
+                                                        $(".empty-gif").attr("src", "https://raw.githubusercontent.com/elegantcha0s/images/master/ezgif.com-gif-maker(1).gif");
+                                                    });
+                                            </script>
+                                            <div class="column">
 
+                                                <div class="card page-about-card" style="transform: scale(1) !important;-webkit-transform: scale(1) !important; animation: fadeInRight .2s;">
+                                                   
+                                                    <div class="about-body">
+                                                        <div class="columns"></div>
+                                                            <div class="column has-text-centered">
+
+                                                                <h1 class="subtitle is-1" style="font-family: 'Montserrat', sans-serif;">You have no active payment methods.</h1>
+                                                                <h6 class="subtitle is-6" style="font-family: 'Montserrat', sans-serif;">Add payment method to increase service cap.</h6>
+
+                                                                <div class='card-content is-flex is-horizontal-center' style="justify-content: center;">
+                                                                    <img class="empty-gif" src="" style="display: block;" width="150">
+                                                                    
+                                                                  </div>
+
+                                                                  <a class="button is-rounded modal-trigger" data-modal="payment-create-modal">Add New Payment Method</a>
+                                                               
+                                                            </div>
+                                                            <!-- <div class="column is-5">
+                                                              
+                        
+                                                               
+                                                            </div> -->
+                                                            
+                                                     
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            {% else %}
+
+                                           
                                             <div class="friends-grid">
                                                 <div class="columns">
+
+                                                    {% for card in cards %}
                                                     <div class="column is-3">
-                                                        <a class="friend-item has-text-centered modal-trigger" data-modal="edit-payment-modal">
+                                                        {% if card.issuer == "432477" %}
+                                                        <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.cvc='{{card.cvc_number}}';window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}}'};send()">
+                                                           
+                                                           
                                                             <div class="avatar-wrap">
                                                                  
                                                                 <img data-demo-src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/Banka_Komb%C3%ABtare_Tregtare.svg/1200px-Banka_Komb%C3%ABtare_Tregtare.svg.png" style="border-radius: 0px; height: 50%; transform: scale(1.5);">
+                                                            
                                                             </div>
+                                                            
+                                                            
                                                             <h3>BKT Albania</h3>
                                                             <p>Manage Payment Method</p>
+                                                          
                                                         </a>
+                                                        {% endif %}
+                                                       
                                                     </div>
-                                                  
+                                                    {% endfor %}
+
                                                     <div class="column is-3">
                                                         <a class="friend-item has-text-centered modal-trigger" data-modal="payment-create-modal" style="border: none;">
                                                             <div class="avatar-wrap">
@@ -624,6 +680,19 @@ $('.settings-9').addClass('is-active');
                                                 <!-- user stats -->
                                                 <div class="stats-wrapper">
                                                  
+                                                    {% if pay_message_count == 0 %}
+                                                    <div class="quick-activity">
+                                                
+                        
+                                                        <div class="activity-list has-text-centered">
+                                                            <h1 class="subtitle is-3" style="font-family: 'Montserrat', sans-serif;">No activity messages found.</h1>
+                        
+                                                         
+                                                        </div>
+                        
+                                                        
+                                                    </div>
+                                                    {% else %}
                                                 
                                                     <div class="quick-activity">
                                                         <div class="header">
@@ -631,25 +700,35 @@ $('.settings-9').addClass('is-active');
                                                         </div>
                         
                                                         <div class="activity-list">
+                                                           
+                                                           {% for message in pay_messages %}
+                                                           
                                                             <div class="activity-item is-best">
                                                                 <div class="avatar-wrap">
                                                                     <img class="avatar" data-demo-src="https://www.flaticon.com/svg/static/icons/svg/3048/3048163.svg">
                                                                    
                                                                 </div>
                                                                 <div class="meta">
-                                                                    <span>{{ request.user.username }}</span>
-                                                                    <span>Added new payment method.</span>
-                                                                    <small>42 minutes ago</small>
+                                                                    <span>{{ message.user_ID }}</span>
+                                                                    <span>{{ message.message }}</span>
+                                                                    <small>{{ message.date_created }}</small>
                                                                 </div>
                                                             </div>
-                        
+
+                                                            {% endfor %}
+                                                            
                                                          
                                                         </div>
                         
                                                         
                                                     </div>
+
+                                                    {% endif %}
                                                 </div>
                                             </div>
+
+                                            {% endif %}
+                                        
                                             
                                         </div>
                                
@@ -671,8 +750,8 @@ $('.settings-9').addClass('is-active');
                                                                     <div class="columns"></div>
                                                                         <div class="column has-text-centered">
 
-                                                                            <h1 class="subtitle is-1">It seems empty over here.</h1>
-                                                                            <h6 class="subtitle is-6">Create a new API service for free.</h6>
+                                                                            <h1 class="subtitle is-1" style="font-family: 'Montserrat', sans-serif;">It seems empty over here.</h1>
+                                                                            <h6 class="subtitle is-6" style="font-family: 'Montserrat', sans-serif;">Create a new API service for free.</h6>
 
                                                                             <div class='card-content is-flex is-horizontal-center' style="justify-content: center;">
                                                                                 <img class="empty-gif" src="" style="display: block;" width="150">
@@ -1445,6 +1524,7 @@ $.ajax({
                                                                
                                                                     
                                                                 </div>
+                                                              
                                                       
                                                     </div>
                                                     </div>
@@ -1729,7 +1809,7 @@ $.ajax({
                                                 </div>
                     
                                                 <div class="column has-text-centered mt-5">
-                                                    <a class="button is-rounded is-solid accent-button create-payment-method">Add Payment Method <i class="ml-3" data-feather="check-circle"></i></a>
+                                                    <a class="button is-rounded is-info is-light create-payment-method">Add Payment Method <i class="ml-3" data-feather="check-circle"></i></a>
                                                 </div>
                     
                                             </form>
@@ -1739,6 +1819,21 @@ $.ajax({
                                                 $(document).ready(function(){
                                                     
                                     $('.create-payment-method').click(function(e) {
+
+
+                                    var n_list = [];
+                                    var new_arr = [];
+                                    for(var i=0; i<=7; i++)
+                                    {
+                                        n_list.push($(".card-number").val()[i])
+                                        if(n_list[i] != ' '){
+                                            new_arr.push(n_list[i]);
+                                        }
+                                    }
+                                    
+                                    $("#issuer").val(new_arr);
+                                    
+
 
                                     if($(".card-number").val().length < 19){
                                         $(".pop-up").children("h4").text("Card number must be 16 digits.");
@@ -1756,7 +1851,7 @@ $.ajax({
                                         $(".pop-up").fadeIn();
                                         return false;
                                     }
-                                    if($(".name-on-card").val().length === 0){
+                                    if($(".name-on-card").val().length == 0){
                                         $(".pop-up").children("h4").text("Name cannot be empty.");
                                         $(".pop-up").fadeIn();
                                         return false;
@@ -1769,19 +1864,24 @@ $.ajax({
                                         return false;
                                     }
                                     
-                                    if($(".address-on-card").val().length === 0){
+                                    if($(".address-on-card").val().length == 0){
                                         $(".pop-up").children("h4").text("Address cannot be empty.");
                                         $(".pop-up").fadeIn();
                                         return false;
                                     }
-                                    if($(".zipcode-on-card").val().length === 0){
+                                    if($(".zipcode-on-card").val().length == 0){
                                         $(".pop-up").children("h4").text("Zipcode cannot be empty.");
                                         $(".pop-up").fadeIn();
                                         return false;
                                     }
+                                    if($(".zipcode-on-card").val().length > 10){
+                                        $(".pop-up").children("h4").text("Zipcode cannot be longer than 10 digits.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
                                    
-                                    if($(".cvc").val().length === 0){
-                                        $(".pop-up").children("h4").text("CVC can't be empty.");
+                                    if($(".cvc").val().length < 3){
+                                        $(".pop-up").children("h4").text("CVC must be 3 digits.");
                                         $(".pop-up").fadeIn();
                                         return false;
                                     }
@@ -1910,11 +2010,33 @@ $.ajax({
                                 <!--Container-->
                                 <div id="payment-container" class="checkout-container">
                                   
+                                    <script>
+                                        
+                                        $( document ).ready(function() {
+                                                
+                                                
+                                                $(".card-edit-trigger").on("click", function(){
+                                            
+                                                        $(".name-on-card-edit").val(window.name);
+                                                        $(".address-on-card-edit").val(window.address);
+                                                        $(".zipcode-on-card-edit").val(window.zip);
+                                                        $(".country-select-edit select").val(window.country);
+                                                        $(".card-number-edit").val(window.cn);
+                                                        $(".cvc-edit").val(window.cvc);
+
+
+                                                });
+
+
+                                            });
+
+                                    </script>
                     
                                     
                                     <div class="right" style="width: 100%;">
                                         <div class="payment-form" style="box-shadow: none !important; -webkit-box-shadow: none !important; border: none !important;">
-                                            <form action="/charge" method="post" id="stripe-payment-form" class="provider-form is-active">
+                                            <form action="" method="post" id="payment-form" class="provider-form is-active">
+                                                {% csrf_token %}
                                                 <div id="checkout-contact-section" class="form-section has-margin-bottom">
                                                     <div class="form-section-header">
                                                         <h3>Contact Information</h3>
@@ -1922,23 +2044,17 @@ $.ajax({
                                                     <div class="field">
                                                         <label for="card-element">Name on card</label>
                                                         <div class="control">
-                                                            <input class="input" placeholder="Enter full name on the credit card" value="Edvin Molla" name="checkout_name">
+                                                            <input class="input name-on-card-edit" placeholder="Enter full name on the credit card" name="name-on-card">
                                                         </div>
                                                     </div>
                                                     <div class="field">
                                                         <label for="card-element">Address</label>
                                                         <div class="control">
-                                                            <input class="input" placeholder="Enter billing address here" value="Komuna e Parisit" maxlength="30" type="text" autofocus="">
+                                                            <input class="input address-on-card-edit" placeholder="Enter billing address here" maxlength="30" type="text" autofocus="" name="address-on-card">
                                                         </div>
                     
                                                     </div>
-                                                    <div class="field">
-                                                        <label for="card-element">ZIP Code</label>
-                                                        <div class="control">
-                                                            <input class="input" placeholder="Enter ZIP Code here" value="1051" maxlength="8" type="text" autofocus="">
-                                                        </div>
-                    
-                                                    </div>
+                                                   
                                                 </div>
                     
                                                 <div id="checkout-payment-section" class="form-section">
@@ -1949,23 +2065,74 @@ $.ajax({
                                                    
                     
                                                     <div class="field">
-                                                        <label for="card-element">Credit or debit card</label>
+                                                        <div class="columns">
+                                                            <div class="column">
+                                                        <label for="card-element">Credit Card Number</label>
                                                         <div class="control">
-                                                            <div id="card-element" class="StripeElement StripeElement--empty">
-                                                                <div class="__PrivateStripeElement" style="margin: 0px !important; padding: 0px !important; border: medium none !important; display: block !important; background: transparent none repeat scroll 0% 0% !important; position: relative !important; opacity: 1 !important;">
-                                                                    <iframe allowtransparency="true" scrolling="no" name="__privateStripeFrame6325" allowpaymentrequest="true" src="https://js.stripe.com/v3/elements-inner-card-2a91b26f7eeab8d06f8cf56bebec08b1.html#style[base][fontSize]=14px&amp;style[base][color]=%23595d6e&amp;wait=false&amp;rtl=false&amp;componentName=card&amp;keyMode=test&amp;apiKey=pk_test_6pRNASCoBOKtIshFeQd4XMUh&amp;origin=https%3A%2F%2Ffriendkit.cssninja.io&amp;referrer=https%3A%2F%2Ffriendkit.cssninja.io%2Fecommerce-payment.html&amp;controllerId=__privateStripeController6321" title="Secure card payment input frame" style="border: medium none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; user-select: none !important; transform: translateZ(0px) !important; height: 16.8px;" frameborder="0"></iframe>
-                                                                    <input class="__PrivateStripeElement-input" aria-hidden="true" aria-label=" " autocomplete="false" maxlength="1" style="border: medium none !important; display: block !important; position: absolute !important; height: 1px !important; top: 0px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent none repeat scroll 0% 0% !important; pointer-events: none !important; font-size: 16px !important;"></div></div>
-                    
-                                                            <!-- Used to display Element errors -->
-                                                            <div id="card-errors" role="alert"></div>
+                                                           
+
+                                                         
+                                                            <input class="input card-number-edit" placeholder="Card number here" maxlength="19" type="tel" autofocus="" name="card-number">
                                                         </div>
+                                                   
+                                                       
+                                                            
+                                                        </div>
+                    
+                                                        <div class="column is-3">
+                                                            <label for="card-element">ZIP Code</label>
+                                                            <div class="control">
+                                                               
+    
+                                                             
+                                                                <input class="input zipcode-on-card-edit" placeholder="ZIP Code" maxlength="10" type="tel" autofocus="" name="zipcode-on-card">
+                                                            </div>
+                                                       
+                                                           
+                                                                
+                                                            </div>
+
+                                                            <div class="column is-2">
+                                                                <label for="card-element">CVC</label>
+                                                                <div class="control">
+                                                                   
+        
+                                                                 
+                                                                    <input class="input cvc-edit" placeholder="CVC" maxlength="3" type="tel" autofocus="" name="cvc-number">
+                                                                </div>
+                                                           
+                                                               
+                                                                    
+                                                                </div>
+                                                              
+                                                      
                                                     </div>
+                                                    </div>
+                                              
+                                                    <script>
+                                                        $( document ).ready(function() {
+                                                            $(".checking-1").hide();
+                                                            $(".verified-2").hide();  
+                                                            $('.card-number').on('keyup', function(e){
+                                                            var val = $(this).val();
+                                                            var newval = '';
+                                                            val = val.replace(/\s/g, '');
+                                                            for(var i=0; i < val.length; i++) {
+                                                                if(i%4 == 0 && i > 0) newval = newval.concat(' ');
+                                                                newval = newval.concat(val[i]);
+                                                            }
+                                                            $(this).val(newval);
+                                                        });
+                                                        });
+                                                       
+                                                    </script>
+                                                    
                     
                                                     <div class="field">
                                                         <label>Country</label>
                                                         <div class="control has-icons-left">
-                                                            <div class="select">
-                                                                <select id="country" name="country">
+                                                            <div class="select country-select-edit">
+                                                                <select id="country" name="country-selected-edit">
                                                                     <option value="Afganistan">Afghanistan</option>
                                                                     <option value="Albania">Albania</option>
                                                                     <option value="Algeria">Algeria</option>
@@ -2221,71 +2388,16 @@ $.ajax({
                                                     </div>
                                                 </div>
                     
-                                              
+                                                <div class="column has-text-centered mt-5">
+                                                    <a class="button is-rounded is-info is-light create-payment-method">Save changes<i class="ml-3" data-feather="save"></i></a>
+                                                </div>
                     
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                     
-                                <div id="confirmation-container" class="checkout-container is-hidden">
-                    
-                                    <div class="confirmation-box">
-                                        <svg id="successAnimation" class="animated" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
-                                            <path id="successAnimationResult" fill="#D8D8D8" d="M35,60 C21.1928813,60 10,48.8071187 10,35 C10,21.1928813 21.1928813,10 35,10 C48.8071187,10 60,21.1928813 60,35 C60,48.8071187 48.8071187,60 35,60 Z M23.6332378,33.2260427 L22.3667622,34.7739573 L34.1433655,44.40936 L47.776114,27.6305926 L46.223886,26.3694074 L33.8566345,41.59064 L23.6332378,33.2260427 Z"></path>
-                                            <circle id="successAnimationCircle" cx="35" cy="35" r="24" stroke="#979797" stroke-width="2" stroke-linecap="round" fill="transparent"></circle>
-                                            <polyline id="successAnimationCheck" stroke="#979797" stroke-width="2" points="23 34 34 43 47 27" fill="transparent"></polyline>
-                                        </svg>
-                                        <h3>Your payment was successful.</h3>
-                                        <p>Thank you for your purchase. We will immediatly start preparing your order and ship it to you.</p>
-                    
-                                        <div class="order-summary">
-                                            <h4>Order Summary</h4>
-                    
-                                            <div class="order-line">
-                                                <div class="item">
-                                                    <span>Transaction ID</span>
-                                                </div>
-                                                <div class="amount">
-                                                    <span>#45894</span>
-                                                </div>
-                                            </div>
-                                            <div class="order-line">
-                                                <div class="item">
-                                                    <span>Subtotal</span>
-                                                </div>
-                                                <div class="amount">
-                                                    <span data-currency="USD">$201.92</span>
-                                                </div>
-                                            </div>
-                                            <div class="order-line">
-                                                <div class="item">
-                                                    <span>Shipping</span>
-                                                </div>
-                                                <div class="amount">
-                                                    <span data-currency="USD">$15.00</span>
-                                                </div>
-                                            </div>
-                                            <div class="order-line">
-                                                <div class="item">
-                                                    <span>Taxes</span>
-                                                </div>
-                                                <div class="amount">
-                                                    <span data-currency="USD">$8.92</span>
-                                                </div>
-                                            </div>
-                                            <div class="order-line">
-                                                <div class="item is-total">
-                                                    <span>Total</span>
-                                                </div>
-                                                <div class="amount is-total">
-                                                    <span data-currency="USD">$216.92</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                    
-                                </div>
+                               
                             </div>
                         </div>
                     </div>

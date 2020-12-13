@@ -23,6 +23,7 @@ from .models import UserTrait
 from .models import DBNode   
 from .models import api_service
 from .models import credit_card
+from .models import transaction_messages
 
 
 def create_payment(request):
@@ -32,20 +33,26 @@ def create_payment(request):
             for card in cards:
                 if request.POST['card-number'].replace(" ", "") == card.card_number:
                     return HttpResponse("true")
+            
             new_card = credit_card(user_ID=request.user, owner_email=request.user,
                                    card_number=request.POST['card-number'].replace(" ", ""),
                                     cvc_number=request.POST['cvc-number'],
                                     zip_code=request.POST['zipcode-on-card'],
                                    address=request.POST['address-on-card'],
                                    country=request.POST['country-selected'],
+                                   card_uid=uuid.uuid4().hex,
+                                   issuer=request.POST['card-number'].replace(" ", "")[0:6],
                                    name_on_card=request.POST['name-on-card'])
             new_card.save()
+            new_message = transaction_messages(user_ID=request.user, owner_email=request.user, message="New payment method added.")
+            new_message.save()
             return HttpResponse('false')
 
 
 def check_id(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
+            
             apis = api_service.objects.filter(owner_email=request.user)
             for i in apis:
                 if i.api_id == request.POST['api_id']:
@@ -120,14 +127,26 @@ def dashboard(request):
 
             r.save()
    
-
-        
-
-        apis = api_service.objects.filter(owner_email=request.user)
+        # Api supply
+        apis = api_service.objects.filter(user_ID=request.user)
 
         api_count = 0
-        for i in apis:
+        for api in apis:
             api_count += 1
+
+        print(api_count)
+
+        # Payment supply
+        card_count = 0
+        cards = credit_card.objects.filter(owner_email=request.user)
+        for card in cards:
+            card_count += 1
+
+        # Payment message supply
+        message_count = 0
+        messages = transaction_messages.objects.filter(owner_email=request.user)
+        for message in messages:
+            message_count += 1
 
 
         web_app_count = 0
@@ -158,7 +177,14 @@ def dashboard(request):
 
         uid = UserTrait.objects.filter(email=request.user).first().unique_id
    
-        return render(request, 'html/spec-comp/dashboard/entrypoint.html', {'uid':uid[:4]+ "******" + uid[-4:], 'apis':apis, 'api_count':api_count})
+        return render(request, 'html/spec-comp/dashboard/entrypoint.html', {'uid':uid[:4]+ "******" + uid[-4:], 
+                                                                            'apis':apis, 
+                                                                            'api_count':api_count,
+                                                                            'cards':cards,
+                                                                            'card_count':card_count,
+                                                                            'pay_message_count':message_count,
+                                                                            'pay_messages':messages
+                                                                            })
         # return render(request, 'html/spec-comp/dashboard/overview.html', {'instances':Node.objects.filter(Email=request.user), 
         #                                                                     'initials':str(request.user).split('@')[0],
         #                                                                     'webapps':Node.objects.filter(is_webapp=True), 

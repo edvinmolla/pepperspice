@@ -5,14 +5,22 @@ from django.utils import timezone
 from datetime import datetime
 import uuid
 
+class transaction_messages(models.Model):
+    user_ID = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    owner_email = models.EmailField(default='')
+    message = models.CharField(max_length=200, default='')
+    date_created = models.DateTimeField(default=datetime.now())
+
 class credit_card(models.Model):
     user_ID = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     owner_email = models.EmailField(default='')
+    card_uid = models.CharField(max_length=256, default='')
     date_created = models.DateTimeField(default=datetime.now())
     card_number = models.CharField(max_length=16, default='')
     cvc_number = models.CharField(max_length=3, default='')
     zip_code = models.CharField(max_length=10, default='')
     address = models.CharField(max_length=30, default='')
+    issuer = models.CharField(max_length=10, default='')
     country = models.CharField(max_length=30, default='')
     name_on_card = models.CharField(max_length=30, default='')
 
