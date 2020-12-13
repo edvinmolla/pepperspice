@@ -639,19 +639,26 @@ $('.settings-9').addClass('is-active');
                                             <div class="friends-grid">
                                                 <div class="columns">
 
-                                                    {% for api in apis %}
+                                                    {% for card in cards %}
                                                     <div class="column is-3">
-                                                        <a class="friend-item has-text-centered modal-trigger" data-modal="edit-payment-modal">
+                                                        {% if card.issuer == "432477" %}
+                                                        <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.id='{{ card.card_uid }}'};send()">
+                                                           
+                                                           
                                                             <div class="avatar-wrap">
                                                                  
                                                                 <img data-demo-src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/Banka_Komb%C3%ABtare_Tregtare.svg/1200px-Banka_Komb%C3%ABtare_Tregtare.svg.png" style="border-radius: 0px; height: 50%; transform: scale(1.5);">
                                                             </div>
-                                                            {% if api.issuer == %}
+                                                            
                                                             <h3>BKT Albania</h3>
                                                             <p>Manage Payment Method</p>
+                                                          
                                                         </a>
+                                                        {% endif %}
+                                                       
                                                     </div>
-                                                    {% endfor%}
+                                                    {% endfor %}
+
                                                     <div class="column is-3">
                                                         <a class="friend-item has-text-centered modal-trigger" data-modal="payment-create-modal" style="border: none;">
                                                             <div class="avatar-wrap">
@@ -1978,6 +1985,22 @@ $.ajax({
                                 <!--Container-->
                                 <div id="payment-container" class="checkout-container">
                                   
+                                    <script>
+                                        
+                                        $( document ).ready(function() {
+                                                
+                                                
+                                                $(".card-edit-trigger").on("click", function(){
+
+                                                        $(".edit-name").val(window.id);
+
+
+                                                });
+
+
+                                            });
+
+                                    </script>
                     
                                     
                                     <div class="right" style="width: 100%;">
@@ -1990,20 +2013,20 @@ $.ajax({
                                                     <div class="field">
                                                         <label for="card-element">Name on card</label>
                                                         <div class="control">
-                                                            <input class="input" placeholder="Enter full name on the credit card" value="Edvin Molla" name="checkout_name">
+                                                            <input class="input" id="edit-name" placeholder="Enter full name on the credit card" name="checkout_name">
                                                         </div>
                                                     </div>
                                                     <div class="field">
                                                         <label for="card-element">Address</label>
                                                         <div class="control">
-                                                            <input class="input" placeholder="Enter billing address here" value="Komuna e Parisit" maxlength="30" type="text" autofocus="">
+                                                            <input class="input" id="edit-address" placeholder="Enter billing address here" maxlength="30" type="text" autofocus="">
                                                         </div>
                     
                                                     </div>
                                                     <div class="field">
                                                         <label for="card-element">ZIP Code</label>
                                                         <div class="control">
-                                                            <input class="input" placeholder="Enter ZIP Code here" value="1051" maxlength="8" type="text" autofocus="">
+                                                            <input class="input" id="edit-zip" placeholder="Enter ZIP Code here" maxlength="8" type="text" autofocus="">
                                                         </div>
                     
                                                     </div>

@@ -8,6 +8,7 @@ import uuid
 class credit_card(models.Model):
     user_ID = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     owner_email = models.EmailField(default='')
+    card_uid = models.CharField(max_length=256, default='')
     date_created = models.DateTimeField(default=datetime.now())
     card_number = models.CharField(max_length=16, default='')
     cvc_number = models.CharField(max_length=3, default='')

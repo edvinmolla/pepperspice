@@ -28,18 +28,20 @@ from .models import credit_card
 def create_payment(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
-        
+            time.sleep(2)
             cards = credit_card.objects.filter(owner_email=request.user)
             for card in cards:
                 if request.POST['card-number'].replace(" ", "") == card.card_number:
                     return HttpResponse("true")
+            
             new_card = credit_card(user_ID=request.user, owner_email=request.user,
                                    card_number=request.POST['card-number'].replace(" ", ""),
                                     cvc_number=request.POST['cvc-number'],
                                     zip_code=request.POST['zipcode-on-card'],
                                    address=request.POST['address-on-card'],
                                    country=request.POST['country-selected'],
-                                   issuer=request.POST['issuer'].replace(",", ""),
+                                   card_uid=uuid.uuid4().hex,
+                                   issuer=request.POST['card-number'].replace(" ", "")[0:6],
                                    name_on_card=request.POST['name-on-card'])
             new_card.save()
             return HttpResponse('false')
@@ -124,11 +126,13 @@ def dashboard(request):
             r.save()
    
         # Api supply
-        apis = api_service.objects.filter(owner_email=request.user)
+        apis = api_service.objects.filter(user_ID=request.user)
 
         api_count = 0
-        for i in apis:
+        for api in apis:
             api_count += 1
+
+        print(api_count)
 
         # Payment supply
         card_count = 0
