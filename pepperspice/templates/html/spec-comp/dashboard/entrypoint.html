@@ -695,7 +695,12 @@ $('.settings-9').addClass('is-active');
                                                 </div>
                                             </div>
                                             <div class="column">
-                                                <!-- user stats -->
+                                             
+                                                <div style=" width: 100%;
+                                                border: 1px solid green;
+                                                max-height: 310px;
+                                                overflow: auto;
+                                               ">
                                                 <div class="stats-wrapper">
                                                  
                                                     {% if pay_message_count == 0 %}
@@ -743,6 +748,8 @@ $('.settings-9').addClass('is-active');
 
                                                     {% endif %}
                                                 </div>
+
+                                            </div>
                                             </div>
 
                                             {% endif %}
