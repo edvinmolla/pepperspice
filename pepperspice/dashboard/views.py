@@ -60,7 +60,7 @@ def create_payment(request):
                                    address=request.POST['address-on-card'],
                                    country=request.POST['country-selected'],
                                    card_uid=uuid.uuid4().hex,
-                                   card_company=request.POST['card-number'].replace(" ", "")[0],
+                                   card_company=request.POST['card-number'].replace(" ", "")[0:2],
                                    issuer=request.POST['card-number'].replace(" ", "")[0:6],
                                    name_on_card=request.POST['name-on-card'])
             new_card.save()

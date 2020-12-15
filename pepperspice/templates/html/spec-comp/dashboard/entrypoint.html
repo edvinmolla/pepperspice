@@ -640,11 +640,11 @@ $('.settings-9').addClass('is-active');
 
                                            
                                             <div class="friends-grid">
-                                                <div class="columns">
+                                                <div class="columns is-multiline">
 
                                                     {% for card in cards %}
                                                     <div class="column is-3">
-                                                        {% if card.card_company == "4" %}
+                                                        {% if card.card_company.0 == "4" %}
                                                         <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.cvc='{{card.cvc_number}}';window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}}'}; cid='{{card.card_uid}}';send()">
                                                            
                                                            
@@ -659,7 +659,7 @@ $('.settings-9').addClass('is-active');
                                                             <p>Manage Payment Method</p>
                                                           
                                                         </a>
-                                                        {% elif card.card_company == "5" %}
+                                                        {% elif card.card_company.0 == "5" %}
                                                         <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.cvc='{{card.cvc_number}}';window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}}'}; cid='{{card.card_uid}}';send()">
                                                            
                                                            
@@ -674,8 +674,43 @@ $('.settings-9').addClass('is-active');
                                                             <p>Manage Payment Method</p>
                                                           
                                                         </a>
+                                                        {% elif card.card_company.0 == "3" %}
+                                                        {% if card.card_company.1 == "5" %}
+
+                                                        <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.cvc='{{card.cvc_number}}';window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}}'}; cid='{{card.card_uid}}';send()">
+                                                           
+                                                           
+                                                            <div class="avatar-wrap">
+                                                                 
+                                                                <img data-demo-src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/JCB_logo.svg/1280px-JCB_logo.svg.png" style="border-radius: 0px; height: 50%; transform: scale(1.5);">
+                                                            
+                                                            </div>
+                                                            
+                                                            
+                                                            <h3>JCB Credit Card</h3>
+                                                            <p>Manage Payment Method</p>
+                                                          
+                                                        </a>
 
 
+                                                        {% elif card.card_company.1 == "4" or card.card_company.1 == "7" %}
+
+                                                        <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.cvc='{{card.cvc_number}}';window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}}'}; cid='{{card.card_uid}}';send()">
+                                                           
+                                                           
+                                                            <div class="avatar-wrap">
+                                                                 
+                                                                <img data-demo-src="https://cdn4.iconfinder.com/data/icons/payment-method/160/payment_method_american_express_card-512.png" style="border-radius: 0px; height: 50%; transform: scale(1.5);">
+                                                            
+                                                            </div>
+                                                            
+                                                            
+                                                            <h3>American Express Credit Card</h3>
+                                                            <p>Manage Payment Method</p>
+                                                          
+                                                        </a>
+
+                                                        {% endif %}
 
                                                         {% endif %}
                                                        
