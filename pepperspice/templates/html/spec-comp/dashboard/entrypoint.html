@@ -645,7 +645,7 @@ $('.settings-9').addClass('is-active');
                                                     {% for card in cards %}
                                                     <div class="column is-3">
                                                         {% if card.card_company == "4" %}
-                                                        <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.cvc='{{card.cvc_number}}';window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}}'}; cid='{{card.card_uid}};';send()">
+                                                        <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.cvc='{{card.cvc_number}}';window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}}'}; cid='{{card.card_uid}}';send()">
                                                            
                                                            
                                                             <div class="avatar-wrap">
@@ -660,7 +660,7 @@ $('.settings-9').addClass('is-active');
                                                           
                                                         </a>
                                                         {% elif card.card_company == "5" %}
-                                                        <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.cvc='{{card.cvc_number}}';window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}}'}; cid='{{card.card_uid}};';send()">
+                                                        <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.cvc='{{card.cvc_number}}';window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}}'}; cid='{{card.card_uid}}';send()">
                                                            
                                                            
                                                             <div class="avatar-wrap">
@@ -1904,11 +1904,7 @@ $.ajax({
                                         }
                                     }
 
-                                    console.log(Number.isInteger(new_arr.join("")));
-                                    
-                                    
-                                    
-                                    
+                                   
 
 
                                     if($(".card-number").val().length < 19){
@@ -2058,10 +2054,17 @@ $.ajax({
             <div id="edit-payment-modal" class="modal edit-payment-modal is-l has-light-bg">
                 <div class="modal-background"></div>
                 <div class="modal-content">
-        
+                    <div class="box-heading mb-3 pop-up" style="background-color: #82e8d0; color: black; border-color: #82e8d0; animation: fadeInUp 0.4s;">
+                        <h4></h4>
+                        <div class="close-wrap">
+                            <span class="close-email-alert" style="cursor: pointer;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </span>
+                        </div>
+                    </div>
                     <div class="card">
 
-                        <div class="card-heading">
+                        <div class="card-heading card-head-3">
 
                             <div class="is-primary share-dropdown">
                                  <div>
@@ -2092,7 +2095,8 @@ $.ajax({
                                                 
                                                 
                                                 $(".card-edit-trigger").on("click", function(){
-                                            
+                                        
+                                                $(".pop-up").hide();
                                                         $(".name-on-card-edit").val(window.name);
                                                         $(".address-on-card-edit").val(window.address);
                                                         $(".zipcode-on-card-edit").val(window.zip);
@@ -2111,6 +2115,34 @@ $.ajax({
                                     
                                     <div class="right" style="width: 100%;">
                                         <div class="payment-form" style="box-shadow: none !important; -webkit-box-shadow: none !important; border: none !important;">
+                                           
+                                            <div class="checking-3" style="animation: fadeInUp 0.3s;">
+
+                                                <div class='column'>
+                                                   
+                                                      <div class='card-content is-flex is-horizontal-center' style="justify-content: center;">
+                                                      <video muted loop autoplay style="height: 252px !important;">
+                                                        <source src="https://assets2.lottiefiles.com/render/kf40t3mc.mp4" type="video/mp4">
+                                            
+                                                      </video>
+                                                      </div>
+                                                   
+                                                  </div>
+                                            
+                                               </div>
+
+                                               <div class="verified-3" style="animation: fadeInUp 0.3s;">
+
+                                                <div class='column'>
+                                                   
+                                                      <div class='card-content is-flex is-horizontal-center' style="justify-content: center;">
+                                                        <img class="img-verify-3" src="" width="110">
+                                                      </div>
+                                                   
+                                                  </div>
+                                            
+                                               </div>
+
                                             <form action="" method="post" id="payment-form-edit" class="provider-form is-active">
                                                 {% csrf_token %}
                                                 <div id="checkout-contact-section" class="form-section has-margin-bottom">
@@ -2513,14 +2545,105 @@ $.ajax({
                                                 </div>
                     
                                                 <div class="column has-text-centered mt-5">
-                                                    <a class="button is-rounded is-info is-light create-payment-method">Save changes<i class="ml-3" data-feather="save"></i></a>
+                                                    <a class="button is-rounded is-info is-light save-payment-method">Save changes<i class="ml-3" data-feather="save"></i></a>
                                                 </div>
                     
                                             </form>
 
 
                                             <script>
-                                                $.ajax({
+                                                $(document).ready(function(){
+                                                    $(".checking-3").hide();
+                                                    $(".verified-3").hide();
+
+                                    $('.save-payment-method').click(function(e) {
+
+
+                                    // var n_list = [];
+                                    // var new_arr = [];
+                                    // for(var i=0; i<=7; i++)
+                                    // {
+                                    //     n_list.push($(".card-number").val()[i])
+                                    //     if(n_list[i] != ' '){
+                                    //         new_arr.push(n_list[i]);
+                                    //     }
+                                    // }
+
+                                   
+
+
+                                    if($(".card-number-edit").val().length < 19){
+                                        $(".pop-up").children("h4").text("Card number must be 16 digits.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    if($(".card-number-edit").val().length > 20){
+                                        $(".pop-up").children("h4").text("Card number must be 16 digits.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+
+                                    if($(".name-on-card-edit").val().length > 25){
+                                        $(".pop-up").children("h4").text("Name Is too long.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    if($(".name-on-card-edit").val().length == 0){
+                                        $(".pop-up").children("h4").text("Name cannot be empty.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    
+                                    if($(".address-on-card-edit").val().length > 30){
+
+                                        $(".pop-up").children("h4").text("Address Is too long.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    
+                                    if($(".address-on-card-edit").val().length == 0){
+                                        $(".pop-up").children("h4").text("Address cannot be empty.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    if($(".zipcode-on-card-edit").val().length == 0){
+                                        $(".pop-up").children("h4").text("Zipcode cannot be empty.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    if($(".zipcode-on-card-edit").val().length > 10){
+                                        $(".pop-up").children("h4").text("Zipcode cannot be longer than 10 digits.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                   
+                                    if($(".cvc-edit").val().length < 3){
+                                        $(".pop-up").children("h4").text("CVC must be 3 digits.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    
+                                    if($(".cvc-edit").val().length > 3){
+                                        $(".pop-up").children("h4").text("CVC can't be longer than 3 numbers.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                    }
+                                    
+                                    
+                                    
+                                    e.preventDefault(); 
+                                    
+                                    
+                                    $(".save-payment-method").addClass("is-loading");
+                                    
+                                    $(".card-head-3").hide();
+                                    $("#payment-form-edit").hide();
+                                    $(".save-payment-method").hide();
+                                    $(".pop-up").fadeOut();
+                                    $(".checking-3").fadeIn();
+                                    $(".img-verify-3").attr("src", "https://raw.githubusercontent.com/elegantcha0s/images/master/ezgif.com-gif-maker.gif");
+
+                                    $.ajax({
                                            type: "POST",
                                            url: "/dashboard/payment_edit/",
                                            data: $("#payment-form-edit").serialize(),
@@ -2536,30 +2659,33 @@ $.ajax({
                                                if (data == "success"){
                                     
                                                 $(".pop-up").fadeOut();
-                                                $(".checking-1").hide();      
-                                                $(".card-head-2").hide();
-                                                $(".verified-2").fadeIn();      
+                                                $(".checking-3").hide();      
+                                                $(".card-head-3").hide();
+                                                $(".verified-3").fadeIn();      
                                                
                                                 setTimeout(function() {
                                         
-                                                        $(".payment-create-modal").fadeOut();
+                                                        $(".edit-payment-modal").fadeOut();
                                                 }, 2700);
 
                                                 setTimeout( function(){ 
                                                 window.location.reload();
                                                 }  , 3100 );
-
+                                    
                                                }
+                                    
+                                               
 
-                   
                                                       
                                            },
-                                           error: function() {
-                                            $(".pop-up").children("h4").text("An unexpected error has occurred.");
-                                                $(".pop-up").fadeIn();
-                                            }
-                                           
+                                           timeout: 16000
                                          });
+                                     
+                                    });
+                                    
+                                    
+                                    
+                                                });
                                             </script>
                                         </div>
                                     </div>

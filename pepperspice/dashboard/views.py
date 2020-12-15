@@ -29,8 +29,9 @@ from .models import transaction_messages
 def payment_edit(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
-            card_to_edit = credit_card.objects.filter(owner_email=request.user, card_uid=request.POST['card-id'])
-            card_to_edit.card_number = request.POST['card-number-edit']
+            print(request.POST['card-id'])
+            card_to_edit = credit_card.objects.filter(owner_email=request.user, card_uid=request.POST['card-id']).first()
+            card_to_edit.card_number = request.POST['card-number-edit'].replace(" ", "")
             card_to_edit.cvc_number = request.POST['cvc-number-edit']
             card_to_edit.zip_code = request.POST['zipcode-on-card-edit']
             card_to_edit.address = request.POST['address-on-card-edit']
