@@ -26,10 +26,22 @@ from .models import credit_card
 from .models import transaction_messages
 
 
-def save_changes(request):
+def payment_edit(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
-            card_to_edit = credit_card.objects.filter(owner_email=request.user, card_uid=request.POST['card-'])
+            card_to_edit = credit_card.objects.filter(owner_email=request.user, card_uid=request.POST['card-id'])
+            card_to_edit.card_number = request.POST['card-number-edit']
+            card_to_edit.cvc_number = request.POST['cvc-number-edit']
+            card_to_edit.zip_code = request.POST['zipcode-on-card-edit']
+            card_to_edit.address = request.POST['address-on-card-edit']
+            card_to_edit.issuer = request.POST['card-number-edit'].replace(" ", "")[0:6]
+            card_to_edit.card_company = request.POST['card-number-edit'].replace(" ", "")[0]
+            card_to_edit.country = request.POST['country-selected-edit']
+            card_to_edit.name_on_card = request.POST['name-on-card-edit']
+
+            card_to_edit.save()
+
+            return HttpResponse('success')
 
 
 def create_payment(request):

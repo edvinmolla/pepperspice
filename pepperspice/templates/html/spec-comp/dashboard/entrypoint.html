@@ -2111,7 +2111,7 @@ $.ajax({
                                     
                                     <div class="right" style="width: 100%;">
                                         <div class="payment-form" style="box-shadow: none !important; -webkit-box-shadow: none !important; border: none !important;">
-                                            <form action="" method="post" id="payment-form" class="provider-form is-active">
+                                            <form action="" method="post" id="payment-form-edit" class="provider-form is-active">
                                                 {% csrf_token %}
                                                 <div id="checkout-contact-section" class="form-section has-margin-bottom">
                                                     <div class="form-section-header">
@@ -2120,13 +2120,13 @@ $.ajax({
                                                     <div class="field">
                                                         <label for="card-element">Name on card</label>
                                                         <div class="control">
-                                                            <input class="input name-on-card-edit" placeholder="Enter full name on the credit card" name="name-on-card">
+                                                            <input class="input name-on-card-edit" placeholder="Enter full name on the credit card" name="name-on-card-edit">
                                                         </div>
                                                     </div>
                                                     <div class="field">
                                                         <label for="card-element">Address</label>
                                                         <div class="control">
-                                                            <input class="input address-on-card-edit" placeholder="Enter billing address here" maxlength="30" type="text" autofocus="" name="address-on-card">
+                                                            <input class="input address-on-card-edit" placeholder="Enter billing address here" maxlength="30" type="text" autofocus="" name="address-on-card-edit">
                                                         </div>
                     
                                                     </div>
@@ -2148,11 +2148,11 @@ $.ajax({
                                                            
 
                                                          
-                                                            <input class="input card-number-edit" placeholder="Card number here" maxlength="19" type="tel" autofocus="" name="card-number">
+                                                            <input class="input card-number-edit" placeholder="Card number here" maxlength="19" type="tel" autofocus="" name="card-number-edit">
                                                         </div>
                                                         
                                                         <!--  -->
-                                                        <input class="card-id" type="hidden">
+                                                        <input class="card-id" name="card-id" type="hidden">
                                                        
                                                             
                                                         </div>
@@ -2163,7 +2163,7 @@ $.ajax({
                                                                
     
                                                              
-                                                                <input class="input zipcode-on-card-edit" placeholder="ZIP Code" maxlength="10" type="tel" autofocus="" name="zipcode-on-card">
+                                                                <input class="input zipcode-on-card-edit" placeholder="ZIP Code" maxlength="10" type="tel" autofocus="" name="zipcode-on-card-edit">
                                                             </div>
                                                        
                                                            
@@ -2176,7 +2176,7 @@ $.ajax({
                                                                    
         
                                                                  
-                                                                    <input class="input cvc-edit" placeholder="CVC" maxlength="3" type="tel" autofocus="" name="cvc-number">
+                                                                    <input class="input cvc-edit" placeholder="CVC" maxlength="3" type="tel" autofocus="" name="cvc-number-edit">
                                                                 </div>
                                                            
                                                                
@@ -2522,8 +2522,8 @@ $.ajax({
                                             <script>
                                                 $.ajax({
                                            type: "POST",
-                                           url: "/dashboard/payment_create/",
-                                           data: $("#payment-form").serialize(),
+                                           url: "/dashboard/payment_edit/",
+                                           data: $("#payment-form-edit").serialize(),
                                            error: function(){
                                             $(".pop-up").children("h4").text("An unexpected error occurred.");
                                         $(".pop-up").fadeIn();
@@ -2533,23 +2533,7 @@ $.ajax({
                                            {
                                                
                                  
-                                               if (data == "true"){
-                                    
-                                                $(".pop-up").children("h4").text("Credit card already exists.");
-                                                $(".pop-up").fadeIn();
-                                                $(".card-head-2").show();
-                                                $(".create-payment-method").removeClass("is-loading");
-                                                $("#payment-form").show();
-                                                $(".create-payment-method").show();
-                                                $(".checking-1").hide();
-                                                
-                                                return false;
-                                    
-                                               }
-                                    
-                                               
-                                    
-                                               else {
+                                               if (data == "success"){
                                     
                                                 $(".pop-up").fadeOut();
                                                 $(".checking-1").hide();      
@@ -2565,14 +2549,16 @@ $.ajax({
                                                 window.location.reload();
                                                 }  , 3100 );
 
+                                               }
 
-                                                }
-
-
-                                            
+                   
                                                       
                                            },
-                                           timeout: 16000
+                                           error: function() {
+                                            $(".pop-up").children("h4").text("An unexpected error has occurred.");
+                                                $(".pop-up").fadeIn();
+                                            }
+                                           
                                          });
                                             </script>
                                         </div>
