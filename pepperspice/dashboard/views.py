@@ -69,7 +69,7 @@ def create_payment(request):
             new_message.save()
             return HttpResponse('false')
 
-
+@csrf_exempt
 def check_id(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
