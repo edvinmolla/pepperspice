@@ -46,6 +46,7 @@ def payment_edit(request):
 
 
 def create_payment(request):
+  
     if request.user.is_authenticated:
         if request.method == 'POST':
             cards = credit_card.objects.filter(owner_email=request.user)

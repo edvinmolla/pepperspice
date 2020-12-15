@@ -1480,6 +1480,18 @@ $.ajax({
                                             
                                                </div>
 
+                                               <div class="error-2" style="animation: fadeInUp 0.3s;">
+
+                                                <div class='column'>
+                                                   
+                                                      <div class='card-content is-flex is-horizontal-center' style="justify-content: center;">
+                                                        <img class="img-verify-5" src="" width="250">
+                                                      </div>
+                                                   
+                                                  </div>
+                                            
+                                               </div>
+
 
                                             <form action="" method="post" id="payment-form" class="provider-form is-active">
                                                 {% csrf_token %}
@@ -1584,31 +1596,31 @@ $.ajax({
                                                            
 
                                                         $(".card-number").on("keydown", function(e) {
-    var cursor = this.selectionStart;
-    if (this.selectionEnd != cursor) return;
-    if (e.which == 46) {
-        if (this.value[cursor] == " ") this.selectionStart++;
-    } else if (e.which == 8) {
-        if (cursor && this.value[cursor - 1] == " ") this.selectionEnd--;
-    }
-}).on("input", function() {
-    var value = this.value;
-    var cursor = this.selectionStart;
-    var matches = value.substring(0, cursor).match(/[^0-9]/g);
-    if (matches) cursor -= matches.length;
-    value = value.replace(/[^0-9]/g, "").substring(0, 16);
-    var formatted = "";
-    for (var i=0, n=value.length; i<n; i++) {
-        if (i && i % 4 == 0) {
-            if (formatted.length <= cursor) cursor++;
-            formatted += " ";
-        }
-        formatted += value[i];
-    }
-    if (formatted == this.value) return;
-    this.value = formatted;
-    this.selectionEnd = cursor;
-});
+                                                            var cursor = this.selectionStart;
+                                                            if (this.selectionEnd != cursor) return;
+                                                            if (e.which == 46) {
+                                                                if (this.value[cursor] == " ") this.selectionStart++;
+                                                            } else if (e.which == 8) {
+                                                                if (cursor && this.value[cursor - 1] == " ") this.selectionEnd--;
+                                                            }
+                                                        }).on("input", function() {
+                                                            var value = this.value;
+                                                            var cursor = this.selectionStart;
+                                                            var matches = value.substring(0, cursor).match(/[^0-9]/g);
+                                                            if (matches) cursor -= matches.length;
+                                                            value = value.replace(/[^0-9]/g, "").substring(0, 16);
+                                                            var formatted = "";
+                                                            for (var i=0, n=value.length; i<n; i++) {
+                                                                if (i && i % 4 == 0) {
+                                                                    if (formatted.length <= cursor) cursor++;
+                                                                    formatted += " ";
+                                                                }
+                                                                formatted += value[i];
+                                                            }
+                                                            if (formatted == this.value) return;
+                                                            this.value = formatted;
+                                                            this.selectionEnd = cursor;
+                                                        });
                                                       
 
 
@@ -1889,7 +1901,7 @@ $.ajax({
                                            
                                             <script>
                                                 $(document).ready(function(){
-                                                   
+                                                    $(".error-2").hide();
 
                                     $('.create-payment-method').click(function(e) {
 
@@ -1983,9 +1995,19 @@ $.ajax({
                                            url: "/dashboard/payment_create/",
                                            data: $("#payment-form").serialize(),
                                            error: function(){
-                                            $(".pop-up").children("h4").text("An unexpected error occurred.");
-                                        $(".pop-up").fadeIn();
-                                        return false;
+                                            $(".pop-up").children("h4").text("An unexpected error occurred. The page will reload in 2 seconds.");
+                                            $(".pop-up").fadeIn();
+                                            $(".error-2").fadeIn();
+                                            $(".checking-1").hide();      
+                                            $(".card-head-2").hide();
+                                            $(".verified-2").hide();      
+                                            $(".img-verify-5").attr("src", "https://raw.githubusercontent.com/elegantcha0s/images/master/ezgif.com-gif-maker(2).gif");
+                                            setTimeout( function(){ 
+                                                window.location.reload();
+                                                }  , 2000 );
+                                            return false;
+                                       
+                                  
                                             },
                                            success: function(data)
                                            {
