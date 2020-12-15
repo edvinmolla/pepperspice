@@ -41,5 +41,6 @@ urlpatterns = [
     path('delete/file/', delete_file, name="delete_file"),
     path('api_create/', api_create, name="api_create"),
     path('check_id/', check_id, name="check_id"),
-    path('payment_create/', create_payment, name="create_payment")
+    path('payment_create/', create_payment, name="create_payment"),
+    path('payment_edit/', payment_edit, name="payment_edit")
 ]
