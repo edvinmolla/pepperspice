@@ -645,7 +645,7 @@ $('.settings-9').addClass('is-active');
                                                     {% for card in cards %}
                                                     <div class="column is-3">
                                                         {% if card.card_company == "4" %}
-                                                        <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.cvc='{{card.cvc_number}}';window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}}'};send()">
+                                                        <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.cvc='{{card.cvc_number}}';window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}}'}; cid='{{card.card_uid}};';send()">
                                                            
                                                            
                                                             <div class="avatar-wrap">
@@ -660,7 +660,7 @@ $('.settings-9').addClass('is-active');
                                                           
                                                         </a>
                                                         {% elif card.card_company == "5" %}
-                                                        <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.cvc='{{card.cvc_number}}';window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}}'};send()">
+                                                        <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.cvc='{{card.cvc_number}}';window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}}'}; cid='{{card.card_uid}};';send()">
                                                            
                                                            
                                                             <div class="avatar-wrap">
@@ -2099,7 +2099,7 @@ $.ajax({
                                                         $(".country-select-edit select").val(window.country);
                                                         $(".card-number-edit").val(window.cn);
                                                         $(".cvc-edit").val(window.cvc);
-
+                                                        $(".card-id").val(window.cid);
 
                                                 });
 
@@ -2150,7 +2150,9 @@ $.ajax({
                                                          
                                                             <input class="input card-number-edit" placeholder="Card number here" maxlength="19" type="tel" autofocus="" name="card-number">
                                                         </div>
-                                                   
+                                                        
+                                                        <!--  -->
+                                                        <input class="card-id" type="hidden">
                                                        
                                                             
                                                         </div>
@@ -2515,6 +2517,64 @@ $.ajax({
                                                 </div>
                     
                                             </form>
+
+
+                                            <script>
+                                                $.ajax({
+                                           type: "POST",
+                                           url: "/dashboard/payment_create/",
+                                           data: $("#payment-form").serialize(),
+                                           error: function(){
+                                            $(".pop-up").children("h4").text("An unexpected error occurred.");
+                                        $(".pop-up").fadeIn();
+                                        return false;
+                                            },
+                                           success: function(data)
+                                           {
+                                               
+                                 
+                                               if (data == "true"){
+                                    
+                                                $(".pop-up").children("h4").text("Credit card already exists.");
+                                                $(".pop-up").fadeIn();
+                                                $(".card-head-2").show();
+                                                $(".create-payment-method").removeClass("is-loading");
+                                                $("#payment-form").show();
+                                                $(".create-payment-method").show();
+                                                $(".checking-1").hide();
+                                                
+                                                return false;
+                                    
+                                               }
+                                    
+                                               
+                                    
+                                               else {
+                                    
+                                                $(".pop-up").fadeOut();
+                                                $(".checking-1").hide();      
+                                                $(".card-head-2").hide();
+                                                $(".verified-2").fadeIn();      
+                                               
+                                                setTimeout(function() {
+                                        
+                                                        $(".payment-create-modal").fadeOut();
+                                                }, 2700);
+
+                                                setTimeout( function(){ 
+                                                window.location.reload();
+                                                }  , 3100 );
+
+
+                                                }
+
+
+                                            
+                                                      
+                                           },
+                                           timeout: 16000
+                                         });
+                                            </script>
                                         </div>
                                     </div>
                                 </div>

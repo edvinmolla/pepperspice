@@ -26,6 +26,12 @@ from .models import credit_card
 from .models import transaction_messages
 
 
+def save_changes(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            card_to_edit = credit_card.objects.filter(owner_email=request.user, card_uid=request.POST['card-'])
+
+
 def create_payment(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
