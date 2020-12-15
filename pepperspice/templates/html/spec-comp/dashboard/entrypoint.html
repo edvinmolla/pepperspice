@@ -660,6 +660,7 @@ $('.settings-9').addClass('is-active');
                                                           
                                                         </a>
                                                         {% elif card.card_company.0 == "5" %}
+                                                        {% if card.card_company.1 == "1" %}
                                                         <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.cvc='{{card.cvc_number}}';window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}}'}; cid='{{card.card_uid}}';send()">
                                                            
                                                            
@@ -674,6 +675,68 @@ $('.settings-9').addClass('is-active');
                                                             <p>Manage Payment Method</p>
                                                           
                                                         </a>
+                                                        {% elif card.card_company.1 == "2" %}
+                                                        <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.cvc='{{card.cvc_number}}';window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}}'}; cid='{{card.card_uid}}';send()">
+                                                           
+                                                           
+                                                            <div class="avatar-wrap">
+                                                                 
+                                                                <img data-demo-src="https://www.svgrepo.com/show/303248/mastercard-2-logo.svg" style="border-radius: 0px; height: 50%; transform: scale(1.5);">
+                                                            
+                                                            </div>
+                                                            
+                                                            
+                                                            <h3>Mastercard Credit Card</h3>
+                                                            <p>Manage Payment Method</p>
+                                                          
+                                                        </a>
+                                                        {% elif card.card_company.1 == "3" %}
+                                                        <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.cvc='{{card.cvc_number}}';window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}}'}; cid='{{card.card_uid}}';send()">
+                                                           
+                                                           
+                                                            <div class="avatar-wrap">
+                                                                 
+                                                                <img data-demo-src="https://www.svgrepo.com/show/303248/mastercard-2-logo.svg" style="border-radius: 0px; height: 50%; transform: scale(1.5);">
+                                                            
+                                                            </div>
+                                                            
+                                                            
+                                                            <h3>Mastercard Credit Card</h3>
+                                                            <p>Manage Payment Method</p>
+                                                          
+                                                        </a>
+                                                        {% elif card.card_company.1 == "4" %}
+                                                        <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.cvc='{{card.cvc_number}}';window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}}'}; cid='{{card.card_uid}}';send()">
+                                                           
+                                                           
+                                                            <div class="avatar-wrap">
+                                                                 
+                                                                <img data-demo-src="https://www.svgrepo.com/show/303248/mastercard-2-logo.svg" style="border-radius: 0px; height: 50%; transform: scale(1.5);">
+                                                            
+                                                            </div>
+                                                            
+                                                            
+                                                            <h3>Mastercard Credit Card</h3>
+                                                            <p>Manage Payment Method</p>
+                                                          
+                                                        </a>
+                                                        {% elif card.card_company.1 == "5" %}
+                                                        <a class="friend-item has-text-centered modal-trigger card-edit-trigger" data-modal="edit-payment-modal" id="{{ card.card_uid }}" onclick="function send(){window.name='{{ card.name_on_card }}'; window.address='{{ card.address}}'; window.cvc='{{card.cvc_number}}';window.zip='{{card.zip_code}}'; window.cn='{{card.card_number}}'; window.country='{{card.country}}'}; cid='{{card.card_uid}}';send()">
+                                                           
+                                                           
+                                                            <div class="avatar-wrap">
+                                                                 
+                                                                <img data-demo-src="https://www.svgrepo.com/show/303248/mastercard-2-logo.svg" style="border-radius: 0px; height: 50%; transform: scale(1.5);">
+                                                            
+                                                            </div>
+                                                            
+                                                            
+                                                            <h3>Mastercard Credit Card</h3>
+                                                            <p>Manage Payment Method</p>
+                                                          
+                                                        </a>
+                                                        {% endif %}
+
                                                         {% elif card.card_company.0 == "3" %}
                                                         {% if card.card_company.1 == "5" %}
 
