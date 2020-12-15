@@ -2118,7 +2118,7 @@ $.ajax({
                                                 
                                                 $(".card-edit-trigger").on("click", function(){
                                         
-                                                $(".pop-up").hide();
+                                                        $(".pop-up").hide();
                                                         $(".name-on-card-edit").val(window.name);
                                                         $(".address-on-card-edit").val(window.address);
                                                         $(".zipcode-on-card-edit").val(window.zip);
@@ -2126,6 +2126,8 @@ $.ajax({
                                                         $(".card-number-edit").val(window.cn);
                                                         $(".cvc-edit").val(window.cvc);
                                                         $(".card-id").val(window.cid);
+
+                                                        $(".card-number-edit").val(window.cn.match(/.{1,4}/g).join(' '));
 
                                                 });
 
