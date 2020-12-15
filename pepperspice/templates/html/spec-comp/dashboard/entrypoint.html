@@ -1505,7 +1505,7 @@ $.ajax({
                                                                
     
                                                              
-                                                                <input class="input zipcode-on-card" inputmode="numeric" placeholder="xxxx" maxlength="10" type="tel" autofocus="" name="zipcode-on-card">
+                                                                <input class="input zipcode-on-card" inputmode="numeric" placeholder="xxxx" maxlength="10" type="tel" autofocus="" name="zipcode-on-card" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                                                             </div>
                                                        
                                                            
@@ -1518,7 +1518,7 @@ $.ajax({
                                                                    
         
                                                                  
-                                                                    <input class="input cvc" inputmode="numeric" placeholder="xxx" maxlength="3" type="tel" autofocus="" name="cvc-number">
+                                                                    <input class="input cvc" inputmode="numeric" placeholder="xxx" maxlength="3" type="tel" autofocus="" name="cvc-number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                                                                 </div>
                                                            
                                                                
@@ -1534,11 +1534,28 @@ $.ajax({
                                                             $(".card-number").keypress(function (e) {
                                                             //if the letter is not digit then display error and don't type anything
                                                             if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-                                                                //display error message
-                                                                $("#errmsg").html("Digits Only").show().fadeOut("slow");
+                                                         
                                                                     return false;
                                                             }
                                                         });
+
+                                                        $(".cvc").keypress(function (e) {
+                                                            //if the letter is not digit then display error and don't type anything
+                                                            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                                                               
+                                                                    return false;
+                                                            }
+                                                        });
+
+                                                        $(".zipcode-on-card").keypress(function (e) {
+                                                            //if the letter is not digit then display error and don't type anything
+                                                            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                                                               
+                                                                    return false;
+                                                            }
+                                                        });
+
+                                                           
 
                                                         $(".card-number").on("keydown", function(e) {
     var cursor = this.selectionStart;
@@ -1566,7 +1583,7 @@ $.ajax({
     this.value = formatted;
     this.selectionEnd = cursor;
 });
-
+                                                      
 
 
                                                             $(".checking-1").hide();
@@ -2144,18 +2161,64 @@ $.ajax({
                                               
                                                     <script>
                                                         $( document ).ready(function() {
+
+                                                            $(".card-number-edit").keypress(function (e) {
+                                   
+                                                            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                                                               
+                                                                    return false;
+                                                            }
+                                                        });
+
+                                                        $(".zipcode-on-card-edit").keypress(function (e) {
+                                                            
+                                                            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                                                               
+                                                                    return false;
+                                                            }
+                                                        });
+
+                                                        $(".cvc-edit").keypress(function (e) {
+                                                           
+                                                            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                                                               
+                                                                    return false;
+                                                            }
+                                                        });
+
+
                                                             $(".checking-1").hide();
                                                             $(".verified-2").hide();  
-                                                            $('.card-number').on('keyup', function(e){
-                                                            var val = $(this).val();
-                                                            var newval = '';
-                                                            val = val.replace(/\s/g, '');
-                                                            for(var i=0; i < val.length; i++) {
-                                                                if(i%4 == 0 && i > 0) newval = newval.concat(' ');
-                                                                newval = newval.concat(val[i]);
-                                                            }
-                                                            $(this).val(newval);
-                                                        });
+                                                           
+                                                           
+                                                            $(".card-number-edit").on("keydown", function(e) {
+    var cursor = this.selectionStart;
+    if (this.selectionEnd != cursor) return;
+    if (e.which == 46) {
+        if (this.value[cursor] == " ") this.selectionStart++;
+    } else if (e.which == 8) {
+        if (cursor && this.value[cursor - 1] == " ") this.selectionEnd--;
+    }
+}).on("input", function() {
+    var value = this.value;
+    var cursor = this.selectionStart;
+    var matches = value.substring(0, cursor).match(/[^0-9]/g);
+    if (matches) cursor -= matches.length;
+    value = value.replace(/[^0-9]/g, "").substring(0, 16);
+    var formatted = "";
+    for (var i=0, n=value.length; i<n; i++) {
+        if (i && i % 4 == 0) {
+            if (formatted.length <= cursor) cursor++;
+            formatted += " ";
+        }
+        formatted += value[i];
+    }
+    if (formatted == this.value) return;
+    this.value = formatted;
+    this.selectionEnd = cursor;
+});
+
+
                                                         });
                                                        
                                                     </script>
