@@ -21,6 +21,7 @@ class credit_card(models.Model):
     zip_code = models.CharField(max_length=10, default='')
     address = models.CharField(max_length=30, default='')
     issuer = models.CharField(max_length=10, default='')
+    card_company = models.CharField(max_length=6, default='')
     country = models.CharField(max_length=30, default='')
     name_on_card = models.CharField(max_length=30, default='')
 
