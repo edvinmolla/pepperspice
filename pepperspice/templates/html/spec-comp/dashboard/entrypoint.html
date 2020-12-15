@@ -705,7 +705,7 @@ $('.settings-9').addClass('is-active');
                                                             </div>
                                                             
                                                             
-                                                            <h3>American Express Credit Card</h3>
+                                                            <h3>AMEX Credit Card</h3>
                                                             <p>Manage Payment Method</p>
                                                           
                                                         </a>
@@ -717,6 +717,7 @@ $('.settings-9').addClass('is-active');
                                                     </div>
                                                     {% endfor %}
 
+                                                    {% if card_count < "3" %}
                                                     <div class="column is-3">
                                                         <a class="friend-item has-text-centered modal-trigger" data-modal="payment-create-modal" style="border: none;">
                                                             <div class="avatar-wrap">
@@ -727,6 +728,10 @@ $('.settings-9').addClass('is-active');
                                                             <p>Select your service provider</p>
                                                         </a>
                                                     </div>
+
+                                                    {% endif %}
+
+
                                                 </div>
                                             </div>
                                             <div class="column">
