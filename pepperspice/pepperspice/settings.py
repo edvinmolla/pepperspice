@@ -149,9 +149,9 @@ WSGI_APPLICATION = 'pepperspice.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'atm',
-        'USER': 'atm_user',
-        'PASSWORD': ']%]`~N+MWV6Ty_hG',
+        'NAME': 'pepperspice',
+        'USER': 'pepperadmin',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '3306',
     }
